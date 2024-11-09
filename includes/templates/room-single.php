@@ -100,7 +100,7 @@ $propertyId = $_GET['id'];
                     throw new Error('Error al cargar los datos de la habitación.');
                 }
                 const propertyData = await propertyResponse.json();
-                const property = propertyData.data;
+                const property = propertyData.data.reverse();
 
                 // Dividir el nombre en "nombre" y "código"
                 const [name, code] = property.name.split(':').map(part => part.trim());
