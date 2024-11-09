@@ -58,7 +58,7 @@ $propertyId = $_GET['id'];
             </div>
         </section>
         <section>
-        <iframe id="booking-iframe" sandbox="allow-top-navigation allow-scripts allow-same-origin" style="width: 100%; height: 900px" frameborder="0" src="https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376744"></iframe>
+        <iframe id="booking-iframe" sandbox="allow-top-navigation allow-scripts allow-same-origin" style="width: 100%; height: 900px" frameborder="0" src="https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376728"></iframe>
         </section>
 
     <!-- JavaScript para cargar los detalles de la propiedad -->
