@@ -59,8 +59,10 @@ async function fetchData(endpoint) {
             return;
         }
 
+        const reversedData = data.data.reverse();
+
         // Procesar cada habitación individualmente
-        for (const property of data.data) {
+        for (const property of reversedData) {
             // Mostrar un placeholder para la habitación actual
             const placeholderDiv = showPlaceholder();
             roomContainer.appendChild(placeholderDiv);
