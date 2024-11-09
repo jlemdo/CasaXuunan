@@ -47,11 +47,14 @@ $propertyId = $_GET['id'];
                             <div class="col-md-4 order-1 order-md-2 mb-4 d-flex justify-content-center">
                                 <div class="iframe-container" style="width: 100%; max-width: 460px;">
                                     <h3 class="text-center mb-3">Booking</h3>
-                                    <iframe id="booking-iframe" sandbox="allow-top-navigation allow-scripts allow-same-origin" src="" 
-                                        allowfullscreen
-                                        loading="lazy"
-                                        title="Calendario de Reservaciones"
-                                        style="border: none; height: 500px;">
+                                    <iframe 
+                                    id="booking-iframe" 
+                                    sandbox="allow-top-navigation allow-scripts allow-same-origin" 
+                                    src=""
+                                    allowfullscreen
+                                    loading="lazy"
+                                    class="mx-auto"
+                                    style="border: none; height: 460px;">
                                     </iframe>
                                 </div>
                             </div>
