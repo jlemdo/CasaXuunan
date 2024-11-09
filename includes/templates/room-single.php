@@ -20,8 +20,6 @@ $propertyId = $_GET['id'];
     </section>
 
     <!-- Main Content Section -->
-    <!-- Main Content Section -->
-    <!-- Main Content Section -->
     <section id="section-main" class="no-bg no-top" aria-label="section-menu">
         <div class="container">
             <div class="row">
@@ -53,7 +51,7 @@ $propertyId = $_GET['id'];
                                         allowfullscreen
                                         loading="lazy"
                                         title="Calendario de Reservaciones"
-                                        style="border: none; height: 460px; width: 100%;">
+                                        style="border: none; height: 500px;">
                                     </iframe>
                                 </div>
                             </div>
