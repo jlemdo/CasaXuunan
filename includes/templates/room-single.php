@@ -50,7 +50,7 @@ $propertyId = $_GET['id'];
                                 <iframe 
                                     id="booking-iframe" 
                                     sandbox="allow-top-navigation allow-scripts allow-same-origin" 
-                                    src="https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376728"
+                                    src=""
                                     allowfullscreen
                                     loading="lazy"
                                     class="mx-auto"
