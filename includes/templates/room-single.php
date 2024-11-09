@@ -201,7 +201,7 @@ $propertyId = $_GET['id'];
                 });
 
                 // Mapeo del código de habitación al iframe correspondiente
-                const bookingIframes = {“”
+                const bookingIframes = {
                     'PB “B”': 'https://booking.hospitable.com/widget/1376728',
                     'PB “A”': 'https://booking.hospitable.com/widget/1376730',
                     'PB “C”': 'https://booking.hospitable.com/widget/1376732',
