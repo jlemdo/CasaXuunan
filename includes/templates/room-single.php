@@ -55,6 +55,7 @@ $propertyId = $_GET['id'];
                                     src="https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376728"
                                     allowfullscreen
                                     loading="lazy"
+                                    class="mx-auto"
                                     style="border: none; height: 460px; width: 100%;">
                                 </iframe>
                             </div>
