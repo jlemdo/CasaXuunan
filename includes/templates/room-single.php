@@ -20,8 +20,8 @@ $propertyId = $_GET['id'];
         </section>
 
         <!-- Main Content Section -->
-        
-        <section id="section-main" class="no-bg no-top" aria-label="section-menu">
+            <!-- Main Content Section -->
+    <section id="section-main" class="no-bg no-top" aria-label="section-menu">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -33,31 +33,39 @@ $propertyId = $_GET['id'];
                             <div class="d-arrow-right mod-a"><i class="fa fa-angle-right"></i></div>
                         </div>
 
-                        <!-- Detalles de la Habitación y Descripción -->
+                        <!-- Detalles de la Habitación -->
                         <div class="row">
                             <div class="col-md-12">
                                 <div id="room-details" class="d-room-details de-flex">
                                     <!-- Detalles dinámicos de la habitación se insertarán aquí -->
                                 </div>
                             </div>
-                            <div class="col-md-8">
-                                <h3>Room Overview</h3>
-                                <p id="room-overview">
-                                    <!-- Descripción de la habitación se insertará aquí -->
-                                </p>
-                            </div>
-                            <div class="col-md-4">
-                                <h3>Room Facilities</h3>
-                                <ul id="room-facilities" class="ul-style-2">
-                                    <!-- Facilidades de la habitación se insertarán aquí -->
-                                </ul>
-                            </div>
                         </div>
 
-                        <!-- **Nueva Fila para el Iframe de Reserva** -->
-                        <div class="row mt-4">
-                            <div class="col-12">
-                                <h3 class="text-center mb-3">Reserve Your Stay</h3>
+                        <!-- **Nuevo Layout con Dos Columnas Izquierdas y Una Derecha** -->
+                        <div class="row">
+                            <!-- Lado Izquierdo: Room Overview y Room Facilities -->
+                            <div class="col-md-8">
+                                <!-- Room Overview -->
+                                <div class="mb-4">
+                                    <h3>Room Overview</h3>
+                                    <p id="room-overview">
+                                        <!-- Descripción de la habitación se insertará aquí -->
+                                    </p>
+                                </div>
+                                
+                                <!-- Room Facilities (Movido Debajo de Room Overview) -->
+                                <div class="mb-4">
+                                    <h3>Room Facilities</h3>
+                                    <ul id="room-facilities" class="ul-style-2">
+                                        <!-- Facilidades de la habitación se insertarán aquí -->
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Lado Derecho: Booking Iframe -->
+                            <div class="col-md-4">
+                                <h3 class="text-center mb-3">Booking</h3>
                                 <div class="embed-responsive embed-responsive-16by9">
                                     <iframe 
                                         id="booking-iframe" 
@@ -65,16 +73,19 @@ $propertyId = $_GET['id'];
                                         class="embed-responsive-item" 
                                         src="https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376728"
                                         allowfullscreen
-                                    ></iframe>
+                                        loading="lazy"
+                                        style="border: none; height: 100%;">
+                                    </iframe>
                                 </div>
                             </div>
                         </div>
-                        <!-- **Fin de la Nueva Fila** -->
+                        <!-- **Fin del Nuevo Layout** -->
 
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 
     <!-- JavaScript para cargar los detalles de la propiedad -->
     <script>
