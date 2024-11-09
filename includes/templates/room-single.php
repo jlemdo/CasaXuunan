@@ -99,12 +99,12 @@ $propertyId = $_GET['id'];
                 if (!propertyResponse.ok) {
                     throw new Error('Error al cargar los datos de la habitación.');
                 }
-                const {
-                    data: property
-                } = await propertyResponse.json();
+                const propertyData = await propertyResponse.json();
+                const property = propertyData.data;
 
                 // Dividir el nombre en "nombre" y "código"
                 const [name, code] = property.name.split(':').map(part => part.trim());
+                console.log(property.name);
 
                 // Insertar nombre de la habitación dinámicamente
                 roomNameElement.innerHTML = `
@@ -119,8 +119,6 @@ $propertyId = $_GET['id'];
             <div class="de-flex-col"><img src="images/ui/bed.svg" alt=""> $${property.tags[0]} MXN / Night</div>
             <div class="de-flex-col"><a href="02-booking.php" class="btn-main"><span>Book Now</span></a></div>
         `;
-
-                // Insertar descripción de la habitación
                 roomOverviewElement.textContent = property.description;
 
                 // Insertar facilidades de la habitación
@@ -132,9 +130,8 @@ $propertyId = $_GET['id'];
                 if (!imagesResponse.ok) {
                     throw new Error('Error al cargar las imágenes de la propiedad.');
                 }
-                const {
-                    data: images
-                } = await imagesResponse.json();
+                const imagesData = await imagesResponse.json();
+                const images = imagesData.data;
 
                 // Insertar imágenes en la galería
                 const imageGallery = images.map(image => `
@@ -143,16 +140,16 @@ $propertyId = $_GET['id'];
                     <a class="image-popup-gallery" href="${image.url}">
                         <span class="overlay">
                             <span class="pf_title"><i class="icon_search"></i></span>
-                            <span class="pf_caption">${image.caption || 'Sin descripción'}</span>
+                            <span class="pf_caption">${image.caption || 'No Caption'}</span>
                         </span>
                     </a>
-                    <img src="${image.url}" alt="${image.caption || 'Imagen'}" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="${image.url}" alt="${image.caption || 'Image'}" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
         `).join('');
                 carouselRoomsElement.innerHTML = imageGallery;
 
-                // Establecer la imagen de fondo
+                // Establecer la imagen de fondo del div
                 if (images.length > 0) {
                     const backgroundImageUrl = images[0].url;
                     backgroundElement.style.backgroundImage = `url(${backgroundImageUrl})`;
@@ -169,8 +166,9 @@ $propertyId = $_GET['id'];
                 });
 
                 // Inicializar o reinicializar el carrusel
-                if ($.fn.owlCarousel && $('#carousel-rooms').data('owl.carousel')) {
+                if ($.fn.owlCarousel && $('#carousel-rooms').hasClass('owl-loaded')) {
                     $('#carousel-rooms').trigger('destroy.owl.carousel');
+                    $('#carousel-rooms').removeClass('owl-loaded');
                     $('#carousel-rooms').html(imageGallery);
                 }
 
@@ -192,7 +190,7 @@ $propertyId = $_GET['id'];
                     }
                 });
 
-                // Activar navegación del carrusel
+                // Activar el carrusel de navegación
                 $('.d-carousel .d-arrow-right').off('click').on('click', function() {
                     $('#carousel-rooms').trigger('next.owl.carousel');
                 });
@@ -200,20 +198,20 @@ $propertyId = $_GET['id'];
                     $('#carousel-rooms').trigger('prev.owl.carousel');
                 });
 
-                // Mapeo del código de habitación al iframe correspondiente
+                // **Asignar el src del iframe dinámicamente**
                 const bookingIframes = {
-                    'PB “B”': 'https://booking.hospitable.com/widget/1376728',
-                    'PB “A”': 'https://booking.hospitable.com/widget/1376730',
-                    'PB “C”': 'https://booking.hospitable.com/widget/1376732',
-                    'PA “A”': 'https://booking.hospitable.com/widget/1376734',
-                    'PA “B”': 'https://booking.hospitable.com/widget/1376736',
-                    'PA “C”': 'https://booking.hospitable.com/widget/1376738',
-                    'J “B”': 'https://booking.hospitable.com/widget/1376740',
-                    'J “A”': 'https://booking.hospitable.com/widget/1376742'
+                    'Casa Xu’unan: PB “B”': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376728',
+                    'Casa Xu’unan: PB “A”': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376730',
+                    'Casa Xu’unan: PB “C”': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376732',
+                    'Casa Xu’unan: PA “A”': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376734',
+                    'Casa Xu’unan: PA “B”': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376736',
+                    'Casa Xu’unan: PA “C”': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376738',
+                    'Casa Xu’unan: J “B”': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376740',
+                    'Casa Xu’unan: J “A”': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376742'
                 };
 
-                // Asignar el src del iframe basado en el código de habitación
-                const iframeSrc = bookingIframes[code] || 'https://booking.hospitable.com/widget/default-url';
+                // Asegurar que property.name coincide con las claves del objeto
+                const iframeSrc = bookingIframes[property.name] || 'https://booking.hospitable.com/widget/default-url';
                 bookingIframeElement.src = iframeSrc;
 
             } catch (error) {
