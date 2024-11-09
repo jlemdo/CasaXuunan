@@ -20,8 +20,7 @@ $propertyId = $_GET['id'];
         </section>
 
         <!-- Main Content Section -->
-            <!-- Main Content Section -->
-    <!-- Main Content Section -->
+<!-- Main Content Section -->
 <section id="section-main" class="no-bg no-top" aria-label="section-menu">
     <div class="container">
         <div class="row">
@@ -46,16 +45,16 @@ $propertyId = $_GET['id'];
                     <!-- **Nuevo Layout con Dos Columnas Izquierdas y Una Derecha** -->
                     <div class="row">
                         <!-- Lado Derecho: Booking Iframe -->
-                        <div class="col-md-4 order-1 order-md-2 mb-4">
-                            <h3 class="text-center mb-3">Booking</h3>
-                            <div class="d-flex flex-row justify-content-center alig-items-center">
+                        <div class="col-md-4 order-1 order-md-2 mb-4 d-flex justify-content-center align-items-center">
+                            <div class="w-100" style="max-width: 100%;">
+                                <h3 class="text-center mb-3">Booking</h3>
                                 <iframe 
                                     id="booking-iframe" 
                                     sandbox="allow-top-navigation allow-scripts allow-same-origin" 
                                     src="https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376728"
                                     allowfullscreen
                                     loading="lazy"
-                                    style="border: none; height: 460px; width: 100%;">
+                                    style="border: none; height: 460px; width: 100%; max-width: 100%;">
                                 </iframe>
                             </div>
                         </div>
@@ -86,6 +85,7 @@ $propertyId = $_GET['id'];
         </div>
     </div>
 </section>
+
 
 
     <!-- JavaScript para cargar los detalles de la propiedad -->
