@@ -1,0 +1,27 @@
+# Ignorar la carpeta PorAhoraNo
+PorAhoraNo/
+
+# Ignorar la carpeta video
+video/
+
+# Archivos y carpetas comunes a ignorar
+node_modules/
+vendor/
+*.log
+*.env
+.DS_Store
+Thumbs.db
+
+# Cache y archivos generados
+.cache/
+dist/
+build/
+*.tmp
+*.bak
+*.swp
+
+# Configuraciones del editor
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
