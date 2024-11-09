@@ -197,7 +197,7 @@ async function loadRoomDetails(propertyId) {
             'Casa Xu’unan: PB "A"': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376730',
             'Casa Xu’unan: PB "C"': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376732',
             'Casa Xu’unan: PA “A”': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376734',
-            'Casa Xu’unan: PA "B"': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376736',
+            'Casa Xu’unan: PA “B”': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376736',
             'Casa Xu’unan: PA "C"': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376738',
             'Casa Xu’unan: J "B"': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376740',
             'Casa Xu’unan: J "A"': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376742'
