@@ -21,70 +21,70 @@ $propertyId = $_GET['id'];
 
     <!-- Main Content Section -->
     <section id="section-main" class="no-bg no-top" aria-label="section-menu">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="de-content-overlay">
-                        <!-- Carrusel de Imágenes -->
-                        <div class="d-carousel wow fadeInRight animated" data-wow-delay="2s">
-                            <div id="carousel-rooms" class="owl-carousel owl-theme owl-loaded owl-drag"></div>
-                            <div class="d-arrow-left mod-a"><i class="fa fa-angle-left"></i></div>
-                            <div class="d-arrow-right mod-a"><i class="fa fa-angle-right"></i></div>
-                        </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="de-content-overlay">
+                    <!-- Carrusel de Imágenes -->
+                    <div class="d-carousel wow fadeInRight animated" data-wow-delay="2s">
+                        <div id="carousel-rooms" class="owl-carousel owl-theme owl-loaded owl-drag"></div>
+                        <div class="d-arrow-left mod-a"><i class="fa fa-angle-left"></i></div>
+                        <div class="d-arrow-right mod-a"><i class="fa fa-angle-right"></i></div>
+                    </div>
 
-                        <!-- Detalles de la Habitación -->
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div id="room-details" class="d-room-details de-flex">
-                                    <!-- Detalles dinámicos de la habitación se insertarán aquí -->
-                                </div>
+                    <!-- Detalles de la Habitación -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="room-details" class="d-room-details de-flex">
+                                <!-- Detalles dinámicos de la habitación se insertarán aquí -->
                             </div>
                         </div>
+                    </div>
 
-                        <!-- **Nuevo Layout con Dos Columnas Izquierdas y Una Derecha** -->
-                        <div class="row">
-                            <!-- Lado Derecho: Booking Iframe -->
-                            <div class="col-md-4 order-1 order-md-2 mb-4 d-flex justify-content-center">
-                                <div class="iframe-container" style="width: 100%; max-width: 460px;">
-                                    <h3 class="text-center mb-3">Booking</h3>
-                                    <iframe 
+                    <!-- **Nuevo Layout con Dos Columnas Izquierdas y Una Derecha** -->
+                    <div class="row">
+                        <!-- Lado Derecho: Booking Iframe -->
+                        <div class="col-md-4 order-1 order-md-2 mb-4">
+                            <h3 class="text-center mb-3">Booking</h3>
+                            <div class="d-flex flex-row justify-content-center alig-items-center">
+                                <iframe 
                                     id="booking-iframe" 
                                     sandbox="allow-top-navigation allow-scripts allow-same-origin" 
-                                    src=""
+                                    src="https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376728"
                                     allowfullscreen
                                     loading="lazy"
                                     class="mx-auto"
                                     style="border: none; height: 460px;">
-                                    </iframe>
-                                </div>
-                            </div>
-
-                            <!-- Lado Izquierdo: Room Overview y Room Facilities -->
-                            <div class="col-md-8 order-2 order-md-1">
-                                <!-- Room Overview -->
-                                <div class="mb-4">
-                                    <h3>Room Overview</h3>
-                                    <p id="room-overview">
-                                        <!-- Descripción de la habitación se insertará aquí -->
-                                    </p>
-                                </div>
-
-                                <!-- Room Facilities (Movido Debajo de Room Overview) -->
-                                <div class="mb-4">
-                                    <h3>Room Facilities</h3>
-                                    <ul id="room-facilities" class="ul-style-2">
-                                        <!-- Facilidades de la habitación se insertarán aquí -->
-                                    </ul>
-                                </div>
+                                </iframe>
                             </div>
                         </div>
-                        <!-- **Fin del Nuevo Layout** -->
 
+                        <!-- Lado Izquierdo: Room Overview y Room Facilities -->
+                        <div class="col-md-8 order-2 order-md-1">
+                            <!-- Room Overview -->
+                            <div class="mb-4">
+                                <h3>Room Overview</h3>
+                                <p id="room-overview">
+                                    <!-- Descripción de la habitación se insertará aquí -->
+                                </p>
+                            </div>
+                            
+                            <!-- Room Facilities (Movido Debajo de Room Overview) -->
+                            <div class="mb-4">
+                                <h3>Room Facilities</h3>
+                                <ul id="room-facilities" class="ul-style-2">
+                                    <!-- Facilidades de la habitación se insertarán aquí -->
+                                </ul>
+                            </div>
+                        </div>
                     </div>
+                    <!-- **Fin del Nuevo Layout** -->
+
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 
 
