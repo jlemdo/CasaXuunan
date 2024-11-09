@@ -54,7 +54,7 @@ $propertyId = $_GET['id'];
                                     allowfullscreen
                                     loading="lazy"
                                     class="mx-auto"
-                                    style="border: none; height: 460px;">
+                                    style="border: none; height: 550px;">
                                 </iframe>
                             </div>
                         </div>
