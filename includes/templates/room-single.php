@@ -102,7 +102,7 @@ async function loadRoomDetails(propertyId) {
 
         // Dividir el nombre en "nombre" y "código"
         const [name, code] = property.name.split(':').map(part => part.trim());
-
+        console.log(property.name);
         // Insertar nombre de la habitación dinámicamente
         document.getElementById('room-name').innerHTML = `
             <h4>${name || ''}</h4>
