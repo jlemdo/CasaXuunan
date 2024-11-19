@@ -1,16 +1,6 @@
 <div id="background" data-bgimage="url(images/background/20.jpg) 100% 100% fixed"></div>
             <div id="content-absolute">
 
-                <!-- inicio del float text -->
-                <div class="float-text">
-                    <div class="de_social-icons">
-                        <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
-                        <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
-                        <a href="#"><i class="fa fa-instagram fa-lg"></i></a>
-                    </div>
-                    <span><a href="#">Reserva Ahora</a></span>
-                </div>
-                <!-- cierre del float text -->
                 
                 <!-- subheader -->
                 <section id="subheader" class="no-bg">
