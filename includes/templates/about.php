@@ -152,11 +152,11 @@
                         <div class="col-md-4">
                             <div class="box-icon">
                                 <span class="icon bg-color">
-                                    <img src="<?php echo BASE_URL; ?>/images/svg/laundry-machine-svgrepo-com.svg" alt="Servicio de Lavandería">
+                                    <img src="<?php echo BASE_URL; ?>/images/svg/location-svgrepo-com.svg" alt="Ubicación privilegiada en Valladolid">
                                 </span>
                                 <div class="text">
-                                    <h3 class="style-1">Servicio de Lavandería</h3>
-                                    <p>Para tu conveniencia, contamos con servicio de lavandería, asegurando que siempre tengas ropa limpia y fresca durante tu visita.</p>
+                                    <h3 class="style-1">Ubicación Estratégica</h3>
+                                    <p>Descubre la magia de Valladolid desde nuestra ubicación privilegiada en el histórico barrio de Sisal, a solo una calle de la emblemática Calzada de los Frailes, el corazón cultural y turístico de la ciudad. Perfecto para explorar a pie y disfrutar de todo lo que Valladolid tiene para ofrecer.</p>
                                 </div>
                             </div>
                         </div>
