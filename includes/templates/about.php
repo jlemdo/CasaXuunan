@@ -116,7 +116,7 @@
                         <div class="col-md-4">
                             <div class="box-icon">
                                 <span class="icon bg-color">
-                                    <img src="<?php echo BASE_URL; ?>/images/svg/pool-svgrepo-com.svg" alt="Piscina">
+                                    <img src="<?php echo BASE_URL; ?>/images/svg/swimming-pool-svgrepo-com.svg" alt="Piscina">
                                 </span>
                                 <div class="text">
                                     <h3 class="style-1">Piscina</h3>
@@ -140,7 +140,7 @@
                         <div class="col-md-4">
                             <div class="box-icon">
                                 <span class="icon bg-color">
-                                    <img src="<?php echo BASE_URL; ?>/images/svg/parking-svgrepo-com.svg" alt="Estacionamiento Privado">
+                                    <img src="<?php echo BASE_URL; ?>/images/svg/car-parking-svgrepo-com.svg" alt="Estacionamiento Privado">
                                 </span>
                                 <div class="text">
                                     <h3 class="style-1">Estacionamiento Privado</h3>
@@ -152,7 +152,7 @@
                         <div class="col-md-4">
                             <div class="box-icon">
                                 <span class="icon bg-color">
-                                    <img src="<?php echo BASE_URL; ?>/images/svg/laundry-svgrepo-com.svg" alt="Servicio de Lavandería">
+                                    <img src="<?php echo BASE_URL; ?>/images/svg/laundry-machine-svgrepo-com.svg" alt="Servicio de Lavandería">
                                 </span>
                                 <div class="text">
                                     <h3 class="style-1">Servicio de Lavandería</h3>
