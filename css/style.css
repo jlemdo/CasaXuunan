@@ -10759,3 +10759,24 @@ header .d-extra{
     display: none;
   }
 }
+
+
+.grid-facilities {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Crea columnas flexibles */
+  gap: 10px; /* Espaciado entre elementos */
+  list-style: none; /* Quita los bullets de la lista */
+  padding: 0; /* Quita el padding por defecto */
+  margin: 0; /* Quita el margen por defecto */
+}
+
+.grid-facilities li {
+  background: #f7f7f7; /* Fondo suave para cada ítem */
+  padding: 10px; /* Espaciado interno */
+  border-radius: 5px; /* Bordes redondeados */
+  font-size: 14px; /* Tamaño de texto */
+  color: #333; /* Color del texto */
+  text-align: center; /* Centra el texto */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade sombra ligera */
+}
+

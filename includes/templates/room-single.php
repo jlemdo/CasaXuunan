@@ -65,7 +65,7 @@ $propertyId = $_GET['id'];
                                 <!-- Room Facilities (Movido Debajo de Room Overview) -->
                                 <div class="mb-4">
                                     <h3>Room Facilities</h3>
-                                    <ul id="room-facilities" class="ul-style-2">
+                                    <ul id="room-facilities" class="ul-style-2 grid-facilities">
                                         <!-- Facilidades de la habitación se insertarán aquí -->
                                     </ul>
                                 </div>
