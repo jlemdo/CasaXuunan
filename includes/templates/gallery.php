@@ -16,7 +16,7 @@
     <!-- Gallery Section -->
     <section id="section-main" class="no-bg no-top" aria-label="section-menu">
         <div class="container">
-            <div id="gallery" class="gallery-grid">
+            <div id="gallery" class="">
                 <!-- Fila 1 -->
                 <div class="item foto1">
                     <a href="images/gallery/gallery-item-1.jpg" class="image-popup">
