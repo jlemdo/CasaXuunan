@@ -154,8 +154,8 @@ jQuery(document).ready(function () {
 
     $('.image-popup-gallery').magnificPopup({
         type: 'image',
-        closeOnContentClick: false,
-        closeBtnInside: false,
+        closeOnContentClick: true,
+        closeBtnInside: true,
         mainClass: 'mfp-with-zoom mfp-img-mobile',
         image: {
             verticalFit: true,
