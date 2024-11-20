@@ -1941,5 +1941,44 @@ jQuery(document).ready(function () {
         });
     });
 
+    const roomFacilitiesElement = $('#room-facilities');
+    
+    // Función para inicializar el diseño de Room Facilities
+    function initializeRoomFacilities(facilities) {
+        // Aplicar estilos dinámicos al contenedor usando jQuery
+        roomFacilitiesElement.css({
+            'display': 'grid',
+            'grid-template-columns': 'repeat(auto-fit, minmax(150px, 1fr))', // Crea columnas dinámicas
+            'gap': '10px', // Espaciado entre elementos
+            'list-style': 'none', // Quita bullets
+            'padding': '0', // Sin padding
+            'margin': '0' // Sin margen
+        });
+
+        // Crear los elementos de la lista y aplicar estilos individuales
+        const facilitiesList = facilities.map(facility => `
+            <li style="
+                background: #f7f7f7; 
+                padding: 10px; 
+                border-radius: 5px; 
+                font-size: 14px; 
+                color: #333; 
+                text-align: center; 
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            ">
+                ${facility}
+            </li>
+        `).join('');
+
+        // Insertar los elementos en el contenedor
+        roomFacilitiesElement.html(facilitiesList);
+    }
+
+    // Obtener las facilidades desde el objeto `property`
+    const facilities = property.amenities; // Reemplaza esto con tus datos dinámicos
+
+    // Inicializar el diseño
+    initializeRoomFacilities(facilities);
+
 });
 
