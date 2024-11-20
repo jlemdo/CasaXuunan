@@ -33,7 +33,7 @@
 
                                 <p>En Casa Xuunan, te invitamos a vivir una experiencia inolvidable en el corazón de Yucatán. Sumérgete en la cultura local mientras disfrutas de nuestras comodidades de primer nivel y un servicio excepcional. Cada rincón de nuestro hotel ha sido diseñado para ofrecerte confort y autenticidad.</p>
 
-                                <a href="02-room-2-cols.php" class="btn-line"><span>¡Reserva Ahora!</span></a>
+                                <a href="rooms.php" class="btn-line"><span>¡Reserva Ahora!</span></a>
                             </div>
                         </div>
 

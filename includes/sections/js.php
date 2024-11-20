@@ -15,7 +15,7 @@ if (basename($_SERVER['SCRIPT_NAME']) === 'index.php') {
 }
 ?>
 <?php
-if (basename($_SERVER['SCRIPT_NAME']) === '02-room-2-cols.php') {
+if (basename($_SERVER['SCRIPT_NAME']) === 'rooms.php') {
     echo '<script src="' . BASE_URL . '/js/rooms.js"></script>';
 }
 ?>

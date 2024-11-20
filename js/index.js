@@ -4,19 +4,19 @@ jQuery(function($){
     var slides = [
         {
             image: 'images/slider/1.jpg',
-            title: "<div class='slider-text'><h2 class='wow fadeInUp'>Relájate</h2><a class='btn-line wow fadeInUp' data-wow-delay='.3s' href='02-about.php'><span>Nuestras Instalaciones</span></a></div>",
+            title: "<div class='slider-text'><h2 class='wow fadeInUp'>Relájate</h2><a class='btn-line wow fadeInUp' data-wow-delay='.3s' href='about.php'><span>Nuestras Instalaciones</span></a></div>",
             thumb: '',
             url: ''
         },
         {
             image: 'images/slider/2.jpg',
-            title: "<div class='slider-text'><h2 class='wow fadeInUp'>Confort</h2><a class='btn-line wow fadeInUp' data-wow-delay='.3s' href='02-room-2-cols.php'><span>Elige Habitación</span></a></div>",
+            title: "<div class='slider-text'><h2 class='wow fadeInUp'>Confort</h2><a class='btn-line wow fadeInUp' data-wow-delay='.3s' href='rooms.php'><span>Elige Habitación</span></a></div>",
             thumb: '',
             url: ''
         },
         {
             image: 'images/slider/3.jpg',
-            title: "<div class='slider-text'><h2 class='wow fadeInUp'>Tranquilidad</h2><a class='btn-line wow fadeInUp' data-wow-delay='.3s' href='02-about.php'><span>Nuestras Instalaciones</span></a></div>",
+            title: "<div class='slider-text'><h2 class='wow fadeInUp'>Tranquilidad</h2><a class='btn-line wow fadeInUp' data-wow-delay='.3s' href='about.php'><span>Nuestras Instalaciones</span></a></div>",
             thumb: '',
             url: ''
         }

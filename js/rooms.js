@@ -129,7 +129,7 @@ function createRoomContent(property, images, isAvailable) {
 
     // Enlace a la página de detalle de la habitación
     const roomLink = document.createElement('a');
-    roomLink.href = `02-room-single.php?id=${property.id}`;
+    roomLink.href = `room.php?id=${property.id}`;
 
     // Imagen principal
     const img = document.createElement('img');
@@ -177,7 +177,7 @@ function createRoomContent(property, images, isAvailable) {
     textDiv.appendChild(description);
 
     const buttonLink = document.createElement('a');
-    buttonLink.href = `02-room-single.php?id=${property.id}`;
+    buttonLink.href = `room.php?id=${property.id}`;
     buttonLink.classList.add('btn-line');
     buttonLink.innerHTML = `<span>Leer Más</span>`;
     textDiv.appendChild(buttonLink);

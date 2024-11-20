@@ -7,7 +7,7 @@
         <a href="https://www.facebook.com/p/Casa-Xuunan-100091497343251/?locale=ne_NP&_rdr" target="_blank"><i class="fa fa-facebook fa-lg"></i></a>
         <a href="https://api.whatsapp.com/send?phone=5219852580599" target="_blank" ><i class="fa fa-whatsapp fa-lg"></i></a>
     </div>
-    <span><a href="/02-room-2-cols.php">Reserva Ahora</a></span>
+    <span><a href="/rooms.php">Reserva Ahora</a></span>
 </div>
 <!-- float text close --> 
 
@@ -128,7 +128,7 @@
                             <div class="d-label ${isAvailable ? 'available' : 'not-available'}">
                                 ${isAvailable ? 'Disponible' : 'No Disponible'}
                             </div>
-                            <a href="02-room-single.php?id=${property.id}">
+                            <a href="room.php?id=${property.id}">
                                 <img src="${mainImageUrl}" class="img-fluid" style="width:100%; height:397px; object-fit:cover;" alt="${property.name}">
                                 <img src="${hoverImageUrl}" class="d-img-hover img-fluid" style="width:100%; height:397px; object-fit:cover;" alt="${property.name}">
                             </a>
@@ -140,7 +140,7 @@
                         <div class="d-text">
                             <h3>${property.name}</h3>
                             <p>${property.description ? (property.description.length > 500 ? property.description.substring(0, 500) + '...' : property.description) : 'Descripción no disponible.'}</p>
-                            <a href="02-room-single.php?id=${property.id}" class="btn-line"><span>Leer Más</span></a>
+                            <a href="room.php?id=${property.id}" class="btn-line"><span>Leer Más</span></a>
                         </div>
                     </div>
                 </div>

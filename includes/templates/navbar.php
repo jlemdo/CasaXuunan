@@ -6,7 +6,7 @@
             <a href="https://www.facebook.com/p/Casa-Xuunan-100091497343251/?locale=ne_NP&_rdr" target="_blank"><i class="fa fa-facebook fa-lg"></i></a>
             <a href="https://api.whatsapp.com/send?phone=5219852580599" target="_blank"><i class="fa fa-whatsapp fa-lg"></i></a>
         </div>
-        <span><a href="/02-room-2-cols.php">Reserva Ahora</a></span>
+        <span><a href="/rooms.php">Reserva Ahora</a></span>
     </div>
     <!-- float text close -->
 
@@ -34,21 +34,21 @@
                                     <li>
                                         <a href="/index.php">Inicio</a>
                                     </li>
-                                    <li><a href="02-about.php">Nosotros</a></li>
+                                    <li><a href="about.php">Nosotros</a></li>
                                     <li>
-                                        <a href="02-room-2-cols.php">Habitaciones</a>
+                                        <a href="rooms.php">Habitaciones</a>
                                     </li>
-                                    <!-- <li><a href="02-booking.php">Reservas</a></li> -->
+                                    <!-- <li><a href="booking.php">Reservas</a></li> -->
                                     <!-- <li><a href="02-offer.php">Ofertas</a></li> -->
                                     <!-- <li><a href="02-blog.php">Blog</a></li> -->
-                                    <li><a href="02-gallery.php">Galería</a></li>
-                                    <li><a href="02-contact.php">Contacto</a></li>
+                                    <li><a href="gallery.php">Galería</a></li>
+                                    <li><a href="contact.php">Contacto</a></li>
                                 </ul>
                             </div>
 
                             <div class="de-flex-col">
                                 <div class="d-extra">
-                                    <a class="btn-main" href="/02-room-2-cols.php">Reservas</a>
+                                    <a class="btn-main" href="/rooms.php">Reservas</a>
                                 </div>
                                 <div id="menu-btn"></div>
                             </div>
@@ -83,13 +83,13 @@
                                 <ul id="mo-menu">
                                     <li><a href="index.php">Inicio</a></li>
                                     </li>
-                                    <li><a href="02-about.php">Nosotros</a></li>
-                                    <li><a href="02-room-2-cols.php">Habitaciones</a></li>
-                                    <!-- <li><a href="02-booking.php">Reservas</a></li> -->
+                                    <li><a href="about.php">Nosotros</a></li>
+                                    <li><a href="rooms.php">Habitaciones</a></li>
+                                    <!-- <li><a href="booking.php">Reservas</a></li> -->
                                     <!-- <li><a href="02-offer.php">Ofertas</a></li> -->
                                     <!-- <li><a href="02-blog.php">Blog</a></li> -->
-                                    <li><a href="02-gallery.php">Galería</a></li>
-                                    <li><a href="02-contact.php">Contacto</a></li>
+                                    <li><a href="gallery.php">Galería</a></li>
+                                    <li><a href="contact.php">Contacto</a></li>
                                 </ul>
                                 <!-- mainmenu close -->
 

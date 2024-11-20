@@ -24,21 +24,21 @@
                                         <li>
                                             <a href="/index.php">Inicio</a>
                                         </li>
-                                        <li><a href="02-about.php">Nosotros</a></li>
+                                        <li><a href="about.php">Nosotros</a></li>
                                         <li>
-                                            <a href="/02-room-2-cols.php">Habitaciones</a>
+                                            <a href="/rooms.php">Habitaciones</a>
                                         </li>
-                                        <!-- <li><a href="02-booking.php">Reservas</a></li> -->
+                                        <!-- <li><a href="booking.php">Reservas</a></li> -->
                                         <!-- <li><a href="02-offer.php">Ofertas</a></li> -->
                                         <!-- <li><a href="02-blog.php">Blog</a></li> -->
-                                        <li><a href="02-gallery.php">Galería</a></li>
-                                        <li><a href="02-contact.php">Contacto</a></li>
+                                        <li><a href="gallery.php">Galería</a></li>
+                                        <li><a href="contact.php">Contacto</a></li>
                                     </ul>
                                 </div>
 
                                 <div class="de-flex-col">
                                     <div class="d-extra">
-                                        <a class="btn-main" href="/02-room-2-cols.php">Reservas</a>
+                                        <a class="btn-main" href="/rooms.php">Reservas</a>
                                     </div>
                                     <div id="menu-btn"></div>
                                 </div>
@@ -72,13 +72,13 @@
                                     <!-- mainmenu begin -->
                                     <ul id="mo-menu">
                                         <li><a href="index.php">Inicio</a></li></li>
-                                        <li><a href="02-about.php">Nosotros</a></li>
-                                        <li><a href="02-room-2-cols.php">Habitaciones</a></li>
-                                        <!-- <li><a href="02-booking.php">Reservas</a></li> -->
+                                        <li><a href="about.php">Nosotros</a></li>
+                                        <li><a href="rooms.php">Habitaciones</a></li>
+                                        <!-- <li><a href="booking.php">Reservas</a></li> -->
                                         <!-- <li><a href="02-offer.php">Ofertas</a></li> -->
                                         <!-- <li><a href="02-blog.php">Blog</a></li> -->
-                                        <li><a href="02-gallery.php">Galería</a></li>
-                                        <li><a href="02-contact.php">Contacto</a></li>
+                                        <li><a href="gallery.php">Galería</a></li>
+                                        <li><a href="contact.php">Contacto</a></li>
                                     </ul>
                                     <!-- mainmenu close -->
 

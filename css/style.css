@@ -1092,6 +1092,10 @@ header:not(.header-mobile):not(.force-header-mobile)
 }
 
 /* menu toggle for mobile */
+/* Agrega este CSS a tu hoja de estilos */
+.active > a {
+  color: #11b555; /* Color para el enlace activo */
+}
 #menu-btn {
   display: none;
   float: right;

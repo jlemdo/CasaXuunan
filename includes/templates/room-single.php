@@ -117,7 +117,7 @@ $propertyId = $_GET['id'];
             <div class="de-flex-col"><img src="images/ui/user.svg" alt=""> ${property.capacity.max} Guests</div>
             <div class="de-flex-col"><img src="images/ui/floorplan.svg" alt=""> ${property.capacity.bedrooms} Bedrooms</div>
             <div class="de-flex-col"><img src="images/ui/bed.svg" alt=""> $${property.tags[0]} MXN / Night</div>
-            <div class="de-flex-col"><a href="02-booking.php" class="btn-main"><span>Book Now</span></a></div>
+            <div class="de-flex-col"><a href="booking.php" class="btn-main"><span>Book Now</span></a></div>
         `;
                 roomOverviewElement.textContent = property.description;
 
