@@ -137,6 +137,7 @@ $propertyId = $_GET['id'];
                 const imageGallery = images.map(image => `
             <div class="item">
                 <div class="picframe" style="position: relative; overflow: hidden; width: 100%; height: 200px;">
+                    // <a class="image-popup-gallery" href="${image.url}">
                     <a class="image-popup-gallery" href="${image.url}">
                         <span class="overlay">
                             <span class="pf_title"><i class="icon_search"></i></span>
