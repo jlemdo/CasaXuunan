@@ -19,7 +19,7 @@ jQuery(document).ready(function () {
     var col = 4;
     var tmp_col = col;
     var sr = 466 / 700;
-	var $container = jQuery('#gallerys');
+	var $container = jQuery('#gallery');
 	var v_count = '0';
 
     if (de_color_style == 2) { $('body').addClass('de_light'); }
@@ -154,8 +154,8 @@ jQuery(document).ready(function () {
 
     $('.image-popup-gallery').magnificPopup({
         type: 'image',
-        closeOnContentClick: true,
-        closeBtnInside: true,
+        closeOnContentClick: false,
+        closeBtnInside: false,
         mainClass: 'mfp-with-zoom mfp-img-mobile',
         image: {
             verticalFit: true,
