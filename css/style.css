@@ -10774,7 +10774,7 @@ header .d-extra{
   padding: 10px; /* Espaciado interno */
   border-radius: 5px; /* Bordes redondeados */
   font-size: 14px; /* Tamaño de texto */
-  text-align: center; /* Centra el texto */
+  text-align: left; /* Centra el texto */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade sombra ligera */
 }
 
