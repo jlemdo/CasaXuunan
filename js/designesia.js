@@ -152,23 +152,31 @@ jQuery(document).ready(function () {
         }
     });
 
-    $('.image-popup-gallery').magnificPopup({
-        type: 'image',
-        closeOnContentClick: false,
-        closeBtnInside: false,
-        mainClass: 'mfp-with-zoom mfp-img-mobile',
-        image: {
-            verticalFit: true,
-            titleSrc: function (item) {
-                return item.el.attr('title');
-                //return item.el.attr('title') + ' &middot; <a class="image-source-link" href="'+item.el.attr('data-source')+'" target="_blank">image source</a>';
-            }
-        },
-        gallery: {
-            enabled: true
-        }
+    // $('.image-popup-gallery').magnificPopup({
+    //     type: 'image',
+    //     closeOnContentClick: false,
+    //     closeBtnInside: false,
+    //     mainClass: 'mfp-with-zoom mfp-img-mobile',
+    //     image: {
+    //         verticalFit: true,
+    //         titleSrc: function (item) {
+    //             return item.el.attr('title');
+    //             //return item.el.attr('title') + ' &middot; <a class="image-source-link" href="'+item.el.attr('data-source')+'" target="_blank">image source</a>';
+    //         }
+    //     },
+    //     gallery: {
+    //         enabled: true
+    //     }
 
-    });
+    // });
+
+    $('.image-popup-gallery').magnificPopup({
+            type: 'image',
+            mainClass: 'mfp-with-zoom mfp-img-mobile',
+            gallery: {
+                enabled: true
+            }
+        });
 
     $('.popup-gallery').magnificPopup({
         delegate: 'a',
@@ -1180,6 +1188,38 @@ jQuery(document).ready(function () {
         //             }
         //         }
         // });
+
+        $('#carousel-rooms').owlCarousel({
+            items: 3,
+            margin: 20,
+            loop: false,
+            dots: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 2
+                },
+                1000: {
+                    items: 3
+                }
+            }
+        });
+
+        $('#carousel-rooms').magnificPopup({
+            delegate: '.popup-gallery-item', // Selector para los enlaces de imágenes
+            type: 'image',
+            gallery: {
+                enabled: true, // Activa la galería
+                navigateByImgClick: true
+            },
+            image: {
+                titleSrc: function(item) {
+                    return item.el.find('.pf_caption').text(); // Obtiene el título de la imagen
+                }
+            }
+        });
 
 
         // --------------------------------------------------

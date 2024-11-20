@@ -135,19 +135,20 @@ $propertyId = $_GET['id'];
 
                 // Insertar imágenes en la galería
                 const imageGallery = images.map(image => `
-           <div class="item">
-    <div class="picframe" style="position: relative; overflow: hidden; width: 100%; height: 200px;">
-        <!-- Enlace con la URL de la imagen -->
-        <a class="popup-gallery" href="${image.url}">
-            <span class="overlay">
-                <span class="pf_title"><i class="icon_search"></i></span>
-                <span class="pf_caption">${image.caption || 'No Caption'}</span>
-            </span>
-        </a>
-        <!-- Imagen de previsualización -->
-        <img src="${image.url}" alt="${image.caption || 'Image'}" style="width: 100%; height: 100%; object-fit: cover;">
-    </div>
-</div>
+                    <div class="item">
+                        <div class="picframe" style="position: relative; overflow: hidden; width: 100%; height: 200px;">
+                            <!-- Enlace con la URL de la imagen -->
+                            <a class="popup-gallery-item" href="${image.url}">
+                                <span class="overlay">
+                                    <span class="pf_title"><i class="icon_search"></i></span>
+                                    <span class="pf_caption">${image.caption || 'No Caption'}</span>
+                                </span>
+                            </a>
+                            <!-- Imagen de previsualización -->
+                            <img src="${image.url}" alt="${image.caption || 'Image'}" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                    </div>
+
 
         `).join('');
                 carouselRoomsElement.innerHTML = imageGallery;
@@ -160,9 +161,10 @@ $propertyId = $_GET['id'];
                     backgroundElement.style.backgroundPosition = 'center';
                 }
 
-                // Inicializar el visualizador de imágenes
+                // // Inicializar el visualizador de imágenes
                 $('.image-popup-gallery').magnificPopup({
                     type: 'image',
+                    mainClass: 'mfp-with-zoom mfp-img-mobile',
                     gallery: {
                         enabled: true
                     }
@@ -193,6 +195,21 @@ $propertyId = $_GET['id'];
                     }
                 });
 
+                // Inicializar Magnific Popup en los elementos del carrusel
+                $('#carousel-rooms').magnificPopup({
+                    delegate: '.popup-gallery-item', // Selector para los enlaces de imágenes
+                    type: 'image',
+                    gallery: {
+                        enabled: true, // Activa la galería
+                        navigateByImgClick: true
+                    },
+                    image: {
+                        titleSrc: function(item) {
+                            return item.el.find('.pf_caption').text(); // Obtiene el título de la imagen
+                        }
+                    }
+                });
+
                 // Activar el carrusel de navegación
                 $('.d-carousel .d-arrow-right').off('click').on('click', function() {
                     $('#carousel-rooms').trigger('next.owl.carousel');
@@ -200,6 +217,7 @@ $propertyId = $_GET['id'];
                 $('.d-carousel .d-arrow-left').off('click').on('click', function() {
                     $('#carousel-rooms').trigger('prev.owl.carousel');
                 });
+
 
                 // **Asignar el src del iframe dinámicamente**
                 const bookingIframes = {
