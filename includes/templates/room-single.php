@@ -162,8 +162,10 @@ $propertyId = $_GET['id'];
                 };
 
 
-                // Insertar facilidades de la habitación
-                const facilitiesList = property.amenities.map(facility => `<li>${facility}</li>`).join('');
+                // Generar la lista con formato
+                const facilitiesList = property.amenities
+                    .map(facility => `<li>${formatAmenity(facility)}</li>`)
+                    .join('');
                 roomFacilitiesElement.innerHTML = facilitiesList;
 
                 // Obtener imágenes de la propiedad
