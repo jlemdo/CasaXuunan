@@ -119,6 +119,7 @@ $propertyId = $_GET['id'];
             <div class="de-flex-col"><img src="images/ui/bed.svg" alt=""> $${property.tags[0]} MXN / Night</div>
         `;
                 roomOverviewElement.textContent = property.description;
+                console.log(roomOverviewElement);
 
                 // Insertar facilidades de la habitación
                 const facilitiesList = property.amenities.map(facility => `<li>${facility}</li>`).join('');
