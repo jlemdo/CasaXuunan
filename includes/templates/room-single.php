@@ -125,6 +125,43 @@ $propertyId = $_GET['id'];
                 roomOverviewElement.innerHTML = formattedDescription;
                 console.log(roomOverviewElement);
 
+                // Función para convertir snake_case a texto legible
+                const formatAmenity = (amenity) => {
+                    const amenityMap = {
+                        "ac": "Air Conditioning",
+                        "alfresco_dining": "Alfresco Dining",
+                        "bed_linens": "Bed Linens",
+                        "breakfast": "Breakfast Included",
+                        "cable": "Cable TV",
+                        "carbon_monoxide_detector": "Carbon Monoxide Detector",
+                        "ceiling_fan": "Ceiling Fan",
+                        "cleaning_before_checkout": "Cleaning Before Checkout",
+                        "crib": "Crib",
+                        "dryer": "Dryer",
+                        "essentials": "Essentials",
+                        "fire_extinguisher": "Fire Extinguisher",
+                        "first_aid_kit": "First Aid Kit",
+                        "free_parking": "Free Parking",
+                        "garden_or_backyard": "Garden or Backyard",
+                        "hair_dryer": "Hair Dryer",
+                        "hammock": "Hammock",
+                        "hot_water": "Hot Water",
+                        "lock_on_bedroom_door": "Lock on Bedroom Door",
+                        "long_term_stays_allowed": "Long-Term Stays Allowed",
+                        "luggage_dropoff_allowed": "Luggage Dropoff Allowed",
+                        "mosquito_net": "Mosquito Net",
+                        "pool": "Swimming Pool",
+                        "private_entrance": "Private Entrance",
+                        "room_darkening_shades": "Room Darkening Shades",
+                        "shampoo": "Shampoo",
+                        "smoke_detector": "Smoke Detector",
+                        "tv": "TV",
+                        "wireless_internet": "Wi-Fi",
+                    };
+                    return amenityMap[amenity] || amenity.replace(/_/g, ' ').replace(/^\w/, (c) => c.toUpperCase());
+                };
+
+
                 // Insertar facilidades de la habitación
                 const facilitiesList = property.amenities.map(facility => `<li>${facility}</li>`).join('');
                 roomFacilitiesElement.innerHTML = facilitiesList;
