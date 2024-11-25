@@ -117,8 +117,12 @@ $propertyId = $_GET['id'];
             <div class="de-flex-col"><img src="images/ui/user.svg" alt=""> ${property.capacity.max} Guests</div>
             <div class="de-flex-col"><img src="images/ui/floorplan.svg" alt=""> ${property.capacity.bedrooms} Bedrooms</div>
             <div class="de-flex-col"><img src="images/ui/bed.svg" alt=""> $${property.tags[0]} MXN / Night</div>
+
+            
         `;
-                roomOverviewElement.textContent = property.description;
+                const formattedDescription = property.description.replace(/\n/g, '<br>');
+                // roomOverviewElement.textContent = property.description;
+                roomOverviewElement.innerHTML = formattedDescription;
                 console.log(roomOverviewElement);
 
                 // Insertar facilidades de la habitación
