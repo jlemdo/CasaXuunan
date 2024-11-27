@@ -43,9 +43,6 @@ async function fetchData(endpoint) {
     const roomContainer = document.getElementById('room-container');
 
     try {
-        // Mostrar un indicador de carga global si lo deseas
-        // showLoadingIndicator();
-
         const response = await fetch(`api_proxy.php?endpoint=${endpoint}`);
         if (!response.ok) {
             throw new Error(`Error al obtener datos: ${response.statusText}`);
@@ -61,18 +58,39 @@ async function fetchData(endpoint) {
 
         const reversedData = data.data.reverse();
 
-        // Procesar cada habitación individualmente
+        // Arrays para almacenar placeholders y promesas
+        const placeholders = [];
+        const promises = [];
+
+        // Mostrar placeholders y iniciar solicitudes
         for (const property of reversedData) {
-            // Mostrar un placeholder para la habitación actual
+            // Mostrar placeholder
             const placeholderDiv = showPlaceholder();
             roomContainer.appendChild(placeholderDiv);
+            placeholders.push({ placeholderDiv, property });
 
-            // Iniciar las solicitudes en paralelo para imágenes y disponibilidad
+            // Iniciar solicitudes de imágenes y disponibilidad sin esperar
             const imagesPromise = fetchImages(property.id);
             const availabilityPromise = checkAvailability(property.id);
 
-            // Esperar a que las promesas se resuelvan
-            const [images, isAvailable] = await Promise.all([imagesPromise, availabilityPromise]);
+            // Almacenar las promesas combinadas
+            promises.push(
+                Promise.all([imagesPromise, availabilityPromise])
+                    .then(([images, isAvailable]) => ({ images, isAvailable, property }))
+                    .catch(error => {
+                        console.error('Error:', error);
+                        return { images: [], isAvailable: false, property };
+                    })
+            );
+        }
+
+        // Esperar a que todas las promesas se resuelvan
+        const results = await Promise.all(promises);
+
+        // Actualizar el DOM con los datos reales
+        for (let i = 0; i < results.length; i++) {
+            const { images, isAvailable, property } = results[i];
+            const { placeholderDiv } = placeholders[i];
 
             // Generar el contenido real de la habitación
             const roomContent = createRoomContent(property, images, isAvailable);
@@ -83,9 +101,6 @@ async function fetchData(endpoint) {
             placeholderDiv.classList.remove('placeholder-room');
         }
 
-        // Ocultar el indicador de carga global si lo utilizaste
-        // hideLoadingIndicator();
-
     } catch (error) {
         console.error('Error:', error);
         roomContainer.innerHTML = '<p>Ocurrió un error al cargar las habitaciones.</p>';
@@ -95,7 +110,7 @@ async function fetchData(endpoint) {
 // Función para crear el contenido de la habitación
 function createRoomContent(property, images, isAvailable) {
     const mainImageUrl = images.length > 0 ? images[0].url : 'ruta/default.jpg';
-    const hoverImageUrl = images.length > 1 ? images[1].url : 'ruta/default-hover.jpg';
+    const hoverImageUrl = images.length > 1 ? images[1].url : null; // Usar null si no hay imagen de hover
 
     // Crear elementos HTML para la habitación
     const roomDiv = document.createElement('div');
@@ -136,7 +151,7 @@ function createRoomContent(property, images, isAvailable) {
 
     const sizeSpan = document.createElement('span');
     sizeSpan.classList.add('d-meta-2');
-    sizeSpan.innerHTML = `<img src="images/ui/floorplan.svg" alt=""> ${sizeData || 'N/A'} m²`;
+    sizeSpan.innerHTML = `<img src="images/ui/floorplan.svg" alt=""> ${sizeData} m²`;
     detailsDiv.appendChild(sizeSpan);
 
     imageDiv.appendChild(detailsDiv);
