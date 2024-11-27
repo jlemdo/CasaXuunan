@@ -47,7 +47,7 @@ $propertyId = $_GET['id'];
                             <div class="col-md-4 order-1 order-md-2 mb-4">
                                 <h3 class="text-center mb-3">Booking</h3>
                                 <div class="d-flex flex-row justify-content-center alig-items-center">
-                                    <iframe id="booking-iframe" sandbox="allow-top-navigation allow-scripts allow-same-origin" src="" allowfullscreen loading="lazy" class="mx-auto" style="border: none; width: 100%;  height: 550px;">
+                                    <iframe id="booking-iframe" sandbox="allow-top-navigation allow-scripts allow-same-origin" src="" allowfullscreen loading="lazy" class="mx-auto" style="border: none; width: 80%;  height: 550px;">
                                     </iframe>
                                 </div>
                             </div>

@@ -29,22 +29,29 @@
                             </div>
 
                             <div class="de-flex-col">
-
                                 <ul id="mainmenu">
+                                    <?php
+                                    // Obtiene la ruta actual (sin dominio)
+                                    $current_page = basename($_SERVER['REQUEST_URI']);
+                                    ?>
                                     <li>
-                                        <a href="/index.php">Inicio</a>
+                                        <a href="/index.php" class="<?= $current_page === 'index.php' ? 'active-menu' : '' ?>">Inicio</a>
                                     </li>
-                                    <li><a href="about.php">Nosotros</a></li>
                                     <li>
-                                        <a href="rooms.php">Habitaciones</a>
+                                        <a href="about.php" class="<?= $current_page === 'about.php' ? 'active-menu' : '' ?>">Nosotros</a>
                                     </li>
-                                    <!-- <li><a href="booking.php">Reservas</a></li> -->
-                                    <!-- <li><a href="02-offer.php">Ofertas</a></li> -->
-                                    <!-- <li><a href="02-blog.php">Blog</a></li> -->
-                                    <li><a href="gallery.php">Galería</a></li>
-                                    <li><a href="contact.php">Contacto</a></li>
+                                    <li>
+                                        <a href="rooms.php" class="<?= $current_page === 'rooms.php' ? 'active-menu' : '' ?>">Habitaciones</a>
+                                    </li>
+                                    <li>
+                                        <a href="gallery.php" class="<?= $current_page === 'gallery.php' ? 'active-menu' : '' ?>">Galería</a>
+                                    </li>
+                                    <li>
+                                        <a href="contact.php" class="<?= $current_page === 'contact.php' ? 'active-menu' : '' ?>">Contacto</a>
+                                    </li>
                                 </ul>
                             </div>
+
 
                             <div class="de-flex-col">
                                 <div class="d-extra">

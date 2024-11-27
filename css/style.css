@@ -10778,3 +10778,8 @@ header .d-extra{
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade sombra ligera */
 }
 
+/* Agregado */
+.active-menu {
+  color: #11b555;
+}
+
