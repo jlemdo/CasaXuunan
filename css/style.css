@@ -563,7 +563,7 @@ header.smaller:not(.header-bottom).header-light {
 }
 
 /* Agregado */
-#mainmenu a .active-menu {
+#mainmenu a.active-menu {
   color: #11b555;
 }
 
