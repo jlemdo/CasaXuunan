@@ -120,6 +120,22 @@ function createRoomContent(property, images, isAvailable) {
     guestSpan.innerHTML = `<img src="images/ui/user.svg" alt=""> ${property.capacity?.max || 'N/A'} Huéspedes`;
     detailsDiv.appendChild(guestSpan);
 
+    const roomSize = {
+        'Casa Xu’unan: PB "B"': '23.2',
+        'Casa Xu’unan: PB "A"': '22.4',
+        'Casa Xu’unan: PB "C"': '23.2',
+        'Casa Xu’unan: PA “A”': '20.4',
+        'Casa Xu’unan: PA “B”': '27.0',
+        'Casa Xu’unan: PA "C"': '32.86',
+        'Casa Xu’unan:  J “B”': '26.66',
+        'Casa Xu’unan:  J “A”': '26.66'
+    };
+
+    // Asegurar que property.name coincide con las claves del objeto
+    const sizeData = roomSize[property.name] || 'N/A';
+console.log(sizeData);
+    // bookingIframeElement.src = iframeSrc;
+
     const sizeSpan = document.createElement('span');
     sizeSpan.classList.add('d-meta-2');
     sizeSpan.innerHTML = `<img src="images/ui/floorplan.svg" alt=""> ${property.size || 'N/A'} m²`;
