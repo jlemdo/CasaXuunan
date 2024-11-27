@@ -562,6 +562,11 @@ header.smaller:not(.header-bottom).header-light {
   outline: none;
 }
 
+/* Agregado */
+.active-menu {
+  color: #11b555;
+}
+
 #mainmenu a,
 header.transparent.header-light #mainmenu a {
   color: #fff;
