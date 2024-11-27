@@ -133,12 +133,10 @@ function createRoomContent(property, images, isAvailable) {
 
     // Asegurar que property.name coincide con las claves del objeto
     const sizeData = roomSize[property.name] || 'N/A';
-console.log(sizeData);
-    // bookingIframeElement.src = iframeSrc;
 
     const sizeSpan = document.createElement('span');
     sizeSpan.classList.add('d-meta-2');
-    sizeSpan.innerHTML = `<img src="images/ui/floorplan.svg" alt=""> ${property.size || 'N/A'} m²`;
+    sizeSpan.innerHTML = `<img src="images/ui/floorplan.svg" alt=""> ${sizeData || 'N/A'} m²`;
     detailsDiv.appendChild(sizeSpan);
 
     imageDiv.appendChild(detailsDiv);
