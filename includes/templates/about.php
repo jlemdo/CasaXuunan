@@ -27,7 +27,7 @@
 
                         <div class="col-lg-6 wow fadeIn">
                             <div class="padding20">
-                                <h2 class="title mb10">Casa Xuunan: Tu Refugio de Tranquilidad<br>en el Corazón de Valladolid, Yucatán
+                                <h2 class="title mb10">Tu Refugio de Tranquilidad<br>en el Corazón de Valladolid, Yucatán
                                     <span class="small-border"></span>
                                 </h2>
 
