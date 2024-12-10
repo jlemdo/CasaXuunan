@@ -32,6 +32,9 @@
                                 </h2>
 
                                 <p>En Casa Xuunan, te invitamos a vivir una experiencia inolvidable en el corazón de Yucatán. Sumérgete en la cultura local mientras disfrutas de nuestras comodidades de primer nivel y un servicio excepcional. Cada rincón de nuestro hotel ha sido diseñado para ofrecerte confort y autenticidad.</p>
+                                <p>Descubre Casa Xuunan, tu refugio en Valladolid, Yucatán, donde la tranquilidad y la conexión con la naturaleza se unen para ofrecerte una experiencia inolvidable. Ubicada en el histórico barrio de Sisal, a solo pasos de la icónica Calzada de los Frailes, nuestra casa combina una ubicación privilegiada con el encanto de la hospitalidad yucateca. Disfruta de la serenidad de nuestros jardines y relájate en nuestra piscina al aire libre tras explorar los fascinantes cenotes, la historia colonial y la cultura maya que hacen de Valladolid un destino único.
+
+                                    Nuestras habitaciones, diseñadas para tu confort, incluyen aire acondicionado, Wi-Fi gratuito y camas de alta calidad para garantizar tu descanso. Además, ofrecemos estacionamiento privado y fácil acceso a los principales atractivos turísticos. En Casa Xuunan, no solo te alojas: vives la auténtica esencia de Yucatán, rodeado de calidez humana, naturaleza y tradición. Reserva hoy mismo y conviértete en parte de esta experiencia única en Valladolid.</p>
 
                                 <a href="rooms.php" class="btn-line"><span>¡Reserva Ahora!</span></a>
                             </div>
