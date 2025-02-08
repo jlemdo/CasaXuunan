@@ -116,7 +116,7 @@ $propertyId = $_GET['id'];
                 roomDetailsElement.innerHTML = `
             <div class="de-flex-col"><img src="images/ui/user.svg" alt=""> ${property.capacity.max} Guests</div>
             <div class="de-flex-col"><img src="images/ui/floorplan.svg" alt=""> ${property.capacity.bedrooms} Bedrooms</div>
-            <div class="de-flex-col"><img src="images/ui/bed.svg" alt=""> $${property.tags[0]} MXN / Night <small>(+Tax)</small></div>
+            <div class="de-flex-col"><img src="images/ui/bed.svg" alt=""> $${property.tags[0]} MXN / Night +Tax</div>
             
         `;
                 const formattedDescription = property.description.replace(/\n/g, '<br>');
