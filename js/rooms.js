@@ -139,6 +139,7 @@ function createRoomContent(property, images, isAvailable) {
         'Casa Xu’unan: PB "B"': '23.2',
         'Casa Xu’unan: PB "A"': '22.4',
         'Casa Xu’unan: PB "C"': '23.2',
+        'Casa Xu’unan: PB "D"': '23.2',
         'Casa Xu’unan: PA “A”': '20.4',
         'Casa Xu’unan: PA “B”': '27.0',
         'Casa Xu’unan: PA "C"': '32.86',
