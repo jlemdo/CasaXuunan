@@ -26,7 +26,7 @@
                                                     <h3>Casa Xuunan Valladolid</h3>
                                                     <address>
                                                         <span><strong>Dirección:</strong> C. 49 235, Sisal, Valladolid, Yucatán, México</span>
-                                                        <span><strong>Teléfono:</strong> (+52) 85 258 0599</span>
+                                                        <span><strong>Teléfono:</strong> (+52) 985 258 0599</span>
                                                         <span><strong>Email:</strong><a href="mailto:info@casaxuunan.com">contacto@casaxuunan.com</a></span>
                                                     </address>
                                                 </div>
