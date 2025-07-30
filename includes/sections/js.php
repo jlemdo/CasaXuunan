@@ -23,3 +23,14 @@ if (basename($_SERVER['SCRIPT_NAME']) === 'rooms.php') {
 if (basename($_SERVER['SCRIPT_NAME']) === 'masajes.php') {
     echo '<script src="' . BASE_URL . '/js/masajes.js"></script>';
 }
+?>
+<?php
+if (basename($_SERVER['SCRIPT_NAME']) === 'tours.php') {
+    echo '<script src="' . BASE_URL . '/js/tours.js"></script>';
+}
+?>
+<?php
+if (basename($_SERVER['SCRIPT_NAME']) === 'cuidado-personal.php') {
+    echo '<script src="' . BASE_URL . '/js/cuidado-personal.js"></script>';
+}
+?>

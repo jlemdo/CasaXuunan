@@ -16,8 +16,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <h4>Relájate</h4>
-                            <h1>Masajes y Bienestar</h1>
+                            <h4>Vive la Magia de Yucatán</h4>
+                            <h1>Tours Exclusivos</h1>
                         </div>
                     </div>
                 </div>
@@ -29,40 +29,40 @@
                     <!-- Introducción y llamada a la acción principal -->
                     <div class="row mb-5">
                         <div class="col-md-8 offset-md-2 text-center">
-                            <p class="lead mb-4">Descubre la técnica del Quiromasaje en el ambiente tranquilo de Casa Xuunan. Una experiencia manual profunda que actúa directamente sobre tu cuerpo para liberar tensiones y activar tu energía vital, complementada con el confort de nuestras instalaciones naturales.</p>
+                            <p class="lead mb-4">Explora los tesoros ocultos de Valladolid y la península de Yucatán con nuestras experiencias guiadas. Desde majestuosas zonas arqueológicas hasta cenotes de aguas cristalinas, cada tour está diseñado para conectarte con la auténtica cultura maya y la belleza natural de la región.</p>
                             <div class="mb-4">
-                                <a href="https://mpago.li/2JmGRPh" class="btn-main btn-lg">
-                                    <i class="fa fa-calendar mr-2"></i>Reservar Ahora
+                                <a href="#section-packages" class="btn-main btn-lg">
+                                    <i class="fa fa-compass mr-2"></i>Ver Paquetes de Tours
                                 </a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Servicios en cards -->
+                    <!-- Tipos de Tours en cards -->
                     <div class="row g-4 mb-5 justify-content-center">
                         
-                        <!-- Quiromasaje Terapéutico -->
+                        <!-- Aventura Cenote -->
                         <div class="col-md-5">
                             <div class="feature-box feature-box-style-3 h-100">
                                 <div class="feature-box-icon">
-                                    <i class="fa fa-hand-paper-o id-color"></i>
+                                    <i class="fa fa-tint id-color"></i>
                                 </div>
                                 <div class="feature-box-info">
-                                    <h4>Quiromasaje Terapéutico</h4>
-                                    <p>Técnica manual profunda con amasamientos, fricciones y presiones adaptadas. Con aceites esenciales DoTerra seleccionados por sus propiedades terapéuticas y ambientación sonora envolvente.</p>
+                                    <h4>Aventura en Cenotes</h4>
+                                    <p>Sumérgete en las aguas sagradas de los cenotes más espectaculares. Descubre formaciones rocosas milenarias y nada en ríos subterráneos en una aventura refrescante e inolvidable.</p>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Quiromasaje Relajante -->
+                        <!-- Ruta Arqueológica -->
                         <div class="col-md-5">
                             <div class="feature-box feature-box-style-3 h-100">
                                 <div class="feature-box-icon">
-                                    <i class="fa fa-heart id-color"></i>
+                                    <i class="fa fa-university id-color"></i>
                                 </div>
                                 <div class="feature-box-info">
-                                    <h4>Quiromasaje Relajante</h4>
-                                    <p>Movimientos suaves acompañados de mantras, cuencos tibetanos y sonidos de la naturaleza. Libera tensiones emocionales creando un espacio sagrado para la renovación interior.</p>
+                                    <h4>Ruta Arqueológica</h4>
+                                    <p>Viaja en el tiempo explorando las imponentes ruinas de Chichén Itzá, Ek Balam y Cobá. Nuestros guías expertos te revelarán los secretos de la ancestral civilización maya.</p>
                                 </div>
                             </div>
                         </div>
@@ -72,64 +72,64 @@
                     <div class="row mb-5">
                         <div class="col-md-8 offset-md-2 text-center">
                             <blockquote class="testimonial">
-                                <p>"El Quiromasaje me ayudó a liberar tensiones que llevaba años cargando. Una experiencia transformadora para mi cuerpo y mente."</p>
+                                <p>"El tour a los cenotes fue lo mejor de nuestro viaje a Yucatán. Una experiencia auténtica y mágica, lejos de las multitudes. ¡Totalmente recomendado!"</p>
                             </blockquote>
                         </div>
                     </div>
 
-                    <!-- Paquetes Especiales -->
-                    <div class="row mb-5">
+                    <!-- Paquetes de Tours -->
+                    <div id="section-packages" class="row mb-5">
                         <div class="col-md-12">
                             <div class="text-center mb-4">
-                                <h3 class="id-color">Paquetes de Quiromasaje</h3>
-                                <p class="lead">Sesiones especializadas para tu bienestar integral</p>
+                                <h3 class="id-color">Paquetes de Aventura</h3>
+                                <p class="lead">Experiencias diseñadas para descubrir lo mejor de Valladolid y sus alrededores</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="row g-4 mb-5">
-                        <!-- Sesión Express -->
+                        <!-- Tour Esencial -->
                         <div class="col-md-4">
                             <div class="pricing-box featured">
                                 <div class="pricing-box-header">
-                                    <h5>Sesión Express</h5>
+                                    <h5>Escapada a Chichén Itzá</h5>
                                     <div class="price">
                                         <span class="currency">$</span>
-                                        <span class="amount">1,000</span>
-                                        <span class="period">MXN</span>
+                                        <span class="amount">1,800</span>
+                                        <span class="period">MXN / persona</span>
                                     </div>
-                                    <span class="duration">45 minutos</span>
+                                    <span class="duration">Medio día</span>
                                 </div>
                                 <div class="pricing-box-content">
                                     <ul>
-                                        <li>Quiromasaje relajante (40 min)</li>
-                                        <li>Aceites esenciales DoTerra</li>
-                                        <li>Playlist con mantras y cuencos tibetanos</li>
-                                        <li>Inciensos de cortesía</li>
+                                        <li>Visita a Chichén Itzá</li>
+                                        <li>Guía certificado</li>
+                                        <li>Transporte redondo desde el hotel</li>
+                                        <li>Entradas incluidas</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Sesión Integral -->
+                        <!-- Tour Integral -->
                         <div class="col-md-4">
                             <div class="pricing-box featured highlight">
                                 <div class="pricing-box-header">
-                                    <h5>Sesión Integral</h5>
+                                    <h5>Corazón de Yucatán</h5>
                                     <div class="price">
                                         <span class="currency">$</span>
-                                        <span class="amount">1,200</span>
-                                        <span class="period">MXN</span>
+                                        <span class="amount">2,500</span>
+                                        <span class="period">MXN / persona</span>
                                     </div>
-                                    <span class="duration">1 hora</span>
+                                    <span class="duration">Día completo</span>
                                     <div class="popular-tag">Más Popular</div>
                                 </div>
                                 <div class="pricing-box-content">
                                     <ul>
-                                        <li>Quiromasaje terapéutico completo</li>
-                                        <li>Aceites DoTerra seleccionados</li>
-                                        <li>Ambientación sonora envolvente</li>
-                                        <li>Inciensos premium de cortesía</li>
+                                        <li>Visita a Ek Balam</li>
+                                        <li>Nado en Cenote X'canche</li>
+                                        <li>Comida tradicional en comunidad maya</li>
+                                        <li>Transporte y guía certificado</li>
                                     </ul>
                                 </div>
                             </div>
@@ -139,20 +139,20 @@
                         <div class="col-md-4">
                             <div class="pricing-box featured">
                                 <div class="pricing-box-header">
-                                    <h5>Experiencia Premium</h5>
+                                    <h5>Inmersión Maya Total</h5>
                                     <div class="price">
                                         <span class="currency">$</span>
-                                        <span class="amount">1,500</span>
-                                        <span class="period">MXN</span>
+                                        <span class="amount">3,200</span>
+                                        <span class="period">MXN / persona</span>
                                     </div>
-                                    <span class="duration">1.5 horas</span>
+                                    <span class="duration">Día completo extendido</span>
                                 </div>
                                 <div class="pricing-box-content">
                                     <ul>
-                                        <li>Quiromasaje combinado profundo</li>
-                                        <li>Aceites DoTerra personalizados</li>
-                                        <li>Espacio sagrado con percusiones meditativas</li>
-                                        <li>Inciensos de cortesía premium</li>
+                                        <li>Visita a Cobá y paseo en triciclo</li>
+                                        <li>Nado en cenote privado</li>
+                                        <li>Taller de gastronomía yucateca</li>
+                                        <li>Transporte privado y guía personal</li>
                                     </ul>
                                 </div>
                             </div>
@@ -163,8 +163,8 @@
                     <div class="row mb-5">
                         <div class="col-md-8 offset-md-2">
                             <div class="text-center mb-4">
-                                <h3 class="id-color">Solicita tu Cita</h3>
-                                <p class="lead">Completa tus datos y te contactaremos por WhatsApp</p>
+                                <h3 class="id-color">Reserva tu Aventura</h3>
+                                <p class="lead">Completa tus datos y te contactaremos por WhatsApp para confirmar tu tour</p>
                             </div>
                             
                             <form id="whatsapp-form" class="contact-form">
@@ -180,30 +180,26 @@
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <select id="paquete" name="paquete" class="form-control" required>
-                                            <option value="">Selecciona tu paquete preferido</option>
-                                            <option value="Express">Sesión Express (45 min - $1,000)</option>
-                                            <option value="Integral">Sesión Integral (1 hora - $1,200)</option>
-                                            <option value="Premium">Experiencia Premium (1.5 horas - $1,500)</option>
+                                            <option value="">Selecciona tu tour preferido</option>
+                                            <option value="Chichen Itza">Escapada a Chichén Itzá ($1,800)</option>
+                                            <option value="Corazon de Yucatan">Corazón de Yucatán ($2,500)</option>
+                                            <option value="Inmersion Maya">Inmersión Maya Total ($3,200)</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <select id="tipo" name="tipo" class="form-control" required>
-                                            <option value="">Tipo de masaje preferido</option>
-                                            <option value="Relajante">Quiromasaje Relajante</option>
-                                            <option value="Terapeutico">Quiromasaje Terapéutico</option>
-                                        </select>
+                                        <input type="date" id="fecha" name="fecha" class="form-control" placeholder="Fecha deseada" required>
                                     </div>
                                 </div>
                                 
                                 <div class="row">
                                     <div class="col-md-12 mb-3">
-                                        <textarea id="comentarios" name="comentarios" class="form-control" rows="3" placeholder="¿Tienes alguna molestia específica o preferencia? (opcional)"></textarea>
+                                        <textarea id="comentarios" name="comentarios" class="form-control" rows="3" placeholder="¿Número de personas o algún interés especial? (opcional)"></textarea>
                                     </div>
                                 </div>
                                 
                                 <div class="text-center">
                                     <button type="submit" class="btn-main btn-lg">
-                                        <i class="fa fa-whatsapp mr-2"></i>Enviar Solicitud por WhatsApp
+                                        <i class="fa fa-whatsapp mr-2"></i>Solicitar Tour por WhatsApp
                                     </button>
                                 </div>
                             </form>
@@ -214,7 +210,7 @@
                     <div class="row">
                         <div class="col-md-12 text-center mb-4">
                             <div style="border-top: 1px solid rgba(255,255,255,0.3); margin: 20px 0;"></div>
-                            <p style="color: white;">O si prefieres, puedes pagar directamente</p>
+                            <p style="color: white;">O si prefieres, puedes pagar tu anticipo de forma segura</p>
                             <a href="https://mpago.li/2JmGRPh" class="btn-line btn-lg">
                                 <i class="fa fa-credit-card mr-2"></i>Pagar con Mercado Pago
                             </a>
