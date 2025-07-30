@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             // Construir el mensaje para WhatsApp
-            let mensaje = `¡Hola! Me interesa agendar un masaje en Hotel Xuunan.\n\n`;
+            let mensaje = `¡Hola! Me interesa agendar un masaje en Casa Xuunan.\n\n`;
             mensaje += `👤 *Nombre:* ${nombre}\n`;
             mensaje += `📱 *Teléfono:* ${telefono}\n`;
             mensaje += `💆‍♀️ *Paquete:* ${paquete}\n`;
