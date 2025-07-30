@@ -29,7 +29,7 @@
                     <!-- Introducción y llamada a la acción principal -->
                     <div class="row mb-5">
                         <div class="col-md-8 offset-md-2 text-center">
-                            <p class="lead mb-4">Descubre la técnica del Quiromasaje en el ambiente tranquilo de Hotel Xuunan. Una experiencia manual profunda que actúa directamente sobre tu cuerpo para liberar tensiones y activar tu energía vital, complementada con el confort de nuestras instalaciones hoteleras.</p>
+                            <p class="lead mb-4">Descubre la técnica del Quiromasaje en el ambiente tranquilo de Casa Xuunan. Una experiencia manual profunda que actúa directamente sobre tu cuerpo para liberar tensiones y activar tu energía vital, complementada con el confort de nuestras instalaciones naturales.</p>
                             <div class="mb-4">
                                 <a href="https://mpago.li/2JmGRPh" class="btn-main btn-lg">
                                     <i class="fa fa-calendar mr-2"></i>Reservar Ahora

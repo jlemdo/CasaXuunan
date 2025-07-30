@@ -417,6 +417,160 @@
     min-height: 80px;
 }
 
+/* Estilos para modal de instrucciones */
+#instrucciones-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+#instrucciones-modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#instrucciones-modal .modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+#instrucciones-modal .modal-content {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    max-width: 500px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transform: scale(0.7);
+    transition: transform 0.3s ease;
+}
+
+#instrucciones-modal.show .modal-content {
+    transform: scale(1);
+}
+
+#instrucciones-modal .modal-header {
+    background: linear-gradient(135deg, #10ac84, #0e9a73);
+    color: white;
+    padding: 25px 30px;
+    border-radius: 20px 20px 0 0;
+    text-align: center;
+}
+
+#instrucciones-modal .modal-header h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#instrucciones-modal .modal-body {
+    padding: 30px;
+    color: #333;
+}
+
+#instrucciones-modal .modal-body h4 {
+    color: #10ac84;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#instrucciones-modal .instrucciones-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+}
+
+#instrucciones-modal .instrucciones-list li {
+    padding: 10px 0;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(16, 172, 132, 0.1);
+    transition: all 0.3s ease;
+}
+
+#instrucciones-modal .instrucciones-list li:hover {
+    background: rgba(16, 172, 132, 0.05);
+    padding-left: 10px;
+}
+
+#instrucciones-modal .instrucciones-list li:last-child {
+    border-bottom: none;
+}
+
+#instrucciones-modal .final-message {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    color: #10ac84;
+    margin: 0;
+    padding: 20px;
+    background: rgba(16, 172, 132, 0.1);
+    border-radius: 10px;
+}
+
+#instrucciones-modal .modal-footer {
+    padding: 20px 30px 30px;
+    text-align: center;
+}
+
+#instrucciones-modal .btn-modal {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+}
+
+#instrucciones-modal .btn-modal:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    background: linear-gradient(135deg, #128C7E, #25D366);
+}
+
+#instrucciones-modal .btn-modal i {
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+    #instrucciones-modal .modal-content {
+        margin: 10px;
+        max-width: calc(100% - 20px);
+    }
+    
+    #instrucciones-modal .modal-header,
+    #instrucciones-modal .modal-body,
+    #instrucciones-modal .modal-footer {
+        padding: 20px;
+    }
+    
+    #instrucciones-modal .instrucciones-list li {
+        font-size: 14px;
+    }
+}
+
 /* Media Queries responsive - SOLO para galería */
 
 /* Tablets y pantallas medianas */
