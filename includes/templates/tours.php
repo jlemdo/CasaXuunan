@@ -1,22 +1,23 @@
-        <div id="background" data-bgimage="url(images/background/4.jpg) fixed"></div>
+<div id="background" data-bgimage="url(images/background/6.jpg) fixed"></div>
         <div id="content-absolute">
 
             <!-- float text begin -->
-            <div class="float-text">
+            <!-- <div class="float-text">
                 <div class="de_social-icons">
                     <a href="https://www.facebook.com/p/Casa-Xuunan-100091497343251/?locale=ne_NP&_rdr" target="_blank"><i class="fa fa-facebook fa-lg"></i></a>
                     <a href="https://api.whatsapp.com/send?phone=5219852580599" target="_blank"><i class="fa fa-whatsapp fa-lg"></i></a>
                 </div>
-                <span><a href="/rooms.php">Reserva Ahora</a></span>
-            </div>
+                <span><a href="https://mpago.li/2JmGRPh">Reserva Masaje</a></span>
+            </div> -->
             <!-- float text close -->
-
+            
             <!-- subheader -->
             <section id="subheader" class="no-bg">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-10 offset-md-1 mt-4 text-center">
-                            <h1>Tours Guiados en Valladolid, Yucatán</h1>
+                        <div class="col-md-12 text-center">
+                            <h4>Relájate</h4>
+                            <h1>Masajes y Bienestar</h1>
                         </div>
                     </div>
                 </div>
@@ -24,97 +25,274 @@
 
             <section id="section-main" class="no-bg no-top" aria-label="section-menu">
                 <div class="container">
-                    <div class="row g-5">
-                        <div class="col-md-10 offset-md-1">
-                            <div class="de-post-read">
-                                <div class="post-content">
-                                    <div class="post-text">
-                                        <h2>Explora los Cenotes Más Icónicos</h2>
-                                        <p>Sumérgete en las aguas cristalinas de cenotes como X’Keken, Samulá y Suytún. Nuestros guías locales certificados comparten leyendas mayas y seguridad en todo momento, para que disfrutes de una experiencia inolvidable rodeado de formaciones rocosas y vegetación tropical.</p>
+                    
+                    <!-- Introducción y llamada a la acción principal -->
+                    <div class="row mb-5">
+                        <div class="col-md-8 offset-md-2 text-center">
+                            <p class="lead mb-4">Descubre la técnica del Quiromasaje en el ambiente tranquilo de Casa Xuunan. Una experiencia manual profunda que actúa directamente sobre tu cuerpo para liberar tensiones y activar tu energía vital, complementada con el confort de nuestras instalaciones naturales.</p>
+                            <div class="mb-4">
+                                <a href="https://mpago.li/2JmGRPh" class="btn-main btn-lg">
+                                    <i class="fa fa-calendar mr-2"></i>Reservar Ahora
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
-                                        <h2>Visita Haciendas Coloniales</h2>
-                                        <p>Recorre majestuosas haciendas restauradas del siglo XVIII, descubre su arquitectura, capillas y jardines exóticos. Aprende sobre la historia del henequén y prueba un auténtico “mecate” acompañado de refrescante agua de chaya.</p>
+                    <!-- Servicios en cards -->
+                    <div class="row g-4 mb-5 justify-content-center">
+                        
+                        <!-- Quiromasaje Terapéutico -->
+                        <div class="col-md-5">
+                            <div class="feature-box feature-box-style-3 h-100">
+                                <div class="feature-box-icon">
+                                    <i class="fa fa-hand-paper-o id-color"></i>
+                                </div>
+                                <div class="feature-box-info">
+                                    <h4>Quiromasaje Terapéutico</h4>
+                                    <p>Técnica manual profunda con amasamientos, fricciones y presiones adaptadas. Con aceites esenciales DoTerra seleccionados por sus propiedades terapéuticas y ambientación sonora envolvente.</p>
+                                </div>
+                            </div>
+                        </div>
 
-                                        <blockquote>“Viajar es coleccionar recuerdos; vivir Valladolid a través de sus cenotes y haciendas es atesorar su esencia maya.”</blockquote>
+                        <!-- Quiromasaje Relajante -->
+                        <div class="col-md-5">
+                            <div class="feature-box feature-box-style-3 h-100">
+                                <div class="feature-box-icon">
+                                    <i class="fa fa-heart id-color"></i>
+                                </div>
+                                <div class="feature-box-info">
+                                    <h4>Quiromasaje Relajante</h4>
+                                    <p>Movimientos suaves acompañados de mantras, cuencos tibetanos y sonidos de la naturaleza. Libera tensiones emocionales creando un espacio sagrado para la renovación interior.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                                        <h2>Ruta de la Cultura Maya</h2>
-                                        <p>Adéntrate en la riqueza cultural visitando el Convento de San Bernardino y el sitio arqueológico Ek’ Balam. Participa en talleres de artesanía, degustaciones de chocolate maya y ceremonias tradicionales.</p>
+                    <!-- Testimonial -->
+                    <div class="row mb-5">
+                        <div class="col-md-8 offset-md-2 text-center">
+                            <blockquote class="testimonial">
+                                <p>"El Quiromasaje me ayudó a liberar tensiones que llevaba años cargando. Una experiencia transformadora para mi cuerpo y mente."</p>
+                            </blockquote>
+                        </div>
+                    </div>
 
-                                        <h2>Detalles Prácticos</h2>
-                                        <ul>
-                                            <li>Duración: 4 h, 6 h o día completo.</li>
-                                            <li>Incluye transporte ida y vuelta, guía bilingüe y entradas.</li>
-                                            <li>Salidas diarias en grupos reducidos.</li>
-                                            <li>Reserva previa en línea o en recepción.</li>
-                                        </ul>
+                    <!-- Paquetes Especiales -->
+                    <div class="row mb-5">
+                        <div class="col-md-12">
+                            <div class="text-center mb-4">
+                                <h3 class="id-color">Paquetes de Quiromasaje</h3>
+                                <p class="lead">Sesiones especializadas para tu bienestar integral</p>
+                            </div>
+                        </div>
+                    </div>
 
-                                        <!-- CTA tras los detalles prácticos -->
-                                        <div class="text-center mt20">
-                                            <a href="https://api.whatsapp.com/send?phone=5219852580599" target="_blank" class="btn-main">WhatsApp <i class="fa fa-whatsapp fa-lg"></i></a>
-                                        </div>
+                    <div class="row g-4 mb-5">
+                        <!-- Sesión Express -->
+                        <div class="col-md-4">
+                            <div class="pricing-box featured">
+                                <div class="pricing-box-header">
+                                    <h5>Sesión Express</h5>
+                                    <div class="price">
+                                        <span class="currency">$</span>
+                                        <span class="amount">1,000</span>
+                                        <span class="period">MXN</span>
+                                    </div>
+                                    <span class="duration">45 minutos</span>
+                                </div>
+                                <div class="pricing-box-content">
+                                    <ul>
+                                        <li>Quiromasaje relajante (40 min)</li>
+                                        <li>Aceites esenciales DoTerra</li>
+                                        <li>Playlist con mantras y cuencos tibetanos</li>
+                                        <li>Inciensos de cortesía</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sesión Integral -->
+                        <div class="col-md-4">
+                            <div class="pricing-box featured highlight">
+                                <div class="pricing-box-header">
+                                    <h5>Sesión Integral</h5>
+                                    <div class="price">
+                                        <span class="currency">$</span>
+                                        <span class="amount">1,200</span>
+                                        <span class="period">MXN</span>
+                                    </div>
+                                    <span class="duration">1 hora</span>
+                                    <div class="popular-tag">Más Popular</div>
+                                </div>
+                                <div class="pricing-box-content">
+                                    <ul>
+                                        <li>Quiromasaje terapéutico completo</li>
+                                        <li>Aceites DoTerra seleccionados</li>
+                                        <li>Ambientación sonora envolvente</li>
+                                        <li>Inciensos premium de cortesía</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Experiencia Premium -->
+                        <div class="col-md-4">
+                            <div class="pricing-box featured">
+                                <div class="pricing-box-header">
+                                    <h5>Experiencia Premium</h5>
+                                    <div class="price">
+                                        <span class="currency">$</span>
+                                        <span class="amount">1,500</span>
+                                        <span class="period">MXN</span>
+                                    </div>
+                                    <span class="duration">1.5 horas</span>
+                                </div>
+                                <div class="pricing-box-content">
+                                    <ul>
+                                        <li>Quiromasaje combinado profundo</li>
+                                        <li>Aceites DoTerra personalizados</li>
+                                        <li>Espacio sagrado con percusiones meditativas</li>
+                                        <li>Inciensos de cortesía premium</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formulario de reserva -->
+                    <div class="row mb-5">
+                        <div class="col-md-8 offset-md-2">
+                            <div class="text-center mb-4">
+                                <h3 class="id-color">Solicita tu Cita</h3>
+                                <p class="lead">Completa tus datos y te contactaremos por WhatsApp</p>
+                            </div>
+                            
+                            <form id="whatsapp-form" class="contact-form">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Tu nombre completo" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <input type="tel" id="telefono" name="telefono" class="form-control" placeholder="Tu teléfono" required>
                                     </div>
                                 </div>
-
-                                <!-- <div class="post-meta">
-                                    <span><i class="fa fa-user id-color"></i>Por: <a href="#">Casa Xuunan</a></span>
-                                    <span><i class="fa fa-tag id-color"></i><a href="#">Tours</a>, <a href="#">Cultura</a></span>
-                                    <span><i class="fa fa-comment id-color"></i><a href="#">0 Comentarios</a></span>
-                                </div> -->
-
-                                <div class="spacer-single"></div>
-
-                                <!-- Botón reforzador antes de la galería -->
-                                <div class="text-center mb40">
-                                    <a href="https://mpago.li/2JmGRPh" class="btn-line"><span>¡Reserva Ahora con Mercado Pago!</span></a>
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <select id="paquete" name="paquete" class="form-control" required>
+                                            <option value="">Selecciona tu paquete preferido</option>
+                                            <option value="Express">Sesión Express (45 min - $1,000)</option>
+                                            <option value="Integral">Sesión Integral (1 hora - $1,200)</option>
+                                            <option value="Premium">Experiencia Premium (1.5 horas - $1,500)</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <select id="tipo" name="tipo" class="form-control" required>
+                                            <option value="">Tipo de masaje preferido</option>
+                                            <option value="Relajante">Quiromasaje Relajante</option>
+                                            <option value="Terapeutico">Quiromasaje Terapéutico</option>
+                                        </select>
+                                    </div>
                                 </div>
-
+                                
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <textarea id="comentarios" name="comentarios" class="form-control" rows="3" placeholder="¿Tienes alguna molestia específica o preferencia? (opcional)"></textarea>
+                                    </div>
+                                </div>
+                                
+                                <div class="text-center">
+                                    <button type="submit" class="btn-main btn-lg">
+                                        <i class="fa fa-whatsapp mr-2"></i>Enviar Solicitud por WhatsApp
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Línea divisoria -->
+                    <div class="row">
+                        <div class="col-md-12 text-center mb-4">
+                            <div style="border-top: 1px solid rgba(255,255,255,0.3); margin: 20px 0;"></div>
+                            <p style="color: white;">O si prefieres, puedes pagar directamente</p>
+                            <a href="https://mpago.li/2JmGRPh" class="btn-line btn-lg">
+                                <i class="fa fa-credit-card mr-2"></i>Pagar con Mercado Pago
+                            </a>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                    <!-- Separador antes de la galería -->
+                    <div class="spacer-single"></div>
+                                
                                 <section id="section-gallery" class="no-bg no-top" aria-label="section-gallery">
                                     <div class="container">
                                         <div id="carousel-rooms" class="gallery-grid">
-                                            <!-- Fila 1 -->
                                             <div class="item foto1">
-                                                <a href="images/gallery/tour-cenote.jpg" class="image-popup-gallery">
-                                                    <img src="images/gallery/tour-cenote-thumb.jpg" alt="Tour al cenote X’Keken" class="cover-image">
+                                                <a href="images/gallery/gallery-item-1.jpg" class="image-popup-gallery">
+                                                    <img src="images/gallery/gallery-item-1.jpg" alt="Ambiente relajante Casa Xuunan" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto2">
-                                                <a href="images/gallery/tour-hacienda.jpg" class="image-popup-gallery">
-                                                    <img src="images/gallery/tour-hacienda-thumb.jpg" alt="Recorrido por hacienda colonial" class="cover-image">
+                                                <a href="images/gallery/gallery-item-2.jpg" class="image-popup-gallery">
+                                                    <img src="images/gallery/gallery-item-2.jpg" alt="Espacios de bienestar" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto3">
-                                                <a href="images/gallery/tour-maya.jpg" class="image-popup-gallery">
-                                                    <img src="images/gallery/tour-maya-thumb.jpg" alt="Ruta de la cultura maya" class="cover-image">
+                                                <a href="images/gallery/gallery-item-3.jpg" class="image-popup-gallery">
+                                                    <img src="images/gallery/gallery-item-3.jpg" alt="Instalaciones Casa Xuunan" class="cover-image">
                                                 </a>
                                             </div>
-
-                                            <!-- Fila 2 -->
                                             <div class="item foto4">
-                                                <a href="images/gallery/tour-arte.jpg" class="image-popup-gallery">
-                                                    <img src="images/gallery/tour-arte-thumb.jpg" alt="Taller de artesanía maya" class="cover-image">
+                                                <a href="images/gallery/gallery-item-4.jpg" class="image-popup-gallery">
+                                                    <img src="images/gallery/gallery-item-4.jpg" alt="Zona de relajación" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto5">
-                                                <a href="images/gallery/tour-grupo.jpg" class="image-popup-gallery">
-                                                    <img src="images/gallery/tour-grupo-thumb.jpg" alt="Grupo de viajeros en tour" class="cover-image">
+                                                <a href="images/gallery/gallery-item-5.jpg" class="image-popup-gallery">
+                                                    <img src="images/gallery/gallery-item-5.jpg" alt="Ambiente spa Casa Xuunan" class="cover-image">
                                                 </a>
                                             </div>
-
-                                            <!-- Fila 3 -->
                                             <div class="item foto6">
-                                                <a href="images/gallery/tour-atardecer.jpg" class="image-popup-gallery">
-                                                    <img src="images/gallery/tour-atardecer-thumb.jpg" alt="Atardecer en Valladolid" class="cover-image">
+                                                <a href="images/gallery/gallery-item-6.jpg" class="image-popup-gallery">
+                                                    <img src="images/gallery/gallery-item-6.jpg" alt="Experiencias de bienestar" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto7">
-                                                <a href="images/gallery/tour-guides.jpg" class="image-popup-gallery">
-                                                    <img src="images/gallery/tour-guides-thumb.jpg" alt="Nuestros guías locales" class="cover-image">
+                                                <a href="images/gallery/gallery-item-7.jpg" class="image-popup-gallery">
+                                                    <img src="images/gallery/gallery-item-7.jpg" alt="Espacio de relajación" class="cover-image">
+                                                </a>
+                                            </div>
+                                            <div class="item foto8">
+                                                <a href="images/room/1.jpg" class="image-popup-gallery">
+                                                    <img src="images/room/1.jpg" alt="Habitación de masajes" class="cover-image">
+                                                </a>
+                                            </div>
+                                            <div class="item foto9">
+                                                <a href="images/room/2.jpg" class="image-popup-gallery">
+                                                    <img src="images/room/2.jpg" alt="Suite de bienestar" class="cover-image">
+                                                </a>
+                                            </div>
+                                            <div class="item foto10">
+                                                <a href="images/room/3.jpg" class="image-popup-gallery">
+                                                    <img src="images/room/3.jpg" alt="Espacio de relajación" class="cover-image">
+                                                </a>
+                                            </div>
+                                            <div class="item foto11">
+                                                <a href="images/slider/1.jpg" class="image-popup-gallery">
+                                                    <img src="images/slider/1.jpg" alt="Casa Xuunan ambiente" class="cover-image">
+                                                </a>
+                                            </div>
+                                            <div class="item foto12">
+                                                <a href="images/slider/2.jpg" class="image-popup-gallery">
+                                                    <img src="images/slider/2.jpg" alt="Instalaciones premium" class="cover-image">
                                                 </a>
                                             </div>
                                         </div>
                                     </div>
                                 </section>
-
+                                
                             </div>
                         </div>
                     </div>
