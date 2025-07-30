@@ -29,7 +29,7 @@
                     <!-- Introducción y llamada a la acción principal -->
                     <div class="row mb-5">
                         <div class="col-md-8 offset-md-2 text-center">
-                            <p class="lead mb-4">Descubre la técnica del Quiromasaje, una experiencia manual profunda que actúa directamente sobre tu cuerpo para liberar tensiones y activar tu energía vital. Cada sesión se adapta a tus necesidades específicas para una sanación integral.</p>
+                            <p class="lead mb-4">Descubre la técnica del Quiromasaje en el ambiente tranquilo de Hotel Xuunan. Una experiencia manual profunda que actúa directamente sobre tu cuerpo para liberar tensiones y activar tu energía vital, complementada con el confort de nuestras instalaciones hoteleras.</p>
                             <div class="mb-4">
                                 <a href="https://mpago.li/2JmGRPh" class="btn-main btn-lg">
                                     <i class="fa fa-calendar mr-2"></i>Reservar Ahora
@@ -39,52 +39,30 @@
                     </div>
 
                     <!-- Servicios en cards -->
-                    <div class="row g-4 mb-5">
+                    <div class="row g-4 mb-5 justify-content-center">
                         
                         <!-- Quiromasaje Terapéutico -->
-                        <div class="col-md-4">
+                        <div class="col-md-5">
                             <div class="feature-box feature-box-style-3 h-100">
                                 <div class="feature-box-icon">
                                     <i class="fa fa-hand-paper-o id-color"></i>
                                 </div>
                                 <div class="feature-box-info">
                                     <h4>Quiromasaje Terapéutico</h4>
-                                    <p>Técnica manual profunda con amasamientos, fricciones y presiones adaptadas. Mejora la circulación, oxigena el tejido y alivia el dolor muscular.</p>
-                                    <div class="mt-3">
-                                        <span class="price-highlight">Desde $600 MXN</span>
-                                    </div>
+                                    <p>Técnica manual profunda con amasamientos, fricciones y presiones adaptadas. Con aceites esenciales DoTerra seleccionados por sus propiedades terapéuticas y ambientación sonora envolvente.</p>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Quiromasaje Relajante -->
-                        <div class="col-md-4">
+                        <div class="col-md-5">
                             <div class="feature-box feature-box-style-3 h-100">
                                 <div class="feature-box-icon">
                                     <i class="fa fa-heart id-color"></i>
                                 </div>
                                 <div class="feature-box-info">
                                     <h4>Quiromasaje Relajante</h4>
-                                    <p>Movimientos suaves y envolventes para liberar tensiones emocionales. Ideal para soltar el estrés y reconectar con tu fuerza interior.</p>
-                                    <div class="mt-3">
-                                        <span class="price-highlight">Desde $550 MXN</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Quiromasaje Deportivo -->
-                        <div class="col-md-4">
-                            <div class="feature-box feature-box-style-3 h-100">
-                                <div class="feature-box-icon">
-                                    <i class="fa fa-fire id-color"></i>
-                                </div>
-                                <div class="feature-box-info">
-                                    <h4>Quiromasaje Deportivo</h4>
-                                    <p>Técnica intensa con presiones profundas y movilizaciones específicas. Perfecto para recuperación muscular y mejorar el rendimiento físico.</p>
-                                    <div class="mt-3">
-                                        <span class="price-highlight">Desde $700 MXN</span>
-                                    </div>
+                                    <p>Movimientos suaves acompañados de mantras, cuencos tibetanos y sonidos de la naturaleza. Libera tensiones emocionales creando un espacio sagrado para la renovación interior.</p>
                                 </div>
                             </div>
                         </div>
@@ -117,7 +95,7 @@
                                     <h5>Sesión Express</h5>
                                     <div class="price">
                                         <span class="currency">$</span>
-                                        <span class="amount">550</span>
+                                        <span class="amount">1,000</span>
                                         <span class="period">MXN</span>
                                     </div>
                                     <span class="duration">45 minutos</span>
@@ -125,8 +103,9 @@
                                 <div class="pricing-box-content">
                                     <ul>
                                         <li>Quiromasaje relajante (40 min)</li>
-                                        <li>Técnicas de liberación de tensión</li>
-                                        <li>Evaluación postural básica</li>
+                                        <li>Aceites esenciales DoTerra</li>
+                                        <li>Playlist con mantras y cuencos tibetanos</li>
+                                        <li>Inciensos de cortesía</li>
                                     </ul>
                                 </div>
                             </div>
@@ -139,57 +118,103 @@
                                     <h5>Sesión Integral</h5>
                                     <div class="price">
                                         <span class="currency">$</span>
-                                        <span class="amount">800</span>
+                                        <span class="amount">1,200</span>
                                         <span class="period">MXN</span>
                                     </div>
-                                    <span class="duration">90 minutos</span>
+                                    <span class="duration">1 hora</span>
                                     <div class="popular-tag">Más Popular</div>
                                 </div>
                                 <div class="pricing-box-content">
                                     <ul>
-                                        <li>Quiromasaje terapéutico (75 min)</li>
-                                        <li>Evaluación postural completa</li>
-                                        <li>Técnicas de movilización articular</li>
-                                        <li>Plan de ejercicios personalizados</li>
+                                        <li>Quiromasaje terapéutico completo</li>
+                                        <li>Aceites DoTerra seleccionados</li>
+                                        <li>Ambientación sonora envolvente</li>
+                                        <li>Inciensos premium de cortesía</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Tratamiento Premium -->
+                        <!-- Experiencia Premium -->
                         <div class="col-md-4">
                             <div class="pricing-box featured">
                                 <div class="pricing-box-header">
-                                    <h5>Tratamiento Premium</h5>
+                                    <h5>Experiencia Premium</h5>
                                     <div class="price">
                                         <span class="currency">$</span>
-                                        <span class="amount">1,200</span>
+                                        <span class="amount">1,500</span>
                                         <span class="period">MXN</span>
                                     </div>
-                                    <span class="duration">2 horas</span>
+                                    <span class="duration">1.5 horas</span>
                                 </div>
                                 <div class="pricing-box-content">
                                     <ul>
-                                        <li>Quiromasaje deportivo (90 min)</li>
-                                        <li>Técnicas de liberación miofascial</li>
-                                        <li>Tratamiento de puntos gatillo</li>
-                                        <li>Seguimiento personalizado</li>
+                                        <li>Quiromasaje combinado profundo</li>
+                                        <li>Aceites DoTerra personalizados</li>
+                                        <li>Espacio sagrado con percusiones meditativas</li>
+                                        <li>Inciensos de cortesía premium</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Llamadas a la acción -->
-                    <div class="row">
-                        <div class="col-md-6 text-center mb-4">
-                            <h5 class="mb-3">¿Tienes preguntas?</h5>
-                            <a href="https://api.whatsapp.com/send?phone=5219852580599" target="_blank" class="btn-main">
-                                <i class="fa fa-whatsapp mr-2"></i>Consultar por WhatsApp
-                            </a>
+                    <!-- Formulario de reserva -->
+                    <div class="row mb-5">
+                        <div class="col-md-8 offset-md-2">
+                            <div class="text-center mb-4">
+                                <h3 class="id-color">Solicita tu Cita</h3>
+                                <p class="lead">Completa tus datos y te contactaremos por WhatsApp</p>
+                            </div>
+                            
+                            <form id="whatsapp-form" class="contact-form">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Tu nombre completo" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <input type="tel" id="telefono" name="telefono" class="form-control" placeholder="Tu teléfono" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <select id="paquete" name="paquete" class="form-control" required>
+                                            <option value="">Selecciona tu paquete preferido</option>
+                                            <option value="Express">Sesión Express (45 min - $1,000)</option>
+                                            <option value="Integral">Sesión Integral (1 hora - $1,200)</option>
+                                            <option value="Premium">Experiencia Premium (1.5 horas - $1,500)</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <select id="tipo" name="tipo" class="form-control" required>
+                                            <option value="">Tipo de masaje preferido</option>
+                                            <option value="Relajante">Quiromasaje Relajante</option>
+                                            <option value="Terapeutico">Quiromasaje Terapéutico</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <textarea id="comentarios" name="comentarios" class="form-control" rows="3" placeholder="¿Tienes alguna molestia específica o preferencia? (opcional)"></textarea>
+                                    </div>
+                                </div>
+                                
+                                <div class="text-center">
+                                    <button type="submit" class="btn-main btn-lg">
+                                        <i class="fa fa-whatsapp mr-2"></i>Enviar Solicitud por WhatsApp
+                                    </button>
+                                </div>
+                            </form>
                         </div>
-                        <div class="col-md-6 text-center mb-4">
-                            <h5 class="mb-3">¡Reserva tu experiencia!</h5>
+                    </div>
+                    
+                    <!-- Línea divisoria -->
+                    <div class="row">
+                        <div class="col-md-12 text-center mb-4">
+                            <div style="border-top: 1px solid rgba(255,255,255,0.3); margin: 20px 0;"></div>
+                            <p style="color: white;">O si prefieres, puedes pagar directamente</p>
                             <a href="https://mpago.li/2JmGRPh" class="btn-line btn-lg">
                                 <i class="fa fa-credit-card mr-2"></i>Pagar con Mercado Pago
                             </a>

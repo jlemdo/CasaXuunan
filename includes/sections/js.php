@@ -18,3 +18,8 @@ if (basename($_SERVER['SCRIPT_NAME']) === 'index.php') {
 if (basename($_SERVER['SCRIPT_NAME']) === 'rooms.php') {
     echo '<script src="' . BASE_URL . '/js/rooms.js"></script>';
 }
+?>
+<?php
+if (basename($_SERVER['SCRIPT_NAME']) === 'masajes.php') {
+    echo '<script src="' . BASE_URL . '/js/masajes.js"></script>';
+}

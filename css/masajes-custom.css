@@ -239,21 +239,52 @@
     display: inline-block;
 }
 
+
+.btn-line {
+    color: white !important;
+}
+
+.btn-line i {
+    color: white !important;
+}
+
 .btn-line:hover {
     background: #10ac84;
-    color: white;
+    color: white !important;
     text-decoration: none;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(16, 172, 132, 0.3);
 }
+
+.btn-line:hover i {
+    color: white !important;
+}
+
 
 .btn-lg {
     padding: 15px 40px;
     font-size: 16px;
 }
 
-/* Forzar anchos iguales SOLO para las tarjetas de precios de masajes */
-#section-main .row.g-4.mb-5 {
+/* Forzar anchos iguales para las tarjetas de servicios (2 columnas) */
+#section-main .row.g-4.mb-5.justify-content-center {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: stretch !important;
+    gap: 30px !important;
+}
+
+#section-main .row.g-4.mb-5.justify-content-center .col-md-5 {
+    width: calc(45% - 15px) !important;
+    max-width: calc(45% - 15px) !important;
+    min-width: calc(45% - 15px) !important;
+    flex: 0 0 calc(45% - 15px) !important;
+    margin: 0 !important;
+}
+
+/* Forzar anchos iguales para las tarjetas de precios (3 columnas) */
+#section-main .row.g-4.mb-5:not(.justify-content-center) {
     display: flex !important;
     flex-wrap: wrap !important;
     justify-content: space-between !important;
@@ -261,7 +292,7 @@
     gap: 20px !important;
 }
 
-#section-main .row.g-4.mb-5 .col-md-4 {
+#section-main .row.g-4.mb-5:not(.justify-content-center) .col-md-4 {
     width: calc(33.333% - 14px) !important;
     max-width: calc(33.333% - 14px) !important;
     min-width: calc(33.333% - 14px) !important;
@@ -332,6 +363,59 @@
 /* Fila 5 */
 #section-gallery .foto11 { grid-column: 1 / 2; grid-row: 5 / 6; }
 #section-gallery .foto12 { grid-column: 2 / 4; grid-row: 5 / 6; } /* Ocupa dos columnas */
+
+/* Estilos para formulario de contacto */
+.contact-form {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.contact-form .form-control {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(16, 172, 132, 0.3);
+    border-radius: 8px;
+    padding: 12px 15px;
+    font-size: 14px;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.contact-form .form-control::placeholder {
+    color: #666 !important;
+    opacity: 1;
+}
+
+.contact-form .form-control::-webkit-input-placeholder {
+    color: #666 !important;
+}
+
+.contact-form .form-control::-moz-placeholder {
+    color: #666 !important;
+    opacity: 1;
+}
+
+.contact-form .form-control:-ms-input-placeholder {
+    color: #666 !important;
+}
+
+.contact-form .form-control:focus {
+    background: rgba(255, 255, 255, 1);
+    border-color: #10ac84;
+    box-shadow: 0 0 0 2px rgba(16, 172, 132, 0.2);
+    outline: none;
+}
+
+.contact-form select.form-control {
+    cursor: pointer;
+}
+
+.contact-form textarea.form-control {
+    resize: vertical;
+    min-height: 80px;
+}
 
 /* Media Queries responsive - SOLO para galería */
 
