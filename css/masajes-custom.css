@@ -1,0 +1,357 @@
+/* Estilos personalizados para la página de masajes */
+
+/* Precios destacados */
+.price-highlight {
+    color: #10ac84;
+    font-weight: 600;
+    font-size: 16px;
+    background: rgba(16, 172, 132, 0.1);
+    padding: 4px 12px;
+    border-radius: 15px;
+    display: inline-block;
+}
+
+/* Cajas de precios - Siguiendo el estilo de rooms */
+.pricing-box {
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+    color: #333;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    height: 100%;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.pricing-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    background: rgba(255, 255, 255, 0.85);
+}
+
+.pricing-box.highlight {
+    background: rgba(255, 255, 255, 0.85);
+    border: 2px solid #10ac84;
+    box-shadow: 0 12px 30px rgba(16, 172, 132, 0.15);
+    transform: scale(1.02);
+}
+
+.pricing-box.highlight:hover {
+    transform: scale(1.02) translateY(-5px);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.pricing-box-header h5 {
+    color: #333;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.pricing-box .price {
+    margin: 20px 0;
+}
+
+.pricing-box .price .currency {
+    font-size: 18px;
+    vertical-align: top;
+    color: #10ac84;
+}
+
+.pricing-box .price .amount {
+    font-size: 48px;
+    font-weight: 700;
+    color: #10ac84;
+}
+
+.pricing-box .price .period {
+    font-size: 14px;
+    color: #666;
+    margin-left: 5px;
+}
+
+.pricing-box .duration {
+    background: #10ac84;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.pricing-box-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.pricing-box-content ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    color: #555;
+}
+
+.pricing-box-content ul li:last-child {
+    border-bottom: none;
+}
+
+/* Asegurar altura uniforme del contenido */
+.pricing-box-header {
+    flex: 0 0 auto;
+    margin-bottom: 20px;
+}
+
+.pricing-box-content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pricing-box-content ul {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: 120px;
+}
+
+/* Etiqueta de popular */
+.popular-tag {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    background: #ff6b6b;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Feature boxes - Estilo consistente con rooms */
+.feature-box.feature-box-style-3 {
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 15px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.feature-box.feature-box-style-3:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    background: rgba(255, 255, 255, 0.85);
+}
+
+.feature-box-icon {
+    margin-bottom: 20px;
+}
+
+.feature-box-icon i {
+    font-size: 48px;
+    color: #10ac84;
+}
+
+.feature-box-info h4 {
+    color: #333;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.feature-box-info p {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Testimonial - Estilo consistente */
+.testimonial {
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 15px;
+    padding: 40px 30px;
+    color: #333;
+    font-style: italic;
+    font-size: 18px;
+    position: relative;
+    border-left: 4px solid #10ac84;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.testimonial::before {
+    content: '"';
+    font-size: 60px;
+    color: #10ac84;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-family: serif;
+    opacity: 0.6;
+}
+
+/* Botones mejorados */
+.btn-main {
+    background: #10ac84;
+    border: 2px solid #10ac84;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-main:hover {
+    background: transparent;
+    color: #10ac84;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(16, 172, 132, 0.3);
+}
+
+.btn-line {
+    background: transparent;
+    border: 2px solid #10ac84;
+    color: #10ac84;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-line:hover {
+    background: #10ac84;
+    color: white;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(16, 172, 132, 0.3);
+}
+
+.btn-lg {
+    padding: 15px 40px;
+    font-size: 16px;
+}
+
+/* Forzar anchos iguales para las tarjetas de precios */
+.row.g-4.mb-5 {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: stretch !important;
+    gap: 20px !important;
+    margin-bottom: 3rem !important;
+}
+
+.row.g-4.mb-5 .col-md-4 {
+    width: calc(33.333% - 14px) !important;
+    max-width: calc(33.333% - 14px) !important;
+    min-width: calc(33.333% - 14px) !important;
+    flex: 0 0 calc(33.333% - 14px) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.row.g-4.mb-5 .pricing-box {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Estilos para la galería ampliada */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.gallery-grid .item {
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-grid .item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-grid .item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-grid .item:hover img {
+    transform: scale(1.1);
+}
+
+/* Espaciado responsivo */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 10px;
+    }
+    
+    .gallery-grid .item img {
+        height: 150px;
+    }
+    .row.g-4.mb-5 {
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+    
+    .row.g-4.mb-5 .col-md-4 {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 100% !important;
+        flex: 0 0 100% !important;
+    }
+    
+    .pricing-box {
+        margin-bottom: 20px;
+        min-height: 350px;
+    }
+    
+    .feature-box.feature-box-style-3 {
+        margin-bottom: 20px;
+    }
+    
+    .pricing-box .price .amount {
+        font-size: 36px;
+    }
+    
+    .testimonial {
+        padding: 20px 15px;
+        font-size: 16px;
+    }
+    
+    .pricing-box.highlight {
+        transform: none;
+    }
+    
+    .pricing-box.highlight:hover {
+        transform: translateY(-5px);
+    }
+}

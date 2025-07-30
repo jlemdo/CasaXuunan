@@ -44,6 +44,9 @@
                                         <a href="rooms.php" class="<?= $current_page === 'rooms.php' ? 'active-menu' : '' ?>">Habitaciones</a>
                                     </li>
                                     <li>
+                                        <a href="services.php" class="<?= $current_page === 'services.php' ? 'active-menu' : '' ?>">Servicios</a>
+                                    </li>
+                                    <li>
                                         <a href="gallery.php" class="<?= $current_page === 'gallery.php' ? 'active-menu' : '' ?>">Galería</a>
                                     </li>
                                     <li>
@@ -95,6 +98,7 @@
                                     <li><a href="index.php" class="<?= $current_page === 'index.php' ? 'active-menu' : '' ?>">Inicio</a></li>
                                     <li><a href="about.php" class="<?= $current_page === 'about.php' ? 'active-menu' : '' ?>">Nosotros</a></li>
                                     <li><a href="rooms.php" class="<?= $current_page === 'rooms.php' ? 'active-menu' : '' ?>">Habitaciones</a></li>
+                                    <li><a href="services.php" class="<?= $current_page === 'services.php' ? 'active-menu' : '' ?>">Servicios</a></li>
                                     <li><a href="gallery.php" class="<?= $current_page === 'gallery.php' ? 'active-menu' : '' ?>">Galería</a></li>
                                     <li><a href="contact.php" class="<?= $current_page === 'contact.php' ? 'active-menu' : '' ?>">Contacto</a></li>
                                 </ul>

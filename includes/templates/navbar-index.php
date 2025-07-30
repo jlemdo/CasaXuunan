@@ -34,6 +34,9 @@
                                         <a href="rooms.php" class="<?= $current_page === 'rooms.php' ? 'active-menu' : '' ?>">Habitaciones</a>
                                     </li>
                                     <li>
+                                        <a href="services.php" class="<?= $current_page === 'services.php' ? 'active-menu' : '' ?>">Servicios</a>
+                                    </li>
+                                    <li>
                                         <a href="gallery.php" class="<?= $current_page === 'gallery.php' ? 'active-menu' : '' ?>">Galería</a>
                                     </li>
                                     <li>

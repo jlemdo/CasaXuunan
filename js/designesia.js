@@ -550,6 +550,34 @@ jQuery(document).ready(function () {
     // --------------------------------------------------
     // owlCarousel
     // --------------------------------------------------
+
+        jQuery("#services-carousel").owlCarousel({
+            center: false,
+            items: 3,
+            loop: true,
+            margin: 30, // Menor margen para evitar espacios grandes en pantallas pequeñas
+            nav: false, // Agrega navegación si hay muchos ítems
+            dots: true,
+            autoplay: true,
+            autoplayTimeout: 3000, // 3 segundos, mejor para que se alcance a leer el contenido
+            autoplayHoverPause: true, // Pausa al pasar el mouse (buena experiencia UX)
+            autoHeight: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    margin: 10
+                },
+                600: {
+                    items: 2,
+                    margin: 20
+                },
+                992: {
+                    items: 3
+                }
+            }
+        });
+
+
     
     jQuery("#carousel-products").owlCarousel({
         center: false,
@@ -893,6 +921,8 @@ jQuery(document).ready(function () {
 			touchDrag:false,
 			margin:0,
          });
+    
+
 	
 	
 	 jQuery(".carousel-single-navi").owlCarousel({
@@ -1563,7 +1593,7 @@ jQuery(document).ready(function () {
 
         // carousel navigation
 
-         //
+         
         //  var owl = $('#carousel-rooms');
         //  owl.owlCarousel();
         //  $('.d-carousel .d-arrow-right').click(function() {
