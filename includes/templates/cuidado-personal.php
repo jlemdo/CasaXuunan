@@ -1,4 +1,4 @@
-<div id="background" data-bgimage="url(images/background/3.jpg) fixed"></div>
+<div id="background" data-bgimage="url(images/background/6.jpg) fixed"></div>
         <div id="content-absolute">
 
             <!-- subheader -->
