@@ -53,7 +53,7 @@
                                     </div>
 
                                     <!-- Gastronomía Yucateca -->
-                                    <div class="item">
+                                    <!-- <div class="item">
                                         <div class="card-image-1 de-offer">
                                             <a href="comida.php" class="d-text">
                                                 <div class="d-inner">
@@ -70,7 +70,7 @@
                                                 class="img-fluid"
                                                 alt="Comida tradicional Yucatán" />
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                     <!-- Masajes Relajantes -->
                                     <div class="item">
