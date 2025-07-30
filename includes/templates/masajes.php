@@ -29,7 +29,7 @@
                     <!-- Introducción y llamada a la acción principal -->
                     <div class="row mb-5">
                         <div class="col-md-8 offset-md-2 text-center">
-                            <p class="lead mb-4">Descubre la verdadera relajación con nuestros tratamientos de bienestar inspirados en tradiciones ancestrales mayas. Cada sesión está diseñada para renovar tu energía y liberar el estrés del viaje.</p>
+                            <p class="lead mb-4">Descubre la técnica del Quiromasaje, una experiencia manual profunda que actúa directamente sobre tu cuerpo para liberar tensiones y activar tu energía vital. Cada sesión se adapta a tus necesidades específicas para una sanación integral.</p>
                             <div class="mb-4">
                                 <a href="https://mpago.li/2JmGRPh" class="btn-main btn-lg">
                                     <i class="fa fa-calendar mr-2"></i>Reservar Ahora
@@ -41,31 +41,15 @@
                     <!-- Servicios en cards -->
                     <div class="row g-4 mb-5">
                         
-                        <!-- Temazcal Tradicional -->
+                        <!-- Quiromasaje Terapéutico -->
                         <div class="col-md-4">
                             <div class="feature-box feature-box-style-3 h-100">
                                 <div class="feature-box-icon">
-                                    <i class="fa fa-leaf id-color"></i>
+                                    <i class="fa fa-hand-paper-o id-color"></i>
                                 </div>
                                 <div class="feature-box-info">
-                                    <h4>Temazcal Tradicional</h4>
-                                    <p>Ceremonia ancestral de vapor herbal seguida de masaje relajante. Purifica cuerpo y mente para renovar tu energía vital.</p>
-                                    <div class="mt-3">
-                                        <span class="price-highlight">Desde $800 MXN</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Aromaterapia -->
-                        <div class="col-md-4">
-                            <div class="feature-box feature-box-style-3 h-100">
-                                <div class="feature-box-icon">
-                                    <i class="fa fa-heart id-color"></i>
-                                </div>
-                                <div class="feature-box-info">
-                                    <h4>Aromaterapia Relajante</h4>
-                                    <p>Aceites esenciales de lavanda, vainilla o hierbabuena. Terapeutas certificados con técnicas de presión suave y estiramientos.</p>
+                                    <h4>Quiromasaje Terapéutico</h4>
+                                    <p>Técnica manual profunda con amasamientos, fricciones y presiones adaptadas. Mejora la circulación, oxigena el tejido y alivia el dolor muscular.</p>
                                     <div class="mt-3">
                                         <span class="price-highlight">Desde $600 MXN</span>
                                     </div>
@@ -73,17 +57,33 @@
                             </div>
                         </div>
 
-                        <!-- Piedra Caliente -->
+                        <!-- Quiromasaje Relajante -->
+                        <div class="col-md-4">
+                            <div class="feature-box feature-box-style-3 h-100">
+                                <div class="feature-box-icon">
+                                    <i class="fa fa-heart id-color"></i>
+                                </div>
+                                <div class="feature-box-info">
+                                    <h4>Quiromasaje Relajante</h4>
+                                    <p>Movimientos suaves y envolventes para liberar tensiones emocionales. Ideal para soltar el estrés y reconectar con tu fuerza interior.</p>
+                                    <div class="mt-3">
+                                        <span class="price-highlight">Desde $550 MXN</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quiromasaje Deportivo -->
                         <div class="col-md-4">
                             <div class="feature-box feature-box-style-3 h-100">
                                 <div class="feature-box-icon">
                                     <i class="fa fa-fire id-color"></i>
                                 </div>
                                 <div class="feature-box-info">
-                                    <h4>Masaje con Piedra Caliente</h4>
-                                    <p>Piedras volcánicas en puntos clave. La tradición maya y el calor profundo alivian contracturas y mejoran la circulación.</p>
+                                    <h4>Quiromasaje Deportivo</h4>
+                                    <p>Técnica intensa con presiones profundas y movilizaciones específicas. Perfecto para recuperación muscular y mejorar el rendimiento físico.</p>
                                     <div class="mt-3">
-                                        <span class="price-highlight">Desde $750 MXN</span>
+                                        <span class="price-highlight">Desde $700 MXN</span>
                                     </div>
                                 </div>
                             </div>
@@ -94,7 +94,7 @@
                     <div class="row mb-5">
                         <div class="col-md-8 offset-md-2 text-center">
                             <blockquote class="testimonial">
-                                <p>"Un momento de cuidado personal es el mejor regalo que puedes darte en tu viaje."</p>
+                                <p>"El Quiromasaje me ayudó a liberar tensiones que llevaba años cargando. Una experiencia transformadora para mi cuerpo y mente."</p>
                             </blockquote>
                         </div>
                     </div>
@@ -103,77 +103,77 @@
                     <div class="row mb-5">
                         <div class="col-md-12">
                             <div class="text-center mb-4">
-                                <h3 class="id-color">Paquetes Wellness Especiales</h3>
-                                <p class="lead">Experiencias completas para una relajación profunda</p>
+                                <h3 class="id-color">Paquetes de Quiromasaje</h3>
+                                <p class="lead">Sesiones especializadas para tu bienestar integral</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="row g-4 mb-5">
-                        <!-- Mini Spa -->
+                        <!-- Sesión Express -->
                         <div class="col-md-4">
                             <div class="pricing-box featured">
                                 <div class="pricing-box-header">
-                                    <h5>Mini Spa</h5>
+                                    <h5>Sesión Express</h5>
                                     <div class="price">
                                         <span class="currency">$</span>
-                                        <span class="amount">900</span>
+                                        <span class="amount">550</span>
                                         <span class="period">MXN</span>
                                     </div>
-                                    <span class="duration">1 hora</span>
+                                    <span class="duration">45 minutos</span>
                                 </div>
                                 <div class="pricing-box-content">
                                     <ul>
-                                        <li>Masaje relajante (45 min)</li>
-                                        <li>Aromaterapia personalizada</li>
-                                        <li>Té herbal de cortesía</li>
+                                        <li>Quiromasaje relajante (40 min)</li>
+                                        <li>Técnicas de liberación de tensión</li>
+                                        <li>Evaluación postural básica</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Experiencia Completa -->
+                        <!-- Sesión Integral -->
                         <div class="col-md-4">
                             <div class="pricing-box featured highlight">
                                 <div class="pricing-box-header">
-                                    <h5>Experiencia Completa</h5>
+                                    <h5>Sesión Integral</h5>
                                     <div class="price">
                                         <span class="currency">$</span>
-                                        <span class="amount">1,500</span>
+                                        <span class="amount">800</span>
                                         <span class="period">MXN</span>
                                     </div>
-                                    <span class="duration">2 horas</span>
+                                    <span class="duration">90 minutos</span>
                                     <div class="popular-tag">Más Popular</div>
                                 </div>
                                 <div class="pricing-box-content">
                                     <ul>
-                                        <li>Temazcal tradicional (60 min)</li>
-                                        <li>Masaje maya con piedra caliente</li>
-                                        <li>Tiempo de relajación</li>
-                                        <li>Refrescos naturales</li>
+                                        <li>Quiromasaje terapéutico (75 min)</li>
+                                        <li>Evaluación postural completa</li>
+                                        <li>Técnicas de movilización articular</li>
+                                        <li>Plan de ejercicios personalizados</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Desintoxicación -->
+                        <!-- Tratamiento Premium -->
                         <div class="col-md-4">
                             <div class="pricing-box featured">
                                 <div class="pricing-box-header">
-                                    <h5>Desintoxicación Total</h5>
+                                    <h5>Tratamiento Premium</h5>
                                     <div class="price">
                                         <span class="currency">$</span>
-                                        <span class="amount">2,200</span>
+                                        <span class="amount">1,200</span>
                                         <span class="period">MXN</span>
                                     </div>
-                                    <span class="duration">3 horas</span>
+                                    <span class="duration">2 horas</span>
                                 </div>
                                 <div class="pricing-box-content">
                                     <ul>
-                                        <li>Temazcal ceremonial</li>
-                                        <li>Masaje de relajación profunda</li>
-                                        <li>Exfoliación corporal natural</li>
-                                        <li>Alimentación saludable</li>
+                                        <li>Quiromasaje deportivo (90 min)</li>
+                                        <li>Técnicas de liberación miofascial</li>
+                                        <li>Tratamiento de puntos gatillo</li>
+                                        <li>Seguimiento personalizado</li>
                                     </ul>
                                 </div>
                             </div>

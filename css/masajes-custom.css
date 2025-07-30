@@ -11,7 +11,7 @@
     display: inline-block;
 }
 
-/* Cajas de precios - Siguiendo el estilo de rooms */
+/* Cajas de precios - Estado exacto que tenías */
 .pricing-box {
     background: rgba(255, 255, 255, 0.75);
     border-radius: 15px;
@@ -139,7 +139,7 @@
     text-transform: uppercase;
 }
 
-/* Feature boxes - Estilo consistente con rooms */
+/* Feature boxes - Estado exacto que tenías */
 .feature-box.feature-box-style-3 {
     background: rgba(255, 255, 255, 0.75);
     border-radius: 15px;
@@ -178,7 +178,7 @@
     line-height: 1.6;
 }
 
-/* Testimonial - Estilo consistente */
+/* Testimonial - Estado exacto que tenías */
 .testimonial {
     background: rgba(255, 255, 255, 0.75);
     border-radius: 15px;
@@ -252,16 +252,16 @@
     font-size: 16px;
 }
 
-/* Forzar anchos iguales para las tarjetas de precios */
-.row.g-4.mb-5 {
+/* Forzar anchos iguales SOLO para las tarjetas de precios de masajes */
+#section-main .row.g-4.mb-5 {
     display: flex !important;
+    flex-wrap: wrap !important;
     justify-content: space-between !important;
     align-items: stretch !important;
     gap: 20px !important;
-    margin-bottom: 3rem !important;
 }
 
-.row.g-4.mb-5 .col-md-4 {
+#section-main .row.g-4.mb-5 .col-md-4 {
     width: calc(33.333% - 14px) !important;
     max-width: calc(33.333% - 14px) !important;
     min-width: calc(33.333% - 14px) !important;
@@ -270,97 +270,110 @@
     padding: 0 !important;
 }
 
-.row.g-4.mb-5 .pricing-box {
+#section-main .row.g-4.mb-5 .pricing-box {
     width: 100% !important;
-    max-width: 100% !important;
+    height: 100% !important;
 }
 
-/* Estilos para la galería ampliada */
-.gallery-grid {
+/* Galería de masajes - Funcionalidad de gallery.php + Mi estilo visual */
+#section-gallery .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas iguales - FUNCIONALIDAD */
+    grid-template-rows: auto;
+    gap: 20px; /* Espaciado más generoso - MI ESTILO */
     margin-top: 20px;
-    grid-auto-rows: 200px;
 }
 
-.gallery-grid .item {
-    border-radius: 10px;
+/* Items con mi estilo visual mejorado */
+#section-gallery .item {
+    position: relative;
     overflow: hidden;
+    border-radius: 15px; /* Más redondeado - MI ESTILO */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.1); /* Fondo sutil - MI ESTILO */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* Sombra más suave - MI ESTILO */
+}
+
+#section-gallery .item:hover {
+    transform: translateY(-5px) scale(1.02); /* Efectos hover elegantes - MI ESTILO */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
+
+#section-gallery .cover-image {
     width: 100%;
     height: 100%;
-}
-
-.gallery-grid .item:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-.gallery-grid .item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+    object-fit: cover; /* FUNCIONALIDAD para imágenes verticales */
     transition: transform 0.3s ease;
 }
 
-.gallery-grid .item:hover img {
-    transform: scale(1.1);
+#section-gallery .item:hover .cover-image {
+    transform: scale(1.1); /* Zoom suave en hover - MI ESTILO */
 }
 
-/* Manejo específico para imagen vertical foto3 - igual que en gallery.php */
-.gallery-grid .foto3 { 
-    grid-column: 3 / 4; 
-    grid-row: 1 / 3; 
+/* Configuración específica para cada imagen - IGUAL que gallery.php */
+/* Fila 1 */
+#section-gallery .foto1 { grid-column: 1 / 2; grid-row: 1 / 2; }
+#section-gallery .foto2 { grid-column: 2 / 3; grid-row: 1 / 2; }
+#section-gallery .foto3 { grid-column: 3 / 4; grid-row: 1 / 3; } /* Se extiende hasta la fila 2 */
+
+/* Fila 2 */
+#section-gallery .foto4 { grid-column: 1 / 2; grid-row: 2 / 3; }
+#section-gallery .foto5 { grid-column: 2 / 3; grid-row: 2 / 3; }
+
+/* Fila 3 */
+#section-gallery .foto6 { grid-column: 1 / 2; grid-row: 3 / 4; }
+#section-gallery .foto7 { grid-column: 2 / 4; grid-row: 3 / 4; } /* Ocupa dos columnas en la última fila */
+
+/* Fila 4 */
+#section-gallery .foto8 { grid-column: 1 / 2; grid-row: 4 / 5; }
+#section-gallery .foto9 { grid-column: 2 / 3; grid-row: 4 / 5; }
+#section-gallery .foto10 { grid-column: 3 / 4; grid-row: 4 / 5; }
+
+/* Fila 5 */
+#section-gallery .foto11 { grid-column: 1 / 2; grid-row: 5 / 6; }
+#section-gallery .foto12 { grid-column: 2 / 4; grid-row: 5 / 6; } /* Ocupa dos columnas */
+
+/* Media Queries responsive - SOLO para galería */
+
+/* Tablets y pantallas medianas */
+@media (max-width: 991px) {
+    #section-gallery .gallery-grid {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas medianas */
+    }
+
+    /* Ajuste de las imágenes para evitar superposiciones */
+    #section-gallery .foto1 { grid-column: 1 / 2; grid-row: 1 / 2; }
+    #section-gallery .foto2 { grid-column: 2 / 3; grid-row: 1 / 2; }
+    #section-gallery .foto3 { grid-column: 1 / 3; grid-row: 2 / 3; } /* Se extiende en dos columnas */
+    #section-gallery .foto4 { grid-column: 1 / 2; grid-row: 3 / 4; }
+    #section-gallery .foto5 { grid-column: 2 / 3; grid-row: 3 / 4; }
+    #section-gallery .foto6 { grid-column: 1 / 2; grid-row: 4 / 5; }
+    #section-gallery .foto7 { grid-column: 1 / 3; grid-row: 5 / 6; } /* Ocupa dos columnas al final */
+    #section-gallery .foto8 { grid-column: 1 / 2; grid-row: 6 / 7; }
+    #section-gallery .foto9 { grid-column: 2 / 3; grid-row: 6 / 7; }
+    #section-gallery .foto10 { grid-column: 1 / 3; grid-row: 7 / 8; } /* Ocupa dos columnas */
+    #section-gallery .foto11 { grid-column: 1 / 2; grid-row: 8 / 9; }
+    #section-gallery .foto12 { grid-column: 2 / 3; grid-row: 8 / 9; }
 }
 
-/* Espaciado responsivo */
-@media (max-width: 768px) {
-    .gallery-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 10px;
+/* Móviles y pantallas pequeñas */
+@media (max-width: 576px) {
+    #section-gallery .gallery-grid {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
     }
-    
-    .gallery-grid .item img {
-        height: 150px;
-    }
-    .row.g-4.mb-5 {
-        flex-direction: column !important;
-        gap: 20px !important;
-    }
-    
-    .row.g-4.mb-5 .col-md-4 {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 100% !important;
-        flex: 0 0 100% !important;
-    }
-    
-    .pricing-box {
-        margin-bottom: 20px;
-        min-height: 350px;
-    }
-    
-    .feature-box.feature-box-style-3 {
-        margin-bottom: 20px;
-    }
-    
-    .pricing-box .price .amount {
-        font-size: 36px;
-    }
-    
-    .testimonial {
-        padding: 20px 15px;
-        font-size: 16px;
-    }
-    
-    .pricing-box.highlight {
-        transform: none;
-    }
-    
-    .pricing-box.highlight:hover {
-        transform: translateY(-5px);
-    }
+
+    /* Cada imagen ocupa una fila completa en pantallas pequeñas */
+    #section-gallery .foto1 { grid-column: 1 / 2; grid-row: 1 / 2; }
+    #section-gallery .foto2 { grid-column: 1 / 2; grid-row: 2 / 3; }
+    #section-gallery .foto3 { grid-column: 1 / 2; grid-row: 3 / 4; }
+    #section-gallery .foto4 { grid-column: 1 / 2; grid-row: 4 / 5; }
+    #section-gallery .foto5 { grid-column: 1 / 2; grid-row: 5 / 6; }
+    #section-gallery .foto6 { grid-column: 1 / 2; grid-row: 6 / 7; }
+    #section-gallery .foto7 { grid-column: 1 / 2; grid-row: 7 / 8; }
+    #section-gallery .foto8 { grid-column: 1 / 2; grid-row: 8 / 9; }
+    #section-gallery .foto9 { grid-column: 1 / 2; grid-row: 9 / 10; }
+    #section-gallery .foto10 { grid-column: 1 / 2; grid-row: 10 / 11; }
+    #section-gallery .foto11 { grid-column: 1 / 2; grid-row: 11 / 12; }
+    #section-gallery .foto12 { grid-column: 1 / 2; grid-row: 12 / 13; }
+}
 }
