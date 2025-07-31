@@ -307,8 +307,8 @@
 /* MEJORAS ADICIONALES PARA TODAS LAS PANTALLAS      */
 /* ================================================== */
 
-/* Asegurar que las imágenes no se desborden */
-img {
+/* Asegurar que las imágenes no se desborden - EXCEPTO galería */
+img:not(.cover-image) {
     max-width: 100% !important;
     height: auto !important;
 }
