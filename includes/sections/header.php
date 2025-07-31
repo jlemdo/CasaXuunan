@@ -32,6 +32,10 @@
     <link rel="canonical" href="https://casaxuunan.com/">
     <meta name="robots" content="index, follow">
 
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
     <!-- CSS Files -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" id="bootstrap">
     <link rel="stylesheet" href="css/plugins.css" type="text/css">

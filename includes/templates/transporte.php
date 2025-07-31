@@ -229,62 +229,62 @@
                                         <div id="carousel-rooms" class="gallery-grid">
                                             <div class="item foto1">
                                                 <a href="images/gallery/gallery-item-1.jpg" class="image-popup-gallery">
-                                                    <img src="images/gallery/gallery-item-1.jpg" alt="Vehículos de transporte Casa Xuunan" class="cover-image">
+                                                    <img loading="lazy" src="images/gallery/gallery-item-1.jpg" alt="Vehículos de transporte Casa Xuunan" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto2">
                                                 <a href="images/gallery/gallery-item-2.jpg" class="image-popup-gallery">
-                                                    <img src="images/gallery/gallery-item-2.jpg" alt="Servicio de traslados premium" class="cover-image">
+                                                    <img loading="lazy" src="images/gallery/gallery-item-2.jpg" alt="Servicio de traslados premium" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto3">
                                                 <a href="images/gallery/gallery-item-3.jpg" class="image-popup-gallery">
-                                                    <img src="images/gallery/gallery-item-3.jpg" alt="Rutas hacia Casa Xuunan" class="cover-image">
+                                                    <img loading="lazy" src="images/gallery/gallery-item-3.jpg" alt="Rutas hacia Casa Xuunan" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto4">
                                                 <a href="images/gallery/gallery-item-4.jpg" class="image-popup-gallery">
-                                                    <img src="images/gallery/gallery-item-4.jpg" alt="Comodidad en el traslado" class="cover-image">
+                                                    <img loading="lazy" src="images/gallery/gallery-item-4.jpg" alt="Comodidad en el traslado" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto5">
                                                 <a href="images/gallery/gallery-item-5.jpg" class="image-popup-gallery">
-                                                    <img src="images/gallery/gallery-item-5.jpg" alt="Llegada a Casa Xuunan" class="cover-image">
+                                                    <img loading="lazy" src="images/gallery/gallery-item-5.jpg" alt="Llegada a Casa Xuunan" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto6">
                                                 <a href="images/gallery/gallery-item-6.jpg" class="image-popup-gallery">
-                                                    <img src="images/gallery/gallery-item-6.jpg" alt="Experiencia de viaje premium" class="cover-image">
+                                                    <img loading="lazy" src="images/gallery/gallery-item-6.jpg" alt="Experiencia de viaje premium" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto7">
                                                 <a href="images/gallery/gallery-item-7.jpg" class="image-popup-gallery">
-                                                    <img src="images/gallery/gallery-item-7.jpg" alt="Conexiones regionales" class="cover-image">
+                                                    <img loading="lazy" src="images/gallery/gallery-item-7.jpg" alt="Conexiones regionales" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto8">
                                                 <a href="images/room/1.jpg" class="image-popup-gallery">
-                                                    <img src="images/room/1.jpg" alt="Destino Casa Xuunan" class="cover-image">
+                                                    <img loading="lazy" src="images/room/1.jpg" alt="Destino Casa Xuunan" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto9">
                                                 <a href="images/room/2.jpg" class="image-popup-gallery">
-                                                    <img src="images/room/2.jpg" alt="Instalaciones de llegada" class="cover-image">
+                                                    <img loading="lazy" src="images/room/2.jpg" alt="Instalaciones de llegada" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto10">
                                                 <a href="images/room/3.jpg" class="image-popup-gallery">
-                                                    <img src="images/room/3.jpg" alt="Comodidades Casa Xuunan" class="cover-image">
+                                                    <img loading="lazy" src="images/room/3.jpg" alt="Comodidades Casa Xuunan" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto11">
                                                 <a href="images/slider/1.jpg" class="image-popup-gallery">
-                                                    <img src="images/slider/1.jpg" alt="Ambiente Casa Xuunan" class="cover-image">
+                                                    <img loading="lazy" src="images/slider/1.jpg" alt="Ambiente Casa Xuunan" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto12">
                                                 <a href="images/slider/2.jpg" class="image-popup-gallery">
-                                                    <img src="images/slider/2.jpg" alt="Vista panorámica destino" class="cover-image">
+                                                    <img loading="lazy" src="images/slider/2.jpg" alt="Vista panorámica destino" class="cover-image">
                                                 </a>
                                             </div>
                                         </div>

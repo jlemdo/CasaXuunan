@@ -243,62 +243,62 @@
                                         <div id="carousel-rooms" class="gallery-grid">
                                             <div class="item foto1">
                                                 <a href="images/gallery/gallery-item-1.jpg" class="image-popup-gallery">
-                                                    <img src="images/gallery/gallery-item-1.jpg" alt="Ambiente relajante Casa Xuunan" class="cover-image">
+                                                    <img loading="lazy" src="images/gallery/gallery-item-1.jpg" alt="Ambiente relajante Casa Xuunan" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto2">
                                                 <a href="images/gallery/gallery-item-2.jpg" class="image-popup-gallery">
-                                                    <img src="images/gallery/gallery-item-2.jpg" alt="Espacios de bienestar" class="cover-image">
+                                                    <img loading="lazy" src="images/gallery/gallery-item-2.jpg" alt="Espacios de bienestar" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto3">
                                                 <a href="images/gallery/gallery-item-3.jpg" class="image-popup-gallery">
-                                                    <img src="images/gallery/gallery-item-3.jpg" alt="Instalaciones Casa Xuunan" class="cover-image">
+                                                    <img loading="lazy" src="images/gallery/gallery-item-3.jpg" alt="Instalaciones Casa Xuunan" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto4">
                                                 <a href="images/gallery/gallery-item-4.jpg" class="image-popup-gallery">
-                                                    <img src="images/gallery/gallery-item-4.jpg" alt="Zona de relajación" class="cover-image">
+                                                    <img loading="lazy" src="images/gallery/gallery-item-4.jpg" alt="Zona de relajación" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto5">
                                                 <a href="images/gallery/gallery-item-5.jpg" class="image-popup-gallery">
-                                                    <img src="images/gallery/gallery-item-5.jpg" alt="Ambiente spa Casa Xuunan" class="cover-image">
+                                                    <img loading="lazy" src="images/gallery/gallery-item-5.jpg" alt="Ambiente spa Casa Xuunan" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto6">
                                                 <a href="images/gallery/gallery-item-6.jpg" class="image-popup-gallery">
-                                                    <img src="images/gallery/gallery-item-6.jpg" alt="Experiencias de bienestar" class="cover-image">
+                                                    <img loading="lazy" src="images/gallery/gallery-item-6.jpg" alt="Experiencias de bienestar" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto7">
                                                 <a href="images/gallery/gallery-item-7.jpg" class="image-popup-gallery">
-                                                    <img src="images/gallery/gallery-item-7.jpg" alt="Espacio de relajación" class="cover-image">
+                                                    <img loading="lazy" src="images/gallery/gallery-item-7.jpg" alt="Espacio de relajación" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto8">
                                                 <a href="images/room/1.jpg" class="image-popup-gallery">
-                                                    <img src="images/room/1.jpg" alt="Habitación de masajes" class="cover-image">
+                                                    <img loading="lazy" src="images/room/1.jpg" alt="Habitación de masajes" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto9">
                                                 <a href="images/room/2.jpg" class="image-popup-gallery">
-                                                    <img src="images/room/2.jpg" alt="Suite de bienestar" class="cover-image">
+                                                    <img loading="lazy" src="images/room/2.jpg" alt="Suite de bienestar" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto10">
                                                 <a href="images/room/3.jpg" class="image-popup-gallery">
-                                                    <img src="images/room/3.jpg" alt="Espacio de relajación" class="cover-image">
+                                                    <img loading="lazy" src="images/room/3.jpg" alt="Espacio de relajación" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto11">
                                                 <a href="images/slider/1.jpg" class="image-popup-gallery">
-                                                    <img src="images/slider/1.jpg" alt="Casa Xuunan ambiente" class="cover-image">
+                                                    <img loading="lazy" src="images/slider/1.jpg" alt="Casa Xuunan ambiente" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto12">
                                                 <a href="images/slider/2.jpg" class="image-popup-gallery">
-                                                    <img src="images/slider/2.jpg" alt="Instalaciones premium" class="cover-image">
+                                                    <img loading="lazy" src="images/slider/2.jpg" alt="Instalaciones premium" class="cover-image">
                                                 </a>
                                             </div>
                                         </div>

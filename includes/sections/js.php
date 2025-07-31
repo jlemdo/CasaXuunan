@@ -34,3 +34,8 @@ if (basename($_SERVER['SCRIPT_NAME']) === 'cuidado-personal.php') {
     echo '<script src="' . BASE_URL . '/js/cuidado-personal.js"></script>';
 }
 ?>
+<?php
+if (basename($_SERVER['SCRIPT_NAME']) === 'transporte.php') {
+    echo '<script src="' . BASE_URL . '/js/transporte.js"></script>';
+}
+?>
