@@ -10,11 +10,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const nombre = document.getElementById('nombre').value.trim();
             const telefono = document.getElementById('telefono').value.trim();
             const paquete = document.getElementById('paquete').value;
+            const personas = document.getElementById('personas').value;
             const fecha = document.getElementById('fecha').value;
+            const edad = document.getElementById('edad').value;
             const comentarios = document.getElementById('comentarios').value.trim();
 
             // Validar campos requeridos
-            if (!nombre || !telefono || !paquete || !fecha) {
+            if (!nombre || !telefono || !paquete || !personas || !fecha || !edad) {
                 alert('Por favor completa todos los campos requeridos.');
                 return;
             }
@@ -24,10 +26,12 @@ document.addEventListener('DOMContentLoaded', function() {
             mensaje += `👤 *Nombre:* ${nombre}\n`;
             mensaje += `📱 *Teléfono:* ${telefono}\n`;
             mensaje += `🏞️ *Tour Seleccionado:* ${paquete}\n`;
+            mensaje += `👥 *Número de personas:* ${personas}\n`;
             mensaje += `📅 *Fecha Deseada:* ${fecha}\n`;
+            mensaje += `👶 *Rango de edad:* ${edad}\n`;
 
             if (comentarios) {
-                mensaje += `💬 *Comentarios:* ${comentarios}\n`;
+                mensaje += `💬 *Información adicional:* ${comentarios}\n`;
             }
 
             mensaje += `\n¿Podrían confirmarme disponibilidad y detalles? ¡Gracias!`;
@@ -64,16 +68,18 @@ function mostrarModalInstrucciones(callback) {
                     <h3>✅ ¡Tu solicitud de tour será enviada por WhatsApp!</h3>
                 </div>
                 <div class="modal-body">
-                    <h4>🎒 IMPORTANTE - Para tu aventura en Yucatán:</h4>
+                    <h4>🎒 IMPORTANTE - Para tu aventura maya:</h4>
                     <ul class="instrucciones-list">
-                        <li>👟 Usa calzado cómodo y cerrado</li>
-                        <li>🧢 Lleva sombrero o gorra y gafas de sol</li>
-                        <li>🧴 Aplica protector solar biodegradable</li>
-                        <li>💧 Mantente hidratado, trae una botella de agua</li>
-                        <li>📸 No olvides tu cámara para capturar los momentos</li>
-                        <li>💵 Efectivo para posibles compras o propinas</li>
+                        <li>👟 Usa calzado cómodo y cerrado (evita sandalias)</li>
+                        <li>🏊‍♀️ Trae traje de baño y toalla para los cenotes</li>
+                        <li>🧢 Sombrero, gorra y gafas de sol obligatorios</li>
+                        <li>🧴 Protector solar biodegradable (OBLIGATORIO en cenotes)</li>
+                        <li>💧 Botella de agua reutilizable (incluimos refill)</li>
+                        <li>📸 Cámara impermeable o funda para cenotes</li>
+                        <li>💵 Efectivo para artesanías locales y propinas</li>
+                        <li>🩱 Cambio de ropa seca para después de cenotes</li>
                     </ul>
-                    <p class="final-message">🌴 ¡Nos vemos pronto para explorar juntos las maravillas de Yucatán!</p>
+                    <p class="final-message">🏛️ ¡Te esperamos para vivir la auténtica experiencia maya en Yucatán!</p>
                 </div>
                 <div class="modal-footer">
                     <button id="continuar-whatsapp" class="btn-modal">

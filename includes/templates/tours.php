@@ -187,13 +187,29 @@
                                         </select>
                                     </div>
                                     <div class="col-md-6 mb-3">
+                                        <input type="number" id="personas" name="personas" class="form-control" placeholder="Número de personas" min="1" max="15" required>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
                                         <input type="date" id="fecha" name="fecha" class="form-control" placeholder="Fecha deseada" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <select id="edad" name="edad" class="form-control" required>
+                                            <option value="">Rango de edad general del grupo</option>
+                                            <option value="18-30 años">18-30 años</option>
+                                            <option value="31-50 años">31-50 años</option>
+                                            <option value="51-65 años">51-65 años</option>
+                                            <option value="65+ años">65+ años</option>
+                                            <option value="Grupo mixto">Grupo mixto/familiar</option>
+                                        </select>
                                     </div>
                                 </div>
                                 
                                 <div class="row">
                                     <div class="col-md-12 mb-3">
-                                        <textarea id="comentarios" name="comentarios" class="form-control" rows="3" placeholder="¿Número de personas o algún interés especial? (opcional)"></textarea>
+                                        <textarea id="comentarios" name="comentarios" class="form-control" rows="3" placeholder="Mencionanos si hay personas con movilidad reducida, alergias alimentarias, o algún interés especial (opcional)"></textarea>
                                     </div>
                                 </div>
                                 

@@ -112,6 +112,26 @@
                                         </div>
                                     </div>
 
+                                    <!-- Traslados -->
+                                    <div class="item">
+                                        <div class="card-image-1 de-offer">
+                                            <a href="transporte.php" class="d-text">
+                                                <div class="d-inner">
+                                                    <h3>Traslados Privados</h3>
+                                                    <p>
+                                                        Viaja cómodo y seguro desde/hacia Cancún, Mérida y Tulum 
+                                                        con nuestro servicio de transporte personalizado.
+                                                    </p>
+                                                    <h5 class="d-tag">Transporte</h5>
+                                                </div>
+                                            </a>
+                                            <img
+                                                src="images/offer/5.png"
+                                                class="img-fluid"
+                                                alt="Traslados en Casa Xuunan" />
+                                        </div>
+                                    </div>
+
                                 </div>
 
                                 <!-- paginación (opcional) -->

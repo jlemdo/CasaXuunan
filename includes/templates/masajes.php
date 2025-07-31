@@ -31,8 +31,8 @@
                         <div class="col-md-8 offset-md-2 text-center">
                             <p class="lead mb-4">Descubre la técnica del Quiromasaje en el ambiente tranquilo de Casa Xuunan. Una experiencia manual profunda que actúa directamente sobre tu cuerpo para liberar tensiones y activar tu energía vital, complementada con el confort de nuestras instalaciones naturales.</p>
                             <div class="mb-4">
-                                <a href="https://mpago.li/2JmGRPh" class="btn-main btn-lg">
-                                    <i class="fa fa-calendar mr-2"></i>Reservar Ahora
+                                <a href="#section-packages" class="btn-main btn-lg">
+                                    <i class="fa fa-hand-paper-o mr-2"></i>Ver Paquetes
                                 </a>
                             </div>
                         </div>
@@ -78,7 +78,7 @@
                     </div>
 
                     <!-- Paquetes Especiales -->
-                    <div class="row mb-5">
+                    <div id="section-packages" class="row mb-5">
                         <div class="col-md-12">
                             <div class="text-center mb-4">
                                 <h3 class="id-color">Paquetes de Quiromasaje</h3>
@@ -194,10 +194,49 @@
                                         </select>
                                     </div>
                                 </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <select id="intensidad" name="intensidad" class="form-control" required>
+                                            <option value="">Intensidad preferida</option>
+                                            <option value="Suave">Suave - Relajación profunda</option>
+                                            <option value="Media">Media - Equilibrio perfecto</option>
+                                            <option value="Fuerte">Fuerte - Liberación de tensiones</option>
+                                            <option value="Personalizada">Personalizada según necesidades</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <select id="zonas" name="zonas" class="form-control" required>
+                                            <option value="">Zonas de mayor atención</option>
+                                            <option value="Cuello y hombros">Cuello y hombros</option>
+                                            <option value="Espalda completa">Espalda completa</option>
+                                            <option value="Espalda baja">Zona lumbar</option>
+                                            <option value="Piernas y pies">Piernas y pies</option>
+                                            <option value="Cuerpo completo">Cuerpo completo equilibrado</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <select id="condiciones" name="condiciones" class="form-control" required>
+                                            <option value="">¿Tienes alguna condición médica?</option>
+                                            <option value="Sin condiciones">No tengo condiciones especiales</option>
+                                            <option value="Lesiones recientes">Lesiones o cirugías recientes</option>
+                                            <option value="Embarazo">Embarazo</option>
+                                            <option value="Problemas circulatorios">Problemas circulatorios</option>
+                                            <option value="Alergias">Alergias a aceites/productos</option>
+                                            <option value="Otras condiciones">Otras (especificar en comentarios)</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <input type="date" id="fecha" name="fecha" class="form-control" placeholder="Fecha deseada" required>
+                                    </div>
+                                </div>
                                 
                                 <div class="row">
                                     <div class="col-md-12 mb-3">
-                                        <textarea id="comentarios" name="comentarios" class="form-control" rows="3" placeholder="¿Tienes alguna molestia específica o preferencia? (opcional)"></textarea>
+                                        <textarea id="comentarios" name="comentarios" class="form-control" rows="3" placeholder="Detalla lesiones específicas, alergias, o cualquier información adicional que debamos conocer (opcional)"></textarea>
                                     </div>
                                 </div>
                                 

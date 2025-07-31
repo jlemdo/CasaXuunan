@@ -1,4 +1,4 @@
-// JavaScript específico para la página de masajes
+// JavaScript específico para la página de transporte
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('whatsapp-form');
     
@@ -9,36 +9,32 @@ document.addEventListener('DOMContentLoaded', function() {
             // Obtener los valores del formulario
             const nombre = document.getElementById('nombre').value.trim();
             const telefono = document.getElementById('telefono').value.trim();
-            const paquete = document.getElementById('paquete').value;
-            const tipo = document.getElementById('tipo').value;
-            const intensidad = document.getElementById('intensidad').value;
-            const zonas = document.getElementById('zonas').value;
-            const condiciones = document.getElementById('condiciones').value;
+            const ruta = document.getElementById('ruta').value;
+            const pasajeros = document.getElementById('pasajeros').value;
             const fecha = document.getElementById('fecha').value;
+            const hora = document.getElementById('hora').value;
             const comentarios = document.getElementById('comentarios').value.trim();
             
             // Validar campos requeridos
-            if (!nombre || !telefono || !paquete || !tipo || !intensidad || !zonas || !condiciones || !fecha) {
+            if (!nombre || !telefono || !ruta || !pasajeros || !fecha || !hora) {
                 alert('Por favor completa todos los campos requeridos.');
                 return;
             }
             
             // Construir el mensaje para WhatsApp
-            let mensaje = `¡Hola! Me interesa agendar un masaje en Casa Xuunan.\n\n`;
+            let mensaje = `¡Hola! Necesito un traslado con Casa Xuunan.\n\n`;
             mensaje += `👤 *Nombre:* ${nombre}\n`;
             mensaje += `📱 *Teléfono:* ${telefono}\n`;
-            mensaje += `💆‍♀️ *Paquete:* ${paquete}\n`;
-            mensaje += `✨ *Tipo de masaje:* ${tipo}\n`;
-            mensaje += `💪 *Intensidad:* ${intensidad}\n`;
-            mensaje += `🎯 *Zonas de atención:* ${zonas}\n`;
-            mensaje += `🏥 *Condiciones médicas:* ${condiciones}\n`;
-            mensaje += `📅 *Fecha deseada:* ${fecha}\n`;
+            mensaje += `🚗 *Ruta:* ${ruta}\n`;
+            mensaje += `👥 *Pasajeros:* ${pasajeros}\n`;
+            mensaje += `📅 *Fecha:* ${fecha}\n`;
+            mensaje += `🕐 *Hora:* ${hora}\n`;
             
             if (comentarios) {
                 mensaje += `💬 *Información adicional:* ${comentarios}\n`;
             }
             
-            mensaje += `\n¿Podrían confirmarme disponibilidad? ¡Gracias!`;
+            mensaje += `\n¿Podrían confirmarme disponibilidad y detalles del servicio? ¡Gracias!`;
             
             // Codificar el mensaje para URL
             const mensajeCodificado = encodeURIComponent(mensaje);
@@ -72,33 +68,16 @@ function mostrarModalInstrucciones(callback) {
                     <h3>✅ ¡Tu solicitud será enviada por WhatsApp!</h3>
                 </div>
                 <div class="modal-body">
-                    <h4>📋 IMPORTANTE - Para tu sesión de Quiromasaje:</h4>
-                    <div class="instrucciones-sections">
-                        <h5>🤏 ANTES de tu sesión:</h5>
-                        <ul class="instrucciones-list">
-                            <li>🚿 Toma una ducha antes de venir (obligatorio)</li>
-                            <li>👕 Usa ropa cómoda y fácil de quitar</li>
-                            <li>🍽️ Evita comidas pesadas 2-3 horas antes</li>
-                            <li>🚫 No consumas alcohol 24 horas antes</li>
-                            <li>💧 Mantente bien hidratado/a</li>
-                            <li>⏰ Llega 10 minutos antes para relajarte</li>
-                        </ul>
-                        <h5>💆‍♀️ DURANTE la sesión:</h5>
-                        <ul class="instrucciones-list">
-                            <li>🗣️ Comunica cualquier molestia o preferencia</li>
-                            <li>🌡️ Avisa si la temperatura no es cómoda</li>
-                            <li>💪 Indica si la presión es demasiado fuerte o suave</li>
-                            <li>🧘‍♀️ Respira profundo y relájate completamente</li>
-                        </ul>
-                        <h5>✨ DESPUÉS del masaje:</h5>
-                        <ul class="instrucciones-list">
-                            <li>💧 Toma mucha agua para eliminar toxinas</li>
-                            <li>🛁 Evita duchas muy calientes las siguientes 2 horas</li>
-                            <li>🏃‍♀️ Evita ejercicio intenso el resto del día</li>
-                            <li>😴 Descansa y permite que tu cuerpo se recupere</li>
-                        </ul>
-                    </div>
-                    <p class="final-message">🙏 ¡Te esperamos en Casa Xuunan para tu experiencia de sanación y bienestar!</p>
+                    <h4>📋 IMPORTANTE - Para tu traslado:</h4>
+                    <ul class="instrucciones-list">
+                        <li>🛂 Ten a la mano tu identificación oficial</li>
+                        <li>✈️ Si es aeropuerto, proporciona número de vuelo</li>
+                        <li>📱 Mantén tu teléfono disponible el día del viaje</li>
+                        <li>🧳 Confirma cantidad de equipaje si es excesivo</li>
+                        <li>⏰ Te contactaremos 1 día antes para confirmar</li>
+                        <li>🚗 El conductor te esperará con un letrero personalizado</li>
+                    </ul>
+                    <p class="final-message">🚐 ¡Nos vemos pronto para llevarte cómodamente a tu destino!</p>
                 </div>
                 <div class="modal-footer">
                     <button id="continuar-whatsapp" class="btn-modal">

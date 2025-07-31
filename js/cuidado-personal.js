@@ -11,10 +11,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const telefono = document.getElementById('telefono').value.trim();
             const paquete = document.getElementById('paquete').value;
             const fecha = document.getElementById('fecha').value;
+            const esmalte = document.getElementById('esmalte').value;
+            const alergias = document.getElementById('alergias').value;
             const comentarios = document.getElementById('comentarios').value.trim();
 
             // Validar campos requeridos
-            if (!nombre || !telefono || !paquete || !fecha) {
+            if (!nombre || !telefono || !paquete || !fecha || !esmalte || !alergias) {
                 alert('Por favor completa todos los campos requeridos.');
                 return;
             }
@@ -25,9 +27,11 @@ document.addEventListener('DOMContentLoaded', function() {
             mensaje += `📱 *Teléfono:* ${telefono}\n`;
             mensaje += `💅 *Servicio:* ${paquete}\n`;
             mensaje += `📅 *Fecha Deseada:* ${fecha}\n`;
+            mensaje += `✨ *Tipo de esmalte:* ${esmalte}\n`;
+            mensaje += `⚠️ *Alergias:* ${alergias}\n`;
 
             if (comentarios) {
-                mensaje += `💬 *Comentarios:* ${comentarios}\n`;
+                mensaje += `💬 *Información adicional:* ${comentarios}\n`;
             }
 
             mensaje += `\n¿Podrían confirmarme disponibilidad? ¡Gracias!`;
@@ -61,15 +65,24 @@ function mostrarModalInstrucciones(callback) {
                     <h3>✅ ¡Tu cita será confirmada por WhatsApp!</h3>
                 </div>
                 <div class="modal-body">
-                    <h4>✨ IMPORTANTE - Para tu servicio de Spa:</h4>
-                    <ul class="instrucciones-list">
-                        <li>💅 Si tienes esmalte de gel, avísanos con anticipación.</li>
-                        <li>👣 Para pedicura, usa sandalias o calzado abierto.</li>
-                        <li>🧴 Evita aplicar cremas o aceites antes de tu cita.</li>
-                        <li>⏰ Llega 10 minutos antes para elegir tu esmalte con calma.</li>
-                        <li>🧘‍♀️ Ven lista para relajarte y disfrutar.</li>
-                    </ul>
-                    <p class="final-message">💖 ¡Te esperamos en Casa Xuunan para consentirte!</p>
+                    <h4>✨ IMPORTANTE - Para tu cita de belleza:</h4>
+                    <div class="instrucciones-sections">
+                        <h5>🤏 ANTES de venir:</h5>
+                        <ul class="instrucciones-list">
+                            <li>💅 Si tienes esmalte de gel actual, avísanos para programar tiempo extra</li>
+                            <li>👣 Para pedicura, usa sandalias o calzado fácil de quitar</li>
+                            <li>🧴 Evita cremas o aceites en manos/pies 2 horas antes</li>
+                            <li>⏰ Llega 10 minutos antes para relajarte y elegir colores</li>
+                        </ul>
+                        <h5>💅 DESPUÉS del servicio:</h5>
+                        <ul class="instrucciones-list">
+                            <li>⏱️ Espera 30 min antes de tocar superficies rugosas</li>
+                            <li>🚫 Evita agua caliente las primeras 2 horas</li>
+                            <li>🧤 Usa guantes para tareas domésticas</li>
+                            <li>✨ Aplica aceite de cutícula cada 3 días</li>
+                        </ul>
+                    </div>
+                    <p class="final-message">💖 ¡Te esperamos en Casa Xuunan para consentirte como te mereces!</p>
                 </div>
                 <div class="modal-footer">
                     <button id="continuar-whatsapp" class="btn-modal">
