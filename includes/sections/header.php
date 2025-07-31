@@ -51,4 +51,7 @@
     
     <!-- Custom styles for services -->
     <link rel="stylesheet" href="css/masajes-custom.css" type="text/css">
+    
+    <!-- Responsive styles for services pages -->
+    <link rel="stylesheet" href="css/services-responsive.css" type="text/css">
 </head>
