@@ -107,17 +107,27 @@ function processNewReservation($data) {
         return;
     }
     
-    // Extraer información de la reserva
+    // Extraer información de la reserva (formato Hospitable)
+    $guest_first = $data['guest']['first_name'] ?? '';
+    $guest_last = $data['guest']['last_name'] ?? '';
+    $guest_name = trim($guest_first . ' ' . $guest_last) ?: 'Huésped sin nombre';
+    
+    $property_name = $data['properties'][0]['name'] ?? 'Propiedad desconocida';
+    
+    // Extraer totales de financials
+    $total_amount = $data['financials']['guest']['total_price']['amount'] ?? 0;
+    $total_amount = $total_amount / 100; // Hospitable envía en centavos
+    
     $reservation = [
         'id' => $data['id'] ?? 'N/A',
-        'guest_name' => $data['guest']['name'] ?? 'Huésped sin nombre',
-        'property_name' => $data['property']['name'] ?? 'Propiedad desconocida',
-        'check_in' => $data['check_in_date'] ?? '',
-        'check_out' => $data['check_out_date'] ?? '',
-        'guests' => $data['guest_count'] ?? 1,
-        'total' => $data['total_amount'] ?? 0,
-        'currency' => $data['currency'] ?? 'MXN',
-        'channel' => $data['booking_channel'] ?? 'Directo'
+        'guest_name' => $guest_name,
+        'property_name' => $property_name,
+        'check_in' => $data['check_in'] ?? '',
+        'check_out' => $data['check_out'] ?? '',
+        'guests' => $data['guests']['total'] ?? 1,
+        'total' => $total_amount,
+        'currency' => $data['financials']['currency'] ?? 'MXN',
+        'channel' => ucfirst($data['platform'] ?? 'Directo')
     ];
     
     // Generar mensaje
@@ -202,11 +212,12 @@ function processNewMessage($data) {
         return;
     }
     
+    // Extraer datos del mensaje (formato Hospitable)
     $message_data = [
-        'guest_name' => $data['guest']['name'] ?? 'Huésped desconocido',
-        'property_name' => $data['property']['name'] ?? 'Propiedad desconocida',
-        'message_content' => $data['message'] ?? 'Mensaje vacío',
-        'channel' => $data['channel'] ?? 'Desconocido',
+        'guest_name' => $data['sender']['full_name'] ?? 'Huésped desconocido',
+        'property_name' => 'Casa Xu\'unan', // Por defecto
+        'message_content' => $data['body'] ?? 'Mensaje vacío',
+        'channel' => ucfirst($data['platform'] ?? 'Desconocido'),
         'received_at' => date('H:i')
     ];
     
@@ -225,12 +236,17 @@ function processNewReview($data) {
         return;
     }
     
+    // Extraer datos de la reseña (formato Hospitable)
+    $guest_first = $data['guest']['first_name'] ?? '';
+    $guest_last = $data['guest']['last_name'] ?? '';
+    $guest_name = trim($guest_first . ' ' . $guest_last) ?: 'Huésped anónimo';
+    
     $review_data = [
-        'guest_name' => $data['guest']['name'] ?? 'Huésped anónimo',
-        'property_name' => $data['property']['name'] ?? 'Propiedad desconocida',
-        'rating' => $data['rating'] ?? 0,
-        'comment' => substr($data['comment'] ?? 'Sin comentario', 0, 100),
-        'platform' => $data['platform'] ?? 'Desconocida'
+        'guest_name' => $guest_name,
+        'property_name' => $data['property']['name'] ?? 'Casa Xu\'unan',
+        'rating' => $data['public']['rating'] ?? 0,
+        'comment' => substr($data['public']['review'] ?? 'Sin comentario', 0, 100),
+        'platform' => ucfirst($data['platform'] ?? 'Desconocida')
     ];
     
     $message = generateNewReviewAlert($review_data);
