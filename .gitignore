@@ -25,3 +25,62 @@ build/
 .vscode/
 *.sublime-project
 *.sublime-workspace
+
+# Archivo .gitignore - Copia este contenido y renómbralo a .gitignore
+
+# ========================================
+# ARCHIVOS SENSIBLES - NUNCA SUBIR A GIT
+# ========================================
+
+# Archivo de configuración con tokens y keys
+.env
+
+# Archivos originales con datos sensibles
+whatsapp_config.php
+api_proxy.php
+
+# Base de datos con información privada
+*.db
+whatsapp_logs.db
+
+# Logs que pueden contener datos sensibles
+*.log
+whatsapp_send.log
+webhook_debug.log
+
+# ========================================
+# ARCHIVOS DEL SISTEMA
+# ========================================
+
+# Archivos temporales
+*.tmp
+*.temp
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Carpetas temporales
+uploads/
+temp/
+cache/
+
+# Archivos de backup
+*.bak
+*.backup
+
+# ========================================
+# ARCHIVOS DE DESARROLLO
+# ========================================
+
+# Archivos de IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node modules (si usas npm)
+node_modules/
+
+# Vendor de Composer (si usas Composer)
+vendor/
