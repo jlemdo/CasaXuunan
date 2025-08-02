@@ -92,7 +92,7 @@ $event_config = [
         'time_restriction' => true // Solo horario laboral
     ],
     'message.created' => [
-        'active' => true,
+        'active' => false,
         'priority' => 'high',
         'contacts' => ['manager', 'manager_2', 'recepcion'],
         'time_restriction' => false
