@@ -177,7 +177,7 @@ function sendDailySummary() {
     
     try {
         // Usar tu api_proxy.php existente para obtener reservas del día
-        $reservations_url = "http://" . $_SERVER['HTTP_HOST'] . "/api_proxy.php?endpoint=reservations?check_in_date=" . $today;
+        $reservations_url = "http://" . $_SERVER['HTTP_HOST'] . "/api_proxy_secure.php?endpoint=reservations?check_in_date=" . $today;
         $reservations_response = file_get_contents($reservations_url);
         $reservations_data = json_decode($reservations_response, true);
         

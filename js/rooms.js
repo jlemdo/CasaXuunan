@@ -43,7 +43,7 @@ async function fetchData(endpoint) {
     const roomContainer = document.getElementById('room-container');
 
     try {
-        const response = await fetch(`api_proxy.php?endpoint=${endpoint}`);
+        const response = await fetch(`api_proxy_secure.php?endpoint=${endpoint}`);
         if (!response.ok) {
             throw new Error(`Error al obtener datos: ${response.statusText}`);
         }
@@ -220,7 +220,7 @@ function createRoomContent(property, images, isAvailable) {
 // Función para obtener imágenes de una propiedad
 async function fetchImages(propertyId) {
     try {
-        const response = await fetch(`api_proxy.php?endpoint=properties/${propertyId}/images`);
+        const response = await fetch(`api_proxy_secure.php?endpoint=properties/${propertyId}/images`);
         if (!response.ok) {
             throw new Error(`Error al obtener imágenes: ${response.statusText}`);
         }
@@ -239,7 +239,7 @@ async function checkAvailability(propertyId) {
     const formattedDate = today.toISOString().split('T')[0];
 
     try {
-        const response = await fetch(`api_proxy.php?endpoint=properties/${propertyId}/calendar?start_date=${formattedDate}&end_date=${formattedDate}`);
+        const response = await fetch(`api_proxy_secure.php?endpoint=properties/${propertyId}/calendar?start_date=${formattedDate}&end_date=${formattedDate}`);
         if (!response.ok) {
             throw new Error('Error al verificar la disponibilidad.');
         }

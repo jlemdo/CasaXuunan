@@ -28,5 +28,6 @@
     <!-- Subheader close -->
 
 <!-- Integración de la API de Hospitable -->
+<script src="js/rooms.js"></script>
 
 

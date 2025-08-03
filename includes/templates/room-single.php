@@ -95,7 +95,7 @@ $propertyId = $_GET['id'];
                 const bookingIframeElement = document.getElementById('booking-iframe');
 
                 // Obtener detalles de la propiedad
-                const propertyResponse = await fetch(`api_proxy.php?endpoint=properties/${propertyId}`);
+                const propertyResponse = await fetch(`api_proxy_secure.php?endpoint=properties/${propertyId}`);
                 if (!propertyResponse.ok) {
                     throw new Error('Error al cargar los datos de la habitación.');
                 }
@@ -168,7 +168,7 @@ $propertyId = $_GET['id'];
                 roomFacilitiesElement.innerHTML = facilitiesList;
 
                 // Obtener imágenes de la propiedad
-                const imagesResponse = await fetch(`api_proxy.php?endpoint=properties/${propertyId}/images`);
+                const imagesResponse = await fetch(`api_proxy_secure.php?endpoint=properties/${propertyId}/images`);
                 if (!imagesResponse.ok) {
                     throw new Error('Error al cargar las imágenes de la propiedad.');
                 }
