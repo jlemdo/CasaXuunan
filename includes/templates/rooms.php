@@ -27,7 +27,6 @@
     </section>
     <!-- Subheader close -->
 
-<!-- Integración de la API de Hospitable -->
-<script src="js/rooms.js"></script>
+<!-- El script rooms.js se carga automáticamente desde js.php -->
 
 
