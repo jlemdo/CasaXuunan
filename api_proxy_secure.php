@@ -1,6 +1,12 @@
 <?php
-// api_proxy_secure.php - VERSIÓN SEGURA
+// api_proxy_secure.php - VERSIÓN SEGURA CON LOGGING
 // ESTA es la versión que subes al servidor
+
+// Habilitar logging de errores (desactivar en producción)
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+ini_set('log_errors', 1);
+ini_set('error_log', __DIR__ . '/api_errors.log');
 
 // Cargar variables de entorno
 function loadEnv($filePath) {
@@ -78,14 +84,32 @@ $response = curl_exec($ch);
 // Manejo de errores cURL
 if ($response === false) {
     $error_msg = curl_error($ch);
+    $error_details = [
+        'curl_error' => $error_msg,
+        'curl_errno' => curl_errno($ch),
+        'endpoint' => $endpoint,
+        'timestamp' => date('Y-m-d H:i:s')
+    ];
+    error_log('CURL Error: ' . json_encode($error_details));
     http_response_code(500);
-    echo json_encode(['error' => 'Error en la solicitud cURL: ' . $error_msg]);
+    echo json_encode(['error' => 'Error en la solicitud cURL: ' . $error_msg, 'details' => $error_details]);
     curl_close($ch);
     exit;
 }
 
 // Obtener el código de estado HTTP de la respuesta
 $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+// Log para códigos de error
+if ($http_code >= 400) {
+    $error_details = [
+        'http_code' => $http_code,
+        'endpoint' => $endpoint,
+        'response' => substr($response, 0, 500),
+        'timestamp' => date('Y-m-d H:i:s')
+    ];
+    error_log('HTTP Error: ' . json_encode($error_details));
+}
 
 // Cerrar cURL
 curl_close($ch);
