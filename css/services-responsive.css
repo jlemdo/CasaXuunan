@@ -308,16 +308,9 @@
 /* ================================================== */
 
 /* Asegurar que las imágenes no se desborden - EXCEPTO galería y habitaciones */
-img:not(.cover-image):not(.de-room img) {
+img:not(.cover-image):not(.de-room .d-image img):not(.de-room .d-details img) {
     max-width: 100% !important;
     height: auto !important;
-}
-
-/* Mantener el diseño específico para imágenes de habitaciones */
-.de-room img {
-    width: 100% !important;
-    height: 397px !important;
-    object-fit: cover !important;
 }
 
 /* Mejorar legibilidad en móviles */
