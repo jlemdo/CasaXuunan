@@ -272,18 +272,18 @@
                                                 </a>
                                             </div>
                                             <div class="item foto8">
-                                                <a href="images/room/1.jpg" class="image-popup-gallery">
-                                                    <img loading="lazy" src="images/room/1.jpg" alt="Instalaciones de Casa Xuunan" class="cover-image">
+                                                <a href="images/background/7.jpg" class="image-popup-gallery">
+                                                    <img loading="lazy" src="images/background/7.jpg" alt="Instalaciones de Casa Xuunan" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto9">
-                                                <a href="images/room/2.jpg" class="image-popup-gallery">
-                                                    <img loading="lazy" src="images/room/2.jpg" alt="Suite de bienestar y cuidado" class="cover-image">
+                                                <a href="images/background/8.jpg" class="image-popup-gallery">
+                                                    <img loading="lazy" src="images/background/8.jpg" alt="Suite de bienestar y cuidado" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto10">
-                                                <a href="images/room/3.jpg" class="image-popup-gallery">
-                                                    <img loading="lazy" src="images/room/3.jpg" alt="Espacio de relajación y belleza" class="cover-image">
+                                                <a href="images/background/9.jpg" class="image-popup-gallery">
+                                                    <img loading="lazy" src="images/background/9.jpg" alt="Espacio de relajación y belleza" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto11">

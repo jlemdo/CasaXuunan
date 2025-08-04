@@ -263,18 +263,18 @@
                                                 </a>
                                             </div>
                                             <div class="item foto8">
-                                                <a href="images/room/1.jpg" class="image-popup-gallery">
-                                                    <img loading="lazy" src="images/room/1.jpg" alt="Destino Casa Xuunan" class="cover-image">
+                                                <a href="images/background/4.jpg" class="image-popup-gallery">
+                                                    <img loading="lazy" src="images/background/4.jpg" alt="Destino Casa Xuunan" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto9">
-                                                <a href="images/room/2.jpg" class="image-popup-gallery">
-                                                    <img loading="lazy" src="images/room/2.jpg" alt="Instalaciones de llegada" class="cover-image">
+                                                <a href="images/background/5.jpg" class="image-popup-gallery">
+                                                    <img loading="lazy" src="images/background/5.jpg" alt="Instalaciones de llegada" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto10">
-                                                <a href="images/room/3.jpg" class="image-popup-gallery">
-                                                    <img loading="lazy" src="images/room/3.jpg" alt="Comodidades Casa Xuunan" class="cover-image">
+                                                <a href="images/background/6.jpg" class="image-popup-gallery">
+                                                    <img loading="lazy" src="images/background/6.jpg" alt="Comodidades Casa Xuunan" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto11">

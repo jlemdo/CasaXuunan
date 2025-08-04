@@ -304,18 +304,18 @@
                                                 </a>
                                             </div>
                                             <div class="item foto8">
-                                                <a href="images/room/1.jpg" class="image-popup-gallery">
-                                                    <img loading="lazy" src="images/room/1.jpg" alt="Habitación de masajes" class="cover-image">
+                                                <a href="images/background/1.jpg" class="image-popup-gallery">
+                                                    <img loading="lazy" src="images/background/1.jpg" alt="Sala de masajes" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto9">
-                                                <a href="images/room/2.jpg" class="image-popup-gallery">
-                                                    <img loading="lazy" src="images/room/2.jpg" alt="Suite de bienestar" class="cover-image">
+                                                <a href="images/background/2.jpg" class="image-popup-gallery">
+                                                    <img loading="lazy" src="images/background/2.jpg" alt="Espacio de bienestar" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto10">
-                                                <a href="images/room/3.jpg" class="image-popup-gallery">
-                                                    <img loading="lazy" src="images/room/3.jpg" alt="Espacio de relajación" class="cover-image">
+                                                <a href="images/background/3.jpg" class="image-popup-gallery">
+                                                    <img loading="lazy" src="images/background/3.jpg" alt="Ambiente de relajación" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto11">

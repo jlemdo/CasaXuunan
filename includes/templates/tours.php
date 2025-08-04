@@ -88,37 +88,39 @@
                     </div>
 
                     <div class="row g-4 mb-5">
-                        <!-- Tour Esencial -->
+                        <!-- TOUR 1 -->
                         <div class="col-md-4">
                             <div class="pricing-box featured">
                                 <div class="pricing-box-header">
-                                    <h5>Escapada a Chichén Itzá</h5>
+                                    <h5>Maravilla Maya y Cenotes Sagrados</h5>
                                     <div class="price">
                                         <span class="currency">$</span>
-                                        <span class="amount">1,800</span>
+                                        <span class="amount">2,000</span>
                                         <span class="period">MXN / persona</span>
                                     </div>
-                                    <span class="duration">Medio día</span>
+                                    <span class="duration">Día completo</span>
                                 </div>
                                 <div class="pricing-box-content">
                                     <ul>
-                                        <li>Visita a Chichén Itzá</li>
+                                        <li>Chichén Itzá</li>
+                                        <li>Cenote Tsukán</li>
+                                        <li>Cenote Ik-Kil</li>
+                                        <li>Cenote Yokdzonot</li>
                                         <li>Guía certificado</li>
-                                        <li>Transporte redondo desde el hotel</li>
-                                        <li>Entradas incluidas</li>
+                                        <li>Transporte incluido</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Tour Integral -->
+                        <!-- TOUR 2 -->
                         <div class="col-md-4">
                             <div class="pricing-box featured highlight">
                                 <div class="pricing-box-header">
-                                    <h5>Corazón de Yucatán</h5>
+                                    <h5>Aventura Arqueológica y Cenotes</h5>
                                     <div class="price">
                                         <span class="currency">$</span>
-                                        <span class="amount">2,500</span>
+                                        <span class="amount">1,900</span>
                                         <span class="period">MXN / persona</span>
                                     </div>
                                     <span class="duration">Día completo</span>
@@ -126,33 +128,37 @@
                                 </div>
                                 <div class="pricing-box-content">
                                     <ul>
-                                        <li>Visita a Ek Balam</li>
-                                        <li>Nado en Cenote X'canche</li>
-                                        <li>Comida tradicional en comunidad maya</li>
-                                        <li>Transporte y guía certificado</li>
+                                        <li>Ek Balam</li>
+                                        <li>Cenote Xcanche</li>
+                                        <li>Cenote Palomitas</li>
+                                        <li>Cenote Xcanaaltun</li>
+                                        <li>Guía certificado</li>
+                                        <li>Transporte incluido</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Experiencia Premium -->
+                        <!-- TOUR 3 -->
                         <div class="col-md-4">
                             <div class="pricing-box featured">
                                 <div class="pricing-box-header">
-                                    <h5>Inmersión Maya Total</h5>
+                                    <h5>Magia Rosa y Arqueología</h5>
                                     <div class="price">
                                         <span class="currency">$</span>
-                                        <span class="amount">3,200</span>
+                                        <span class="amount">2,500</span>
                                         <span class="period">MXN / persona</span>
                                     </div>
-                                    <span class="duration">Día completo extendido</span>
+                                    <span class="duration">Día completo</span>
                                 </div>
                                 <div class="pricing-box-content">
                                     <ul>
-                                        <li>Visita a Cobá y paseo en triciclo</li>
-                                        <li>Nado en cenote privado</li>
-                                        <li>Taller de gastronomía yucateca</li>
-                                        <li>Transporte privado y guía personal</li>
+                                        <li>Las Coloradas</li>
+                                        <li>Río Lagartos</li>
+                                        <li>Ek Balam</li>
+                                        <li>Cenote Xcanche</li>
+                                        <li>Guía certificado</li>
+                                        <li>Transporte incluido</li>
                                     </ul>
                                 </div>
                             </div>
@@ -181,9 +187,9 @@
                                     <div class="col-md-6 mb-3">
                                         <select id="paquete" name="paquete" class="form-control" required>
                                             <option value="">Selecciona tu tour preferido</option>
-                                            <option value="Chichen Itza">Escapada a Chichén Itzá ($1,800)</option>
-                                            <option value="Corazon de Yucatan">Corazón de Yucatán ($2,500)</option>
-                                            <option value="Inmersion Maya">Inmersión Maya Total ($3,200)</option>
+                                            <option value="Maravilla Maya y Cenotes Sagrados">Maravilla Maya y Cenotes Sagrados ($2,000)</option>
+                                            <option value="Aventura Arqueologica y Cenotes">Aventura Arqueológica y Cenotes ($1,900)</option>
+                                            <option value="Magia Rosa y Arqueologia">Magia Rosa y Arqueología ($2,500)</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6 mb-3">
@@ -277,18 +283,18 @@
                                                 </a>
                                             </div>
                                             <div class="item foto8">
-                                                <a href="images/room/1.jpg" class="image-popup-gallery">
-                                                    <img loading="lazy" src="images/room/1.jpg" alt="Habitación de masajes" class="cover-image">
+                                                <a href="images/slider/1.jpg" class="image-popup-gallery">
+                                                    <img loading="lazy" src="images/slider/1.jpg" alt="Tours en Casa Xuunan" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto9">
-                                                <a href="images/room/2.jpg" class="image-popup-gallery">
-                                                    <img loading="lazy" src="images/room/2.jpg" alt="Suite de bienestar" class="cover-image">
+                                                <a href="images/slider/2.jpg" class="image-popup-gallery">
+                                                    <img loading="lazy" src="images/slider/2.jpg" alt="Experiencias de turismo" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto10">
-                                                <a href="images/room/3.jpg" class="image-popup-gallery">
-                                                    <img loading="lazy" src="images/room/3.jpg" alt="Espacio de relajación" class="cover-image">
+                                                <a href="images/slider/3.jpg" class="image-popup-gallery">
+                                                    <img loading="lazy" src="images/slider/3.jpg" alt="Aventuras en Yucatán" class="cover-image">
                                                 </a>
                                             </div>
                                             <div class="item foto11">
