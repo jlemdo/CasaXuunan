@@ -7412,8 +7412,8 @@ section.no-padding {
 .loader::after {
   content: "";
   display: block;
-  width: 200px;
-  height: 200px;
+  width: 190px;
+  height: 190px;
   background-image: url("../images/logo/Color-Vertical.png");
   background-size: contain;
   background-repeat: no-repeat;
@@ -9947,6 +9947,24 @@ header .d-extra{
   .d-room-details .de-flex-col:last-child{
     margin-bottom: 0;
   }
+  /* Slider mobile - hacer que las imágenes cubran toda la pantalla */
+  #supersized li {
+    height: 100vh !important;
+    min-height: 100vh !important;
+  }
+
+  #supersized img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+
+  /* Ocultar puntos de navegación del slider en mobile */
+  ul#slide-list {
+    display: none !important;
+  }
+
   #slidecaption h2{
     font-size: 9vw;
   }
@@ -10841,7 +10859,8 @@ header.logo-smaller #logo img.logo {
 
 /* Fondo del overlay - usar fondo sólido para mejor visibilidad */
 #menu-overlay {
-    background: rgba(20, 20, 20, 0.98) !important;
+    background: #eddd98 url(../images/logo/patron.png) center no-repeat !important;
+    background-size: cover !important;
     z-index: 99999 !important;
 }
 
@@ -10881,7 +10900,7 @@ header.logo-smaller #logo img.logo {
 }
 
 #menu-overlay #mo-menu li a {
-    color: #ffffff !important;
+    color: #312b24 !important;
     display: block !important;
     opacity: 1 !important;
     visibility: visible !important;
@@ -10890,12 +10909,47 @@ header.logo-smaller #logo img.logo {
     font-weight: 600 !important;
     padding: 15px 0 !important;
     text-transform: uppercase !important;
-    letter-spacing: 5px !important;
+    letter-spacing: 4px !important;
     font-family: "Montserrat", sans-serif !important;
+    transition: color 0.3s ease !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
 }
 
 #menu-overlay #mo-menu li a:hover {
-    color: var(--primary-color-1) !important;
+    color: #ef914b !important;
+}
+
+/* Marcar la página activa en el menú mobile - solo en blanco */
+#menu-overlay #mo-menu li a.active-menu {
+    color: #ffffff !important;
+}
+
+/* Logo del menu overlay - cambiar a Color-Vertical.png y más grande */
+#menu-overlay .mo-nav img.logo {
+    content: url(../images/logo/Color-Vertical.png) !important;
+    max-height: 180px !important;
+    width: auto !important;
+}
+
+@media only screen and (max-width: 768px) {
+    #menu-overlay .mo-nav img.logo {
+        max-height: 150px !important;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    #menu-overlay .mo-nav img.logo {
+        max-height: 130px !important;
+    }
+}
+
+/* Ajuste solo para pantallas MUY pequeñas donde "Habitaciones" se corta */
+@media only screen and (max-width: 360px) {
+    #menu-overlay #mo-menu li a {
+        font-size: 36px !important;
+        letter-spacing: 2px !important;
+    }
 }
 
 /* Botón de cerrar - más visible */
@@ -11057,14 +11111,20 @@ html.no-scroll {
         min-height: 110px;
     }
 
-    /* Agregar padding al contenido para que no quede debajo del navbar */
-    #wrapper {
-        padding-top: 110px !important;
+
+    /* Bajar el subheader para que no quede debajo del navbar */
+    #subheader {
+        margin-top: 110px;
     }
 
-    /* Si el header es transparent, no agregar padding extra */
-    body:has(header.transparent) #wrapper {
-        padding-top: 0 !important;
+    /* Aumentar tamaño de h4 en mobile para mejor visibilidad */
+    #subheader h4 {
+        font-size: 24px !important;
+    }
+
+    /* h1 también más grande en mobile */
+    #subheader h1 {
+        font-size: 36px !important;
     }
 
     /* Sobrescribir display block de columnas */

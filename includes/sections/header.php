@@ -47,11 +47,16 @@
     <link rel='stylesheet' href='js/supersized/theme/supersized.shutter.css' type='text/css'>
 
     <!-- Color scheme -->
-    <link rel="stylesheet" href="css/colors/green.css" type="text/css" id="colors">
+    <link rel="stylesheet" href="css/colors/xuunan.css" type="text/css" id="colors">
     
     <!-- Custom styles for services -->
     <link rel="stylesheet" href="css/masajes-custom.css" type="text/css">
     
     <!-- Responsive styles for services pages -->
     <link rel="stylesheet" href="css/services-responsive.css" type="text/css">
+
+    <?php if (basename($_SERVER['SCRIPT_NAME']) === 'index.php'): ?>
+    <!-- Reviews Section Styles (solo para index) -->
+    <link rel="stylesheet" href="css/reviews-section.css" type="text/css">
+    <?php endif; ?>
 </head>

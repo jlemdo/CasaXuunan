@@ -1,0 +1,199 @@
+/* ================================================== */
+/* Casa Xuunan Custom Color Scheme
+/* Paleta de colores personalizada del diseñador
+/* ================================================== */
+
+* {
+  /* Rosa Tradición - Inspirado en textiles mayas y fachadas históricas */
+  --primary-color-1: #e2bad4;
+  --primary-color-1-rgb: 226, 186, 212;
+
+  /* Arena Dorada - Luz del sol sobre piedras de Valladolid */
+  --primary-color-2: #eddd98;
+  --primary-color-2-rgb: 237, 221, 152;
+
+  /* Naranja Sol & Energía - Atardeceres de Valladolid */
+  --primary-color-3: #ef914b;
+  --primary-color-3-rgb: 239, 145, 75;
+
+  /* Color principal por defecto (Rosa Tradición) */
+  --primary-color: #e2bad4;
+  --primary-color-rgb: 226, 186, 212;
+}
+
+/* Links */
+a {
+  color: #ef914b;
+}
+
+a:hover {
+  color: #e2bad4;
+}
+
+a:active {
+  color: #ef914b;
+}
+
+/* Botones principales */
+.de-navbar-left a:hover,
+.de-navbar-right a:hover {
+  background: #ef914b;
+  border-color: #ef914b;
+}
+
+/* Botón Reservas - estilo slider invertido */
+.btn-main,
+.btn-mobile-reservas {
+  background: #ef914b !important;
+  border: 2px solid #ef914b !important;
+  color: #ffffff !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: 3px !important;
+  text-transform: uppercase !important;
+  padding: 10px 30px !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
+  display: inline-block !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+
+.btn-main:before {
+  display: none !important;
+}
+
+.btn-main:hover,
+.btn-main:active,
+.btn-main:focus,
+.btn-mobile-reservas:hover {
+  background: transparent !important;
+  border: 2px solid #ef914b !important;
+  color: #ef914b !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+
+/* Menú desktop - hover limpio con underline */
+@media only screen and (min-width: 993px) {
+  header #mainmenu > li {
+    margin: 0 5px;
+  }
+
+  header #mainmenu > li > a {
+    position: relative;
+    background: none !important;
+    transition: color 0.3s ease;
+    padding: 20px 15px !important;
+    display: inline-block;
+  }
+
+  header #mainmenu > li > a::after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    right: 15px;
+    width: auto;
+    height: 2px;
+    background: #ef914b;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+    display: block !important;
+  }
+
+  header #mainmenu > li > a:hover {
+    color: #ef914b !important;
+    background: none !important;
+  }
+
+  header #mainmenu > li > a:hover::after,
+  header #mainmenu > li.active > a::after {
+    transform: scaleX(1);
+  }
+
+  header #mainmenu > li.active > a {
+    color: #ef914b !important;
+    background: none !important;
+  }
+
+  /* Asegurar que el último elemento también tenga la línea */
+  header #mainmenu > li:last-child > a::after {
+    display: block !important;
+  }
+}
+
+
+/* Elementos con color primario */
+.text-light h1,
+.text-light h2,
+.text-light h3,
+.text-light .de_count,
+.pricing-2 .pricing-box .price,
+.de-team-list .team-desc .small-border,
+.de_tab.tab_steps .de_nav li span,
+.de_testi blockquote:before {
+  color: #ef914b;
+}
+
+/* Fondos y bordes */
+.de_light .de-navbar-left a:hover,
+.de_light .de-navbar-right a:hover,
+.owl-arrow span:hover,
+button.active,
+button.owl-next:hover,
+button.owl-prev:hover,
+.de-navbar-left a:hover,
+.de-navbar-right a:hover,
+.box-number.square .num,
+.box-icon.border.circle i,
+.box-icon.border.square i,
+input[type="submit"]:hover {
+  border-color: #ef914b;
+}
+
+.de_tab.tab_steps .de_nav li.active span,
+.de_tab.tab_steps .de_nav li.active span:hover,
+.switch .slider:before,
+#mainmenu li.active ul li a:hover,
+button.owl-next:hover,
+button.owl-prev:hover,
+.de-team-list:hover .small-border {
+  background: #ef914b;
+}
+
+/* Iconos y decoraciones */
+.de_light i.icon_circle,
+.teaser-text .teaser-icon,
+.de_count,
+.crumb li:last-child a {
+  background: #ef914b;
+}
+
+/* Lista y elementos especiales */
+ul.ul-style-2 li:before {
+  content: "\f00c";
+  font-family: "FontAwesome";
+  font-style: normal;
+  padding-right: 10px;
+  color: #ef914b;
+}
+
+/* Overlay y efectos hover */
+.de-room:hover .d-text h3 {
+  color: #ef914b;
+}
+
+/* Botón secundario con arena dorada */
+.btn-secondary {
+  background: #eddd98;
+  border-color: #eddd98;
+  color: #312b24;
+}
+
+.btn-secondary:hover {
+  background: #e2bad4;
+  border-color: #e2bad4;
+  color: #ffffff;
+}

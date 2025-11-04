@@ -16,7 +16,7 @@ jQuery(function($){
         },
         {
             image: 'images/slider/3.jpg',
-            title: "<div class='slider-text'><h2 class='wow fadeInUp'>Tranquilidad</h2><a class='btn-line wow fadeInUp' data-wow-delay='.3s' href='about.php'><span>Nuestras Instalaciones</span></a></div>",
+            title: "<div class='slider-text'><h2 class='wow fadeInUp'>Paz</h2><a class='btn-line wow fadeInUp' data-wow-delay='.3s' href='about.php'><span>Nuestras Instalaciones</span></a></div>",
             thumb: '',
             url: ''
         }

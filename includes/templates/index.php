@@ -15,6 +15,14 @@
 
 <div id="slidecaption"></div>
 
+<!-- Botón sutil dentro del slider -->
+<div class="reviews-scroll-btn-wrapper">
+    <a href="#reviews-section" class="reviews-scroll-btn">
+        <span class="scroll-text">Ver Comentarios</span>
+        <span class="scroll-arrow">↓</span>
+    </a>
+</div>
+
 <div class="container">
     <div id="prevthumb"></div>
     <div id="nextthumb"></div>
@@ -46,8 +54,5 @@
 </div>
 
 </div>
-
-
-
-
+<!-- content close -->
 

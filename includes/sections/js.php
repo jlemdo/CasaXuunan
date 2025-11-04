@@ -13,6 +13,7 @@ if (basename($_SERVER['SCRIPT_NAME']) === 'index.php') {
     echo '<script src="' . BASE_URL . '/js/supersized/js/supersized.3.2.7.js"></script>';
     echo '<script src="' . BASE_URL . '/js/supersized/theme/supersized.shutter.min.js"></script>';
     echo '<script src="' . BASE_URL . '/js/index.js"></script>';
+    echo '<script src="' . BASE_URL . '/js/reviews-section.js"></script>';
 }
 ?>
 <?php
