@@ -7,12 +7,12 @@
                 <div class="row">
                     <div class="col-md-12">
 
-                        <div class="de-flex">
+                        <div class="de-flex de-flex-mobile-vertical">
                             <div class="de-flex-col">
                                 <!-- logo begin -->
                                 <div id="logo">
                                     <a href="index.php">
-                                        <img class="logo" src="images/logo.png" alt="">
+                                        <img class="logo" src="images/logo/blanco.png" alt="Casa Xuunan">
                                     </a>
                                 </div>
                                 <!-- logo close -->
@@ -45,11 +45,11 @@
                                 </ul>
                             </div>
 
-                            <div class="de-flex-col">
+                            <div class="de-flex-col de-flex-col-mobile">
                                 <div class="d-extra">
-                                    <a class="btn-main" href="/rooms.php">Reservas</a>
+                                    <a class="btn-main btn-mobile-reservas" href="/rooms.php">Reservas</a>
                                 </div>
-                                <div id="menu-btn"></div>
+                                <div id="menu-btn" class="menu-btn-mobile-overlay"></div>
                             </div>
 
                         </div>
@@ -73,7 +73,7 @@
                         <div class="pt80 pb80">
                             <div class="mo-nav text-center">
                                 <a href="index.php">
-                                    <img class="logo" src="images/logo.png" alt="">
+                                    <img class="logo" src="images/logo/blanco.png" alt="Casa Xuunan">
                                 </a>
 
                                 <div class="spacer-single"></div>

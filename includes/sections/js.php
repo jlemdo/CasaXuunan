@@ -4,6 +4,7 @@
 <!-- Archivos Javascript Comunes -->
 <script src="<?php echo BASE_URL; ?>/js/plugins.js"></script>
 <script src="<?php echo BASE_URL; ?>/js/designesia.js"></script>
+<script src="<?php echo BASE_URL; ?>/js/custom-mobile-menu.js"></script>
 
 
 <!-- Supersized (solo para la página index) -->
