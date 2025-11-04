@@ -1,20 +1,61 @@
 <?php
-// webhook_receiver.php - Recibe webhooks de Hospitable y procesa eventos
+/**
+ * Webhook Receiver para Hospitable API v2
+ * Recibe y procesa eventos de Hospitable con seguridad mejorada
+ * @version 2.0
+ */
 
 require_once 'whatsapp_config_secure.php';
 require_once 'whatsapp_sender.php';
 require_once 'message_templates.php';
+require_once __DIR__ . '/config/rate_limiter.php';
 
 // Configurar headers para JSON
 header('Content-Type: application/json');
 
-// Función para log de debug
-function logDebug($message, $data = null) {
-    $log_entry = date('Y-m-d H:i:s') . " - " . $message;
-    if ($data) {
-        $log_entry .= " - Data: " . json_encode($data);
+// Rate limiting por IP
+$rateLimiter = new RateLimiter(__DIR__ . '/cache/rate_limit', 30, 60); // 30 requests por minuto
+$clientIp = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+$rateCheck = $rateLimiter->check($clientIp);
+
+if (!$rateCheck['allowed']) {
+    http_response_code(429);
+    header('X-RateLimit-Limit: ' . $rateCheck['limit']);
+    header('X-RateLimit-Remaining: 0');
+    header('X-RateLimit-Reset: ' . $rateCheck['reset']);
+    echo json_encode(['error' => 'Demasiadas solicitudes. Intenta más tarde.']);
+    exit;
+}
+
+// Headers de rate limit
+header('X-RateLimit-Limit: ' . $rateCheck['limit']);
+header('X-RateLimit-Remaining: ' . $rateCheck['remaining']);
+header('X-RateLimit-Reset: ' . $rateCheck['reset']);
+
+/**
+ * Log de debug mejorado
+ * @param string $message Mensaje a loggear
+ * @param mixed $data Datos adicionales (opcional)
+ * @param string $level Nivel de log: INFO, WARNING, ERROR
+ */
+function logDebug($message, $data = null, $level = 'INFO') {
+    $logDir = __DIR__ . '/logs';
+    if (!is_dir($logDir)) {
+        mkdir($logDir, 0755, true);
     }
-    error_log($log_entry . "\n", 3, __DIR__ . '/webhook_debug.log');
+
+    $log_entry = sprintf(
+        "[%s] [%s] %s",
+        date('Y-m-d H:i:s'),
+        $level,
+        $message
+    );
+
+    if ($data) {
+        $log_entry .= " - Data: " . json_encode($data, JSON_UNESCAPED_UNICODE);
+    }
+
+    error_log($log_entry . "\n", 3, $logDir . '/webhook_debug.log');
 }
 
 // Verificación de webhook (para configuración inicial)

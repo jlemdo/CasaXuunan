@@ -109,33 +109,42 @@ if (!empty($apiKey)) {
 echo "<h2>4. Probando api_proxy_secure.php</h2>";
 if (file_exists('api_proxy_secure.php')) {
     echo "✅ Archivo api_proxy_secure.php existe<br>";
+
+    // Verificar si estamos en CLI o en servidor web
+    if (php_sapi_name() === 'cli') {
+        echo "ℹ️ Ejecutando desde CLI - Test de proxy omitido (requiere servidor web)<br>";
+        echo "💡 Para probar el proxy, accede a este script desde un navegador<br>";
+    } else {
+        // Simular una petición al proxy
+        $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
+        $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+        $uri = dirname($_SERVER['REQUEST_URI'] ?? '');
+        $testUrl = $protocol . "://" . $host . $uri . "/api_proxy_secure.php?endpoint=properties";
+        echo "🔗 URL de prueba: " . $testUrl . "<br>";
+
+        $context = stream_context_create([
+            'http' => [
+                'timeout' => 30
+            ]
+        ]);
+
+        $proxyResponse = @file_get_contents($testUrl, false, $context);
     
-    // Simular una petición al proxy
-    $testUrl = "http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['REQUEST_URI']) . "/api_proxy_secure.php?endpoint=properties";
-    echo "🔗 URL de prueba: " . $testUrl . "<br>";
-    
-    $context = stream_context_create([
-        'http' => [
-            'timeout' => 30
-        ]
-    ]);
-    
-    $proxyResponse = @file_get_contents($testUrl, false, $context);
-    
-    if ($proxyResponse) {
-        $proxyData = json_decode($proxyResponse, true);
-        if ($proxyData) {
-            echo "✅ Proxy responde correctamente<br>";
-            if (isset($proxyData['data'])) {
-                echo "🏠 Habitaciones desde proxy: " . count($proxyData['data']) . "<br>";
+        if ($proxyResponse) {
+            $proxyData = json_decode($proxyResponse, true);
+            if ($proxyData) {
+                echo "✅ Proxy responde correctamente<br>";
+                if (isset($proxyData['data'])) {
+                    echo "🏠 Habitaciones desde proxy: " . count($proxyData['data']) . "<br>";
+                }
+            } else {
+                echo "❌ Proxy no devuelve JSON válido<br>";
+                echo "📄 Respuesta proxy: " . substr($proxyResponse, 0, 200) . "...<br>";
             }
         } else {
-            echo "❌ Proxy no devuelve JSON válido<br>";
-            echo "📄 Respuesta proxy: " . substr($proxyResponse, 0, 200) . "...<br>";
+            echo "❌ No se puede acceder al proxy<br>";
+            echo "⚠️ Puede ser un problema de configuración del servidor web<br>";
         }
-    } else {
-        echo "❌ No se puede acceder al proxy<br>";
-        echo "⚠️ Puede ser un problema de configuración del servidor web<br>";
     }
 } else {
     echo "❌ Archivo api_proxy_secure.php NO existe<br>";

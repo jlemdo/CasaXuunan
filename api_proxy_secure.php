@@ -1,42 +1,73 @@
 <?php
-// api_proxy_secure.php - VERSIÓN SEGURA CON LOGGING
-// ESTA es la versión que subes al servidor
+/**
+ * API Proxy Seguro para Hospitable API v2
+ * Intermediario seguro entre frontend y Hospitable API
+ * @version 2.0
+ */
 
-// Habilitar logging de errores (desactivar en producción)
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// Configuración de entorno
+$environment = getenv('APP_ENV') ?: 'production';
+
+// Logging de errores (solo en desarrollo)
+if ($environment === 'development') {
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+} else {
+    error_reporting(E_ALL);
+    ini_set('display_errors', 0);
+}
 ini_set('log_errors', 1);
-ini_set('error_log', __DIR__ . '/api_errors.log');
+ini_set('error_log', __DIR__ . '/logs/api_errors.log');
 
-// Cargar variables de entorno
+/**
+ * Carga variables de entorno desde archivo .env
+ * @param string $filePath Ruta al archivo .env
+ * @return bool True si se carga exitosamente
+ */
 function loadEnv($filePath) {
     if (!file_exists($filePath)) {
-        die('Error: Archivo .env no encontrado');
+        error_log("ERROR: Archivo .env no encontrado en: {$filePath}");
+        return false;
     }
-    
+
     $lines = file($filePath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
     foreach ($lines as $line) {
-        if (strpos(trim($line), '#') === 0) {
+        $line = trim($line);
+
+        // Ignorar comentarios y líneas vacías
+        if (empty($line) || strpos($line, '#') === 0) {
             continue;
         }
-        
+
+        // Validar formato
+        if (strpos($line, '=') === false) {
+            continue;
+        }
+
         list($name, $value) = explode('=', $line, 2);
         $name = trim($name);
         $value = trim($value);
-        
+
         if (!array_key_exists($name, $_SERVER) && !array_key_exists($name, $_ENV)) {
             putenv(sprintf('%s=%s', $name, $value));
             $_ENV[$name] = $value;
             $_SERVER[$name] = $value;
         }
     }
+
+    return true;
 }
 
 // Cargar configuración
-loadEnv(__DIR__ . '/.env');
+if (!loadEnv(__DIR__ . '/.env')) {
+    http_response_code(500);
+    echo json_encode(['error' => 'Error de configuración del servidor']);
+    exit;
+}
 
-// Modo de entorno: automáticamente production en servidor
-$environment = 'production';
+// Cargar sistema de caché
+require_once __DIR__ . '/config/cache.php';
+$cache = new SimpleCache(__DIR__ . '/cache', 300); // 5 minutos de TTL
 
 // Obtener API key desde variables de entorno
 $apiKey = $_ENV['HOSPITABLE_API_KEY'] ?? '';
@@ -63,20 +94,40 @@ if (!isset($_GET['endpoint'])) {
 
 $endpoint = $_GET['endpoint'];
 
+// Verificar si tenemos respuesta en caché
+$cacheKey = 'hospitable_' . md5($endpoint);
+$cachedResponse = $cache->get($cacheKey);
+
+if ($cachedResponse !== null) {
+    // Responder desde caché
+    header('Access-Control-Allow-Origin: *');
+    header('Content-Type: application/json');
+    header('X-Cache: HIT');
+    http_response_code(200);
+    echo $cachedResponse;
+    exit;
+}
+
 // Inicializar cURL
 $ch = curl_init();
 
 // Configurar la solicitud cURL
-curl_setopt($ch, CURLOPT_URL, 'https://public.api.hospitable.com/v2/' . $endpoint);
-curl_setopt($ch, CURLOPT_HTTPHEADER, [
-    'Authorization: Bearer ' . $apiKey,
-    'Content-Type: application/json'
+$url = 'https://public.api.hospitable.com/v2/' . $endpoint;
+curl_setopt_array($ch, [
+    CURLOPT_URL => $url,
+    CURLOPT_HTTPHEADER => [
+        'Authorization: Bearer ' . $apiKey,
+        'Content-Type: application/json',
+        'Accept: application/json'
+    ],
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_SSL_VERIFYPEER => true,
+    CURLOPT_SSL_VERIFYHOST => 2,
+    CURLOPT_TIMEOUT => 30,
+    CURLOPT_CONNECTTIMEOUT => 10,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_MAXREDIRS => 3
 ]);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-// Configuración para producción (SSL habilitado)
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
-curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
 
 // Ejecutar la solicitud y obtener la respuesta
 $response = curl_exec($ch);
@@ -114,9 +165,15 @@ if ($http_code >= 400) {
 // Cerrar cURL
 curl_close($ch);
 
+// Guardar en caché si fue exitoso
+if ($http_code === 200 && !empty($response)) {
+    $cache->set($cacheKey, $response);
+}
+
 // Establecer las cabeceras CORS y tipo de contenido
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
+header('X-Cache: MISS');
 
 // Enviar el código de estado HTTP de la respuesta original
 http_response_code($http_code);
