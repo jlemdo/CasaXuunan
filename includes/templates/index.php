@@ -17,9 +17,9 @@
 
 <!-- Botón sutil dentro del slider -->
 <div class="reviews-scroll-btn-wrapper">
-    <a href="#reviews-section" class="reviews-scroll-btn">
+    <a href="#" class="reviews-scroll-btn" id="open-reviews-overlay">
+        <span class="rating-stars">★★★★★ 4.8</span>
         <span class="scroll-text">Ver Comentarios</span>
-        <span class="scroll-arrow">↓</span>
     </a>
 </div>
 
@@ -55,4 +55,33 @@
 
 </div>
 <!-- content close -->
+
+<!-- reviews overlay begin -->
+<div id="reviews-overlay" class="slideUp">
+    <div class="reviews-overlay-content">
+        <div class="reviews-overlay-header">
+            <h4>Experiencias Reales</h4>
+            <h2>Lo Que Dicen Nuestros Huéspedes</h2>
+            <div id="reviews-close-button">
+                <div class="line-1"></div>
+                <div class="line-2"></div>
+            </div>
+        </div>
+
+        <div class="reviews-overlay-body">
+            <div class="container">
+                <!-- Elfsight Google Reviews Widget -->
+                <div class="elfsight-app-d417e2fd-4c4c-4718-af81-b5995cd6c060" data-elfsight-app-lazy></div>
+
+                <div class="text-center">
+                    <div class="spacer-single"></div>
+                    <a href="/rooms.php" class="btn-line">
+                        <span>Reserva Tu Habitación</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- reviews overlay close -->
 

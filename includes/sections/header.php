@@ -58,5 +58,7 @@
     <?php if (basename($_SERVER['SCRIPT_NAME']) === 'index.php'): ?>
     <!-- Reviews Section Styles (solo para index) -->
     <link rel="stylesheet" href="css/reviews-section.css" type="text/css">
+    <!-- Elfsight Platform Script -->
+    <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
     <?php endif; ?>
 </head>
