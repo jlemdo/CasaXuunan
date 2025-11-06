@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Página principal / Home -->
+  <url>
+    <loc>https://casaxuunan.com/</loc>
+    <lastmod>2025-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://casaxuunan.com/images/gallery/gallery-item-1.jpg</image:loc>
+      <image:caption>Casa Xuunan Bed and Breakfast Valladolid</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Habitaciones -->
+  <url>
+    <loc>https://casaxuunan.com/rooms.php</loc>
+    <lastmod>2025-01-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Acerca de nosotros -->
+  <url>
+    <loc>https://casaxuunan.com/about.php</loc>
+    <lastmod>2025-01-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Servicios -->
+  <url>
+    <loc>https://casaxuunan.com/services.php</loc>
+    <lastmod>2025-01-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Tours -->
+  <url>
+    <loc>https://casaxuunan.com/tours.php</loc>
+    <lastmod>2025-01-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Masajes -->
+  <url>
+    <loc>https://casaxuunan.com/masajes.php</loc>
+    <lastmod>2025-01-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Cuidado Personal -->
+  <url>
+    <loc>https://casaxuunan.com/cuidado-personal.php</loc>
+    <lastmod>2025-01-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Transporte -->
+  <url>
+    <loc>https://casaxuunan.com/transporte.php</loc>
+    <lastmod>2025-01-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Galería -->
+  <url>
+    <loc>https://casaxuunan.com/gallery.php</loc>
+    <lastmod>2025-01-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Contacto -->
+  <url>
+    <loc>https://casaxuunan.com/contact.php</loc>
+    <lastmod>2025-01-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+</urlset>

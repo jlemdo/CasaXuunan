@@ -1,0 +1,22 @@
+# robots.txt para Casa Xuunan Bed & Breakfast
+
+User-agent: *
+Allow: /
+
+# Bloquear archivos de sistema y directorios privados
+Disallow: /includes/
+Disallow: /api_proxy_secure.php
+Disallow: /whatsapp_config_secure.php
+Disallow: /whatsapp_sender.php
+Disallow: /webhook_receiver.php
+Disallow: /test_*.php
+Disallow: /handler.php
+Disallow: /message_templates.php
+
+# Permitir recursos importantes
+Allow: /css/
+Allow: /js/
+Allow: /images/
+
+# Sitemap
+Sitemap: https://casaxuunan.com/sitemap.xml

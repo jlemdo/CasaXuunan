@@ -3,27 +3,29 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Casa Xu'unan - Hospedaje en Valladolid, Yucatán</title>
+    <title>Casa Xu'unan - Bed and Breakfast en Valladolid, Yucatán | Hospedaje Familiar con Desayuno Incluido</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Descripción y palabras clave para SEO -->
-    <meta name="description" content="Casa Xu'unan ofrece una estancia inolvidable en Valladolid, Yucatán, con un ambiente acogedor y servicios de calidad en el corazón de la ciudad.">
-    <meta name="keywords" content="Casa Xu'unan, hotel, Valladolid, Yucatán, alojamiento, hospedaje, turismo, México, hotel boutique">
+    <meta name="description" content="Bed and Breakfast familiar en el corazón de Valladolid, Yucatán. 9 habitaciones limpias y cómodas con ambiente hogareño, desayuno incluido. Ideal para parejas y familias que buscan una estancia auténtica cerca de cenotes y Chichén Itzá.">
+    <meta name="keywords" content="bed and breakfast valladolid, hospedaje familiar valladolid yucatan, casa de huéspedes valladolid, b&b valladolid mexico, alojamiento con desayuno valladolid, hospedaje cerca chichen itza, hospedaje familiar yucatan, bed and breakfast yucatan, valladolid accommodation, family friendly valladolid">
     <meta name="author" content="Casa Xu'unan">
     <link rel="icon" href="images/logo.ico" type="image/gif" sizes="16x16">
 
     <!-- Open Graph para Facebook y WhatsApp -->
-    <meta property="og:title" content="Casa Xu'unan - Hospedaje en Valladolid, Yucatán">
-    <meta property="og:description" content="Vive una experiencia única en Casa Xu'unan, ubicada en el centro de Valladolid, Yucatán, rodeada de cultura y tradición.">
+    <meta property="og:title" content="Casa Xu'unan - Bed & Breakfast Familiar en Valladolid, Yucatán">
+    <meta property="og:description" content="Hospedaje familiar con desayuno incluido en Valladolid. Ambiente hogareño y acogedor en una casa tradicional con 9 habitaciones cómodas. Perfecto para explorar cenotes y Chichén Itzá.">
     <meta property="og:image" content="https://casaxuunan.com/images/gallery/gallery-item-3.jpg">
     <meta property="og:url" content="https://casaxuunan.com/">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="hotel">
     <meta property="og:locale" content="es_MX">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:site_name" content="Casa Xu'unan Bed & Breakfast">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Casa Xu'unan - Hospedaje en Valladolid, Yucatán">
-    <meta name="twitter:description" content="Disfruta de una experiencia memorable en Casa Xu'unan, en el corazón de Valladolid, Yucatán.">
+    <meta name="twitter:title" content="Casa Xu'unan - Bed & Breakfast Familiar en Valladolid">
+    <meta name="twitter:description" content="Hospedaje familiar con desayuno incluido. 9 habitaciones en ambiente hogareño, cerca de cenotes y Chichén Itzá.">
     <meta name="twitter:image" content="https://casaxuunan.com/images/gallery/gallery-item-3.jpg">
     <meta name="twitter:site" content="@CasaXuunan">
     <meta name="twitter:creator" content="@CasaXuunan">
@@ -61,4 +63,66 @@
     <!-- Elfsight Platform Script -->
     <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
     <?php endif; ?>
+
+    <!-- Schema.org Structured Data para Bed and Breakfast -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BedAndBreakfast",
+      "name": "Casa Xu'unan",
+      "image": [
+        "https://casaxuunan.com/images/gallery/gallery-item-1.jpg",
+        "https://casaxuunan.com/images/gallery/gallery-item-2.jpg",
+        "https://casaxuunan.com/images/gallery/gallery-item-3.jpg"
+      ],
+      "description": "Bed and Breakfast familiar en el corazón de Valladolid, Yucatán. 9 habitaciones limpias y cómodas con ambiente hogareño, desayuno incluido.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Valladolid Centro",
+        "addressLocality": "Valladolid",
+        "addressRegion": "Yucatán",
+        "postalCode": "97780",
+        "addressCountry": "MX"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 20.6896,
+        "longitude": -88.2019
+      },
+      "url": "https://casaxuunan.com",
+      "telephone": "+52-985-258-0599",
+      "priceRange": "$$",
+      "amenityFeature": [
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Desayuno incluido",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "WiFi gratuito",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Ambiente familiar",
+          "value": true
+        }
+      ],
+      "numberOfRooms": 9,
+      "starRating": {
+        "@type": "Rating",
+        "ratingValue": "4.8"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "50"
+      },
+      "servesCuisine": "Desayuno mexicano tradicional",
+      "acceptsReservations": "https://casaxuunan.com/rooms.php",
+      "checkinTime": "15:00",
+      "checkoutTime": "11:00"
+    }
+    </script>
 </head>
