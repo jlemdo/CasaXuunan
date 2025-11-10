@@ -7,7 +7,7 @@
                                 <a href="https://www.facebook.com/p/Casa-Xuunan-100091497343251/?locale=ne_NP&_rdr" target="_blank"><i class="fa fa-facebook fa-lg"></i></a>
                                 <a href="https://api.whatsapp.com/send?phone=5219852580599" target="_blank"><i class="fa fa-whatsapp fa-lg"></i></a>
                             </div>
-                            <span><a href="/rooms.php">Reserva Ahora</a></span>
+                            <span><a href="/rooms.php"><?php echo t('btn_book'); ?></a></span>
                         </div>
                         <!-- float text close -->
 
@@ -16,8 +16,8 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-12 text-center">
-                                        <h4>Descubre Nuestros</h4>
-                                        <h1>Servicios</h1>
+                                        <h4><?php echo t('services_subtitle'); ?></h4>
+                                        <h1><?php echo t('services_title'); ?></h1>
                                     </div>
                                 </div>
                             </div>
@@ -37,12 +37,11 @@
                                         <div class="card-image-1 de-offer">
                                             <a href="tours.php" class="d-text">
                                                 <div class="d-inner">
-                                                    <h3>Tours Guiados</h3>
+                                                    <h3><?php echo t('services_tours_title'); ?></h3>
                                                     <p>
-                                                        Explora Valladolid y sus cenotes con guías locales
-                                                        expertos. Vive la magia de la cultura maya.
+                                                        <?php echo t('services_tours_desc'); ?>
                                                     </p>
-                                                    <h5 class="d-tag">Tours</h5>
+                                                    <h5 class="d-tag"><?php echo t('services_tours_tag'); ?></h5>
                                                 </div>
                                             </a>
                                             <img
@@ -77,12 +76,11 @@
                                         <div class="card-image-1 de-offer">
                                             <a href="masajes.php" class="d-text">
                                                 <div class="d-inner">
-                                                    <h3>Masajes Relajantes</h3>
+                                                    <h3><?php echo t('services_massage_title'); ?></h3>
                                                     <p>
-                                                        Relaja cuerpo y mente con nuestros masajes temazcal y
-                                                        aromaterapia en un entorno de paz.
+                                                        <?php echo t('services_massage_desc'); ?>
                                                     </p>
-                                                    <h5 class="d-tag">Masajes</h5>
+                                                    <h5 class="d-tag"><?php echo t('services_massage_tag'); ?></h5>
                                                 </div>
                                             </a>
                                             <img
@@ -97,12 +95,11 @@
                                         <div class="card-image-1 de-offer">
                                             <a href="cuidado-personal.php" class="d-text">
                                                 <div class="d-inner">
-                                                    <h3>Cuidado Personal</h3>
+                                                    <h3><?php echo t('services_personal_care_title'); ?></h3>
                                                     <p>
-                                                        Descubre nuestros nuevos servicios de cuidado personal para
-                                                        una renovación completa.
+                                                        <?php echo t('services_personal_care_desc'); ?>
                                                     </p>
-                                                    <h5 class="d-tag">Cuidado Personal</h5>
+                                                    <h5 class="d-tag"><?php echo t('services_personal_care_tag'); ?></h5>
                                                 </div>
                                             </a>
                                             <img
@@ -117,12 +114,11 @@
                                         <div class="card-image-1 de-offer">
                                             <a href="transporte.php" class="d-text">
                                                 <div class="d-inner">
-                                                    <h3>Traslados Privados</h3>
+                                                    <h3><?php echo t('services_transport_title'); ?></h3>
                                                     <p>
-                                                        Viaja cómodo y seguro desde/hacia Cancún, Mérida y Tulum 
-                                                        con nuestro servicio de transporte personalizado.
+                                                        <?php echo t('services_transport_desc'); ?>
                                                     </p>
-                                                    <h5 class="d-tag">Transporte</h5>
+                                                    <h5 class="d-tag"><?php echo t('services_transport_tag'); ?></h5>
                                                 </div>
                                             </a>
                                             <img

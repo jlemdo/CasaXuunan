@@ -10,8 +10,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h4>Nuestros</h4>
-                    <h1>Cuartos</h1>
+                    <h4><?php echo t('rooms_subtitle'); ?></h4>
+                    <h1><?php echo t('rooms_title'); ?></h1>
                 </div>
             </div>
         </div>

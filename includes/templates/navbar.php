@@ -6,7 +6,7 @@
             <a href="https://www.facebook.com/p/Casa-Xuunan-100091497343251/?locale=ne_NP&_rdr" target="_blank"><i class="fa fa-facebook fa-lg"></i></a>
             <a href="https://api.whatsapp.com/send?phone=5219852580599" target="_blank"><i class="fa fa-whatsapp fa-lg"></i></a>
         </div>
-        <span><a href="/rooms.php">Reserva Ahora</a></span>
+        <span><a href="/rooms.php"><?php echo t('btn_book'); ?></a></span>
     </div>
     <!-- float text close -->
 
@@ -35,22 +35,22 @@
                                     $current_page = basename($_SERVER['REQUEST_URI']);
                                     ?>
                                     <li>
-                                        <a href="/index.php" class="<?= $current_page === 'index.php' ? 'active-menu' : '' ?>">Inicio</a>
+                                        <a href="/index.php" class="<?= $current_page === 'index.php' ? 'active-menu' : '' ?>"><?php echo t('nav_home'); ?></a>
                                     </li>
                                     <li>
-                                        <a href="about.php" class="<?= $current_page === 'about.php' ? 'active-menu' : '' ?>">Nosotros</a>
+                                        <a href="about.php" class="<?= $current_page === 'about.php' ? 'active-menu' : '' ?>"><?php echo t('nav_about'); ?></a>
                                     </li>
                                     <li>
-                                        <a href="rooms.php" class="<?= $current_page === 'rooms.php' ? 'active-menu' : '' ?>">Habitaciones</a>
+                                        <a href="rooms.php" class="<?= $current_page === 'rooms.php' ? 'active-menu' : '' ?>"><?php echo t('nav_rooms'); ?></a>
                                     </li>
                                     <li>
-                                        <a href="services.php" class="<?= $current_page === 'services.php' ? 'active-menu' : '' ?>">Servicios</a>
+                                        <a href="services.php" class="<?= $current_page === 'services.php' ? 'active-menu' : '' ?>"><?php echo t('nav_services'); ?></a>
                                     </li>
                                     <li>
-                                        <a href="gallery.php" class="<?= $current_page === 'gallery.php' ? 'active-menu' : '' ?>">Galería</a>
+                                        <a href="gallery.php" class="<?= $current_page === 'gallery.php' ? 'active-menu' : '' ?>"><?php echo t('nav_gallery'); ?></a>
                                     </li>
                                     <li>
-                                        <a href="contact.php" class="<?= $current_page === 'contact.php' ? 'active-menu' : '' ?>">Contacto</a>
+                                        <a href="contact.php" class="<?= $current_page === 'contact.php' ? 'active-menu' : '' ?>"><?php echo t('nav_contact'); ?></a>
                                     </li>
                                 </ul>
                             </div>
@@ -58,7 +58,7 @@
 
                             <div class="de-flex-col de-flex-col-mobile">
                                 <div class="d-extra">
-                                    <a class="btn-main btn-mobile-reservas" href="/rooms.php">Reservas</a>
+                                    <a class="btn-main btn-mobile-reservas" href="/rooms.php"><?php echo t('btn_bookings'); ?></a>
                                 </div>
                                 <div id="menu-btn" class="menu-btn-mobile-overlay"></div>
                             </div>
@@ -95,12 +95,12 @@
                                     // Obtiene la ruta actual (sin dominio)
                                     $current_page = basename($_SERVER['REQUEST_URI']);
                                     ?>
-                                    <li><a href="index.php" class="<?= $current_page === 'index.php' ? 'active-menu' : '' ?>">Inicio</a></li>
-                                    <li><a href="about.php" class="<?= $current_page === 'about.php' ? 'active-menu' : '' ?>">Nosotros</a></li>
-                                    <li><a href="rooms.php" class="<?= $current_page === 'rooms.php' ? 'active-menu' : '' ?>">Habitaciones</a></li>
-                                    <li><a href="services.php" class="<?= $current_page === 'services.php' ? 'active-menu' : '' ?>">Servicios</a></li>
-                                    <li><a href="gallery.php" class="<?= $current_page === 'gallery.php' ? 'active-menu' : '' ?>">Galería</a></li>
-                                    <li><a href="contact.php" class="<?= $current_page === 'contact.php' ? 'active-menu' : '' ?>">Contacto</a></li>
+                                    <li><a href="index.php" class="<?= $current_page === 'index.php' ? 'active-menu' : '' ?>"><?php echo t('nav_home'); ?></a></li>
+                                    <li><a href="about.php" class="<?= $current_page === 'about.php' ? 'active-menu' : '' ?>"><?php echo t('nav_about'); ?></a></li>
+                                    <li><a href="rooms.php" class="<?= $current_page === 'rooms.php' ? 'active-menu' : '' ?>"><?php echo t('nav_rooms'); ?></a></li>
+                                    <li><a href="services.php" class="<?= $current_page === 'services.php' ? 'active-menu' : '' ?>"><?php echo t('nav_services'); ?></a></li>
+                                    <li><a href="gallery.php" class="<?= $current_page === 'gallery.php' ? 'active-menu' : '' ?>"><?php echo t('nav_gallery'); ?></a></li>
+                                    <li><a href="contact.php" class="<?= $current_page === 'contact.php' ? 'active-menu' : '' ?>"><?php echo t('nav_contact'); ?></a></li>
                                 </ul>
 
                                 <!-- mainmenu close -->
