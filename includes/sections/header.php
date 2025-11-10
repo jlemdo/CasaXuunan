@@ -3,13 +3,18 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Casa Xu'unan - Bed and Breakfast en Valladolid, Yucatán | Hospedaje Familiar con Desayuno Incluido</title>
+    <title><?php echo t('meta_title'); ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Descripción y palabras clave para SEO -->
-    <meta name="description" content="Bed and Breakfast familiar en el corazón de Valladolid, Yucatán. 9 habitaciones limpias y cómodas con ambiente hogareño, desayuno incluido. Ideal para parejas y familias que buscan una estancia auténtica cerca de cenotes y Chichén Itzá.">
-    <meta name="keywords" content="bed and breakfast valladolid, hospedaje familiar valladolid yucatan, casa de huéspedes valladolid, b&b valladolid mexico, alojamiento con desayuno valladolid, hospedaje cerca chichen itza, hospedaje familiar yucatan, bed and breakfast yucatan, valladolid accommodation, family friendly valladolid">
+    <meta name="description" content="<?php echo t('meta_description'); ?>">
+    <meta name="keywords" content="<?php echo t('meta_keywords'); ?>">
     <meta name="author" content="Casa Xu'unan">
+
+    <!-- Alternate language tags for SEO -->
+    <link rel="alternate" hreflang="es" href="https://casaxuunan.com/?lang=es">
+    <link rel="alternate" hreflang="en" href="https://casaxuunan.com/?lang=en">
+    <link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/"
     <link rel="icon" href="images/logo.ico" type="image/gif" sizes="16x16">
 
     <!-- Open Graph para Facebook y WhatsApp -->
@@ -56,6 +61,9 @@
     
     <!-- Responsive styles for services pages -->
     <link rel="stylesheet" href="css/services-responsive.css" type="text/css">
+
+    <!-- Language Switcher Styles -->
+    <link rel="stylesheet" href="css/language-switcher.css" type="text/css">
 
     <?php if (basename($_SERVER['SCRIPT_NAME']) === 'index.php'): ?>
     <!-- Reviews Section Styles (solo para index) -->

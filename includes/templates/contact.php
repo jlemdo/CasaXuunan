@@ -7,8 +7,8 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12 text-center">
-                                <h4>Ponte en</h4>
-                                <h1>Contacto</h1>
+                                <h4><?php echo t('contact_subtitle'); ?></h4>
+                                <h1><?php echo t('contact_title'); ?></h1>
                             </div>
                         </div>
                     </div>
@@ -25,9 +25,9 @@
                                                 <div class="col-lg-13">
                                                     <h3>Casa Xuunan Valladolid</h3>
                                                     <address>
-                                                        <span><strong>Dirección:</strong> C. 49 235, Sisal, Valladolid, Yucatán, México</span>
-                                                        <span><strong>Teléfono:</strong> (+52) 985 258 0599</span>
-                                                        <span><strong>Email:</strong><a href="mailto:reservas@casaxuunan.com">reservas@casaxuunan.com</a></span>
+                                                        <span><strong><?php echo t('contact_address'); ?>:</strong> C. 49 235, Sisal, Valladolid, Yucatán, México</span>
+                                                        <span><strong><?php echo t('contact_phone_label'); ?>:</strong> (+52) 985 258 0599</span>
+                                                        <span><strong><?php echo t('contact_email_label'); ?>:</strong><a href="mailto:reservas@casaxuunan.com">reservas@casaxuunan.com</a></span>
                                                     </address>
                                                 </div>
 
@@ -46,46 +46,46 @@
                                             <form name="contactForm" id='contact_form' method="post">
                                                 <div class="row">
                                                     <div class="col-md-12 mb10">
-                                                        <h3>Envíanos un Mensaje</h3>
+                                                        <h3><?php echo t('contact_form_title'); ?></h3>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <div id='name_error' class='error' style="display:none;">Por favor ingresa tu nombre.</div>
-                                                        <div>
-                                                            <input type='text' name='Name' id='name' class="form-control" placeholder="Tu Nombre" required>
+                                                        <div id='name_error' class='error' style="display:none;"><?php echo t('contact_error_name'); ?></div>
+                                                        <div class="mb10">
+                                                            <input type='text' name='Name' id='name' class="form-control" placeholder="<?php echo t('contact_name'); ?>" required>
                                                         </div>
 
-                                                        <div id='email_error' class='error' style="display:none;">Por favor ingresa un correo electrónico válido.</div>
-                                                        <div>
-                                                            <input type='email' name='Email' id='email' class="form-control" placeholder="Tu Correo Electrónico (opcional)">
+                                                        <div id='email_error' class='error' style="display:none;"><?php echo t('contact_error_email'); ?></div>
+                                                        <div class="mb10">
+                                                            <input type='email' name='Email' id='email' class="form-control" placeholder="<?php echo t('contact_email'); ?>">
                                                         </div>
 
-                                                        <div id='phone_error' class='error' style="display:none;">Por favor ingresa tu número de teléfono.</div>
-                                                        <div>
-                                                            <input type='tel' name='phone' id='phone' class="form-control" placeholder="Tu Teléfono (opcional)">
+                                                        <div id='phone_error' class='error' style="display:none;"><?php echo t('contact_error_phone'); ?></div>
+                                                        <div class="mb10">
+                                                            <input type='tel' name='phone' id='phone' class="form-control" placeholder="<?php echo t('contact_phone'); ?>">
                                                         </div>
 
-                                                        <div id='contact_error' class='error' style="display:none;">Por favor proporciona al menos un correo electrónico o teléfono.</div>
+                                                        <div id='contact_error' class='error' style="display:none;"><?php echo t('contact_error_contact'); ?></div>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <div id='message_error' class='error' style="display:none;">Por favor ingresa tu mensaje.</div>
+                                                        <div id='message_error' class='error' style="display:none;"><?php echo t('contact_error_message'); ?></div>
                                                         <div>
-                                                            <textarea name='message' id='message' class="form-control" placeholder="Tu Mensaje" required></textarea>
+                                                            <textarea name='message' id='message' class="form-control" placeholder="<?php echo t('contact_message'); ?>" required></textarea>
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-12">
                                                         <p id='submit' class="mt20">
-                                                            <input type='submit' id='send_message' value='Enviar Mensaje' class="btn btn-line">
+                                                            <input type='submit' id='send_message' value='<?php echo t('contact_send'); ?>' class="btn btn-line">
                                                         </p>
 
                                                         <!-- Alertas de éxito y error -->
                                                         <div id='success_message' class='xuunan-alert xuunan-alert-success' style="display:none;">
                                                             <i class="fa fa-check-circle"></i>
-                                                            <span>¡Tu mensaje ha sido enviado exitosamente a WhatsApp!</span>
+                                                            <span><?php echo t('contact_success'); ?></span>
                                                         </div>
                                                         <div id='error_message' class='xuunan-alert xuunan-alert-error' style="display:none;">
                                                             <i class="fa fa-exclamation-circle"></i>
-                                                            <span>Por favor completa todos los campos requeridos.</span>
+                                                            <span><?php echo t('contact_error'); ?></span>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -10859,7 +10859,7 @@ header.logo-smaller #logo img.logo {
 
 /* Fondo del overlay - usar fondo sólido para mejor visibilidad */
 #menu-overlay {
-    background: #eddd98 url(../images/logo/patron.png) center no-repeat !important;
+    background: #eddd98 url(../images/logo/patron.jpg) center no-repeat !important;
     background-size: cover !important;
     z-index: 99999 !important;
 }
