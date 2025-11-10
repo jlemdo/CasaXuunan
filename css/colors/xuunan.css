@@ -12,9 +12,9 @@
   --primary-color-2: #eddd98;
   --primary-color-2-rgb: 237, 221, 152;
 
-  /* Naranja Sol & Energía - Atardeceres de Valladolid */
-  --primary-color-3: #ef914b;
-  --primary-color-3-rgb: 239, 145, 75;
+  /* Verde Naturaleza - Selva y frescura de Yucatán */
+  --primary-color-3: #7baf89;
+  --primary-color-3-rgb: 123, 175, 137;
 
   /* Color principal por defecto (Rosa Tradición) */
   --primary-color: #e2bad4;
@@ -23,7 +23,7 @@
 
 /* Links */
 a {
-  color: #ef914b;
+  color: #7baf89;
 }
 
 a:hover {
@@ -31,21 +31,21 @@ a:hover {
 }
 
 a:active {
-  color: #ef914b;
+  color: #7baf89;
 }
 
 /* Botones principales */
 .de-navbar-left a:hover,
 .de-navbar-right a:hover {
-  background: #ef914b;
-  border-color: #ef914b;
+  background: #7baf89;
+  border-color: #7baf89;
 }
 
 /* Botón Reservas - estilo slider invertido */
 .btn-main,
 .btn-mobile-reservas {
-  background: #ef914b !important;
-  border: 2px solid #ef914b !important;
+  background: #7baf89 !important;
+  border: 2px solid #7baf89 !important;
   color: #ffffff !important;
   font-size: 13px !important;
   font-weight: 600 !important;
@@ -68,8 +68,8 @@ a:active {
 .btn-main:focus,
 .btn-mobile-reservas:hover {
   background: transparent !important;
-  border: 2px solid #ef914b !important;
-  color: #ef914b !important;
+  border: 2px solid #7baf89 !important;
+  color: #7baf89 !important;
   box-shadow: none !important;
   opacity: 1 !important;
 }
@@ -96,7 +96,7 @@ a:active {
     right: 15px;
     width: auto;
     height: 2px;
-    background: #ef914b;
+    background: #7baf89;
     transform: scaleX(0);
     transform-origin: center;
     transition: transform 0.3s ease;
@@ -104,7 +104,7 @@ a:active {
   }
 
   header #mainmenu > li > a:hover {
-    color: #ef914b !important;
+    color: #7baf89 !important;
     background: none !important;
   }
 
@@ -114,7 +114,7 @@ a:active {
   }
 
   header #mainmenu > li.active > a {
-    color: #ef914b !important;
+    color: #7baf89 !important;
     background: none !important;
   }
 
@@ -134,7 +134,7 @@ a:active {
 .de-team-list .team-desc .small-border,
 .de_tab.tab_steps .de_nav li span,
 .de_testi blockquote:before {
-  color: #ef914b;
+  color: #7baf89;
 }
 
 /* Fondos y bordes */
@@ -150,7 +150,7 @@ button.owl-prev:hover,
 .box-icon.border.circle i,
 .box-icon.border.square i,
 input[type="submit"]:hover {
-  border-color: #ef914b;
+  border-color: #7baf89;
 }
 
 .de_tab.tab_steps .de_nav li.active span,
@@ -160,7 +160,7 @@ input[type="submit"]:hover {
 button.owl-next:hover,
 button.owl-prev:hover,
 .de-team-list:hover .small-border {
-  background: #ef914b;
+  background: #7baf89;
 }
 
 /* Iconos y decoraciones */
@@ -168,7 +168,7 @@ button.owl-prev:hover,
 .teaser-text .teaser-icon,
 .de_count,
 .crumb li:last-child a {
-  background: #ef914b;
+  background: #7baf89;
 }
 
 /* Lista y elementos especiales */
@@ -177,12 +177,12 @@ ul.ul-style-2 li:before {
   font-family: "FontAwesome";
   font-style: normal;
   padding-right: 10px;
-  color: #ef914b;
+  color: #7baf89;
 }
 
 /* Overlay y efectos hover */
 .de-room:hover .d-text h3 {
-  color: #ef914b;
+  color: #7baf89;
 }
 
 /* Botón secundario con arena dorada */

@@ -1,0 +1,102 @@
+/* ================================================== */
+/* ALERTAS PERSONALIZADAS - CASA XUUNAN              */
+/* ================================================== */
+
+.xuunan-alert {
+    padding: 20px 25px;
+    border-radius: 12px;
+    margin: 20px 0;
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    animation: slideInUp 0.5s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.xuunan-alert i {
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.xuunan-alert span {
+    flex: 1;
+}
+
+/* Alerta de éxito */
+.xuunan-alert-success {
+    background: linear-gradient(135deg, #7baf89 0%, #e2bad4 100%);
+    color: #ffffff;
+    border-left: 5px solid #312b24;
+}
+
+.xuunan-alert-success i {
+    color: #ffffff;
+}
+
+/* Alerta de error */
+.xuunan-alert-error {
+    background: linear-gradient(135deg, #e2bad4 0%, #7baf89 100%);
+    color: #ffffff;
+    border-left: 5px solid #c94a4a;
+}
+
+.xuunan-alert-error i {
+    color: #ffffff;
+}
+
+/* Animación de entrada */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Errores inline (los existentes) */
+.error {
+    color: #c94a4a;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .xuunan-alert {
+        padding: 15px 20px;
+        font-size: 14px;
+    }
+
+    .xuunan-alert i {
+        font-size: 20px;
+    }
+}
+
+/* Efecto hover en el botón de envío (opcional) */
+#send_message {
+    transition: all 0.3s ease;
+}
+
+#send_message:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(123, 175, 137, 0.3);
+}

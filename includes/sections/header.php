@@ -64,6 +64,11 @@
     <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
     <?php endif; ?>
 
+    <?php if (basename($_SERVER['SCRIPT_NAME']) === 'contact.php'): ?>
+    <!-- Contact Form Styles (solo para contact) -->
+    <link rel="stylesheet" href="css/contact-alerts.css" type="text/css">
+    <?php endif; ?>
+
     <!-- Schema.org Structured Data para Bed and Breakfast -->
     <script type="application/ld+json">
     {

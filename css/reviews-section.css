@@ -171,19 +171,19 @@
     pointer-events: none !important;
 }
 
-/* Botón de reserva con colores de la marca (naranja #ef914b) */
+/* Botón de reserva con colores de la marca (verde #7baf89) */
 .reviews-overlay-body .btn-line {
-    background: #ef914b;
+    background: #7baf89;
     color: #fff;
-    border: 2px solid #ef914b;
+    border: 2px solid #7baf89;
     padding: 15px 40px;
     transition: all 0.3s ease;
 }
 
 .reviews-overlay-body .btn-line:hover {
     background: transparent;
-    color: #ef914b;
-    border-color: #ef914b;
+    color: #7baf89;
+    border-color: #7baf89;
 }
 
 /* Mobile */

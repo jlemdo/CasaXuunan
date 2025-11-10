@@ -49,47 +49,47 @@
                                                         <h3>Envíanos un Mensaje</h3>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <div id='name_error' class='error'>Por favor ingresa tu nombre.</div>
+                                                        <div id='name_error' class='error' style="display:none;">Por favor ingresa tu nombre.</div>
                                                         <div>
                                                             <input type='text' name='Name' id='name' class="form-control" placeholder="Tu Nombre" required>
                                                         </div>
 
-                                                        <div id='email_error' class='error'>Por favor ingresa un correo electrónico válido.</div>
+                                                        <div id='email_error' class='error' style="display:none;">Por favor ingresa un correo electrónico válido.</div>
                                                         <div>
-                                                            <input type='email' name='Email' id='email' class="form-control" placeholder="Tu Correo Electrónico" required>
+                                                            <input type='email' name='Email' id='email' class="form-control" placeholder="Tu Correo Electrónico (opcional)">
                                                         </div>
 
-                                                        <div id='phone_error' class='error'>Por favor ingresa tu número de teléfono.</div>
+                                                        <div id='phone_error' class='error' style="display:none;">Por favor ingresa tu número de teléfono.</div>
                                                         <div>
-                                                            <input type='text' name='phone' id='phone' class="form-control" placeholder="Tu Teléfono" required>
+                                                            <input type='tel' name='phone' id='phone' class="form-control" placeholder="Tu Teléfono (opcional)">
                                                         </div>
+
+                                                        <div id='contact_error' class='error' style="display:none;">Por favor proporciona al menos un correo electrónico o teléfono.</div>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <div id='message_error' class='error'>Por favor ingresa tu mensaje.</div>
+                                                        <div id='message_error' class='error' style="display:none;">Por favor ingresa tu mensaje.</div>
                                                         <div>
                                                             <textarea name='message' id='message' class="form-control" placeholder="Tu Mensaje" required></textarea>
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-12">
-                                                        <!-- Si no usas reCAPTCHA, puedes eliminar esta línea -->
-                                                        <!-- <div class="g-recaptcha" data-sitekey="copy-your-site-key-here"></div> -->
                                                         <p id='submit' class="mt20">
                                                             <input type='submit' id='send_message' value='Enviar Mensaje' class="btn btn-line">
                                                         </p>
-                                                        <div id='mail_success' class='success'>Tu mensaje ha sido enviado exitosamente.</div>
-                                                        <div id='mail_fail' class='error'>Lo sentimos, ocurrió un error al enviar tu mensaje.</div>
-                                                        
+
+                                                        <!-- Alertas de éxito y error -->
+                                                        <div id='success_message' class='xuunan-alert xuunan-alert-success' style="display:none;">
+                                                            <i class="fa fa-check-circle"></i>
+                                                            <span>¡Tu mensaje ha sido enviado exitosamente a WhatsApp!</span>
+                                                        </div>
+                                                        <div id='error_message' class='xuunan-alert xuunan-alert-error' style="display:none;">
+                                                            <i class="fa fa-exclamation-circle"></i>
+                                                            <span>Por favor completa todos los campos requeridos.</span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </form>
-
-                                            <div id="success_message" class='success'>
-                                                Tu mensaje ha sido enviado exitosamente. Refresca esta página si deseas enviar más mensajes.
-                                            </div>
-                                            <div id="error_message" class='error'>
-                                                Lo sentimos, hubo un error al enviar tu formulario.
-                                            </div>
                                         </div>
 
                                         <div class="col-lg-4">
