@@ -58,6 +58,12 @@
 
                             <div class="de-flex-col de-flex-col-mobile">
                                 <div class="d-extra">
+                                    <!-- Language Switcher -->
+                                    <a href="?lang=<?php echo switchLanguage(); ?>"
+                                       class="lang-switcher"
+                                       data-tooltip="<?php echo $current_lang === 'es' ? 'View site in English' : 'Ver sitio en Español'; ?>">
+                                        <?php echo $current_lang === 'es' ? 'EN' : 'ES'; ?>
+                                    </a>
                                     <a class="btn-main btn-mobile-reservas" href="/rooms.php"><?php echo t('btn_bookings'); ?></a>
                                 </div>
                                 <div id="menu-btn" class="menu-btn-mobile-overlay"></div>
@@ -101,6 +107,7 @@
                                     <li><a href="services.php" class="<?= $current_page === 'services.php' ? 'active-menu' : '' ?>"><?php echo t('nav_services'); ?></a></li>
                                     <li><a href="gallery.php" class="<?= $current_page === 'gallery.php' ? 'active-menu' : '' ?>"><?php echo t('nav_gallery'); ?></a></li>
                                     <li><a href="contact.php" class="<?= $current_page === 'contact.php' ? 'active-menu' : '' ?>"><?php echo t('nav_contact'); ?></a></li>
+                                    <li><a href="?lang=<?php echo switchLanguage(); ?>" class="lang-switcher-mobile"><?php echo $current_lang === 'es' ? 'English' : 'Español'; ?></a></li>
                                 </ul>
 
                                 <!-- mainmenu close -->

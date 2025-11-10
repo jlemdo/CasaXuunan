@@ -100,3 +100,40 @@
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(123, 175, 137, 0.3);
 }
+
+/* ================================================== */
+/* FIX PARA INPUTS DEL FORMULARIO DE CONTACTO        */
+/* ================================================== */
+
+/* Asegurar que todos los inputs tengan los mismos estilos */
+#contact_form input[type='text'],
+#contact_form input[type='email'],
+#contact_form input[type='tel'],
+#contact_form textarea {
+    background-color: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff !important;
+    padding: 10px 15px !important;
+    width: 100% !important;
+    margin-bottom: 10px !important;
+}
+
+/* Placeholder styles */
+#contact_form input::placeholder,
+#contact_form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Focus state */
+#contact_form input:focus,
+#contact_form textarea:focus {
+    border-color: #7baf89 !important;
+    outline: none !important;
+    background-color: rgba(123, 175, 137, 0.05) !important;
+}
+
+/* Textarea específico */
+#contact_form textarea {
+    min-height: 150px !important;
+    resize: vertical !important;
+}

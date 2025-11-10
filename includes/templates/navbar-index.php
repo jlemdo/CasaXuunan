@@ -45,7 +45,9 @@
                             <div class="de-flex-col de-flex-col-mobile">
                                 <div class="d-extra">
                                     <!-- Language Switcher -->
-                                    <a href="?lang=<?php echo switchLanguage(); ?>" class="lang-switcher">
+                                    <a href="?lang=<?php echo switchLanguage(); ?>"
+                                       class="lang-switcher"
+                                       data-tooltip="<?php echo $current_lang === 'es' ? 'View site in English' : 'Ver sitio en Español'; ?>">
                                         <?php echo $current_lang === 'es' ? 'EN' : 'ES'; ?>
                                     </a>
                                     <a class="btn-main btn-mobile-reservas" href="/rooms.php"><?php echo t('btn_book'); ?></a>

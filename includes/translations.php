@@ -26,6 +26,14 @@ $translations = [
         'index_reviews_overlay_title2' => 'Lo Que Dicen Nuestros Huéspedes',
         'index_reviews_button' => 'Reserva Tu Habitación',
 
+        // Slider
+        'slider_1_title' => 'Relájate',
+        'slider_1_button' => 'Nuestras Instalaciones',
+        'slider_2_title' => 'Confort',
+        'slider_2_button' => 'Elige Habitación',
+        'slider_3_title' => 'Paz',
+        'slider_3_button' => 'Nuestras Instalaciones',
+
         // Rooms
         'rooms_subtitle' => 'Nuestros',
         'rooms_title' => 'Cuartos',
@@ -151,6 +159,14 @@ $translations = [
         'index_reviews_overlay_title1' => 'Real Experiences',
         'index_reviews_overlay_title2' => 'What Our Guests Say',
         'index_reviews_button' => 'Book Your Room',
+
+        // Slider
+        'slider_1_title' => 'Relax',
+        'slider_1_button' => 'Our Facilities',
+        'slider_2_title' => 'Comfort',
+        'slider_2_button' => 'Choose Room',
+        'slider_3_title' => 'Peace',
+        'slider_3_button' => 'Our Facilities',
 
         // Rooms
         'rooms_subtitle' => 'Our',
