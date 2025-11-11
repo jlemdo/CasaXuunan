@@ -6,8 +6,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <h4>Manos y Pies Impecables</h4>
-                            <h1>Manicura y Pedicura Spa</h1>
+                            <h4><?php echo t('personal_care_subtitle'); ?></h4>
+                            <h1><?php echo t('personal_care_title'); ?></h1>
                         </div>
                     </div>
                 </div>
@@ -15,14 +15,14 @@
 
             <section id="section-main" class="no-bg no-top" aria-label="section-menu">
                 <div class="container">
-                    
+
                     <!-- Introducción y llamada a la acción principal -->
                     <div class="row mb-5">
                         <div class="col-md-8 offset-md-2 text-center">
-                            <p class="lead mb-4">Regálate un momento de puro bienestar en Casa Xuunan. Nuestros tratamientos de manicura y pedicura spa combinan técnicas de cuidado profesional con ingredientes naturales para revitalizar tus manos y pies, dejándolos suaves, saludables y hermosos.</p>
+                            <p class="lead mb-4"><?php echo t('personal_care_intro'); ?></p>
                             <div class="mb-4">
                                 <a href="#section-packages" class="btn-main btn-lg">
-                                    <i class="fa fa-hand-paper-o mr-2"></i>Ver Servicios
+                                    <i class="fa fa-hand-paper-o mr-2"></i><?php echo t('personal_care_cta_button'); ?>
                                 </a>
                             </div>
                         </div>
@@ -30,7 +30,7 @@
 
                     <!-- Servicios en cards -->
                     <div class="row g-4 mb-5 justify-content-center">
-                        
+
                         <!-- Manicura Spa -->
                         <div class="col-md-5">
                             <div class="feature-box feature-box-style-3 h-100">
@@ -38,8 +38,8 @@
                                     <i class="fa fa-hand-peace-o id-color"></i>
                                 </div>
                                 <div class="feature-box-info">
-                                    <h4>Manicura Spa Revitalizante</h4>
-                                    <p>Un tratamiento completo que incluye exfoliación, hidratación profunda, cuidado de cutículas y un relajante masaje de manos. Finalizamos con el esmaltado de tu elección para un acabado perfecto.</p>
+                                    <h4><?php echo t('personal_care_manicure_title'); ?></h4>
+                                    <p><?php echo t('personal_care_manicure_desc'); ?></p>
                                 </div>
                             </div>
                         </div>
@@ -51,8 +51,8 @@
                                     <i class="fa fa-leaf id-color"></i>
                                 </div>
                                 <div class="feature-box-info">
-                                    <h4>Pedicura Spa Relajante</h4>
-                                    <p>Sumérgete en una experiencia de renovación para tus pies. Incluye baño de sales, exfoliación, tratamiento de durezas, masaje y esmaltado. Tus pies se sentirán ligeros y completamente renovados.</p>
+                                    <h4><?php echo t('personal_care_pedicure_title'); ?></h4>
+                                    <p><?php echo t('personal_care_pedicure_desc'); ?></p>
                                 </div>
                             </div>
                         </div>
@@ -62,7 +62,7 @@
                     <div class="row mb-5">
                         <div class="col-md-8 offset-md-2 text-center">
                             <blockquote class="testimonial">
-                                <p>"La mejor pedicura que he tenido. El ambiente es súper relajante y mis pies quedaron increíblemente suaves. ¡Un verdadero lujo!"</p>
+                                <p><?php echo t('personal_care_testimonial'); ?></p>
                             </blockquote>
                         </div>
                     </div>
@@ -71,8 +71,8 @@
                     <div id="section-packages" class="row mb-5">
                         <div class="col-md-12">
                             <div class="text-center mb-4">
-                                <h3 class="id-color">Paquetes de Bienestar</h3>
-                                <p class="lead">Elige el tratamiento perfecto para ti</p>
+                                <h3 class="id-color"><?php echo t('personal_care_packages_title'); ?></h3>
+                                <p class="lead"><?php echo t('personal_care_packages_subtitle'); ?></p>
                             </div>
                         </div>
                     </div>
@@ -82,20 +82,20 @@
                         <div class="col-md-4">
                             <div class="pricing-box featured">
                                 <div class="pricing-box-header">
-                                    <h5>Manicura Spa</h5>
+                                    <h5><?php echo t('personal_care_manicure_package_title'); ?></h5>
                                     <div class="price">
                                         <span class="currency">$</span>
                                         <span class="amount">600</span>
                                         <span class="period">MXN</span>
                                     </div>
-                                    <span class="duration">60 minutos</span>
+                                    <span class="duration"><?php echo t('personal_care_manicure_package_duration'); ?></span>
                                 </div>
                                 <div class="pricing-box-content">
                                     <ul>
-                                        <li>Limado y forma de uñas</li>
-                                        <li>Tratamiento de cutículas</li>
-                                        <li>Exfoliación e hidratación</li>
-                                        <li>Esmaltado clásico o en gel</li>
+                                        <li><?php echo t('personal_care_manicure_package_item1'); ?></li>
+                                        <li><?php echo t('personal_care_manicure_package_item2'); ?></li>
+                                        <li><?php echo t('personal_care_manicure_package_item3'); ?></li>
+                                        <li><?php echo t('personal_care_manicure_package_item4'); ?></li>
                                     </ul>
                                 </div>
                             </div>
@@ -105,21 +105,21 @@
                         <div class="col-md-4">
                             <div class="pricing-box featured highlight">
                                 <div class="pricing-box-header">
-                                    <h5>Pedicura Spa Deluxe</h5>
+                                    <h5><?php echo t('personal_care_pedicure_package_title'); ?></h5>
                                     <div class="price">
                                         <span class="currency">$</span>
                                         <span class="amount">800</span>
                                         <span class="period">MXN</span>
                                     </div>
-                                    <span class="duration">75 minutos</span>
-                                    <div class="popular-tag">Más Popular</div>
+                                    <span class="duration"><?php echo t('personal_care_pedicure_package_duration'); ?></span>
+                                    <div class="popular-tag"><?php echo t('personal_care_pedicure_package_popular'); ?></div>
                                 </div>
                                 <div class="pricing-box-content">
                                     <ul>
-                                        <li>Baño de pies con sales minerales</li>
-                                        <li>Tratamiento intensivo de durezas</li>
-                                        <li>Masaje relajante de pies y pantorrillas</li>
-                                        <li>Esmaltado de larga duración</li>
+                                        <li><?php echo t('personal_care_pedicure_package_item1'); ?></li>
+                                        <li><?php echo t('personal_care_pedicure_package_item2'); ?></li>
+                                        <li><?php echo t('personal_care_pedicure_package_item3'); ?></li>
+                                        <li><?php echo t('personal_care_pedicure_package_item4'); ?></li>
                                     </ul>
                                 </div>
                             </div>
@@ -129,20 +129,20 @@
                         <div class="col-md-4">
                             <div class="pricing-box featured">
                                 <div class="pricing-box-header">
-                                    <h5>Paquete Manos y Pies</h5>
+                                    <h5><?php echo t('personal_care_combo_package_title'); ?></h5>
                                     <div class="price">
                                         <span class="currency">$</span>
                                         <span class="amount">1,200</span>
                                         <span class="period">MXN</span>
                                     </div>
-                                    <span class="duration">2.5 horas</span>
+                                    <span class="duration"><?php echo t('personal_care_combo_package_duration'); ?></span>
                                 </div>
                                 <div class="pricing-box-content">
                                     <ul>
-                                        <li>Manicura Spa completa</li>
-                                        <li>Pedicura Spa Deluxe completa</li>
-                                        <li>Bebida de cortesía</li>
-                                        <li>Descuento especial de paquete</li>
+                                        <li><?php echo t('personal_care_combo_package_item1'); ?></li>
+                                        <li><?php echo t('personal_care_combo_package_item2'); ?></li>
+                                        <li><?php echo t('personal_care_combo_package_item3'); ?></li>
+                                        <li><?php echo t('personal_care_combo_package_item4'); ?></li>
                                     </ul>
                                 </div>
                             </div>
@@ -153,86 +153,86 @@
                     <div class="row mb-5">
                         <div class="col-md-8 offset-md-2">
                             <div class="text-center mb-4">
-                                <h3 class="id-color">Agenda tu Momento</h3>
-                                <p class="lead">Completa tus datos y te contactaremos por WhatsApp para confirmar tu cita</p>
+                                <h3 class="id-color"><?php echo t('personal_care_booking_title'); ?></h3>
+                                <p class="lead"><?php echo t('personal_care_booking_subtitle'); ?></p>
                             </div>
-                            
+
                             <form id="whatsapp-form" class="contact-form">
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
-                                        <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Tu nombre completo" required>
+                                        <input type="text" id="nombre" name="nombre" class="form-control" placeholder="<?php echo t('personal_care_form_name'); ?>" required>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <input type="tel" id="telefono" name="telefono" class="form-control" placeholder="Tu teléfono" required>
+                                        <input type="tel" id="telefono" name="telefono" class="form-control" placeholder="<?php echo t('personal_care_form_phone'); ?>" required>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <select id="paquete" name="paquete" class="form-control" required>
-                                            <option value="">Selecciona tu servicio</option>
-                                            <option value="Manicura Spa">Manicura Spa ($600)</option>
-                                            <option value="Pedicura Spa Deluxe">Pedicura Spa Deluxe ($800)</option>
-                                            <option value="Paquete Manos y Pies">Paquete Manos y Pies ($1,200)</option>
+                                            <option value=""><?php echo t('personal_care_form_package'); ?></option>
+                                            <option value="Manicura Spa"><?php echo t('personal_care_manicure_package_title'); ?> ($600)</option>
+                                            <option value="Pedicura Spa Deluxe"><?php echo t('personal_care_pedicure_package_title'); ?> ($800)</option>
+                                            <option value="Paquete Manos y Pies"><?php echo t('personal_care_combo_package_title'); ?> ($1,200)</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <input type="date" id="fecha" name="fecha" class="form-control" placeholder="Fecha deseada" required>
+                                        <input type="date" id="fecha" name="fecha" class="form-control" placeholder="<?php echo t('personal_care_form_date'); ?>" required>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <select id="esmalte" name="esmalte" class="form-control" required>
-                                            <option value="">Tipo de esmalte preferido</option>
-                                            <option value="Esmalte tradicional">Esmalte tradicional</option>
-                                            <option value="Esmalte de gel">Esmalte de gel (larga duración)</option>
-                                            <option value="Colores naturales">Colores naturales/francés</option>
-                                            <option value="Sin esmalte">Sin esmalte (solo tratamiento)</option>
+                                            <option value=""><?php echo t('personal_care_form_polish_type'); ?></option>
+                                            <option value="Esmalte tradicional"><?php echo t('personal_care_form_polish_traditional'); ?></option>
+                                            <option value="Esmalte de gel"><?php echo t('personal_care_form_polish_gel'); ?></option>
+                                            <option value="Colores naturales"><?php echo t('personal_care_form_polish_natural'); ?></option>
+                                            <option value="Sin esmalte"><?php echo t('personal_care_form_polish_none'); ?></option>
                                         </select>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <select id="alergias" name="alergias" class="form-control" required>
-                                            <option value="">¿Tienes alguna alergia conocida?</option>
-                                            <option value="Sin alergias">No tengo alergias conocidas</option>
-                                            <option value="Alergias químicos">Sí, a productos químicos</option>
-                                            <option value="Alergias fragancias">Sí, a fragancias/perfumes</option>
-                                            <option value="Otras alergias">Otras (especificar en comentarios)</option>
+                                            <option value=""><?php echo t('personal_care_form_allergies'); ?></option>
+                                            <option value="Sin alergias"><?php echo t('personal_care_form_allergies_none'); ?></option>
+                                            <option value="Alergias químicos"><?php echo t('personal_care_form_allergies_chemicals'); ?></option>
+                                            <option value="Alergias fragancias"><?php echo t('personal_care_form_allergies_fragrances'); ?></option>
+                                            <option value="Otras alergias"><?php echo t('personal_care_form_allergies_other'); ?></option>
                                         </select>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row">
                                     <div class="col-md-12 mb-3">
-                                        <textarea id="comentarios" name="comentarios" class="form-control" rows="3" placeholder="Menciona colores preferidos, alergias específicas, o si tienes esmalte de gel actual (opcional)"></textarea>
+                                        <textarea id="comentarios" name="comentarios" class="form-control" rows="3" placeholder="<?php echo t('personal_care_form_comments'); ?>"></textarea>
                                     </div>
                                 </div>
-                                
+
                                 <div class="text-center">
                                     <button type="submit" class="btn-main btn-lg">
-                                        <i class="fa fa-whatsapp mr-2"></i>Solicitar Cita por WhatsApp
+                                        <i class="fa fa-whatsapp mr-2"></i><?php echo t('personal_care_form_submit'); ?>
                                     </button>
                                 </div>
                             </form>
                         </div>
                     </div>
-                    
+
                     <!-- Línea divisoria -->
                     <div class="row">
                         <div class="col-md-12 text-center mb-4">
                             <div style="border-top: 1px solid rgba(255,255,255,0.3); margin: 20px 0;"></div>
-                            <p style="color: white;">O si prefieres, puedes pagar tu anticipo de forma segura</p>
+                            <p style="color: white;"><?php echo t('personal_care_divider_text'); ?></p>
                             <a href="https://mpago.li/2JmGRPh" class="btn-line btn-lg">
-                                <i class="fa fa-credit-card mr-2"></i>Pagar con Mercado Pago
+                                <i class="fa fa-credit-card mr-2"></i><?php echo t('personal_care_mercadopago_button'); ?>
                             </a>
                         </div>
                     </div>
-                    
+
                 </div>
-                
+
                     <!-- Separador antes de la galería -->
                     <div class="spacer-single"></div>
-                                
+
                                 <section id="section-gallery" class="no-bg no-top" aria-label="section-gallery">
                                     <div class="container">
                                         <div id="carousel-rooms" class="gallery-grid">
@@ -299,7 +299,7 @@
                                         </div>
                                     </div>
                                 </section>
-                                
+
                             </div>
                         </div>
                     </div>

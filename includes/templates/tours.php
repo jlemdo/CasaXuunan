@@ -1,23 +1,13 @@
 <div id="background" data-bgimage="url(images/background/6.jpg) fixed"></div>
         <div id="content-absolute">
 
-            <!-- float text begin -->
-            <!-- <div class="float-text">
-                <div class="de_social-icons">
-                    <a href="https://www.facebook.com/p/Casa-Xuunan-100091497343251/?locale=ne_NP&_rdr" target="_blank"><i class="fa fa-facebook fa-lg"></i></a>
-                    <a href="https://api.whatsapp.com/send?phone=5219852580599" target="_blank"><i class="fa fa-whatsapp fa-lg"></i></a>
-                </div>
-                <span><a href="https://mpago.li/2JmGRPh">Reserva Masaje</a></span>
-            </div> -->
-            <!-- float text close -->
-            
             <!-- subheader -->
             <section id="subheader" class="no-bg">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <h4>Vive la Magia de Yucatán</h4>
-                            <h1>Tours Exclusivos</h1>
+                            <h4><?php echo t('tours_subtitle'); ?></h4>
+                            <h1><?php echo t('tours_title'); ?></h1>
                         </div>
                     </div>
                 </div>
@@ -25,14 +15,14 @@
 
             <section id="section-main" class="no-bg no-top" aria-label="section-menu">
                 <div class="container">
-                    
+
                     <!-- Introducción y llamada a la acción principal -->
                     <div class="row mb-5">
                         <div class="col-md-8 offset-md-2 text-center">
-                            <p class="lead mb-4">Explora los tesoros ocultos de Valladolid y la península de Yucatán con nuestras experiencias guiadas. Desde majestuosas zonas arqueológicas hasta cenotes de aguas cristalinas, cada tour está diseñado para conectarte con la auténtica cultura maya y la belleza natural de la región.</p>
+                            <p class="lead mb-4"><?php echo t('tours_intro'); ?></p>
                             <div class="mb-4">
                                 <a href="#section-packages" class="btn-main btn-lg">
-                                    <i class="fa fa-compass mr-2"></i>Ver Paquetes de Tours
+                                    <i class="fa fa-compass mr-2"></i><?php echo t('tours_cta_button'); ?>
                                 </a>
                             </div>
                         </div>
@@ -40,7 +30,7 @@
 
                     <!-- Tipos de Tours en cards -->
                     <div class="row g-4 mb-5 justify-content-center">
-                        
+
                         <!-- Aventura Cenote -->
                         <div class="col-md-5">
                             <div class="feature-box feature-box-style-3 h-100">
@@ -48,8 +38,8 @@
                                     <i class="fa fa-tint id-color"></i>
                                 </div>
                                 <div class="feature-box-info">
-                                    <h4>Aventura en Cenotes</h4>
-                                    <p>Sumérgete en las aguas sagradas de los cenotes más espectaculares. Descubre formaciones rocosas milenarias y nada en ríos subterráneos en una aventura refrescante e inolvidable.</p>
+                                    <h4><?php echo t('tours_cenotes_title'); ?></h4>
+                                    <p><?php echo t('tours_cenotes_desc'); ?></p>
                                 </div>
                             </div>
                         </div>
@@ -61,8 +51,8 @@
                                     <i class="fa fa-university id-color"></i>
                                 </div>
                                 <div class="feature-box-info">
-                                    <h4>Ruta Arqueológica</h4>
-                                    <p>Viaja en el tiempo explorando las imponentes ruinas de Chichén Itzá, Ek Balam y Cobá. Nuestros guías expertos te revelarán los secretos de la ancestral civilización maya.</p>
+                                    <h4><?php echo t('tours_archaeological_title'); ?></h4>
+                                    <p><?php echo t('tours_archaeological_desc'); ?></p>
                                 </div>
                             </div>
                         </div>
@@ -72,7 +62,7 @@
                     <div class="row mb-5">
                         <div class="col-md-8 offset-md-2 text-center">
                             <blockquote class="testimonial">
-                                <p>"El tour a los cenotes fue lo mejor de nuestro viaje a Yucatán. Una experiencia auténtica y mágica, lejos de las multitudes. ¡Totalmente recomendado!"</p>
+                                <p><?php echo t('tours_testimonial'); ?></p>
                             </blockquote>
                         </div>
                     </div>
@@ -81,8 +71,8 @@
                     <div id="section-packages" class="row mb-5">
                         <div class="col-md-12">
                             <div class="text-center mb-4">
-                                <h3 class="id-color">Paquetes de Aventura</h3>
-                                <p class="lead">Experiencias diseñadas para descubrir lo mejor de Valladolid y sus alrededores</p>
+                                <h3 class="id-color"><?php echo t('tours_packages_title'); ?></h3>
+                                <p class="lead"><?php echo t('tours_packages_subtitle'); ?></p>
                             </div>
                         </div>
                     </div>
@@ -92,22 +82,22 @@
                         <div class="col-md-4">
                             <div class="pricing-box featured">
                                 <div class="pricing-box-header">
-                                    <h5>Maravilla Maya y Cenotes Sagrados</h5>
+                                    <h5><?php echo t('tours_maya_title'); ?></h5>
                                     <div class="price">
                                         <span class="currency">$</span>
                                         <span class="amount">2,000</span>
                                         <span class="period">MXN / persona</span>
                                     </div>
-                                    <span class="duration">Día completo</span>
+                                    <span class="duration"><?php echo t('tours_maya_duration'); ?></span>
                                 </div>
                                 <div class="pricing-box-content">
                                     <ul>
-                                        <li>Chichén Itzá</li>
-                                        <li>Cenote Tsukán</li>
-                                        <li>Cenote Ik-Kil</li>
-                                        <li>Cenote Yokdzonot</li>
-                                        <li>Guía certificado</li>
-                                        <li>Transporte incluido</li>
+                                        <li><?php echo t('tours_maya_item1'); ?></li>
+                                        <li><?php echo t('tours_maya_item2'); ?></li>
+                                        <li><?php echo t('tours_maya_item3'); ?></li>
+                                        <li><?php echo t('tours_maya_item4'); ?></li>
+                                        <li><?php echo t('tours_maya_item5'); ?></li>
+                                        <li><?php echo t('tours_maya_item6'); ?></li>
                                     </ul>
                                 </div>
                             </div>
@@ -117,23 +107,23 @@
                         <div class="col-md-4">
                             <div class="pricing-box featured highlight">
                                 <div class="pricing-box-header">
-                                    <h5>Aventura Arqueológica y Cenotes</h5>
+                                    <h5><?php echo t('tours_adventure_title'); ?></h5>
                                     <div class="price">
                                         <span class="currency">$</span>
                                         <span class="amount">1,900</span>
                                         <span class="period">MXN / persona</span>
                                     </div>
-                                    <span class="duration">Día completo</span>
-                                    <div class="popular-tag">Más Popular</div>
+                                    <span class="duration"><?php echo t('tours_adventure_duration'); ?></span>
+                                    <div class="popular-tag"><?php echo t('tours_adventure_popular'); ?></div>
                                 </div>
                                 <div class="pricing-box-content">
                                     <ul>
-                                        <li>Ek Balam</li>
-                                        <li>Cenote Xcanche</li>
-                                        <li>Cenote Palomitas</li>
-                                        <li>Cenote Xcanaaltun</li>
-                                        <li>Guía certificado</li>
-                                        <li>Transporte incluido</li>
+                                        <li><?php echo t('tours_adventure_item1'); ?></li>
+                                        <li><?php echo t('tours_adventure_item2'); ?></li>
+                                        <li><?php echo t('tours_adventure_item3'); ?></li>
+                                        <li><?php echo t('tours_adventure_item4'); ?></li>
+                                        <li><?php echo t('tours_adventure_item5'); ?></li>
+                                        <li><?php echo t('tours_adventure_item6'); ?></li>
                                     </ul>
                                 </div>
                             </div>
@@ -143,22 +133,22 @@
                         <div class="col-md-4">
                             <div class="pricing-box featured">
                                 <div class="pricing-box-header">
-                                    <h5>Magia Rosa y Arqueología</h5>
+                                    <h5><?php echo t('tours_pink_title'); ?></h5>
                                     <div class="price">
                                         <span class="currency">$</span>
                                         <span class="amount">2,500</span>
                                         <span class="period">MXN / persona</span>
                                     </div>
-                                    <span class="duration">Día completo</span>
+                                    <span class="duration"><?php echo t('tours_pink_duration'); ?></span>
                                 </div>
                                 <div class="pricing-box-content">
                                     <ul>
-                                        <li>Las Coloradas</li>
-                                        <li>Río Lagartos</li>
-                                        <li>Ek Balam</li>
-                                        <li>Cenote Xcanche</li>
-                                        <li>Guía certificado</li>
-                                        <li>Transporte incluido</li>
+                                        <li><?php echo t('tours_pink_item1'); ?></li>
+                                        <li><?php echo t('tours_pink_item2'); ?></li>
+                                        <li><?php echo t('tours_pink_item3'); ?></li>
+                                        <li><?php echo t('tours_pink_item4'); ?></li>
+                                        <li><?php echo t('tours_pink_item5'); ?></li>
+                                        <li><?php echo t('tours_pink_item6'); ?></li>
                                     </ul>
                                 </div>
                             </div>
@@ -169,81 +159,81 @@
                     <div class="row mb-5">
                         <div class="col-md-8 offset-md-2">
                             <div class="text-center mb-4">
-                                <h3 class="id-color">Reserva tu Aventura</h3>
-                                <p class="lead">Completa tus datos y te contactaremos por WhatsApp para confirmar tu tour</p>
+                                <h3 class="id-color"><?php echo t('tours_booking_title'); ?></h3>
+                                <p class="lead"><?php echo t('tours_booking_subtitle'); ?></p>
                             </div>
-                            
+
                             <form id="whatsapp-form" class="contact-form">
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
-                                        <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Tu nombre completo" required>
+                                        <input type="text" id="nombre" name="nombre" class="form-control" placeholder="<?php echo t('tours_form_name'); ?>" required>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <input type="tel" id="telefono" name="telefono" class="form-control" placeholder="Tu teléfono" required>
-                                    </div>
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <select id="paquete" name="paquete" class="form-control" required>
-                                            <option value="">Selecciona tu tour preferido</option>
-                                            <option value="Maravilla Maya y Cenotes Sagrados">Maravilla Maya y Cenotes Sagrados ($2,000)</option>
-                                            <option value="Aventura Arqueologica y Cenotes">Aventura Arqueológica y Cenotes ($1,900)</option>
-                                            <option value="Magia Rosa y Arqueologia">Magia Rosa y Arqueología ($2,500)</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <input type="number" id="personas" name="personas" class="form-control" placeholder="Número de personas" min="1" max="15" required>
+                                        <input type="tel" id="telefono" name="telefono" class="form-control" placeholder="<?php echo t('tours_form_phone'); ?>" required>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
-                                        <input type="date" id="fecha" name="fecha" class="form-control" placeholder="Fecha deseada" required>
+                                        <select id="paquete" name="paquete" class="form-control" required>
+                                            <option value=""><?php echo t('tours_form_package'); ?></option>
+                                            <option value="Maravilla Maya y Cenotes Sagrados"><?php echo t('tours_maya_title'); ?> ($2,000)</option>
+                                            <option value="Aventura Arqueologica y Cenotes"><?php echo t('tours_adventure_title'); ?> ($1,900)</option>
+                                            <option value="Magia Rosa y Arqueologia"><?php echo t('tours_pink_title'); ?> ($2,500)</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <input type="number" id="personas" name="personas" class="form-control" placeholder="<?php echo t('tours_form_people'); ?>" min="1" max="15" required>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <input type="date" id="fecha" name="fecha" class="form-control" placeholder="<?php echo t('tours_form_date'); ?>" required>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <select id="edad" name="edad" class="form-control" required>
-                                            <option value="">Rango de edad general del grupo</option>
-                                            <option value="18-30 años">18-30 años</option>
-                                            <option value="31-50 años">31-50 años</option>
-                                            <option value="51-65 años">51-65 años</option>
-                                            <option value="65+ años">65+ años</option>
-                                            <option value="Grupo mixto">Grupo mixto/familiar</option>
+                                            <option value=""><?php echo t('tours_form_age'); ?></option>
+                                            <option value="18-30 años"><?php echo t('tours_form_age_18_30'); ?></option>
+                                            <option value="31-50 años"><?php echo t('tours_form_age_31_50'); ?></option>
+                                            <option value="51-65 años"><?php echo t('tours_form_age_51_65'); ?></option>
+                                            <option value="65+ años"><?php echo t('tours_form_age_65plus'); ?></option>
+                                            <option value="Grupo mixto"><?php echo t('tours_form_age_mixed'); ?></option>
                                         </select>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row">
                                     <div class="col-md-12 mb-3">
-                                        <textarea id="comentarios" name="comentarios" class="form-control" rows="3" placeholder="Mencionanos si hay personas con movilidad reducida, alergias alimentarias, o algún interés especial (opcional)"></textarea>
+                                        <textarea id="comentarios" name="comentarios" class="form-control" rows="3" placeholder="<?php echo t('tours_form_comments'); ?>"></textarea>
                                     </div>
                                 </div>
-                                
+
                                 <div class="text-center">
                                     <button type="submit" class="btn-main btn-lg">
-                                        <i class="fa fa-whatsapp mr-2"></i>Solicitar Tour por WhatsApp
+                                        <i class="fa fa-whatsapp mr-2"></i><?php echo t('tours_form_submit'); ?>
                                     </button>
                                 </div>
                             </form>
                         </div>
                     </div>
-                    
+
                     <!-- Línea divisoria -->
                     <div class="row">
                         <div class="col-md-12 text-center mb-4">
                             <div style="border-top: 1px solid rgba(255,255,255,0.3); margin: 20px 0;"></div>
-                            <p style="color: white;">O si prefieres, puedes pagar tu anticipo de forma segura</p>
+                            <p style="color: white;"><?php echo t('tours_divider_text'); ?></p>
                             <a href="https://mpago.li/2JmGRPh" class="btn-line btn-lg">
-                                <i class="fa fa-credit-card mr-2"></i>Pagar con Mercado Pago
+                                <i class="fa fa-credit-card mr-2"></i><?php echo t('tours_mercadopago_button'); ?>
                             </a>
                         </div>
                     </div>
-                    
+
                 </div>
-                
+
                     <!-- Separador antes de la galería -->
                     <div class="spacer-single"></div>
-                                
+
                                 <section id="section-gallery" class="no-bg no-top" aria-label="section-gallery">
                                     <div class="container">
                                         <div id="carousel-rooms" class="gallery-grid">
@@ -310,7 +300,7 @@
                                         </div>
                                     </div>
                                 </section>
-                                
+
                             </div>
                         </div>
                     </div>
