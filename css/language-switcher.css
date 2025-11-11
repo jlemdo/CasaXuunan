@@ -109,12 +109,29 @@
 }
 
 /* ================================================== */
-/* SCROLLBAR FIX                                       */
+/* STICKY FOOTER & SCROLLBAR FIX                      */
 /* ================================================== */
 
 /* Forzar scrollbar siempre visible para evitar el flash */
 html {
     overflow-y: scroll;
+}
+
+/* Sticky footer SOLO para páginas SIN slider (services, contact, about, etc.) */
+/* NO aplicar en index.php que tiene supersized */
+body:not(.page-index) {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+body:not(.page-index) #wrapper {
+    flex: 1 0 auto;
+}
+
+body:not(.page-index) footer {
+    flex-shrink: 0;
+    margin-top: auto;
 }
 
 /* Personalizar scrollbar para que se vea bien */
