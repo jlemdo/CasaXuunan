@@ -134,6 +134,9 @@ body {
 /* Wrapper debe crecer para empujar el footer */
 #wrapper {
     flex: 1 0 auto;
+    position: relative;
+    z-index: 1;
+    background: transparent;
 }
 
 /* Footer siempre al fondo */

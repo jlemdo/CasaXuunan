@@ -58,6 +58,13 @@ jQuery(function($){
     console.log('Selected slides array:', slides);
     console.log('Number of slides:', slides.length);
     console.log('First slide image:', slides[0].image);
+    console.log('jQuery version:', $.fn.jquery);
+    console.log('Supersized exists:', typeof $.supersized);
+
+    if (typeof $.supersized !== 'function') {
+        console.error('ERROR: supersized plugin not loaded!');
+        return;
+    }
 
     $.supersized({
         slide_interval: 5000,

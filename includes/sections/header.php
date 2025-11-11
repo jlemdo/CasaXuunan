@@ -15,7 +15,7 @@
     <link rel="alternate" hreflang="es" href="https://casaxuunan.com/?lang=es">
     <link rel="alternate" hreflang="en" href="https://casaxuunan.com/?lang=en">
     <link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/">
-    <link rel="icon" href="images/logo.ico" type="image/x-icon" sizes="16x16">
+    <link rel="icon" href="images/logo/logo.ico" type="image/x-icon" sizes="16x16">
 
     <!-- Open Graph para Facebook y WhatsApp -->
     <meta property="og:title" content="Casa Xu'unan - Bed & Breakfast Familiar en Valladolid, Yucatán">
