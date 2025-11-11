@@ -117,29 +117,28 @@ html {
     overflow-y: scroll;
 }
 
-/* Sticky footer con min-height - compatible con supersized */
-body {
-    min-height: 100vh;
+/* Hacer que el body use todo el viewport */
+html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
 }
 
+/* Flexbox para mantener footer al fondo */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Wrapper debe crecer para empujar el footer */
 #wrapper {
-    min-height: calc(100vh - 200px); /* Ajustar según altura del footer */
-    background: none !important;
-    background-color: transparent !important;
-    background-image: none !important;
-    position: static !important;
+    flex: 1 0 auto;
 }
 
-/* Asegurar que wrapper no tape el supersized */
-body.has-menu-bar #wrapper {
-    background: none !important;
-    background-color: transparent !important;
-    background-image: none !important;
-}
-
+/* Footer siempre al fondo */
 footer {
+    flex-shrink: 0;
     margin-top: auto;
 }
 
