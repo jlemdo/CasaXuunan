@@ -126,13 +126,17 @@ body {
 
 #wrapper {
     min-height: calc(100vh - 200px); /* Ajustar según altura del footer */
-    background: transparent !important;
+    background: none !important;
+    background-color: transparent !important;
+    background-image: none !important;
     position: static !important;
 }
 
 /* Asegurar que wrapper no tape el supersized */
 body.has-menu-bar #wrapper {
-    background: transparent !important;
+    background: none !important;
+    background-color: transparent !important;
+    background-image: none !important;
 }
 
 footer {
