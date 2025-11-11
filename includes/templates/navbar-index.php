@@ -45,6 +45,7 @@
                             <div class="de-flex-col de-flex-col-mobile">
                                 <div class="d-extra">
                                     <!-- Language Switcher -->
+                                    <?php $current_lang = getCurrentLanguage(); ?>
                                     <a href="?lang=<?php echo switchLanguage(); ?>"
                                        class="lang-switcher"
                                        data-tooltip="<?php echo $current_lang === 'es' ? 'View site in English' : 'Ver sitio en Español'; ?>">
