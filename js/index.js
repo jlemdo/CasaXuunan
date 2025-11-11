@@ -5,6 +5,9 @@ jQuery(function($){
     var urlParams = new URLSearchParams(window.location.search);
     var currentLang = urlParams.get('lang') || 'es';
 
+    console.log('Current language detected:', currentLang);
+    console.log('URL params:', window.location.search);
+
     // Slides en español
     var slidesES = [
         {
@@ -51,6 +54,10 @@ jQuery(function($){
 
     // Elegir slides según idioma
     var slides = (currentLang === 'en') ? slidesEN : slidesES;
+
+    console.log('Selected slides array:', slides);
+    console.log('Number of slides:', slides.length);
+    console.log('First slide image:', slides[0].image);
 
     $.supersized({
         slide_interval: 5000,
