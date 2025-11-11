@@ -1,4 +1,4 @@
-<body class="has-menu-bar page-index">
+<body class="has-menu-bar">
 
     <div id="wrapper">
         <!-- header begin -->
