@@ -4,7 +4,9 @@
 
 /* Botón de idioma en header desktop - EXACTAMENTE igual que btn-main */
 .lang-switcher {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     margin-right: 20px;
     padding: 10px 30px !important; /* EXACTO como btn-main */
     font-family: "Montserrat", sans-serif !important;
@@ -22,6 +24,8 @@
     opacity: 1 !important;
     line-height: normal !important;
     height: auto !important;
+    white-space: nowrap;
+    flex-wrap: nowrap;
 }
 
 /* Icono de bandera/globo antes del texto */
