@@ -1279,7 +1279,7 @@ section.custom-1 {
 }
 
 #section-main{
-  min-height: 600px;
+  min-height: calc(100vh - 200px);
 }
 
 .de-navbar-left .container-fluid .container {
