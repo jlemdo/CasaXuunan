@@ -306,22 +306,30 @@ $propertyId = $_GET['id'];
                 });
 
 
-                // **Asignar el src del iframe dinámicamente**
-                const bookingIframes = {
-                    'Casa Xu’unan: PB "B"': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376728',
-                    'Casa Xu’unan: PB "A"': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376730',
-                    'Casa Xu’unan: PB "C"': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376732',
-                    'Casa Xu’unan: PB "D"': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1718966',
-                    'Casa Xu’unan: PA “A”': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376734',
-                    'Casa Xu’unan: PA “B”': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376736',
-                    'Casa Xu’unan: PA "C"': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376738',
-                    'Casa Xu’unan:  J “B”': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376740',
-                    'Casa Xu’unan:  J “A”': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376742'
+                // **Asignar el src del iframe dinámicamente usando ID de propiedad**
+                // Mapeo directo de ID de Hospitable → URL del iframe de booking
+                const bookingIframesByID = {
+                    '33c1edc0-e09a-408b-9a57-5f3203e2f3de': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376728', // Casa Xu'unan: PB "B"
+                    'b6687699-08bb-4508-b052-d1623c291d1a': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376730', // Casa Xu'unan: PB "A"
+                    '2baa5ca2-6f6c-42e9-ad7c-68eac6230028': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376732', // Casa Xu'unan: PB "C"
+                    '1c42a0ce-90fb-4033-9db6-7f0288e60e76': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1718966', // Casa Xu'unan: PB "D"
+                    '8d72e6cf-34e6-40e5-8955-3a425971dce1': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376734', // Casa Xu'unan: PA "A"
+                    'd0daae70-0f5f-476f-a6d1-1d8e5746c9a6': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376736', // Casa Xu'unan: PA "B"
+                    'c64b251c-745e-4f77-b961-c22e9d1f0150': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376738', // Casa Xu'unan: PA "C"
+                    '50655096-21a7-4386-995c-ecb5e8594afa': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376740', // Casa Xu'unan: J "B"
+                    '8825b949-7c57-4ac5-ba7b-4ba7eb6c0e9d': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376742'  // Casa Xu'unan: J "A"
                 };
 
-                // Asegurar que property.name coincide con las claves del objeto
-                const iframeSrc = bookingIframes[property.name] || 'https://booking.hospitable.com/widget/default-url';
-                bookingIframeElement.src = iframeSrc;
+                // Usar el propertyId directamente (mismo ID usado para calendario y precio)
+                const iframeSrc = bookingIframesByID[propertyId];
+
+                if (!iframeSrc) {
+                    console.error(`No se encontró URL de iframe para la propiedad ID: ${propertyId}`);
+                    bookingIframeElement.src = 'about:blank';
+                } else {
+                    bookingIframeElement.src = iframeSrc;
+                    console.log(`✅ Iframe cargado correctamente para: ${property.name} (ID: ${propertyId})`);
+                }
 
             } catch (error) {
                 console.error('Error:', error);
