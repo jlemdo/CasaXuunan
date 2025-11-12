@@ -111,8 +111,9 @@ $propertyId = $_GET['id'];
                 let nightlyPrice = property.tags[0] || '---';
                 if (calendarData.data && calendarData.data.days && calendarData.data.days.length > 0) {
                     const todayData = calendarData.data.days[0];
-                    if (todayData.pricing && todayData.pricing.price) {
-                        nightlyPrice = todayData.pricing.price;
+                    if (todayData.price && todayData.price.amount) {
+                        // Convertir de centavos a pesos (dividir entre 100)
+                        nightlyPrice = (todayData.price.amount / 100).toFixed(0);
                     }
                 }
 
