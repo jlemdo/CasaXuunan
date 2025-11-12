@@ -46,8 +46,8 @@ $propertyId = $_GET['id'];
                             <!-- Lado Derecho: Booking Iframe -->
                             <div class="col-md-4 order-1 order-md-2 mb-4">
                                 <h3 class="text-center mb-3">Booking</h3>
-                                <div class="d-flex flex-row justify-content-center alig-items-center">
-                                    <iframe id="booking-iframe" sandbox="allow-top-navigation allow-scripts allow-same-origin" src="" allowfullscreen loading="lazy" class="mx-auto booking-iframe-responsive">
+                                <div class="booking-iframe-wrapper">
+                                    <iframe id="booking-iframe" sandbox="allow-top-navigation allow-scripts allow-same-origin" src="" allowfullscreen loading="lazy" class="booking-iframe-responsive">
                                     </iframe>
                                 </div>
                             </div>
@@ -81,34 +81,31 @@ $propertyId = $_GET['id'];
 
     <!-- Estilos responsive para iframe de booking -->
     <style>
+        /* Wrapper sin restricciones */
+        .booking-iframe-wrapper {
+            width: 100%;
+            overflow: hidden;
+        }
+
         /* Mobile: 100% ancho sin scroll */
         .booking-iframe-responsive {
             border: none;
             width: 100% !important;
             height: 700px;
             max-width: 100%;
+            display: block;
         }
 
-        /* Tablet: un poco más contenido */
+        /* Tablet: mantener 100% */
         @media (min-width: 768px) {
             .booking-iframe-responsive {
-                width: 95% !important;
                 height: 650px;
             }
         }
 
-        /* Desktop: más ancho para evitar scroll */
+        /* Desktop: mantener 100% */
         @media (min-width: 992px) {
             .booking-iframe-responsive {
-                width: 100% !important;
-                height: 600px;
-            }
-        }
-
-        /* Desktop grande: mantener 100% */
-        @media (min-width: 1200px) {
-            .booking-iframe-responsive {
-                width: 100% !important;
                 height: 600px;
             }
         }
