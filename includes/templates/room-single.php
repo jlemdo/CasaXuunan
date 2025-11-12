@@ -47,7 +47,7 @@ $propertyId = $_GET['id'];
                             <div class="col-md-4 order-1 order-md-2 mb-4">
                                 <h3 class="text-center mb-3">Booking</h3>
                                 <div class="d-flex flex-row justify-content-center alig-items-center">
-                                    <iframe id="booking-iframe" sandbox="allow-top-navigation allow-scripts allow-same-origin" src="" allowfullscreen loading="lazy" class="mx-auto" style="border: none; width: 80%;  height: 550px;">
+                                    <iframe id="booking-iframe" sandbox="allow-top-navigation allow-scripts allow-same-origin" src="" allowfullscreen loading="lazy" class="mx-auto booking-iframe-responsive">
                                     </iframe>
                                 </div>
                             </div>
@@ -79,7 +79,35 @@ $propertyId = $_GET['id'];
         </div>
     </section>
 
+    <!-- Estilos responsive para iframe de booking -->
+    <style>
+        .booking-iframe-responsive {
+            border: none;
+            width: 100% !important;
+            height: 650px;
+        }
 
+        @media (min-width: 768px) {
+            .booking-iframe-responsive {
+                width: 90% !important;
+                height: 600px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .booking-iframe-responsive {
+                width: 85% !important;
+                height: 550px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .booking-iframe-responsive {
+                width: 80% !important;
+                height: 550px;
+            }
+        }
+    </style>
 
     <!-- JavaScript para cargar los detalles de la propiedad -->
     <script>
