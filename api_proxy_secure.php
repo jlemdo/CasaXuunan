@@ -94,6 +94,10 @@ if (!isset($_GET['endpoint'])) {
 
 $endpoint = $_GET['endpoint'];
 
+// Log del endpoint para debugging
+error_log("API Proxy - Endpoint solicitado: " . $endpoint);
+error_log("API Proxy - URL completa: https://public.api.hospitable.com/v2/" . $endpoint);
+
 // Verificar si tenemos respuesta en caché
 $cacheKey = 'hospitable_' . md5($endpoint);
 $cachedResponse = $cache->get($cacheKey);
