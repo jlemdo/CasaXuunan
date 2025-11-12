@@ -44,7 +44,7 @@ $propertyId = $_GET['id'];
                         <!-- **Nuevo Layout con Dos Columnas Izquierdas y Una Derecha** -->
                         <div class="row">
                             <!-- Lado Derecho: Booking Iframe -->
-                            <div class="col-md-4 order-1 order-md-2 mb-4">
+                            <div class="col-md-4 order-1 order-md-2 mb-4 booking-column">
                                 <h3 class="text-center mb-3">Booking</h3>
                                 <div class="booking-iframe-wrapper">
                                     <iframe id="booking-iframe" sandbox="allow-top-navigation allow-scripts allow-same-origin" src="" allowfullscreen loading="lazy" class="booking-iframe-responsive">

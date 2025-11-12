@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obtener IDs de Propiedades</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #results {
+            margin-top: 20px;
+        }
+        .property-card {
+            background: #f8f9fa;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            border-left: 4px solid #007bff;
+        }
+        .property-name {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .property-id {
+            color: #666;
+            font-family: monospace;
+        }
+        .mapping-code {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 20px;
+            border-radius: 4px;
+            margin-top: 20px;
+            overflow-x: auto;
+        }
+        .mapping-code pre {
+            margin: 0;
+            color: #61afef;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 4px;
+            border-left: 4px solid #dc3545;
+        }
+        .loading {
+            color: #666;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏠 Obtener IDs de Propiedades de Hospitable</h1>
+        <button onclick="fetchPropertyIds()">Obtener IDs de Propiedades</button>
+        <div id="results"></div>
+    </div>
+
+    <script>
+        async function fetchPropertyIds() {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<p class="loading">Cargando propiedades...</p>';
+
+            try {
+                const response = await fetch('api_proxy_secure.php?endpoint=properties');
+
+                if (!response.ok) {
+                    throw new Error(`Error HTTP: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                if (!data.data || data.data.length === 0) {
+                    resultsDiv.innerHTML = '<p class="error">No se encontraron propiedades.</p>';
+                    return;
+                }
+
+                // Mostrar las propiedades en cards
+                let cardsHtml = '<h2>Propiedades encontradas:</h2>';
+                data.data.forEach(property => {
+                    cardsHtml += `
+                        <div class="property-card">
+                            <div class="property-name">${property.name}</div>
+                            <div class="property-id">ID: ${property.id}</div>
+                        </div>
+                    `;
+                });
+
+                // Generar el código de mapeo para copiar y pegar
+                let mappingCode = 'const bookingIframesByID = {\n';
+
+                data.data.forEach(property => {
+                    // Aquí necesitas poner las URLs correctas de iframe para cada propiedad
+                    mappingCode += `    '${property.id}': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/XXXXXX', // ${property.name}\n`;
+                });
+
+                mappingCode += '};';
+
+                cardsHtml += `
+                    <div class="mapping-code">
+                        <h3 style="color: #abb2bf; margin-top: 0;">Código de mapeo generado (debes completar las URLs):</h3>
+                        <pre>${mappingCode}</pre>
+                    </div>
+                `;
+
+                // También generar el mapeo por nombre para referencia
+                let nameMappingCode = '\n\n// Mapeo por nombre (para referencia):\nconst bookingIframesByName = {\n';
+                data.data.forEach(property => {
+                    nameMappingCode += `    '${property.name}': 'URL_DEL_IFRAME',\n`;
+                });
+                nameMappingCode += '};';
+
+                cardsHtml += `
+                    <div class="mapping-code">
+                        <h3 style="color: #abb2bf; margin-top: 0;">Mapeo actual por nombre (para referencia):</h3>
+                        <pre>${nameMappingCode}</pre>
+                    </div>
+                `;
+
+                resultsDiv.innerHTML = cardsHtml;
+
+                // Log para la consola
+                console.log('=== PROPIEDADES ENCONTRADAS ===');
+                data.data.forEach(property => {
+                    console.log(`Nombre: ${property.name}`);
+                    console.log(`ID: ${property.id}`);
+                    console.log('---');
+                });
+
+            } catch (error) {
+                console.error('Error:', error);
+                resultsDiv.innerHTML = `<p class="error">Error al obtener las propiedades: ${error.message}</p>`;
+            }
+        }
+    </script>
+</body>
+</html>
