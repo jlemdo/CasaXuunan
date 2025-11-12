@@ -126,11 +126,17 @@
 
                 // 2. Obtener precio del calendario
                 const today = new Date().toISOString().split('T')[0];
+                const calendarEndpoint = `properties/${propertyId}/calendar?start_date=${today}&end_date=${today}`;
+                const calendarUrl = `api_proxy_secure.php?endpoint=${encodeURIComponent(calendarEndpoint)}`;
                 console.log(`Fetching calendar for ${propertyId} on ${today}...`);
-                const calendarResponse = await fetch(`api_proxy_secure.php?endpoint=properties/${propertyId}/calendar?start_date=${today}&end_date=${today}`);
+                console.log(`Calendar URL: ${calendarUrl}`);
+                const calendarResponse = await fetch(calendarUrl);
 
                 if (!calendarResponse.ok) {
-                    throw new Error(`Calendar API error: ${calendarResponse.status}`);
+                    const errorText = await calendarResponse.text();
+                    console.error('Calendar API Error Response:', errorText);
+                    document.getElementById('calendarData').textContent = `ERROR ${calendarResponse.status}: ${errorText}`;
+                    throw new Error(`Calendar API error: ${calendarResponse.status} - ${errorText}`);
                 }
 
                 const calendarData = await calendarResponse.json();
