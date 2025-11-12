@@ -81,30 +81,35 @@ $propertyId = $_GET['id'];
 
     <!-- Estilos responsive para iframe de booking -->
     <style>
+        /* Mobile: 100% ancho sin scroll */
         .booking-iframe-responsive {
             border: none;
             width: 100% !important;
-            height: 650px;
+            height: 700px;
+            max-width: 100%;
         }
 
+        /* Tablet: un poco más contenido */
         @media (min-width: 768px) {
             .booking-iframe-responsive {
-                width: 90% !important;
+                width: 95% !important;
+                height: 650px;
+            }
+        }
+
+        /* Desktop: más ancho para evitar scroll */
+        @media (min-width: 992px) {
+            .booking-iframe-responsive {
+                width: 100% !important;
                 height: 600px;
             }
         }
 
-        @media (min-width: 992px) {
-            .booking-iframe-responsive {
-                width: 85% !important;
-                height: 550px;
-            }
-        }
-
+        /* Desktop grande: mantener 100% */
         @media (min-width: 1200px) {
             .booking-iframe-responsive {
-                width: 80% !important;
-                height: 550px;
+                width: 100% !important;
+                height: 600px;
             }
         }
     </style>
