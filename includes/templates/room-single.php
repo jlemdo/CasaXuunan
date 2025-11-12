@@ -102,6 +102,20 @@ $propertyId = $_GET['id'];
                 const propertyData = await propertyResponse.json();
                 const property = propertyData.data;
 
+                // Obtener precio del calendario
+                const today = new Date().toISOString().split('T')[0];
+                const calendarResponse = await fetch(`api_proxy_secure.php?endpoint=properties/${propertyId}/calendar?start_date=${today}&end_date=${today}`);
+                const calendarData = await calendarResponse.json();
+
+                // Extraer precio oficial (con fallback a tags)
+                let nightlyPrice = property.tags[0] || '---';
+                if (calendarData.data && calendarData.data.days && calendarData.data.days.length > 0) {
+                    const todayData = calendarData.data.days[0];
+                    if (todayData.pricing && todayData.pricing.price) {
+                        nightlyPrice = todayData.pricing.price;
+                    }
+                }
+
                 // Dividir el nombre en "nombre" y "código"
                 const [name, code] = property.name.split(':').map(part => part.trim());
                 console.log(property.name);
@@ -116,8 +130,8 @@ $propertyId = $_GET['id'];
                 roomDetailsElement.innerHTML = `
             <div class="de-flex-col"><img src="images/ui/user.svg" alt=""> ${property.capacity.max} Guests</div>
             <div class="de-flex-col"><img src="images/ui/floorplan.svg" alt=""> ${property.capacity.bedrooms} Bedrooms</div>
-            <div class="de-flex-col"><img src="images/ui/bed.svg" alt=""> $${property.tags[0]} MXN / Night + Tax</div>
-            
+            <div class="de-flex-col"><img src="images/ui/bed.svg" alt=""> $${nightlyPrice} MXN / Night + Tax</div>
+
         `;
                 const formattedDescription = property.description.replace(/\n/g, '<br>');
                 // roomOverviewElement.textContent = property.description;
