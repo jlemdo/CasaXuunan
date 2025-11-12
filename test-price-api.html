@@ -67,7 +67,14 @@
     <h1>🧪 Test Price API - Casa Xuunan</h1>
 
     <div class="test-container">
-        <h2>Probar Precio de Habitación</h2>
+        <h2>Paso 1: Obtener Lista de Propiedades</h2>
+        <p>Primero, obtengamos todas las propiedades para ver los IDs reales:</p>
+        <button onclick="getAllProperties()">📋 Obtener Todas las Propiedades</button>
+        <div id="propertiesList" style="margin-top: 20px;"></div>
+    </div>
+
+    <div class="test-container">
+        <h2>Paso 2: Probar Precio de Habitación</h2>
         <p>Property IDs conocidos:</p>
         <button onclick="testPrice('1376728')">PB "B" (1376728)</button>
         <button onclick="testPrice('1376730')">PB "A" (1376730)</button>
@@ -95,6 +102,49 @@
     </div>
 
     <script>
+        async function getAllProperties() {
+            const listDiv = document.getElementById('propertiesList');
+            listDiv.innerHTML = '<p>Cargando propiedades...</p>';
+
+            try {
+                const response = await fetch('api_proxy_secure.php?endpoint=properties');
+                if (!response.ok) {
+                    throw new Error(`Error ${response.status}: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                console.log('Properties response:', data);
+
+                if (!data.data || data.data.length === 0) {
+                    listDiv.innerHTML = '<p class="error">No se encontraron propiedades</p>';
+                    return;
+                }
+
+                let html = '<h3>✅ Propiedades encontradas:</h3><table style="width:100%; border-collapse: collapse;">';
+                html += '<tr style="background: #f0f0f0;"><th style="padding:10px; border:1px solid #ddd;">ID</th><th style="padding:10px; border:1px solid #ddd;">Nombre</th><th style="padding:10px; border:1px solid #ddd;">Acción</th></tr>';
+
+                data.data.forEach(prop => {
+                    html += `<tr>
+                        <td style="padding:10px; border:1px solid #ddd; font-family:monospace;">${prop.id}</td>
+                        <td style="padding:10px; border:1px solid #ddd;">${prop.name || 'Sin nombre'}</td>
+                        <td style="padding:10px; border:1px solid #ddd; text-align:center;">
+                            <button onclick="testPrice('${prop.id}')">Probar Precio</button>
+                        </td>
+                    </tr>`;
+                });
+
+                html += '</table>';
+                html += '<h4 style="margin-top:20px;">📄 Datos completos (JSON):</h4>';
+                html += `<div class="json-display">${JSON.stringify(data, null, 2)}</div>`;
+
+                listDiv.innerHTML = html;
+
+            } catch (error) {
+                console.error('Error:', error);
+                listDiv.innerHTML = `<p class="error">Error: ${error.message}</p>`;
+            }
+        }
+
         async function testPrice(propertyId) {
             if (!propertyId) {
                 alert('Por favor ingresa un Property ID');
