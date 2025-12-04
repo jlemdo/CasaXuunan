@@ -1,3 +1,53 @@
+// Variable global para almacenar las traducciones
+let translations = {};
+let currentLang = 'es';
+
+// Función para obtener el idioma actual
+function getCurrentLanguage() {
+    // Primero intenta obtener del parámetro URL (MAYOR PRIORIDAD)
+    const urlParams = new URLSearchParams(window.location.search);
+    const langParam = urlParams.get('lang');
+    if (langParam && (langParam === 'es' || langParam === 'en')) {
+        // Guardar en localStorage para mantener preferencia
+        localStorage.setItem('language', langParam);
+        return langParam;
+    }
+
+    // Luego intenta obtener de localStorage
+    const savedLang = localStorage.getItem('language');
+    if (savedLang) return savedLang;
+
+    // Por defecto, español
+    return 'es';
+}
+
+// Función para cargar traducciones
+async function loadTranslations() {
+    currentLang = getCurrentLanguage();
+    console.log('🌐 Cargando traducciones para idioma:', currentLang);
+
+    try {
+        const response = await fetch(`api/get_translations.php?lang=${currentLang}`);
+        console.log('📡 Respuesta de API:', response.status, response.statusText);
+
+        if (!response.ok) {
+            throw new Error('Error al cargar traducciones: ' + response.status);
+        }
+        translations = await response.json();
+        console.log('✅ Traducciones cargadas:', Object.keys(translations).length, 'claves');
+        console.log('🔍 Ejemplo - room_available:', translations.room_available);
+        console.log('🔍 Ejemplo - room_guests:', translations.room_guests);
+    } catch (error) {
+        console.error('❌ Error cargando traducciones:', error);
+        translations = {}; // Usar objeto vacío como fallback
+    }
+}
+
+// Función helper para obtener traducción
+function t(key) {
+    return translations[key] || key;
+}
+
 // Función para mostrar un placeholder mientras se carga cada habitación
 function showPlaceholder() {
     const colDiv = document.createElement('div');
@@ -123,7 +173,7 @@ function createRoomContent(property, images, isAvailable) {
     // Etiqueta de disponibilidad
     const labelDiv = document.createElement('div');
     labelDiv.classList.add('d-label', isAvailable ? 'available' : 'not-available');
-    labelDiv.textContent = isAvailable ? 'Disponible' : 'No Disponible';
+    labelDiv.textContent = isAvailable ? t('room_available') : t('room_not_available');
     imageDiv.appendChild(labelDiv);
 
     // Detalles de la habitación
@@ -132,7 +182,7 @@ function createRoomContent(property, images, isAvailable) {
 
     const guestSpan = document.createElement('span');
     guestSpan.classList.add('d-meta-1');
-    guestSpan.innerHTML = `<img src="images/ui/user.svg" alt=""> ${property.capacity?.max || 'N/A'} Huéspedes`;
+    guestSpan.innerHTML = `<img src="images/ui/user.svg" alt=""> ${property.capacity?.max || 'N/A'} ${t('room_guests')}`;
     detailsDiv.appendChild(guestSpan);
 
     const roomSize = {
@@ -194,22 +244,38 @@ function createRoomContent(property, images, isAvailable) {
     textDiv.classList.add('d-text');
 
     const title = document.createElement('h3');
-    title.textContent = property.name;
+    // Intentar obtener nombre traducido, si no existe usar el de la API
+    const translationKey = `property_${property.id}_name`;
+    const translatedName = t(translationKey);
+
+    console.log(`🏠 Habitación ID: ${property.id}`);
+    console.log(`🔑 Buscando clave: ${translationKey}`);
+    console.log(`📝 Nombre API: ${property.name}`);
+    console.log(`🌐 Nombre traducido: ${translatedName}`);
+    console.log(`✅ ¿Encontró traducción?: ${translatedName !== translationKey}`);
+
+    title.textContent = translatedName !== translationKey ? translatedName : property.name;
     textDiv.appendChild(title);
 
     const description = document.createElement('p');
     const maxDescriptionLength = 500;
-    description.textContent = property.description
-        ? property.description.length > maxDescriptionLength
-            ? property.description.substring(0, maxDescriptionLength) + '...'
-            : property.description
-        : 'Descripción no disponible.';
+    // Intentar obtener descripción traducida, si no existe usar la de la API
+    const summaryKey = `property_${property.id}_summary`;
+    const translatedSummary = t(summaryKey);
+
+    console.log(`📄 Buscando descripción: ${summaryKey}`);
+    console.log(`🌐 Descripción traducida encontrada: ${translatedSummary !== summaryKey}`);
+
+    const summaryText = translatedSummary !== summaryKey ? translatedSummary : (property.summary || property.description || 'Descripción no disponible.');
+    description.textContent = summaryText.length > maxDescriptionLength
+        ? summaryText.substring(0, maxDescriptionLength) + '...'
+        : summaryText;
     textDiv.appendChild(description);
 
     const buttonLink = document.createElement('a');
     buttonLink.href = `room.php?id=${property.id}`;
     buttonLink.classList.add('btn-line');
-    buttonLink.innerHTML = `<span>Leer Más</span>`;
+    buttonLink.innerHTML = `<span>${t('room_read_more')}</span>`;
     textDiv.appendChild(buttonLink);
 
     roomDiv.appendChild(textDiv);
@@ -251,5 +317,8 @@ async function checkAvailability(propertyId) {
     }
 }
 
-// Llamada para obtener propiedades
-fetchData('properties');
+// Inicializar: Cargar traducciones y luego obtener propiedades
+(async function init() {
+    await loadTranslations();
+    fetchData('properties');
+})();

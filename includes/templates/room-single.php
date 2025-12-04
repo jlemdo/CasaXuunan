@@ -45,7 +45,7 @@ $propertyId = $_GET['id'];
                         <div class="row">
                             <!-- Lado Derecho: Booking Iframe -->
                             <div class="col-md-4 order-1 order-md-2 mb-4 booking-column">
-                                <h3 class="text-center mb-3">Booking</h3>
+                                <h3 class="text-center mb-3" id="booking-title"><?php echo t('room_book_now'); ?></h3>
                                 <div class="booking-iframe-wrapper">
                                     <iframe id="booking-iframe" sandbox="allow-top-navigation allow-scripts allow-same-origin" src="" allowfullscreen loading="lazy" class="booking-iframe-responsive">
                                     </iframe>
@@ -56,7 +56,7 @@ $propertyId = $_GET['id'];
                             <div class="col-md-8 order-2 order-md-1">
                                 <!-- Room Overview -->
                                 <div class="mb-4">
-                                    <h3>Room Overview</h3>
+                                    <h3 id="overview-title"><?php echo t('room_description'); ?></h3>
                                     <p id="room-overview">
                                         <!-- Descripción de la habitación se insertará aquí -->
                                     </p>
@@ -64,7 +64,7 @@ $propertyId = $_GET['id'];
 
                                 <!-- Room Facilities (Movido Debajo de Room Overview) -->
                                 <div class="mb-4">
-                                    <h3>Room Facilities</h3>
+                                    <h3 id="facilities-title"><?php echo t('room_amenities'); ?></h3>
                                     <ul id="room-facilities" class="ul-style-2 grid-facilities">
                                         <!-- Facilidades de la habitación se insertarán aquí -->
                                     </ul>
@@ -113,6 +113,56 @@ $propertyId = $_GET['id'];
 
     <!-- JavaScript para cargar los detalles de la propiedad -->
     <script>
+        // Variable global para almacenar las traducciones
+        let translations = {};
+        let currentLang = 'es';
+
+        // Función para obtener el idioma actual
+        function getCurrentLanguage() {
+            // Primero intenta obtener del parámetro URL (MAYOR PRIORIDAD)
+            const urlParams = new URLSearchParams(window.location.search);
+            const langParam = urlParams.get('lang');
+            if (langParam && (langParam === 'es' || langParam === 'en')) {
+                // Guardar en localStorage para mantener preferencia
+                localStorage.setItem('language', langParam);
+                return langParam;
+            }
+
+            // Luego intenta obtener de localStorage
+            const savedLang = localStorage.getItem('language');
+            if (savedLang) return savedLang;
+
+            // Por defecto, español
+            return 'es';
+        }
+
+        // Función para cargar traducciones
+        async function loadTranslations() {
+            currentLang = getCurrentLanguage();
+            console.log('🌐 Cargando traducciones para idioma:', currentLang);
+
+            try {
+                const response = await fetch(`api/get_translations.php?lang=${currentLang}`);
+                console.log('📡 Respuesta de API:', response.status, response.statusText);
+
+                if (!response.ok) {
+                    throw new Error('Error al cargar traducciones: ' + response.status);
+                }
+                translations = await response.json();
+                console.log('✅ Traducciones cargadas:', Object.keys(translations).length, 'claves');
+                console.log('🔍 Ejemplo - room_guests:', translations.room_guests);
+                console.log('🔍 Ejemplo - room_amenities:', translations.room_amenities);
+            } catch (error) {
+                console.error('❌ Error cargando traducciones:', error);
+                translations = {}; // Usar objeto vacío como fallback
+            }
+        }
+
+        // Función helper para obtener traducción
+        function t(key) {
+            return translations[key] || key;
+        }
+
         async function loadRoomDetails(propertyId) {
             try {
                 // Cachear elementos del DOM para mejorar el rendimiento
@@ -147,9 +197,19 @@ $propertyId = $_GET['id'];
                     }
                 }
 
+                // Intentar obtener nombre traducido, si no existe usar el de la API
+                const translationKey = `property_${propertyId}_name`;
+                const translatedName = t(translationKey);
+                const displayName = translatedName !== translationKey ? translatedName : property.name;
+
+                console.log('🏠 Room ID:', propertyId);
+                console.log('🔑 Buscando clave:', translationKey);
+                console.log('📝 Nombre API:', property.name);
+                console.log('🌐 Nombre traducido:', translatedName);
+                console.log('✅ ¿Encontró traducción?:', translatedName !== translationKey);
+
                 // Dividir el nombre en "nombre" y "código"
-                const [name, code] = property.name.split(':').map(part => part.trim());
-                console.log(property.name);
+                const [name, code] = displayName.split(':').map(part => part.trim());
 
                 // Insertar nombre de la habitación dinámicamente
                 roomNameElement.innerHTML = `
@@ -159,51 +219,37 @@ $propertyId = $_GET['id'];
 
                 // Insertar detalles principales de la habitación
                 roomDetailsElement.innerHTML = `
-            <div class="de-flex-col"><img src="images/ui/user.svg" alt=""> ${property.capacity.max} Guests</div>
-            <div class="de-flex-col"><img src="images/ui/floorplan.svg" alt=""> ${property.capacity.bedrooms} Bedrooms</div>
-            <div class="de-flex-col"><img src="images/ui/bed.svg" alt=""> $${nightlyPrice} MXN / Night + Tax</div>
+            <div class="de-flex-col"><img src="images/ui/user.svg" alt=""> ${property.capacity.max} ${t('room_guests')}</div>
+            <div class="de-flex-col"><img src="images/ui/floorplan.svg" alt=""> ${property.capacity.bedrooms} ${t('room_bedrooms')}</div>
+            <div class="de-flex-col"><img src="images/ui/bed.svg" alt=""> $${nightlyPrice} MXN ${t('room_per_night')} ${t('room_plus_tax')}</div>
 
         `;
-                const formattedDescription = property.description.replace(/\n/g, '<br>');
-                // roomOverviewElement.textContent = property.description;
-                roomOverviewElement.innerHTML = formattedDescription;
-                console.log(roomOverviewElement);
+                // Intentar obtener descripción traducida, si no existe usar la de la API
+                const summaryKey = `property_${propertyId}_summary`;
+                const translatedSummary = t(summaryKey);
+                const descriptionText = translatedSummary !== summaryKey ? translatedSummary : property.description;
 
-                // Función para convertir snake_case a texto legible
+                console.log('📄 Buscando descripción:', summaryKey);
+                console.log('🌐 Descripción traducida encontrada:', translatedSummary !== summaryKey);
+                console.log('📝 Texto a mostrar (primeros 100 chars):', descriptionText.substring(0, 100) + '...');
+
+                const formattedDescription = descriptionText.replace(/\n/g, '<br>');
+                roomOverviewElement.innerHTML = formattedDescription;
+
+                // Función para convertir snake_case a texto legible usando traducciones
                 const formatAmenity = (amenity) => {
-                    const amenityMap = {
-                        "ac": "Air Conditioning",
-                        "alfresco_dining": "Alfresco Dining",
-                        "bed_linens": "Bed Linens",
-                        "breakfast": "Breakfast Included",
-                        "cable": "Cable TV",
-                        "carbon_monoxide_detector": "Carbon Monoxide Detector",
-                        "ceiling_fan": "Ceiling Fan",
-                        "cleaning_before_checkout": "Cleaning Before Checkout",
-                        "crib": "Crib",
-                        "dryer": "Dryer",
-                        "essentials": "Essentials",
-                        "fire_extinguisher": "Fire Extinguisher",
-                        "first_aid_kit": "First Aid Kit",
-                        "free_parking": "Free Parking",
-                        "garden_or_backyard": "Garden or Backyard",
-                        "hair_dryer": "Hair Dryer",
-                        "hammock": "Hammock",
-                        "hot_water": "Hot Water",
-                        "lock_on_bedroom_door": "Lock on Bedroom Door",
-                        "long_term_stays_allowed": "Long-Term Stays Allowed",
-                        "luggage_dropoff_allowed": "Luggage Dropoff Allowed",
-                        "mosquito_net": "Mosquito Net",
-                        "pool": "Swimming Pool",
-                        "private_entrance": "Private Entrance",
-                        "room_darkening_shades": "Room Darkening Shades",
-                        "shampoo": "Shampoo",
-                        "smoke_detector": "Smoke Detector",
-                        "tv": "TV",
-                        "wireless_internet": "Wi-Fi",
-                    };
-                    return amenityMap[amenity] || amenity.replace(/_/g, ' ').replace(/^\w/, (c) => c.toUpperCase());
+                    const amenityKey = `amenity_${amenity}`;
+                    const translatedAmenity = t(amenityKey);
+                    // Si existe traducción, usarla; si no, usar formato de fallback
+                    if (translatedAmenity !== amenityKey) {
+                        return translatedAmenity;
+                    }
+                    // Fallback: convertir snake_case a texto legible
+                    console.warn(`⚠️ No se encontró traducción para amenidad: ${amenity}`);
+                    return amenity.replace(/_/g, ' ').replace(/^\w/, (c) => c.toUpperCase());
                 };
+
+                console.log('🛠️ Formateando', property.amenities.length, 'amenidades...');
 
 
                 // Generar la lista con formato
@@ -337,6 +383,11 @@ $propertyId = $_GET['id'];
             }
         }
 
-        // Llamada a la función con el ID de la propiedad
-        loadRoomDetails(<?php echo json_encode($propertyId); ?>);
+        // Inicializar: Cargar traducciones y luego cargar detalles de la habitación
+        (async function init() {
+            await loadTranslations();
+            console.log('🚀 Iniciando carga de detalles de habitación...');
+            // Cargar detalles de la habitación
+            await loadRoomDetails(<?php echo json_encode($propertyId); ?>);
+        })();
     </script>
