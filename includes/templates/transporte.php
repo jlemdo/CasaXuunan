@@ -59,13 +59,13 @@
                     </div>
 
                     <!-- Testimonial -->
-                    <!--<div class="row mb-5">-->
-                    <!--    <div class="col-md-8 offset-md-2 text-center">-->
-                    <!--        <blockquote class="testimonial">-->
-                    <!--            <p>"El servicio de traslado fue impecable. Puntuales, amables y el vehículo muy cómodo. Una forma perfecta de llegar a Casa Xuunan sin complicaciones."</p>-->
-                    <!--        </blockquote>-->
-                    <!--    </div>-->
-                    <!--</div>-->
+                    <div class="row mb-5">
+                        <div class="col-md-8 offset-md-2 text-center">
+                            <blockquote class="testimonial">
+                                <p>"El servicio de traslado fue impecable. Puntuales, amables y el vehículo muy cómodo. Una forma perfecta de llegar al aeropuerto desde Casa Xuunan sin complicaciones."</p>
+                            </blockquote>
+                        </div>
+                    </div>
 
                     <!-- Rutas y Precios -->
                     <div id="section-packages" class="row mb-5">
