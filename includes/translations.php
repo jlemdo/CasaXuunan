@@ -733,37 +733,37 @@ $translations = [
         'room_size' => 'Size',
 
         // Rooms - Hospitable Properties (9 rooms)
-        'property_33c1edc0-e09a-408b-9a57-5f3203e2f3de_name' => 'Casa Xu\'unan: Ground Floor "B"',
+        'property_33c1edc0-e09a-408b-9a57-5f3203e2f3de_name' => 'Casa Xu\'unan: PB "B"',
         'property_33c1edc0-e09a-408b-9a57-5f3203e2f3de_summary' => 'Located on the ground floor, the 23.2 m² PBB room combines comfort and functionality to offer you a cozy space. The King Size bed ensures restful sleep, while two upper windows fill the room with natural light, creating a peaceful atmosphere. The private bathroom, a chair, and multifunctional furniture make this space ideal for relaxing or working comfortably. Free Wi-Fi and access to common areas complete this homey experience.',
 
-        'property_b6687699-08bb-4508-b052-d1623c291d1a_name' => 'Casa Xu\'unan: Ground Floor "A"',
+        'property_b6687699-08bb-4508-b052-d1623c291d1a_name' => 'Casa Xu\'unan: PB "A"',
         'property_b6687699-08bb-4508-b052-d1623c291d1a_summary' => 'Located on the ground floor, Room PBA offers 22.4 m² of comfortable space, perfect for families or groups. Two double beds provide the ideal setup for restful nights, while three upper windows fill the room with natural light, creating a cozy atmosphere. A private bathroom, closet, and chair complete this practical space designed to make you feel at home. Free Wi-Fi and access to shared areas ensure a relaxing and functional stay.',
 
-        'property_2baa5ca2-6f6c-42e9-ad7c-68eac6230028_name' => 'Casa Xu\'unan: Ground Floor "C"',
+        'property_2baa5ca2-6f6c-42e9-ad7c-68eac6230028_name' => 'Casa Xu\'unan: PB "C"',
         'property_2baa5ca2-6f6c-42e9-ad7c-68eac6230028_summary' => 'Located on the ground floor, the 23.2 m² PBC room is a cozy refuge for those seeking rest and tranquility. A King Size bed dominates the space, illuminated by two upper windows that allow natural light to enter. The private bathroom and closet provide comfort, while a chair and multifunctional furniture make this space practical and relaxing. Free Wi-Fi and access to common areas complete this homey experience.',
 
-        'property_8d72e6cf-34e6-40e5-8955-3a425971dce1_name' => 'Casa Xu\'unan: Upper Floor "A"',
+        'property_8d72e6cf-34e6-40e5-8955-3a425971dce1_name' => 'Casa Xu\'unan: PA "A"',
         'property_8d72e6cf-34e6-40e5-8955-3a425971dce1_summary' => 'Located on the upper floor, Room PAA offers 20.4 m² of comfort and authenticity, ideal for those seeking a unique experience in Valladolid. Its private balcony provides stunning views of the iconic Ex-Convent of San Bernardino, immersing you in the rich history of the region. With two double beds, a private bathroom, and a compact closet, this space is thoughtfully designed for your convenience. A work desk and chairs add functionality, creating a cozy and welcoming environment.',
 
-        'property_d0daae70-0f5f-476f-a6d1-1d8e5746c9a6_name' => 'Casa Xu\'unan: Upper Floor "B"',
+        'property_d0daae70-0f5f-476f-a6d1-1d8e5746c9a6_name' => 'Casa Xu\'unan: PA "B"',
         'property_d0daae70-0f5f-476f-a6d1-1d8e5746c9a6_summary' => 'Located on the upper floor, Room PAB offers 27 m² of tranquility and beautiful views of the surroundings. With two windows facing the terrace and a sliding door to the balcony, this room is filled with natural light and charm. The King Size bed ensures restful nights, while the private bathroom and multifunctional furniture make the space practical and comfortable. Ideal for relaxing or working in a serene environment.',
 
-        'property_c64b251c-745e-4f77-b961-c22e9d1f0150_name' => 'Casa Xu\'unan: Upper Floor "C"',
+        'property_c64b251c-745e-4f77-b961-c22e9d1f0150_name' => 'Casa Xu\'unan: PA "C"',
         'property_c64b251c-745e-4f77-b961-c22e9d1f0150_summary' => 'Located on the upper floor, Room PAC offers 32.86 m² of spacious and functional living, ideal for families or couples. It features a King Size bed, a double bed, and a kitchenette with a mini-fridge, microwave, coffee maker, and blender. Four windows bring natural light and views of the garden, terrace, and common areas. A private bathroom and spacious closet complete this cozy option for extended stays.',
 
-        'property_50655096-21a7-4386-995c-ecb5e8594afa_name' => 'Casa Xu\'unan: Garden "B"',
+        'property_50655096-21a7-4386-995c-ecb5e8594afa_name' => 'Casa Xu\'unan: J "B"',
         'property_50655096-21a7-4386-995c-ecb5e8594afa_summary' => 'At 26.66 m², the JB room connects you directly with nature. Through a sliding door, you\'ll have access to the garden, while the main door leads you directly to the pool. This room features a King Size bed, a private bathroom, and multifunctional furniture ideal for organizing your belongings or working comfortably. Perfect for those seeking a peaceful experience close to Casa Xuunan\'s natural environment.',
 
-        'property_7a0fab38-3df3-4bb1-a3f9-e08b11a93a27_name' => 'Casa Xu\'unan: Garden "A"',
+        'property_7a0fab38-3df3-4bb1-a3f9-e08b11a93a27_name' => 'Casa Xu\'unan: J "A"',
         'property_7a0fab38-3df3-4bb1-a3f9-e08b11a93a27_summary' => 'The 26.24 m² JA room is an oasis of tranquility surrounded by nature. From the private balcony, you can appreciate the beautiful garden and green areas while enjoying the singing of birds and the fresh breeze. Equipped with a King Size bed, private bathroom, closet, and multifunctional furniture, this space offers everything you need to relax or work comfortably. Perfect for those seeking a direct connection with the natural environment.',
 
-        'property_07ba9f1d-e75a-4ddf-884e-b7e942094a96_name' => 'Casa Xu\'unan: Ground Floor "D"',
+        'property_07ba9f1d-e75a-4ddf-884e-b7e942094a96_name' => 'Casa Xu\'unan: PB "D"',
         'property_07ba9f1d-e75a-4ddf-884e-b7e942094a96_summary' => 'Located on the ground floor, the 30.1 m² PBD room combines spaciousness and functionality, ideal for families or groups. It features a King Size bed, a single bed, and a sofa bed, offering versatility for up to 4 people. Three windows fill the space with natural light, while the private bathroom, large closet, and multifunctional furniture ensure comfort. Free Wi-Fi and access to common areas make this room the perfect option for relaxing stays.',
 
-        'property_1c42a0ce-90fb-4033-9db6-7f0288e60e76_name' => 'Casa Xu\'unan: Ground Floor "D"',
+        'property_1c42a0ce-90fb-4033-9db6-7f0288e60e76_name' => 'Casa Xu\'unan: PB "D"',
         'property_1c42a0ce-90fb-4033-9db6-7f0288e60e76_summary' => 'Located on the ground floor, the 30.1 m² PBD room combines spaciousness and functionality, ideal for families or groups. It features a King Size bed, a single bed, and a sofa bed, offering versatility for up to 4 people. Three windows fill the space with natural light, while the private bathroom, large closet, and multifunctional furniture ensure comfort. Free Wi-Fi and access to common areas make this room the perfect option for relaxing stays.',
 
-        'property_8825b949-7c57-4ac5-ba7b-4ba7eb6c0e9d_name' => 'Casa Xu\'unan: Garden "A"',
+        'property_8825b949-7c57-4ac5-ba7b-4ba7eb6c0e9d_name' => 'Casa Xu\'unan: J "A"',
         'property_8825b949-7c57-4ac5-ba7b-4ba7eb6c0e9d_summary' => 'The 26.24 m² JA room is an oasis of tranquility surrounded by nature. From the private balcony, you can appreciate the beautiful garden and green areas while enjoying the singing of birds and the fresh breeze. Equipped with a King Size bed, private bathroom, closet, and multifunctional furniture, this space offers everything you need to relax or work comfortably. Perfect for those seeking a direct connection with the natural environment.',
 
         // Amenities - Translations
