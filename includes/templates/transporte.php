@@ -19,7 +19,7 @@
                     <!-- Introducción y llamada a la acción principal -->
                     <div class="row mb-5">
                         <div class="col-md-8 offset-md-2 text-center">
-                            <p class="lead mb-4">Conectamos Casa Xuunan con los principales destinos de Yucatán y Quintana Roo. Viaja con comodidad, seguridad y puntualidad en vehículos climatizados con conductores profesionales que conocen perfectamente la región.</p>
+                            <p class="lead mb-4">Te llevamos desde Casa Xuunan hacia los principales destinos de Yucatán y Quintana Roo. Viaja con comodidad, seguridad y puntualidad en vehículos climatizados con conductores profesionales que conocen perfectamente la región.</p>
                             <div class="mb-4">
                                 <a href="#section-packages" class="btn-main btn-lg">
                                     <i class="fa fa-car mr-2"></i>Ver Rutas
@@ -39,7 +39,7 @@
                                 </div>
                                 <div class="feature-box-info">
                                     <h4>Traslados Aeroportuarios</h4>
-                                    <p>Servicio directo desde/hacia los aeropuertos de Cancún y Mérida. Te esperamos con un letrero personalizado y te llevamos cómodamente hasta Casa Xuunan.</p>
+                                    <p>Servicio directo desde Casa Xuunan hacia los aeropuertos de Cancún y Mérida. Te llevamos cómodamente y a tiempo para tu vuelo.</p>
                                 </div>
                             </div>
                         </div>
@@ -59,20 +59,20 @@
                     </div>
 
                     <!-- Testimonial -->
-                    <div class="row mb-5">
-                        <div class="col-md-8 offset-md-2 text-center">
-                            <blockquote class="testimonial">
-                                <p>"El servicio de traslado fue impecable. Puntuales, amables y el vehículo muy cómodo. Una forma perfecta de llegar a Casa Xuunan sin complicaciones."</p>
-                            </blockquote>
-                        </div>
-                    </div>
+                    <!--<div class="row mb-5">-->
+                    <!--    <div class="col-md-8 offset-md-2 text-center">-->
+                    <!--        <blockquote class="testimonial">-->
+                    <!--            <p>"El servicio de traslado fue impecable. Puntuales, amables y el vehículo muy cómodo. Una forma perfecta de llegar a Casa Xuunan sin complicaciones."</p>-->
+                    <!--        </blockquote>-->
+                    <!--    </div>-->
+                    <!--</div>-->
 
                     <!-- Rutas y Precios -->
                     <div id="section-packages" class="row mb-5">
                         <div class="col-md-12">
                             <div class="text-center mb-4">
                                 <h3 class="id-color">Rutas Disponibles</h3>
-                                <p class="lead">Conectamos Casa Xuunan con los principales destinos</p>
+                                <p class="lead">Desde Casa Xuunan hacia los principales destinos</p>
                             </div>
                         </div>
                     </div>
@@ -82,7 +82,7 @@
                         <div class="col-md-4">
                             <div class="pricing-box featured">
                                 <div class="pricing-box-header">
-                                    <h5>Cancún ↔ Casa Xuunan</h5>
+                                    <h5>Casa Xuunan → Cancún</h5>
                                     <div class="price">
                                         <span class="currency">$</span>
                                         <span class="amount">2,500</span>
@@ -92,10 +92,10 @@
                                 </div>
                                 <div class="pricing-box-content">
                                     <ul>
-                                        <li>Aeropuerto Cancún - Casa Xuunan</li>
+                                        <li>Casa Xuunan - Aeropuerto Cancún</li>
                                         <li>Vehículo climatizado</li>
                                         <li>Conductor profesional</li>
-                                        <li>Recepción personalizada</li>
+                                        <li>Te dejamos en tu terminal</li>
                                     </ul>
                                 </div>
                             </div>
@@ -105,7 +105,7 @@
                         <div class="col-md-4">
                             <div class="pricing-box featured highlight">
                                 <div class="pricing-box-header">
-                                    <h5>Mérida ↔ Casa Xuunan</h5>
+                                    <h5>Casa Xuunan → Mérida</h5>
                                     <div class="price">
                                         <span class="currency">$</span>
                                         <span class="amount">1,800</span>
@@ -116,7 +116,7 @@
                                 </div>
                                 <div class="pricing-box-content">
                                     <ul>
-                                        <li>Aeropuerto Mérida - Casa Xuunan</li>
+                                        <li>Casa Xuunan - Aeropuerto Mérida</li>
                                         <li>Ruta más directa y rápida</li>
                                         <li>Vehículo de lujo climatizado</li>
                                         <li>Servicio puerta a puerta</li>
@@ -129,7 +129,7 @@
                         <div class="col-md-4">
                             <div class="pricing-box featured">
                                 <div class="pricing-box-header">
-                                    <h5>Tulum ↔ Casa Xuunan</h5>
+                                    <h5>Casa Xuunan → Tulum</h5>
                                     <div class="price">
                                         <span class="currency">$</span>
                                         <span class="amount">2,200</span>
@@ -139,7 +139,7 @@
                                 </div>
                                 <div class="pricing-box-content">
                                     <ul>
-                                        <li>Zona Hotelera Tulum - Casa Xuunan</li>
+                                        <li>Casa Xuunan - Zona Hotelera Tulum</li>
                                         <li>Incluye zona arqueológica</li>
                                         <li>Paradas opcionales en cenotes</li>
                                         <li>Experiencia cultural en el trayecto</li>
@@ -171,11 +171,8 @@
                                     <div class="col-md-6 mb-3">
                                         <select id="ruta" name="ruta" class="form-control" required>
                                             <option value="">Selecciona tu ruta</option>
-                                            <option value="Cancun-Xuunan">Cancún → Casa Xuunan ($2,500)</option>
                                             <option value="Xuunan-Cancun">Casa Xuunan → Cancún ($2,500)</option>
-                                            <option value="Merida-Xuunan">Mérida → Casa Xuunan ($1,800)</option>
                                             <option value="Xuunan-Merida">Casa Xuunan → Mérida ($1,800)</option>
-                                            <option value="Tulum-Xuunan">Tulum → Casa Xuunan ($2,200)</option>
                                             <option value="Xuunan-Tulum">Casa Xuunan → Tulum ($2,200)</option>
                                         </select>
                                     </div>
