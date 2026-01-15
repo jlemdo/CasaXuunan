@@ -1,5 +1,10 @@
 <!-- includes/sections/js.php -->
 
+<!-- Idioma actual desde PHP para sincronizar con JavaScript -->
+<script>
+    window.PHP_LANG = '<?php echo getCurrentLanguage(); ?>';
+</script>
+
 <!-- JS aquí -->
 <!-- Archivos Javascript Comunes -->
 <script src="<?php echo BASE_URL; ?>/js/plugins.js"></script>

@@ -4,7 +4,7 @@ let currentLang = 'en';
 
 // Función para obtener el idioma actual
 function getCurrentLanguage() {
-    // Primero intenta obtener del parámetro URL (MAYOR PRIORIDAD)
+    // 1. Primero intenta obtener del parámetro URL (MAYOR PRIORIDAD)
     const urlParams = new URLSearchParams(window.location.search);
     const langParam = urlParams.get('lang');
     if (langParam && (langParam === 'es' || langParam === 'en')) {
@@ -13,11 +13,17 @@ function getCurrentLanguage() {
         return langParam;
     }
 
-    // Luego intenta obtener de localStorage
+    // 2. Usar el idioma que PHP ya determinó (sincronización con servidor)
+    if (window.PHP_LANG && (window.PHP_LANG === 'es' || window.PHP_LANG === 'en')) {
+        localStorage.setItem('language', window.PHP_LANG);
+        return window.PHP_LANG;
+    }
+
+    // 3. Fallback a localStorage (para casos donde PHP_LANG no esté disponible)
     const savedLang = localStorage.getItem('language');
     if (savedLang) return savedLang;
 
-    // Por defecto, inglés
+    // 4. Por defecto, inglés
     return 'en';
 }
 
