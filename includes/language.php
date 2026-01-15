@@ -26,15 +26,15 @@ function getCurrentLanguage() {
     }
 
     // 3. Detectar idioma del navegador
-    $browser_lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? 'es', 0, 2);
-    if ($browser_lang === 'en') {
-        $_SESSION['lang'] = 'en';
-        return 'en';
+    $browser_lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? 'en', 0, 2);
+    if ($browser_lang === 'es') {
+        $_SESSION['lang'] = 'es';
+        return 'es';
     }
 
-    // 4. Por defecto español
-    $_SESSION['lang'] = 'es';
-    return 'es';
+    // 4. Por defecto inglés
+    $_SESSION['lang'] = 'en';
+    return 'en';
 }
 
 // Función para obtener traducción

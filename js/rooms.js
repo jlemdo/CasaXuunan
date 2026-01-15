@@ -1,6 +1,6 @@
 // Variable global para almacenar las traducciones
 let translations = {};
-let currentLang = 'es';
+let currentLang = 'en';
 
 // Función para obtener el idioma actual
 function getCurrentLanguage() {
@@ -17,8 +17,8 @@ function getCurrentLanguage() {
     const savedLang = localStorage.getItem('language');
     if (savedLang) return savedLang;
 
-    // Por defecto, español
-    return 'es';
+    // Por defecto, inglés
+    return 'en';
 }
 
 // Función para cargar traducciones

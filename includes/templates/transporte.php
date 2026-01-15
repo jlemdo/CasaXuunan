@@ -6,8 +6,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <h4>Viaja Cómodo</h4>
-                            <h1>Traslados Privados</h1>
+                            <h4><?php echo t('transport_subtitle'); ?></h4>
+                            <h1><?php echo t('transport_title'); ?></h1>
                         </div>
                     </div>
                 </div>
@@ -15,14 +15,14 @@
 
             <section id="section-main" class="no-bg no-top" aria-label="section-menu">
                 <div class="container">
-                    
+
                     <!-- Introducción y llamada a la acción principal -->
                     <div class="row mb-5">
                         <div class="col-md-8 offset-md-2 text-center">
-                            <p class="lead mb-4">Te llevamos desde Casa Xuunan hacia los principales destinos de Yucatán y Quintana Roo. Viaja con comodidad, seguridad y puntualidad en vehículos climatizados con conductores profesionales que conocen perfectamente la región.</p>
+                            <p class="lead mb-4"><?php echo t('transport_intro'); ?></p>
                             <div class="mb-4">
                                 <a href="#section-packages" class="btn-main btn-lg">
-                                    <i class="fa fa-car mr-2"></i>Ver Rutas
+                                    <i class="fa fa-car mr-2"></i><?php echo t('transport_cta_button'); ?>
                                 </a>
                             </div>
                         </div>
@@ -30,7 +30,7 @@
 
                     <!-- Servicios en cards -->
                     <div class="row g-4 mb-5 justify-content-center">
-                        
+
                         <!-- Traslados Aeroportuarios -->
                         <div class="col-md-5">
                             <div class="feature-box feature-box-style-3 h-100">
@@ -38,8 +38,8 @@
                                     <i class="fa fa-plane id-color"></i>
                                 </div>
                                 <div class="feature-box-info">
-                                    <h4>Traslados Aeroportuarios</h4>
-                                    <p>Servicio directo desde Casa Xuunan hacia los aeropuertos de Cancún y Mérida. Te llevamos cómodamente y a tiempo para tu vuelo.</p>
+                                    <h4><?php echo t('transport_airport_title'); ?></h4>
+                                    <p><?php echo t('transport_airport_desc'); ?></p>
                                 </div>
                             </div>
                         </div>
@@ -51,8 +51,8 @@
                                     <i class="fa fa-map-marker id-color"></i>
                                 </div>
                                 <div class="feature-box-info">
-                                    <h4>Conexión con Tulum</h4>
-                                    <p>Conecta fácilmente con la zona arqueológica y las playas de Tulum. Perfecto para combinar tu estancia en Casa Xuunan con la magia de la Riviera Maya.</p>
+                                    <h4><?php echo t('transport_tulum_title'); ?></h4>
+                                    <p><?php echo t('transport_tulum_desc'); ?></p>
                                 </div>
                             </div>
                         </div>
@@ -62,7 +62,7 @@
                     <div class="row mb-5">
                         <div class="col-md-8 offset-md-2 text-center">
                             <blockquote class="testimonial">
-                                <p>"El servicio de traslado fue impecable. Puntuales, amables y el vehículo muy cómodo. Una forma perfecta de llegar al aeropuerto desde Casa Xuunan sin complicaciones."</p>
+                                <p><?php echo t('transport_testimonial'); ?></p>
                             </blockquote>
                         </div>
                     </div>
@@ -71,8 +71,8 @@
                     <div id="section-packages" class="row mb-5">
                         <div class="col-md-12">
                             <div class="text-center mb-4">
-                                <h3 class="id-color">Rutas Disponibles</h3>
-                                <p class="lead">Desde Casa Xuunan hacia los principales destinos</p>
+                                <h3 class="id-color"><?php echo t('transport_packages_title'); ?></h3>
+                                <p class="lead"><?php echo t('transport_packages_subtitle'); ?></p>
                             </div>
                         </div>
                     </div>
@@ -82,20 +82,20 @@
                         <div class="col-md-4">
                             <div class="pricing-box featured">
                                 <div class="pricing-box-header">
-                                    <h5>Casa Xuunan → Cancún</h5>
+                                    <h5><?php echo t('transport_cancun_title'); ?></h5>
                                     <div class="price">
                                         <span class="currency">$</span>
                                         <span class="amount">2,500</span>
                                         <span class="period">MXN</span>
                                     </div>
-                                    <span class="duration">3 horas aprox</span>
+                                    <span class="duration"><?php echo t('transport_cancun_duration'); ?></span>
                                 </div>
                                 <div class="pricing-box-content">
                                     <ul>
-                                        <li>Casa Xuunan - Aeropuerto Cancún</li>
-                                        <li>Vehículo climatizado</li>
-                                        <li>Conductor profesional</li>
-                                        <li>Te dejamos en tu terminal</li>
+                                        <li><?php echo t('transport_cancun_item1'); ?></li>
+                                        <li><?php echo t('transport_cancun_item2'); ?></li>
+                                        <li><?php echo t('transport_cancun_item3'); ?></li>
+                                        <li><?php echo t('transport_cancun_item4'); ?></li>
                                     </ul>
                                 </div>
                             </div>
@@ -105,21 +105,21 @@
                         <div class="col-md-4">
                             <div class="pricing-box featured highlight">
                                 <div class="pricing-box-header">
-                                    <h5>Casa Xuunan → Mérida</h5>
+                                    <h5><?php echo t('transport_merida_title'); ?></h5>
                                     <div class="price">
                                         <span class="currency">$</span>
                                         <span class="amount">1,800</span>
                                         <span class="period">MXN</span>
                                     </div>
-                                    <span class="duration">2 horas aprox</span>
-                                    <div class="popular-tag">Más Popular</div>
+                                    <span class="duration"><?php echo t('transport_merida_duration'); ?></span>
+                                    <div class="popular-tag"><?php echo t('transport_merida_popular'); ?></div>
                                 </div>
                                 <div class="pricing-box-content">
                                     <ul>
-                                        <li>Casa Xuunan - Aeropuerto Mérida</li>
-                                        <li>Ruta más directa y rápida</li>
-                                        <li>Vehículo de lujo climatizado</li>
-                                        <li>Servicio puerta a puerta</li>
+                                        <li><?php echo t('transport_merida_item1'); ?></li>
+                                        <li><?php echo t('transport_merida_item2'); ?></li>
+                                        <li><?php echo t('transport_merida_item3'); ?></li>
+                                        <li><?php echo t('transport_merida_item4'); ?></li>
                                     </ul>
                                 </div>
                             </div>
@@ -129,20 +129,20 @@
                         <div class="col-md-4">
                             <div class="pricing-box featured">
                                 <div class="pricing-box-header">
-                                    <h5>Casa Xuunan → Tulum</h5>
+                                    <h5><?php echo t('transport_tulum_route_title'); ?></h5>
                                     <div class="price">
                                         <span class="currency">$</span>
                                         <span class="amount">2,200</span>
                                         <span class="period">MXN</span>
                                     </div>
-                                    <span class="duration">2.5 horas aprox</span>
+                                    <span class="duration"><?php echo t('transport_tulum_route_duration'); ?></span>
                                 </div>
                                 <div class="pricing-box-content">
                                     <ul>
-                                        <li>Casa Xuunan - Zona Hotelera Tulum</li>
-                                        <li>Incluye zona arqueológica</li>
-                                        <li>Paradas opcionales en cenotes</li>
-                                        <li>Experiencia cultural en el trayecto</li>
+                                        <li><?php echo t('transport_tulum_route_item1'); ?></li>
+                                        <li><?php echo t('transport_tulum_route_item2'); ?></li>
+                                        <li><?php echo t('transport_tulum_route_item3'); ?></li>
+                                        <li><?php echo t('transport_tulum_route_item4'); ?></li>
                                     </ul>
                                 </div>
                             </div>
@@ -153,74 +153,74 @@
                     <div class="row mb-5">
                         <div class="col-md-8 offset-md-2">
                             <div class="text-center mb-4">
-                                <h3 class="id-color">Reserva tu Traslado</h3>
-                                <p class="lead">Completa tus datos y te contactaremos por WhatsApp para confirmar</p>
+                                <h3 class="id-color"><?php echo t('transport_booking_title'); ?></h3>
+                                <p class="lead"><?php echo t('transport_booking_subtitle'); ?></p>
                             </div>
-                            
+
                             <form id="whatsapp-form" class="contact-form">
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
-                                        <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Tu nombre completo" required>
+                                        <input type="text" id="nombre" name="nombre" class="form-control" placeholder="<?php echo t('transport_form_name'); ?>" required>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <input type="tel" id="telefono" name="telefono" class="form-control" placeholder="Tu teléfono" required>
-                                    </div>
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <select id="ruta" name="ruta" class="form-control" required>
-                                            <option value="">Selecciona tu ruta</option>
-                                            <option value="Xuunan-Cancun">Casa Xuunan → Cancún ($2,500)</option>
-                                            <option value="Xuunan-Merida">Casa Xuunan → Mérida ($1,800)</option>
-                                            <option value="Xuunan-Tulum">Casa Xuunan → Tulum ($2,200)</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <input type="number" id="pasajeros" name="pasajeros" class="form-control" placeholder="Número de pasajeros" min="1" max="8" required>
+                                        <input type="tel" id="telefono" name="telefono" class="form-control" placeholder="<?php echo t('transport_form_phone'); ?>" required>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
-                                        <input type="date" id="fecha" name="fecha" class="form-control" placeholder="Fecha del viaje" required>
+                                        <select id="ruta" name="ruta" class="form-control" required>
+                                            <option value=""><?php echo t('transport_form_route'); ?></option>
+                                            <option value="Xuunan-Cancun"><?php echo t('transport_form_route_cancun'); ?></option>
+                                            <option value="Xuunan-Merida"><?php echo t('transport_form_route_merida'); ?></option>
+                                            <option value="Xuunan-Tulum"><?php echo t('transport_form_route_tulum'); ?></option>
+                                        </select>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <input type="time" id="hora" name="hora" class="form-control" placeholder="Hora aproximada" required>
+                                        <input type="number" id="pasajeros" name="pasajeros" class="form-control" placeholder="<?php echo t('transport_form_passengers'); ?>" min="1" max="8" required>
                                     </div>
                                 </div>
-                                
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <input type="date" id="fecha" name="fecha" class="form-control" placeholder="<?php echo t('transport_form_date'); ?>" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <input type="time" id="hora" name="hora" class="form-control" placeholder="<?php echo t('transport_form_time'); ?>" required>
+                                    </div>
+                                </div>
+
                                 <div class="row">
                                     <div class="col-md-12 mb-3">
-                                        <textarea id="comentarios" name="comentarios" class="form-control" rows="3" placeholder="Información adicional: número de vuelo, equipaje especial, paradas adicionales, etc. (opcional)"></textarea>
+                                        <textarea id="comentarios" name="comentarios" class="form-control" rows="3" placeholder="<?php echo t('transport_form_comments'); ?>"></textarea>
                                     </div>
                                 </div>
-                                
+
                                 <div class="text-center">
                                     <button type="submit" class="btn-main btn-lg">
-                                        <i class="fa fa-whatsapp mr-2"></i>Solicitar Traslado por WhatsApp
+                                        <i class="fa fa-whatsapp mr-2"></i><?php echo t('transport_form_submit'); ?>
                                     </button>
                                 </div>
                             </form>
                         </div>
                     </div>
-                    
+
                     <!-- Línea divisoria -->
                     <div class="row">
                         <div class="col-md-12 text-center mb-4">
                             <div style="border-top: 1px solid rgba(255,255,255,0.3); margin: 20px 0;"></div>
-                            <p style="color: white;">¿Prefieres reservar directamente?</p>
+                            <p style="color: white;"><?php echo t('transport_divider_text'); ?></p>
                             <a href="https://mpago.li/2JmGRPh" class="btn-line btn-lg">
-                                <i class="fa fa-credit-card mr-2"></i>Pagar Anticipo con Mercado Pago
+                                <i class="fa fa-credit-card mr-2"></i><?php echo t('transport_mercadopago_button'); ?>
                             </a>
                         </div>
                     </div>
-                    
+
                 </div>
-                
+
                     <!-- Separador antes de la galería -->
                     <div class="spacer-single"></div>
-                                
+
                                 <section id="section-gallery" class="no-bg no-top" aria-label="section-gallery">
                                     <div class="container">
                                         <div id="carousel-rooms" class="gallery-grid">
@@ -287,7 +287,7 @@
                                         </div>
                                     </div>
                                 </section>
-                                
+
                             </div>
                         </div>
                     </div>

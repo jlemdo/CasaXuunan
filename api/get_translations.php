@@ -7,12 +7,12 @@
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 
-// Obtener el idioma del parámetro GET (por defecto: español)
-$lang = isset($_GET['lang']) ? $_GET['lang'] : 'es';
+// Obtener el idioma del parámetro GET (por defecto: inglés)
+$lang = isset($_GET['lang']) ? $_GET['lang'] : 'en';
 
 // Validar que el idioma sea válido
 if (!in_array($lang, ['es', 'en'])) {
-    $lang = 'es';
+    $lang = 'en';
 }
 
 // Incluir archivo de traducciones

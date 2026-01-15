@@ -11,8 +11,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <h4>Sabores</h4>
-                            <h1>Gastronomía Yucateca</h1>
+                            <h4><?php echo t('food_subtitle'); ?></h4>
+                            <h1><?php echo t('food_title'); ?></h1>
                         </div>
                     </div>
                 </div>
@@ -26,30 +26,30 @@
                                 <div class="post-content">
                                     <div class="post-text">
 
-                                        <h2>Deléitate con el Desayuno Tradicional</h2>
-                                        <p>Comienza tu día con panuchos recién hechos, huevos motuleños y café de olla. Nuestro buffet incluye frutas tropicales, jugos de naranja agria y platillos autóctonos que conquistarán a los paladares europeos.</p>
+                                        <h2><?php echo t('food_breakfast_title'); ?></h2>
+                                        <p><?php echo t('food_breakfast_desc'); ?></p>
 
-                                        <h2>Platos Típicos para el Almuerzo y Cena</h2>
+                                        <h2><?php echo t('food_lunch_title'); ?></h2>
                                         <ul>
-                                            <li><strong>Cochinita Pibil:</strong> cerdo marinado en achiote y naranja agria, cocido al horno bajo tierra.</li>
-                                            <li><strong>Panuchos y Salbutes:</strong> tortillas rellenas de frijol con cebolla encurtida y salsa de tomate.</li>
-                                            <li><strong>Sopa de Lima:</strong> caldo ligero con lima, pollo, cilantro y chiles suaves.</li>
-                                            <li><strong>Lomitos Yucatecos:</strong> lomo de cerdo en salsa cremosa de habanero y hierbas locales.</li>
+                                            <li><strong><?php echo t('food_dish_cochinita'); ?></strong> <?php echo t('food_dish_cochinita_desc'); ?></li>
+                                            <li><strong><?php echo t('food_dish_panuchos'); ?></strong> <?php echo t('food_dish_panuchos_desc'); ?></li>
+                                            <li><strong><?php echo t('food_dish_sopalima'); ?></strong> <?php echo t('food_dish_sopalima_desc'); ?></li>
+                                            <li><strong><?php echo t('food_dish_lomitos'); ?></strong> <?php echo t('food_dish_lomitos_desc'); ?></li>
                                         </ul>
 
-                                        <blockquote>“La cocina yucateca es un festín de colores y aromas que despiertan el alma de quien la prueba.”</blockquote>
+                                        <blockquote><?php echo t('food_testimonial'); ?></blockquote>
 
-                                        <h2>Cata de Aguas Frescas</h2>
-                                        <p>Prueba nuestras aguas de horchata de arroz, chaya y jamaica, elaboradas con frutas y hierbas de la región, ideales para refrescarte en el clima tropical.</p>
+                                        <h2><?php echo t('food_drinks_title'); ?></h2>
+                                        <p><?php echo t('food_drinks_desc'); ?></p>
 
-                                        <h2>Opciones Vegetarianas y Adaptaciones Europeas</h2>
-                                        <p>Ofrecemos ensaladas frescas, pasta con toque de achiote y postres de chocolate maya. Contamos con alternativas vegetarianas y sin gluten, pensadas para tu comodidad.</p>
+                                        <h2><?php echo t('food_vegetarian_title'); ?></h2>
+                                        <p><?php echo t('food_vegetarian_desc'); ?></p>
 
-                                        <h2>Reserva tu Experiencia Gastronómica</h2>
-                                        <p>Disfruta de un viaje culinario único. Reserva ahora y paga de forma segura con Mercado Pago.</p>
+                                        <h2><?php echo t('food_booking_title'); ?></h2>
+                                        <p><?php echo t('food_booking_desc'); ?></p>
 
                                         <div class="text-center mt20">
-                                            <a href="https://api.whatsapp.com/send?phone=5219852580599" target="_blank" class="btn-main">WhatsApp <i class="fa fa-whatsapp fa-lg"></i></a>
+                                            <a href="https://api.whatsapp.com/send?phone=5219852580599" target="_blank" class="btn-main"><?php echo t('food_whatsapp_button'); ?> <i class="fa fa-whatsapp fa-lg"></i></a>
                                         </div>
 
                                     </div>
@@ -65,7 +65,7 @@
 
                                  <!-- Botón reforzador antes de la galería -->
                                 <div class="text-center mb40">
-                                    <a href="https://mpago.li/2JmGRPh" class="btn-line"><span>¡Reserva Ahora con Mercado Pago!</span></a>
+                                    <a href="https://mpago.li/2JmGRPh" class="btn-line"><span><?php echo t('food_mercadopago_button'); ?></span></a>
                                 </div>
 
                                 <section id="section-gallery" class="no-bg no-top" aria-label="section-gallery">
