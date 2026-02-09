@@ -1,0 +1,1916 @@
+/* ============================================
+   XUUNAN GARDEN - BOTANICAL EXPERIENCE
+   Casa Xuunan - Valladolid, Yucatan
+   ============================================ */
+
+/* Variables */
+:root {
+    --garden-primary: #7baf89;
+    --garden-secondary: #e2bad4;
+    --garden-accent: #eddd98;
+    --garden-dark: #2a4a3a;
+    --garden-light: rgba(255, 255, 255, 0.95);
+}
+
+/* ============================================
+   GARDEN LANDING PAGE
+   ============================================ */
+
+/* Garden Tagline */
+.garden-tagline {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 600px;
+    margin: 10px auto 0;
+}
+
+@media (max-width: 768px) {
+    .garden-tagline {
+        font-size: 0.9rem;
+        padding: 0 15px;
+    }
+}
+
+/* Intro Card */
+.garden-intro-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+}
+
+.garden-intro-icon {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.garden-intro-icon i {
+    font-size: 50px;
+    color: var(--garden-primary);
+    z-index: 2;
+    position: relative;
+}
+
+.pulse-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3px solid var(--garden-primary);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.8);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+.garden-intro-card h3 {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+.garden-intro-card .lead {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 40px;
+}
+
+/* Steps */
+.garden-steps {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.garden-step {
+    flex: 1;
+    min-width: 200px;
+    max-width: 280px;
+    text-align: center;
+    position: relative;
+    padding: 20px;
+}
+
+.step-number {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    background: var(--garden-primary);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.step-icon {
+    width: 70px;
+    height: 70px;
+    margin: 20px auto 15px;
+    background: rgba(123, 175, 137, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.step-icon i {
+    font-size: 28px;
+    color: var(--garden-primary);
+}
+
+.garden-step:hover .step-icon {
+    background: var(--garden-primary);
+    transform: scale(1.1);
+}
+
+.garden-step:hover .step-icon i {
+    color: #fff;
+}
+
+.garden-step h5 {
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.garden-step p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* Stats Section */
+.garden-stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    background: rgba(123, 175, 137, 0.1);
+    border-radius: 20px;
+    padding: 40px;
+    border: 1px solid rgba(123, 175, 137, 0.3);
+}
+
+.stat-item {
+    text-align: center;
+    min-width: 150px;
+    padding: 20px;
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 15px;
+    background: var(--garden-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-icon i {
+    font-size: 24px;
+    color: #fff;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ============================================
+   CATEGORY CARDS - FIXED DESIGN
+   ============================================ */
+
+.garden-category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 30px 25px;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    height: 100%;
+    min-height: 320px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de brillo sutil que se mueve */
+.garden-category-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: cardShine 3s ease-in-out infinite;
+}
+
+@keyframes cardShine {
+    0%, 100% {
+        left: -100%;
+    }
+    50% {
+        left: 100%;
+    }
+}
+
+/* Indicador "Click para filtrar" - Español por defecto */
+.garden-category-card::after {
+    content: attr(data-filter-text);
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--garden-primary);
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0;
+    transition: opacity 0.3s ease, bottom 0.3s ease;
+    white-space: nowrap;
+}
+
+.garden-category-card:hover::after {
+    opacity: 1;
+    bottom: 20px;
+}
+
+.garden-category-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--garden-primary);
+    box-shadow: 0 20px 40px rgba(123, 175, 137, 0.3);
+    text-decoration: none;
+}
+
+.garden-category-card.active {
+    border-color: var(--garden-primary);
+    background: rgba(123, 175, 137, 0.15);
+}
+
+.garden-category-card.active::after {
+    content: attr(data-active-text);
+    opacity: 1;
+    bottom: 20px;
+    background: var(--garden-accent);
+    color: #333;
+}
+
+.category-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(123, 175, 137, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(123, 175, 137, 0);
+    }
+}
+
+.category-icon i {
+    font-size: 32px;
+    color: #fff;
+}
+
+.garden-category-card:hover .category-icon {
+    transform: scale(1.1) rotate(10deg);
+    animation: none;
+}
+
+.garden-category-card h4 {
+    color: #fff;
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+}
+
+.garden-category-card p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.category-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(123, 175, 137, 0.25);
+    color: var(--garden-primary);
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: auto;
+    white-space: nowrap;
+}
+
+/* Category Icon Colors */
+.category-icon.category-medicinal {
+    background: linear-gradient(135deg, #7baf89, #5a9a6a);
+}
+
+.category-icon.category-ornamental {
+    background: linear-gradient(135deg, #e2bad4, #c99ab8);
+}
+
+.category-icon.category-edible {
+    background: linear-gradient(135deg, #eddd98, #d4c57a);
+}
+
+/* Active Filter */
+.active-filter {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(123, 175, 137, 0.2);
+    padding: 12px 25px;
+    border-radius: 30px;
+    color: #fff;
+}
+
+.clear-filter {
+    color: var(--garden-accent);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s ease;
+}
+
+.clear-filter:hover {
+    color: #fff;
+}
+
+/* ============================================
+   PLANT CARDS GRID - LOCKED/UNLOCKED SYSTEM
+   ============================================ */
+
+.plant-card {
+    display: block;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.plant-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+}
+
+/* LOCKED STATE */
+.plant-card.locked {
+    cursor: default;
+}
+
+.plant-card.locked:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.plant-card.locked .plant-card-image img {
+    filter: blur(15px) grayscale(100%);
+}
+
+.plant-card-lock-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    padding: 20px;
+    text-align: center;
+}
+
+.plant-card-lock-overlay i {
+    font-size: 40px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 15px;
+}
+
+.plant-card-lock-overlay .lock-text {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.plant-card-lock-overlay .hint-text {
+    color: var(--garden-accent);
+    font-size: 0.8rem;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.plant-card-lock-overlay .hint-text i {
+    font-size: 12px;
+    margin-bottom: 0;
+}
+
+/* UNLOCKED STATE */
+.plant-card.unlocked {
+    border-color: var(--garden-primary);
+}
+
+.plant-card.unlocked:hover {
+    border-color: var(--garden-primary);
+    box-shadow: 0 20px 40px rgba(123, 175, 137, 0.3);
+}
+
+.plant-card.unlocked .plant-card-lock-overlay {
+    display: none;
+}
+
+.plant-card-image {
+    position: relative;
+    height: 180px;
+    overflow: hidden;
+}
+
+.plant-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.5s ease;
+}
+
+.plant-card.unlocked:hover .plant-card-image img {
+    transform: scale(1.1);
+}
+
+.plant-card-order {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    z-index: 5;
+}
+
+.plant-card-category {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+}
+
+.plant-card-category.category-medicinal {
+    background: #7baf89;
+}
+
+.plant-card-category.category-ornamental {
+    background: #e2bad4;
+}
+
+.plant-card-category.category-edible {
+    background: #eddd98;
+}
+
+.plant-card-category i {
+    color: #fff;
+    font-size: 14px;
+}
+
+.plant-card-category.category-edible i {
+    color: #333;
+}
+
+/* Unlocked Badge */
+.plant-card-unlocked-badge {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 35px;
+    height: 35px;
+    background: var(--garden-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.plant-card-unlocked-badge i {
+    color: #fff;
+    font-size: 16px;
+}
+
+.plant-card-info {
+    padding: 18px;
+    text-align: center;
+}
+
+.plant-card-info h5 {
+    color: #fff;
+    margin-bottom: 5px;
+    font-size: 1.05rem;
+}
+
+.plant-card-info .maya-name {
+    color: var(--garden-accent);
+    font-style: italic;
+    font-size: 0.85rem;
+    margin-bottom: 3px;
+}
+
+.plant-card-info .scientific-name {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.75rem;
+    margin: 0;
+}
+
+/* Locked card info */
+.plant-card.locked .plant-card-info h5 {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.plant-card.locked .plant-card-info .maya-name,
+.plant-card.locked .plant-card-info .scientific-name {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+/* ============================================
+   FEATURED PLANT
+   ============================================ */
+
+.garden-featured-plant {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    overflow: hidden;
+    padding: 30px;
+    position: relative;
+}
+
+/* Featured plant DEFAULT state (LOCKED) */
+.garden-featured-plant .featured-img {
+    filter: blur(10px) grayscale(100%);
+}
+
+.garden-featured-plant .featured-description,
+.garden-featured-plant .featured-facts {
+    filter: blur(5px);
+    pointer-events: none;
+    user-select: none;
+}
+
+.garden-featured-plant .featured-btn {
+    display: none !important;
+}
+
+.garden-featured-plant .featured-lock-overlay {
+    display: flex;
+}
+
+/* Featured plant UNLOCKED state */
+.garden-featured-plant.unlocked .featured-img {
+    filter: none;
+}
+
+.garden-featured-plant.unlocked .featured-description,
+.garden-featured-plant.unlocked .featured-facts {
+    filter: none;
+    pointer-events: auto;
+    user-select: auto;
+}
+
+.garden-featured-plant.unlocked .featured-lock-overlay {
+    display: none;
+}
+
+.garden-featured-plant.unlocked .featured-btn-locked {
+    display: none !important;
+}
+
+.garden-featured-plant.unlocked .featured-btn {
+    display: inline-flex !important;
+}
+
+/* Featured lock overlay - shown by default (locked state) */
+.featured-lock-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    border-radius: 20px;
+}
+
+.featured-lock-overlay i {
+    font-size: 50px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 15px;
+}
+
+.featured-lock-overlay .lock-text {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.featured-lock-overlay .hint-text {
+    color: var(--garden-accent);
+    font-size: 1rem;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.featured-lock-overlay .hint-text i {
+    font-size: 16px;
+    margin-bottom: 0;
+}
+
+/* Locked button - shown by default */
+.btn-locked {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.5);
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: not-allowed;
+}
+
+.btn-locked i {
+    font-size: 14px;
+}
+
+/* Hide btn-locked when unlocked */
+.garden-featured-plant.unlocked .btn-locked {
+    display: none !important;
+}
+
+.featured-plant-image {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.featured-plant-image img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.garden-featured-plant:hover .featured-plant-image img {
+    transform: scale(1.05);
+}
+
+.plant-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--garden-primary);
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 2;
+}
+
+.plant-maya-name {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--garden-accent);
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-style: italic;
+    z-index: 2;
+}
+
+.featured-plant-info {
+    padding: 20px 0 20px 30px;
+}
+
+.plant-category-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(123, 175, 137, 0.2);
+    color: var(--garden-primary);
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+}
+
+.featured-plant-info h2 {
+    color: #fff;
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+}
+
+.featured-plant-info .scientific-name {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.featured-plant-info .plant-description {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.plant-quick-facts {
+    margin-bottom: 25px;
+}
+
+.quick-fact {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.quick-fact i {
+    color: var(--garden-primary);
+    font-size: 16px;
+}
+
+/* CTA Section */
+.garden-cta {
+    background: linear-gradient(135deg, rgba(123, 175, 137, 0.3), rgba(226, 186, 212, 0.2));
+    border: 1px solid rgba(123, 175, 137, 0.3);
+    border-radius: 20px;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.cta-content {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.cta-content i {
+    font-size: 50px;
+    color: var(--garden-primary);
+}
+
+.cta-content h3 {
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.cta-content p {
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+.cta-action {
+    text-align: center;
+}
+
+.cta-hashtag {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--garden-accent);
+    margin-bottom: 15px;
+}
+
+.cta-social {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.cta-social a {
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.cta-social a:hover {
+    background: var(--garden-primary);
+    transform: translateY(-5px);
+}
+
+/* CTA Locked State */
+.garden-cta {
+    position: relative;
+}
+
+.cta-locked-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    gap: 15px;
+}
+
+.cta-locked-overlay i {
+    font-size: 40px;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.cta-locked-overlay span {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    text-align: center;
+}
+
+.garden-cta.unlocked .cta-locked-overlay {
+    display: none;
+}
+
+/* Social buttons with lock states */
+.social-btn {
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    text-decoration: none;
+}
+
+.social-btn.locked {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.social-btn .social-lock {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 18px;
+    height: 18px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-btn .social-lock i {
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.social-btn.locked .social-lock {
+    display: flex;
+}
+
+.social-btn.unlocked {
+    opacity: 1;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.social-btn.unlocked:hover {
+    transform: translateY(-5px);
+}
+
+.social-btn.social-whatsapp.unlocked:hover {
+    background: #25D366;
+}
+
+.social-btn.social-facebook.unlocked:hover {
+    background: #1877F2;
+}
+
+.social-btn.social-instagram.unlocked:hover {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+/* ============================================
+   PROGRESS CARD - DYNAMIC BADGES
+   ============================================ */
+
+.garden-progress-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 35px;
+}
+
+.progress-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.progress-header i {
+    font-size: 30px;
+    color: var(--garden-accent);
+}
+
+.progress-header h4 {
+    color: #fff;
+    margin: 0;
+}
+
+.progress-wrapper {
+    margin-bottom: 30px;
+}
+
+.progress-text {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.progress-bar-container {
+    position: relative;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--garden-primary), var(--garden-accent));
+    border-radius: 10px;
+    transition: width 1s ease;
+    position: relative;
+}
+
+.progress-bar-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.progress-badges {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+}
+
+.badge-item {
+    text-align: center;
+    padding: 20px 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.badge-item i {
+    font-size: 28px;
+    margin-bottom: 10px;
+    display: block;
+    color: rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.badge-item .badge-name {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.badge-item .badge-requirement {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Locked badge */
+.badge-item.locked {
+    opacity: 0.6;
+}
+
+.badge-item.locked::before {
+    content: '\f023';
+    font-family: FontAwesome;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Unlocked badge */
+.badge-item.unlocked {
+    background: rgba(123, 175, 137, 0.2);
+    border: 1px solid var(--garden-primary);
+    opacity: 1;
+}
+
+.badge-item.unlocked i {
+    color: var(--garden-accent);
+}
+
+.badge-item.unlocked .badge-name {
+    color: #fff;
+}
+
+.badge-item.unlocked .badge-requirement {
+    color: var(--garden-primary);
+}
+
+/* ============================================
+   PLANT DETAIL PAGE
+   ============================================ */
+
+/* Breadcrumb */
+.plant-breadcrumb {
+    padding: 20px 0;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.plant-breadcrumb a {
+    color: var(--garden-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.plant-breadcrumb a:hover {
+    color: var(--garden-accent);
+}
+
+.plant-breadcrumb .separator {
+    margin: 0 10px;
+}
+
+.plant-breadcrumb .current {
+    color: #fff;
+}
+
+/* Plant Header */
+.plant-header {
+    padding: 30px 0;
+}
+
+.plant-order {
+    display: inline-block;
+    background: var(--garden-primary);
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.plant-names h1 {
+    font-size: 3.5rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.maya-name {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.maya-label {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.maya-text {
+    color: var(--garden-accent);
+    font-style: italic;
+    font-weight: 600;
+}
+
+.plant-header .scientific-name {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+.family-name {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.95rem;
+}
+
+.plant-category .category-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+.category-badge.category-medicinal {
+    background: linear-gradient(135deg, rgba(123, 175, 137, 0.3), rgba(123, 175, 137, 0.1));
+    color: var(--garden-primary);
+    border: 1px solid var(--garden-primary);
+}
+
+.category-badge.category-ornamental {
+    background: linear-gradient(135deg, rgba(226, 186, 212, 0.3), rgba(226, 186, 212, 0.1));
+    color: var(--garden-secondary);
+    border: 1px solid var(--garden-secondary);
+}
+
+.category-badge.category-edible {
+    background: linear-gradient(135deg, rgba(237, 221, 152, 0.3), rgba(237, 221, 152, 0.1));
+    color: var(--garden-accent);
+    border: 1px solid var(--garden-accent);
+}
+
+/* Plant Image */
+.plant-image-container {
+    position: relative;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.plant-main-image {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+}
+
+.plant-location-hint {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    padding: 30px 20px 20px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.plant-location-hint i {
+    color: var(--garden-accent);
+    font-size: 18px;
+}
+
+/* Description Card */
+.plant-description-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    padding: 35px;
+    height: 100%;
+}
+
+.plant-description-card h3 {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+}
+
+.plant-description-card h3 i {
+    color: var(--garden-primary);
+}
+
+.description-text {
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.8;
+    font-size: 1.05rem;
+    margin-bottom: 25px;
+}
+
+.nutrition-info {
+    background: rgba(123, 175, 137, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    border-left: 4px solid var(--garden-primary);
+}
+
+.nutrition-info h5 {
+    color: var(--garden-primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.nutrition-info p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* Plant Sections */
+.plant-section {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    padding: 35px;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.section-header i {
+    font-size: 28px;
+    color: var(--garden-primary);
+}
+
+.section-header h3 {
+    color: #fff;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+/* Medicinal Uses Grid */
+.medicinal-uses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.medicinal-use-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    background: rgba(123, 175, 137, 0.1);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.5s ease backwards;
+}
+
+.medicinal-use-item:hover {
+    background: rgba(123, 175, 137, 0.2);
+    transform: translateX(5px);
+}
+
+.use-icon {
+    width: 35px;
+    height: 35px;
+    background: var(--garden-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.use-icon i {
+    color: #fff;
+    font-size: 14px;
+}
+
+.medicinal-use-item span {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Curious Facts */
+.curious-facts-carousel {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.curious-fact-card {
+    background: linear-gradient(135deg, rgba(237, 221, 152, 0.15), rgba(237, 221, 152, 0.05));
+    border: 1px solid rgba(237, 221, 152, 0.3);
+    border-radius: 20px;
+    padding: 25px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.curious-fact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(237, 221, 152, 0.1);
+}
+
+.fact-number {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    width: 35px;
+    height: 35px;
+    background: var(--garden-accent);
+    color: var(--garden-dark);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.curious-fact-card p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 10px 0 0;
+    line-height: 1.6;
+}
+
+/* Region Section */
+.region-section .row {
+    align-items: center;
+}
+
+.region-text {
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+.region-map {
+    text-align: center;
+    padding: 20px;
+}
+
+.region-map img {
+    max-width: 150px;
+    opacity: 0.8;
+    margin-bottom: 15px;
+}
+
+.region-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--garden-primary);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+/* Recipes Section */
+.recipes-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.recipe-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(226, 186, 212, 0.15);
+    border: 1px solid rgba(226, 186, 212, 0.3);
+    padding: 12px 20px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.recipe-item:hover {
+    background: rgba(226, 186, 212, 0.25);
+    transform: scale(1.05);
+}
+
+.recipe-item i {
+    color: var(--garden-secondary);
+}
+
+.recipe-item span {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Plant Navigation */
+.plant-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+}
+
+.plant-navigation a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 25px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.plant-navigation a:hover {
+    background: var(--garden-primary);
+}
+
+.plant-navigation a i {
+    font-size: 20px;
+    color: var(--garden-primary);
+}
+
+.plant-navigation a:hover i {
+    color: #fff;
+}
+
+.nav-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-label {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-name {
+    color: #fff;
+    font-weight: 600;
+}
+
+.nav-home {
+    flex-direction: column;
+    gap: 5px;
+}
+
+.nav-home i {
+    font-size: 24px;
+}
+
+.nav-home span {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+}
+
+.nav-placeholder {
+    width: 180px;
+}
+
+/* Navigation items locked/unlocked states */
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 25px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.nav-item i {
+    font-size: 20px;
+    color: var(--garden-primary);
+}
+
+.nav-item.locked {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.nav-item.locked i:not(.nav-lock-icon) {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.nav-item.locked .nav-name {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.nav-lock-icon {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px !important;
+    color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.nav-item.locked .nav-lock-icon {
+    display: block;
+}
+
+.nav-item.unlocked:hover {
+    background: var(--garden-primary);
+}
+
+.nav-item.unlocked:hover i {
+    color: #fff;
+}
+
+.nav-item.unlocked:hover .nav-name {
+    color: #fff;
+}
+
+.nav-item.unlocked:hover .nav-label {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.nav-item.shake {
+    animation: shake 0.5s ease;
+}
+
+/* Share Section */
+.plant-share {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+}
+
+.share-label {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.share-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.share-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.share-btn.whatsapp {
+    background: #25D366;
+    color: #fff;
+}
+
+.share-btn.facebook {
+    background: #1877F2;
+    color: #fff;
+}
+
+.share-btn.copy {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.share-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Discovered Toast */
+.plant-discovered-toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--garden-primary);
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.plant-discovered-toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+.plant-discovered-toast i {
+    font-size: 24px;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.plant-card.shake {
+    animation: shake 0.5s ease;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 992px) {
+    .plant-names h1 {
+        font-size: 2.5rem;
+    }
+
+    .garden-steps {
+        gap: 20px;
+    }
+
+    .cta-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .garden-cta {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .featured-plant-info {
+        padding: 30px 0 0;
+    }
+
+    .plant-navigation {
+        flex-direction: column;
+    }
+
+    .nav-placeholder {
+        display: none;
+    }
+
+    .garden-category-card {
+        min-height: 280px;
+    }
+
+    .garden-progress-card {
+        padding: 25px 20px;
+    }
+
+    .progress-header h4 {
+        font-size: 1.1rem;
+    }
+
+    .progress-badges {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .garden-intro-card {
+        padding: 25px;
+    }
+
+    .garden-step {
+        min-width: 100%;
+    }
+
+    .stat-item {
+        min-width: 45%;
+    }
+
+    .plant-names h1 {
+        font-size: 2rem;
+    }
+
+    .plant-main-image {
+        height: 300px;
+    }
+
+    .plant-section {
+        padding: 25px;
+    }
+
+    .medicinal-uses-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .curious-facts-carousel {
+        grid-template-columns: 1fr;
+    }
+
+    .garden-category-card {
+        min-height: auto;
+        padding: 25px 20px;
+    }
+
+    .category-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .category-icon i {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .garden-stats {
+        padding: 25px 15px;
+    }
+
+    .stat-item {
+        min-width: 100%;
+    }
+
+    .garden-progress-card {
+        padding: 20px 15px;
+    }
+
+    .progress-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .progress-header h4 {
+        font-size: 1rem;
+    }
+
+    .progress-text {
+        font-size: 0.9rem;
+    }
+
+    .progress-badges {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .badge-item {
+        padding: 15px 8px;
+    }
+
+    .badge-item i {
+        font-size: 22px;
+    }
+
+    .badge-item .badge-name {
+        font-size: 0.7rem;
+    }
+
+    .badge-item .badge-requirement {
+        font-size: 0.6rem;
+    }
+
+    .plant-share {
+        flex-direction: column;
+    }
+}

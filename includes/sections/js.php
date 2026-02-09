@@ -51,3 +51,8 @@ if (basename($_SERVER['SCRIPT_NAME']) === 'contact.php') {
     echo '<script src="' . BASE_URL . '/js/contact-whatsapp.js"></script>';
 }
 ?>
+<?php
+if (basename($_SERVER['SCRIPT_NAME']) === 'garden.php' || basename($_SERVER['SCRIPT_NAME']) === 'plant.php') {
+    echo '<script src="' . BASE_URL . '/js/garden.js"></script>';
+}
+?>

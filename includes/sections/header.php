@@ -77,6 +77,11 @@
     <link rel="stylesheet" href="css/contact-alerts.css" type="text/css">
     <?php endif; ?>
 
+    <?php if (basename($_SERVER['SCRIPT_NAME']) === 'garden.php' || basename($_SERVER['SCRIPT_NAME']) === 'plant.php'): ?>
+    <!-- Garden Styles -->
+    <link rel="stylesheet" href="css/garden.css" type="text/css">
+    <?php endif; ?>
+
     <!-- Schema.org Structured Data para Bed and Breakfast -->
     <script type="application/ld+json">
     {

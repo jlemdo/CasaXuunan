@@ -1,0 +1,665 @@
+{
+  "garden_info": {
+    "version": "1.0",
+    "last_updated": "2024-01-15"
+  },
+  "categories": [
+    {
+      "id": "medicinal",
+      "icon": "heartbeat",
+      "color": "#7baf89"
+    },
+    {
+      "id": "ornamental",
+      "icon": "star",
+      "color": "#e2bad4"
+    },
+    {
+      "id": "edible",
+      "icon": "cutlery",
+      "color": "#eddd98"
+    }
+  ],
+  "plants": [
+    {
+      "id": "chaya",
+      "slug": "chaya",
+      "unlock_code": "XG-CH01-MAYA",
+      "order": 1,
+      "featured": true,
+      "names": {
+        "common_es": "Chaya",
+        "common_en": "Tree Spinach",
+        "scientific": "Cnidoscolus aconitifolius",
+        "maya": "Chaay",
+        "family": "Euphorbiaceae"
+      },
+      "category": "medicinal",
+      "images": {
+        "main": "images/garden/placeholder.svg",
+        "thumbnail": "images/garden/placeholder.svg",
+        "gallery": []
+      },
+      "description": {
+        "es": "La Chaya es una de las plantas más importantes de la cultura maya. Sus hojas verdes y brillantes han alimentado a generaciones de yucatecos y son consideradas un superalimento por su alto contenido nutricional.",
+        "en": "Chaya is one of the most important plants in Mayan culture. Its bright green leaves have nourished generations of Yucatecans and are considered a superfood due to their high nutritional content."
+      },
+      "medicinal_uses": {
+        "es": [
+          "Regula los niveles de azúcar en sangre",
+          "Mejora la circulación sanguínea",
+          "Fortalece el sistema inmunológico",
+          "Ayuda a la digestión",
+          "Rica en hierro, ideal para anemia"
+        ],
+        "en": [
+          "Regulates blood sugar levels",
+          "Improves blood circulation",
+          "Strengthens the immune system",
+          "Aids digestion",
+          "Rich in iron, ideal for anemia"
+        ]
+      },
+      "curious_facts": {
+        "es": [
+          "Contiene 10 veces más vitamina C que la naranja",
+          "Los mayas la llamaban 'la planta de la vida'",
+          "Debe cocinarse antes de consumirse (nunca cruda)",
+          "Se usa en el famoso 'agua de chaya' yucateca",
+          "Puede crecer hasta 3 metros de altura"
+        ],
+        "en": [
+          "Contains 10 times more vitamin C than orange",
+          "The Maya called it 'the plant of life'",
+          "Must be cooked before consumption (never raw)",
+          "Used in the famous Yucatecan 'chaya water'",
+          "Can grow up to 3 meters tall"
+        ]
+      },
+      "nutrition": {
+        "es": "Por cada 100g: Proteína 5.7g, Hierro 11.4mg, Calcio 199mg, Vitamina A 10,000 IU, Vitamina C 165mg",
+        "en": "Per 100g: Protein 5.7g, Iron 11.4mg, Calcium 199mg, Vitamin A 10,000 IU, Vitamin C 165mg"
+      },
+      "region_info": {
+        "es": "Originaria de la Península de Yucatán, la Chaya crece de forma silvestre en toda la región. Los antiguos mayas la cultivaban en sus huertos familiares y la consideraban sagrada.",
+        "en": "Native to the Yucatan Peninsula, Chaya grows wild throughout the region. The ancient Maya cultivated it in their family gardens and considered it sacred."
+      },
+      "traditional_recipes": {
+        "es": ["Agua de Chaya con limón", "Tamales de Chaya", "Huevos con Chaya", "Empanadas de Chaya"],
+        "en": ["Chaya water with lime", "Chaya tamales", "Eggs with Chaya", "Chaya empanadas"]
+      },
+      "location_hint": {
+        "es": "Búscame cerca de la entrada del jardín principal",
+        "en": "Find me near the main garden entrance"
+      }
+    },
+    {
+      "id": "bugambilia",
+      "slug": "bugambilia",
+      "unlock_code": "XG-BU02-MAYA",
+      "order": 2,
+      "featured": false,
+      "names": {
+        "common_es": "Bugambilia",
+        "common_en": "Bougainvillea",
+        "scientific": "Bougainvillea spectabilis",
+        "maya": "Bugambilia",
+        "family": "Nyctaginaceae"
+      },
+      "category": "ornamental",
+      "images": {
+        "main": "images/garden/placeholder.svg",
+        "thumbnail": "images/garden/placeholder.svg",
+        "gallery": []
+      },
+      "description": {
+        "es": "La Bugambilia es una de las plantas ornamentales más emblemáticas del paisaje yucateco. Sus vibrantes colores púrpura, rosa y naranja adornan las fachadas de las casas coloniales de Valladolid.",
+        "en": "Bougainvillea is one of the most emblematic ornamental plants in the Yucatecan landscape. Its vibrant purple, pink, and orange colors adorn the facades of colonial houses in Valladolid."
+      },
+      "medicinal_uses": {
+        "es": [
+          "Alivia la tos y problemas respiratorios",
+          "Reduce la fiebre",
+          "Tratamiento para afecciones de la piel",
+          "Propiedades antiinflamatorias"
+        ],
+        "en": [
+          "Relieves cough and respiratory problems",
+          "Reduces fever",
+          "Treatment for skin conditions",
+          "Anti-inflammatory properties"
+        ]
+      },
+      "curious_facts": {
+        "es": [
+          "Los colores vibrantes son en realidad brácteas, no flores",
+          "Puede vivir más de 100 años",
+          "Fue nombrada en honor al navegante francés Louis Antoine de Bougainville",
+          "Florece mejor en climas cálidos y secos como Yucatán"
+        ],
+        "en": [
+          "The vibrant colors are actually bracts, not flowers",
+          "Can live more than 100 years",
+          "Named after French navigator Louis Antoine de Bougainville",
+          "Blooms best in warm, dry climates like Yucatan"
+        ]
+      },
+      "region_info": {
+        "es": "Aunque originaria de Sudamérica, la Bugambilia se ha adaptado perfectamente al clima yucateco y es parte integral del paisaje urbano de Valladolid.",
+        "en": "Although native to South America, Bougainvillea has adapted perfectly to the Yucatecan climate and is an integral part of Valladolid's urban landscape."
+      },
+      "location_hint": {
+        "es": "Admírame junto a la pared del patio principal",
+        "en": "Admire me next to the main patio wall"
+      }
+    },
+    {
+      "id": "aloe-vera",
+      "slug": "aloe-vera",
+      "unlock_code": "XG-AV03-MAYA",
+      "order": 3,
+      "featured": false,
+      "names": {
+        "common_es": "Sábila",
+        "common_en": "Aloe Vera",
+        "scientific": "Aloe barbadensis miller",
+        "maya": "Hunpets'kin Ci'",
+        "family": "Asphodelaceae"
+      },
+      "category": "medicinal",
+      "images": {
+        "main": "images/garden/placeholder.svg",
+        "thumbnail": "images/garden/placeholder.svg",
+        "gallery": []
+      },
+      "description": {
+        "es": "La Sábila es conocida como la 'planta de la inmortalidad'. Los mayas la utilizaban para tratar quemaduras, heridas y como tratamiento de belleza para el cabello y la piel.",
+        "en": "Aloe Vera is known as the 'plant of immortality'. The Maya used it to treat burns, wounds, and as a beauty treatment for hair and skin."
+      },
+      "medicinal_uses": {
+        "es": [
+          "Cicatriza quemaduras y heridas",
+          "Hidrata profundamente la piel",
+          "Alivia irritaciones y picaduras",
+          "Fortalece el cabello",
+          "Mejora la digestión (uso interno)"
+        ],
+        "en": [
+          "Heals burns and wounds",
+          "Deeply moisturizes the skin",
+          "Relieves irritations and bites",
+          "Strengthens hair",
+          "Improves digestion (internal use)"
+        ]
+      },
+      "curious_facts": {
+        "es": [
+          "Cleopatra la usaba como parte de su rutina de belleza",
+          "Contiene más de 75 compuestos activos",
+          "Puede sobrevivir largos períodos sin agua",
+          "Los mayas la llamaban 'la planta del cielo'"
+        ],
+        "en": [
+          "Cleopatra used it as part of her beauty routine",
+          "Contains more than 75 active compounds",
+          "Can survive long periods without water",
+          "The Maya called it 'the plant of heaven'"
+        ]
+      },
+      "region_info": {
+        "es": "Presente en casi todos los hogares yucatecos, la Sábila es un remedio casero esencial que ha pasado de generación en generación.",
+        "en": "Present in almost every Yucatecan home, Aloe Vera is an essential home remedy that has been passed down from generation to generation."
+      },
+      "location_hint": {
+        "es": "Encuéntrame cerca del área de la piscina",
+        "en": "Find me near the pool area"
+      }
+    },
+    {
+      "id": "habanero",
+      "slug": "habanero",
+      "unlock_code": "XG-HA04-MAYA",
+      "order": 4,
+      "featured": false,
+      "names": {
+        "common_es": "Chile Habanero",
+        "common_en": "Habanero Pepper",
+        "scientific": "Capsicum chinense",
+        "maya": "Habanero Iik",
+        "family": "Solanaceae"
+      },
+      "category": "edible",
+      "images": {
+        "main": "images/garden/placeholder.svg",
+        "thumbnail": "images/garden/placeholder.svg",
+        "gallery": []
+      },
+      "description": {
+        "es": "El Chile Habanero es el rey de la gastronomía yucateca. Su intenso picor y aroma único lo convierten en un ingrediente indispensable de la cocina regional.",
+        "en": "The Habanero Pepper is the king of Yucatecan gastronomy. Its intense heat and unique aroma make it an indispensable ingredient in regional cuisine."
+      },
+      "medicinal_uses": {
+        "es": [
+          "Acelera el metabolismo",
+          "Propiedades antibacterianas",
+          "Alivia dolores musculares (uso tópico)",
+          "Rico en vitamina C"
+        ],
+        "en": [
+          "Speeds up metabolism",
+          "Antibacterial properties",
+          "Relieves muscle pain (topical use)",
+          "Rich in vitamin C"
+        ]
+      },
+      "curious_facts": {
+        "es": [
+          "Alcanza hasta 350,000 unidades Scoville de picor",
+          "El habanero naranja de Yucatán tiene Denominación de Origen",
+          "Los mayas lo usaban en rituales de purificación",
+          "Un solo habanero contiene más vitamina C que una naranja"
+        ],
+        "en": [
+          "Reaches up to 350,000 Scoville heat units",
+          "Orange habanero from Yucatan has Denomination of Origin",
+          "The Maya used it in purification rituals",
+          "A single habanero contains more vitamin C than an orange"
+        ]
+      },
+      "traditional_recipes": {
+        "es": ["Salsa de habanero", "Cochinita pibil", "Escabeche oriental", "Xni pec"],
+        "en": ["Habanero sauce", "Cochinita pibil", "Oriental escabeche", "Xni pec"]
+      },
+      "region_info": {
+        "es": "El habanero de Yucatán es considerado el más aromático y sabroso del mundo, gracias al suelo calcáreo único de la península.",
+        "en": "Yucatan's habanero is considered the most aromatic and flavorful in the world, thanks to the peninsula's unique limestone soil."
+      },
+      "location_hint": {
+        "es": "Búscame en el huerto cerca de la cocina",
+        "en": "Find me in the garden near the kitchen"
+      }
+    },
+    {
+      "id": "flor-de-mayo",
+      "slug": "flor-de-mayo",
+      "unlock_code": "XG-FM05-MAYA",
+      "order": 5,
+      "featured": false,
+      "names": {
+        "common_es": "Flor de Mayo",
+        "common_en": "Frangipani",
+        "scientific": "Plumeria rubra",
+        "maya": "Nicté",
+        "family": "Apocynaceae"
+      },
+      "category": "ornamental",
+      "images": {
+        "main": "images/garden/placeholder.svg",
+        "thumbnail": "images/garden/placeholder.svg",
+        "gallery": []
+      },
+      "description": {
+        "es": "La Flor de Mayo, o Nicté en maya, es la flor nacional de Nicaragua pero tiene profundo significado en la cultura maya. Su fragancia dulce perfuma las noches yucatecas.",
+        "en": "The Frangipani, or Nicté in Mayan, is Nicaragua's national flower but holds deep meaning in Mayan culture. Its sweet fragrance perfumes Yucatecan nights."
+      },
+      "medicinal_uses": {
+        "es": [
+          "Alivia dolores de cabeza",
+          "Tratamiento para la fiebre",
+          "Propiedades calmantes",
+          "Usado en aromaterapia tradicional"
+        ],
+        "en": [
+          "Relieves headaches",
+          "Treatment for fever",
+          "Calming properties",
+          "Used in traditional aromatherapy"
+        ]
+      },
+      "curious_facts": {
+        "es": [
+          "En la mitología maya representa el amor y la fertilidad",
+          "Se usaba para adornar los templos mayas",
+          "Su fragancia es más intensa durante la noche",
+          "Puede vivir más de 200 años"
+        ],
+        "en": [
+          "In Mayan mythology represents love and fertility",
+          "Was used to adorn Mayan temples",
+          "Its fragrance is more intense at night",
+          "Can live more than 200 years"
+        ]
+      },
+      "region_info": {
+        "es": "Los antiguos mayas consideraban la Flor de Mayo sagrada y la asociaban con el inframundo Xibalbá. Hoy sigue siendo símbolo de la identidad yucateca.",
+        "en": "The ancient Maya considered the Frangipani sacred and associated it with the underworld Xibalbá. Today it remains a symbol of Yucatecan identity."
+      },
+      "location_hint": {
+        "es": "Admírame junto a la terraza principal",
+        "en": "Admire me next to the main terrace"
+      }
+    },
+    {
+      "id": "hierba-buena",
+      "slug": "hierba-buena",
+      "unlock_code": "XG-HB06-MAYA",
+      "order": 6,
+      "featured": false,
+      "names": {
+        "common_es": "Hierbabuena",
+        "common_en": "Spearmint",
+        "scientific": "Mentha spicata",
+        "maya": "Xak'il xiw",
+        "family": "Lamiaceae"
+      },
+      "category": "medicinal",
+      "images": {
+        "main": "images/garden/placeholder.svg",
+        "thumbnail": "images/garden/placeholder.svg",
+        "gallery": []
+      },
+      "description": {
+        "es": "La Hierbabuena es una planta aromática esencial en la medicina tradicional maya. Su refrescante aroma y sabor la hacen perfecta para tés digestivos y remedios caseros.",
+        "en": "Spearmint is an essential aromatic plant in traditional Mayan medicine. Its refreshing aroma and flavor make it perfect for digestive teas and home remedies."
+      },
+      "medicinal_uses": {
+        "es": [
+          "Alivia dolores estomacales",
+          "Calma las náuseas",
+          "Refresca el aliento",
+          "Reduce el estrés y la ansiedad",
+          "Mejora la digestión"
+        ],
+        "en": [
+          "Relieves stomach aches",
+          "Calms nausea",
+          "Freshens breath",
+          "Reduces stress and anxiety",
+          "Improves digestion"
+        ]
+      },
+      "curious_facts": {
+        "es": [
+          "Se usa en el famoso 'té de los abuelos' yucateco",
+          "Ahuyenta mosquitos de forma natural",
+          "Crece rápidamente, duplicando su tamaño cada mes",
+          "Los mayas la usaban en ceremonias de limpieza espiritual"
+        ],
+        "en": [
+          "Used in the famous Yucatecan 'grandparents' tea'",
+          "Naturally repels mosquitoes",
+          "Grows quickly, doubling in size every month",
+          "The Maya used it in spiritual cleansing ceremonies"
+        ]
+      },
+      "traditional_recipes": {
+        "es": ["Té de hierbabuena", "Agua fresca de hierbabuena", "Mojito yucateco"],
+        "en": ["Spearmint tea", "Spearmint fresh water", "Yucatecan mojito"]
+      },
+      "region_info": {
+        "es": "Presente en cada cocina yucateca, la hierbabuena es el remedio natural más usado para malestares digestivos en la región.",
+        "en": "Present in every Yucatecan kitchen, spearmint is the most used natural remedy for digestive ailments in the region."
+      },
+      "location_hint": {
+        "es": "Encuéntrame en el jardín de hierbas aromáticas",
+        "en": "Find me in the aromatic herb garden"
+      }
+    },
+    {
+      "id": "papaya",
+      "slug": "papaya",
+      "unlock_code": "XG-PA07-MAYA",
+      "order": 7,
+      "featured": false,
+      "names": {
+        "common_es": "Papaya",
+        "common_en": "Papaya",
+        "scientific": "Carica papaya",
+        "maya": "Puut",
+        "family": "Caricaceae"
+      },
+      "category": "edible",
+      "images": {
+        "main": "images/garden/placeholder.svg",
+        "thumbnail": "images/garden/placeholder.svg",
+        "gallery": []
+      },
+      "description": {
+        "es": "La Papaya es una fruta tropical que los mayas cultivaban desde hace más de 4,000 años. Su dulce sabor y propiedades digestivas la hacen indispensable en el desayuno yucateco.",
+        "en": "Papaya is a tropical fruit that the Maya have cultivated for over 4,000 years. Its sweet taste and digestive properties make it indispensable in Yucatecan breakfast."
+      },
+      "medicinal_uses": {
+        "es": [
+          "Mejora la digestión (contiene papaína)",
+          "Fortalece el sistema inmune",
+          "Antiinflamatorio natural",
+          "Ayuda a cicatrizar heridas",
+          "Combate parásitos intestinales"
+        ],
+        "en": [
+          "Improves digestion (contains papain)",
+          "Strengthens the immune system",
+          "Natural anti-inflammatory",
+          "Helps heal wounds",
+          "Fights intestinal parasites"
+        ]
+      },
+      "curious_facts": {
+        "es": [
+          "Cristóbal Colón la llamó 'fruta de los ángeles'",
+          "Sus semillas tienen propiedades antiparasitarias",
+          "Puede producir fruta todo el año en Yucatán",
+          "La papaína se usa para ablandar carne"
+        ],
+        "en": [
+          "Christopher Columbus called it 'fruit of the angels'",
+          "Its seeds have antiparasitic properties",
+          "Can produce fruit year-round in Yucatan",
+          "Papain is used to tenderize meat"
+        ]
+      },
+      "traditional_recipes": {
+        "es": ["Licuado de papaya", "Dulce de papaya verde", "Papaya con limón y chile"],
+        "en": ["Papaya smoothie", "Green papaya candy", "Papaya with lime and chili"]
+      },
+      "region_info": {
+        "es": "La papaya yucateca es famosa por su dulzura excepcional, resultado del suelo calcáreo y el clima tropical de la península.",
+        "en": "Yucatecan papaya is famous for its exceptional sweetness, a result of the limestone soil and tropical climate of the peninsula."
+      },
+      "location_hint": {
+        "es": "Búscame cerca del área del desayuno",
+        "en": "Find me near the breakfast area"
+      }
+    },
+    {
+      "id": "henequen",
+      "slug": "henequen",
+      "unlock_code": "XG-HE08-MAYA",
+      "order": 8,
+      "featured": false,
+      "names": {
+        "common_es": "Henequén",
+        "common_en": "Sisal",
+        "scientific": "Agave fourcroydes",
+        "maya": "Ki",
+        "family": "Asparagaceae"
+      },
+      "category": "medicinal",
+      "images": {
+        "main": "images/garden/placeholder.svg",
+        "thumbnail": "images/garden/placeholder.svg",
+        "gallery": []
+      },
+      "description": {
+        "es": "El Henequén, conocido como el 'oro verde' de Yucatán, fue la base económica de la región durante más de un siglo. Sus fibras resistentes crearon una industria mundial.",
+        "en": "Henequen, known as Yucatan's 'green gold', was the economic base of the region for over a century. Its resistant fibers created a worldwide industry."
+      },
+      "medicinal_uses": {
+        "es": [
+          "Antiinflamatorio natural",
+          "Tratamiento para diabetes (estudios recientes)",
+          "Cicatrizante de heridas",
+          "Fortalece el sistema inmune"
+        ],
+        "en": [
+          "Natural anti-inflammatory",
+          "Treatment for diabetes (recent studies)",
+          "Wound healer",
+          "Strengthens immune system"
+        ]
+      },
+      "curious_facts": {
+        "es": [
+          "Yucatán fue el mayor productor mundial de henequén",
+          "Las haciendas henequeneras forjaron la historia de Yucatán",
+          "Tarda 7 años en madurar antes de poder cosecharse",
+          "El barrio Sisal de Valladolid lleva su nombre"
+        ],
+        "en": [
+          "Yucatan was the world's largest henequen producer",
+          "Henequen haciendas forged Yucatan's history",
+          "Takes 7 years to mature before harvest",
+          "The Sisal neighborhood in Valladolid bears its name"
+        ]
+      },
+      "region_info": {
+        "es": "El henequén transformó Yucatán en el siglo XIX. Las majestuosas haciendas henequeneras aún se conservan como testimonio de esta época dorada.",
+        "en": "Henequen transformed Yucatan in the 19th century. The majestic henequen haciendas are still preserved as testimony to this golden era."
+      },
+      "location_hint": {
+        "es": "Admírame en la entrada del jardín",
+        "en": "Admire me at the garden entrance"
+      }
+    },
+    {
+      "id": "orquidea",
+      "slug": "orquidea",
+      "unlock_code": "XG-OR09-MAYA",
+      "order": 9,
+      "featured": false,
+      "names": {
+        "common_es": "Orquídea Vainilla",
+        "common_en": "Vanilla Orchid",
+        "scientific": "Vanilla planifolia",
+        "maya": "Sisbic",
+        "family": "Orchidaceae"
+      },
+      "category": "ornamental",
+      "images": {
+        "main": "images/garden/placeholder.svg",
+        "thumbnail": "images/garden/placeholder.svg",
+        "gallery": []
+      },
+      "description": {
+        "es": "La Orquídea Vainilla es nativa de México y fue cultivada por los mayas y aztecas. De ella se obtiene la vainilla, una de las especias más valiosas del mundo.",
+        "en": "The Vanilla Orchid is native to Mexico and was cultivated by the Maya and Aztecs. From it comes vanilla, one of the most valuable spices in the world."
+      },
+      "medicinal_uses": {
+        "es": [
+          "Reduce la ansiedad y el estrés",
+          "Propiedades antioxidantes",
+          "Afrodisíaco natural",
+          "Alivia náuseas"
+        ],
+        "en": [
+          "Reduces anxiety and stress",
+          "Antioxidant properties",
+          "Natural aphrodisiac",
+          "Relieves nausea"
+        ]
+      },
+      "curious_facts": {
+        "es": [
+          "Es la única orquídea que produce fruto comestible",
+          "Tarda 9 meses en madurar después de la polinización",
+          "La polinización natural solo la hacen abejas meliponas mexicanas",
+          "Era tan valiosa que se usaba como moneda"
+        ],
+        "en": [
+          "It's the only orchid that produces edible fruit",
+          "Takes 9 months to mature after pollination",
+          "Natural pollination is only done by Mexican melipona bees",
+          "Was so valuable it was used as currency"
+        ]
+      },
+      "traditional_recipes": {
+        "es": ["Helado de vainilla artesanal", "Café de olla con vainilla", "Marquesitas con vainilla"],
+        "en": ["Artisan vanilla ice cream", "Pot coffee with vanilla", "Marquesitas with vanilla"]
+      },
+      "region_info": {
+        "es": "La vainilla mexicana es considerada la mejor del mundo. Los mayas la combinaban con cacao para crear una bebida ceremonial sagrada.",
+        "en": "Mexican vanilla is considered the best in the world. The Maya combined it with cacao to create a sacred ceremonial drink."
+      },
+      "location_hint": {
+        "es": "Búscame trepando en los árboles del jardín trasero",
+        "en": "Find me climbing the trees in the back garden"
+      }
+    },
+    {
+      "id": "achiote",
+      "slug": "achiote",
+      "unlock_code": "XG-AC10-MAYA",
+      "order": 10,
+      "featured": false,
+      "names": {
+        "common_es": "Achiote",
+        "common_en": "Annatto",
+        "scientific": "Bixa orellana",
+        "maya": "Kiwi",
+        "family": "Bixaceae"
+      },
+      "category": "edible",
+      "images": {
+        "main": "images/garden/placeholder.svg",
+        "thumbnail": "images/garden/placeholder.svg",
+        "gallery": []
+      },
+      "description": {
+        "es": "El Achiote es el corazón de la cocina yucateca. Su pasta roja característica da el color y sabor distintivo a la cochinita pibil, el platillo más emblemático de Yucatán.",
+        "en": "Achiote is the heart of Yucatecan cuisine. Its characteristic red paste gives the distinctive color and flavor to cochinita pibil, Yucatan's most emblematic dish."
+      },
+      "medicinal_uses": {
+        "es": [
+          "Rico en antioxidantes",
+          "Protege la salud ocular",
+          "Propiedades antimicrobianas",
+          "Reduce la inflamación",
+          "Protector solar natural"
+        ],
+        "en": [
+          "Rich in antioxidants",
+          "Protects eye health",
+          "Antimicrobial properties",
+          "Reduces inflammation",
+          "Natural sunscreen"
+        ]
+      },
+      "curious_facts": {
+        "es": [
+          "Los mayas lo usaban como pintura corporal y ritual",
+          "Su nombre maya 'Kiwi' significa 'sangre'",
+          "Es el colorante natural más usado en el mundo",
+          "La pasta de achiote yucateca incluye especias secretas de cada familia"
+        ],
+        "en": [
+          "The Maya used it as body and ritual paint",
+          "Its Mayan name 'Kiwi' means 'blood'",
+          "It's the most used natural colorant in the world",
+          "Yucatecan achiote paste includes secret spices from each family"
+        ]
+      },
+      "traditional_recipes": {
+        "es": ["Cochinita pibil", "Pollo pibil", "Tikin xic (pescado)", "Recado rojo"],
+        "en": ["Cochinita pibil", "Pibil chicken", "Tikin xic (fish)", "Red recado"]
+      },
+      "region_info": {
+        "es": "Sin achiote no hay cocina yucateca. Cada familia tiene su receta secreta de recado rojo, pasada de generación en generación.",
+        "en": "Without achiote there is no Yucatecan cuisine. Each family has their secret red recado recipe, passed down from generation to generation."
+      },
+      "location_hint": {
+        "es": "Encuéntrame cerca de la cocina tradicional",
+        "en": "Find me near the traditional kitchen"
+      }
+    }
+  ]
+}
