@@ -386,7 +386,30 @@ $propertyId = $_GET['id'];
                     console.error(`No se encontró URL de iframe para la propiedad ID: ${propertyId}`);
                     bookingIframeElement.src = 'about:blank';
                 } else {
-                    bookingIframeElement.src = iframeSrc;
+                    // Pre-populate dates from search widget (Step 3 integration)
+                    let finalSrc = iframeSrc;
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const checkin = urlParams.get('checkin');
+                    const checkout = urlParams.get('checkout');
+                    const adults = urlParams.get('adults');
+                    const children = urlParams.get('children');
+                    const infants = urlParams.get('infants');
+                    const pets = urlParams.get('pets');
+
+                    if (checkin || checkout || adults) {
+                        const separator = finalSrc.includes('?') ? '&' : '?';
+                        const params = [];
+                        if (checkin) params.push(`checkin=${checkin}`);
+                        if (checkout) params.push(`checkout=${checkout}`);
+                        if (adults) params.push(`adults=${adults}`);
+                        if (children) params.push(`children=${children}`);
+                        if (infants) params.push(`infants=${infants}`);
+                        if (pets) params.push(`pets=${pets}`);
+                        finalSrc += separator + params.join('&');
+                        console.log('📅 Pre-populated booking dates from search');
+                    }
+
+                    bookingIframeElement.src = finalSrc;
                     console.log(`✅ Iframe cargado correctamente para: ${property.name} (ID: ${propertyId})`);
                 }
 

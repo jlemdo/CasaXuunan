@@ -559,6 +559,19 @@ $translations = [
         'plant_link_copied' => '¡Enlace copiado!',
         'plant_discovered' => '¡Planta descubierta!',
         'nav_garden' => 'Jardín',
+
+        // Search / Búsqueda
+        'search_subtitle' => 'Encuentra Tu',
+        'search_title' => 'Habitación Ideal',
+        'search_trust_secure' => 'Reserva segura y directa',
+        'search_trust_breakfast' => 'Desayuno incluido',
+        'search_trust_rating' => '4.8/5 en Google',
+        'search_help_title' => '¿No encuentras lo que buscas?',
+        'search_help_desc' => 'Nuestro equipo te ayuda a elegir la habitación perfecta para tu estancia.',
+        'search_help_btn' => 'Escríbenos',
+        'search_home_title' => 'Encuentra tu estancia perfecta en',
+        'search_home_highlight' => 'Casa Xu\'unan',
+        'search_home_subtitle' => 'B&B familiar con desayuno incluido · Valladolid, Yucatán',
     ],
 
     'en' => [
@@ -1116,6 +1129,19 @@ $translations = [
         'plant_link_copied' => 'Link copied!',
         'plant_discovered' => 'Plant discovered!',
         'nav_garden' => 'Garden',
+
+        // Search
+        'search_subtitle' => 'Find Your',
+        'search_title' => 'Perfect Room',
+        'search_trust_secure' => 'Secure direct booking',
+        'search_trust_breakfast' => 'Breakfast included',
+        'search_trust_rating' => '4.8/5 on Google',
+        'search_help_title' => 'Can\'t find what you\'re looking for?',
+        'search_help_desc' => 'Our team will help you choose the perfect room for your stay.',
+        'search_help_btn' => 'Message us',
+        'search_home_title' => 'Find your perfect stay at',
+        'search_home_highlight' => 'Casa Xu\'unan',
+        'search_home_subtitle' => 'Family B&B with breakfast included · Valladolid, Yucatán',
     ]
 ];
 ?>

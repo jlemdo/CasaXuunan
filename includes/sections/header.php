@@ -95,6 +95,12 @@
     <link rel="stylesheet" href="css/room-mobile.css" type="text/css">
     <?php endif; ?>
 
+    <?php if (basename($_SERVER['SCRIPT_NAME']) === 'search.php' || basename($_SERVER['SCRIPT_NAME']) === 'index.php'): ?>
+    <!-- Hospitable Property Search Widget -->
+    <script src="https://hospitable.b-cdn.net/direct-property-search-widget/hospitable-search-widget.prod.js" defer></script>
+    <link rel="stylesheet" href="css/search-page.css" type="text/css">
+    <?php endif; ?>
+
     <?php if (basename($_SERVER['SCRIPT_NAME']) === 'garden.php' || basename($_SERVER['SCRIPT_NAME']) === 'plant.php'): ?>
     <!-- Garden Styles -->
     <link rel="stylesheet" href="css/garden.css" type="text/css">

@@ -1,0 +1,248 @@
+/* =============================================
+   Search Results Page - Casa Xu'unan B&B Familiar
+   Hospitable Property Search Widget Integration
+   ============================================= */
+
+/* --- Search Results Overlay --- */
+.search-results-overlay {
+    padding: 30px 20px !important;
+}
+
+/* --- Trust Bar --- */
+.search-trust-bar {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    padding: 16px 20px;
+    background: rgba(123, 175, 137, 0.08);
+    border: 1px solid rgba(123, 175, 137, 0.15);
+    border-radius: 12px;
+    flex-wrap: wrap;
+}
+
+.search-trust-bar .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+.search-trust-bar .trust-item i {
+    color: #7baf89;
+    font-size: 16px;
+}
+
+/* --- Search Widget Container --- */
+.search-widget-container {
+    margin: 0 auto 30px;
+    max-width: 100%;
+    min-height: 400px;
+}
+
+/* Style overrides for Hospitable widget to match brand */
+.search-widget-container hospitable-direct-mps {
+    display: block;
+    width: 100%;
+}
+
+/* --- Help CTA (WhatsApp) --- */
+.search-help-cta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    background: rgba(37, 211, 102, 0.06);
+    border: 1px solid rgba(37, 211, 102, 0.15);
+    border-radius: 12px;
+    margin-top: 10px;
+}
+
+.search-help-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background: rgba(37, 211, 102, 0.12);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-help-icon i {
+    font-size: 24px;
+    color: #25D366;
+}
+
+.search-help-text {
+    flex: 1;
+}
+
+.search-help-text strong {
+    display: block;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.search-help-text p {
+    color: rgba(255, 255, 255, 0.5);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.search-help-btn {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 24px;
+    background: #25D366;
+    color: #fff !important;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 25px;
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+    letter-spacing: 0.3px;
+}
+
+.search-help-btn:hover {
+    background: #1da851;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    color: #fff !important;
+    text-decoration: none !important;
+}
+
+/* --- Homepage Search Bar --- */
+.home-search-section {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    width: 100%;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.home-search-wrapper {
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 24px 28px;
+    text-align: center;
+}
+
+.home-search-title {
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 14px;
+    letter-spacing: 0.5px;
+}
+
+.home-search-title span {
+    color: #7baf89;
+    font-weight: 600;
+}
+
+.home-search-wrapper hospitable-direct-mps {
+    display: block;
+    width: 100%;
+}
+
+.home-search-subtitle {
+    color: rgba(255, 255, 255, 0.4);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    margin-top: 10px;
+    letter-spacing: 0.5px;
+}
+
+.home-search-subtitle i {
+    color: #eddd98;
+    margin-right: 4px;
+}
+
+/* --- Mobile Responsive --- */
+@media (max-width: 767px) {
+    /* Search results page */
+    .search-results-overlay {
+        padding: 15px 10px !important;
+    }
+
+    .search-trust-bar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px 16px;
+        align-items: flex-start;
+    }
+
+    .search-trust-bar .trust-item {
+        font-size: 12px;
+    }
+
+    .search-help-cta {
+        flex-direction: column;
+        text-align: center;
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .search-help-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Homepage search bar */
+    .home-search-section {
+        bottom: 60px;
+        padding: 0 12px;
+    }
+
+    .home-search-wrapper {
+        padding: 16px;
+        border-radius: 12px;
+    }
+
+    .home-search-title {
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+
+    .home-search-subtitle {
+        font-size: 10px;
+    }
+}
+
+/* --- Tablet --- */
+@media (min-width: 768px) and (max-width: 991px) {
+    .home-search-section {
+        max-width: 680px;
+        bottom: 70px;
+    }
+
+    .search-trust-bar {
+        gap: 20px;
+    }
+}
+
+/* --- Large Desktop --- */
+@media (min-width: 1200px) {
+    .home-search-section {
+        max-width: 860px;
+    }
+}
