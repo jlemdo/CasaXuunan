@@ -90,7 +90,7 @@
     <link rel="stylesheet" href="css/contact-page.css" type="text/css">
     <?php endif; ?>
 
-    <?php if (basename($_SERVER['SCRIPT_NAME']) === 'room-single.php'): ?>
+    <?php if (basename($_SERVER['SCRIPT_NAME']) === 'room.php'): ?>
     <!-- Room Single Mobile UX -->
     <link rel="stylesheet" href="css/room-mobile.css" type="text/css">
     <?php endif; ?>

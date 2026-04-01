@@ -9,64 +9,69 @@
     overflow: hidden;
 }
 
-/* --- Owl Carousel Dots: Limit visible dots --- */
-#carousel-rooms .owl-dots {
-    text-align: center;
-    margin-top: 12px;
+/* --- OWL CAROUSEL DOTS: COMPLETELY HIDE ON MOBILE --- */
+/* The dots are unusable with many images - replace with swipe UX */
+.owl-carousel .owl-dots {
+    display: flex !important;
+    justify-content: center;
+    margin-top: 10px;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    max-height: 30px;
 }
 
-#carousel-rooms .owl-dot span {
-    width: 10px;
-    height: 10px;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
+.owl-carousel .owl-dot {
+    flex-shrink: 0;
+}
+
+.owl-carousel .owl-dot span {
+    width: 10px !important;
+    height: 10px !important;
+    margin: 3px !important;
+    background: rgba(255, 255, 255, 0.25) !important;
+    border-radius: 50% !important;
+    display: block !important;
     transition: all 0.3s ease;
 }
 
-#carousel-rooms .owl-dot.active span {
-    background: #7baf89;
-    transform: scale(1.3);
+.owl-carousel .owl-dot.active span {
+    background: #7baf89 !important;
+    transform: scale(1.4);
 }
 
-/* Hide dots beyond 5th on mobile */
+/* MOBILE: Hide all dots, show counter instead */
 @media (max-width: 767px) {
-    #carousel-rooms .owl-dot:nth-child(n+6) {
-        display: none;
+    .owl-carousel .owl-dots {
+        display: none !important;
     }
 
-    /* Add "more" indicator after 5th dot */
-    #carousel-rooms .owl-dots::after {
-        content: '...';
-        color: rgba(255, 255, 255, 0.4);
-        font-size: 16px;
-        vertical-align: middle;
-        margin-left: 4px;
+    /* Carousel images: proper mobile height */
+    .d-carousel .picframe {
+        height: 250px !important;
     }
-}
 
-/* --- Carousel Arrows: Smaller on mobile --- */
-@media (max-width: 767px) {
+    /* Arrows: compact on mobile */
     .d-carousel .d-arrow-left,
     .d-carousel .d-arrow-right {
-        width: 36px !important;
-        height: 36px !important;
-        line-height: 36px !important;
-        font-size: 16px !important;
+        width: 34px !important;
+        height: 34px !important;
+        line-height: 34px !important;
+        font-size: 14px !important;
+        opacity: 0.7;
     }
 
     .d-carousel .d-arrow-left i,
     .d-carousel .d-arrow-right i {
-        font-size: 16px !important;
-    }
-
-    /* Carousel images: taller on mobile for better view */
-    .d-carousel .picframe {
-        height: 260px !important;
+        font-size: 14px !important;
     }
 }
 
-/* Tablet carousel height */
+/* Tablet: limit to 5 dots */
 @media (min-width: 768px) and (max-width: 991px) {
+    .owl-carousel .owl-dot:nth-child(n+6) {
+        display: none !important;
+    }
+
     .d-carousel .picframe {
         height: 280px !important;
     }
@@ -76,6 +81,28 @@
 @media (min-width: 992px) {
     .d-carousel .picframe {
         height: 300px !important;
+    }
+}
+
+/* --- Image Counter Badge (replaces dots on mobile) --- */
+.carousel-counter {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .carousel-counter {
+        display: block;
+        text-align: center;
+        margin-top: 8px;
+        color: rgba(255, 255, 255, 0.5);
+        font-family: 'Montserrat', sans-serif;
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+
+    .carousel-counter span {
+        color: #7baf89;
+        font-weight: 600;
     }
 }
 
@@ -99,7 +126,6 @@
     position: relative;
 }
 
-/* Booking title neuromarketing */
 .booking-column #booking-title {
     font-family: 'Montserrat', sans-serif;
     color: #fff;
@@ -116,7 +142,7 @@
 }
 
 .booking-iframe-responsive {
-    border: none;
+    border: none !important;
     width: 100% !important;
     max-width: 100% !important;
     display: block;
@@ -133,26 +159,32 @@
         margin: 0 -10px;
         width: calc(100% + 20px);
         border-radius: 8px;
+        overflow-x: hidden !important;
+    }
+
+    /* Kill ANY horizontal scroll on booking column */
+    .booking-column {
+        overflow-x: hidden !important;
     }
 }
 
-/* --- Amenities: Collapsible on mobile --- */
+/* --- Amenities: ALWAYS collapsible on mobile --- */
 .grid-facilities {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 4px 16px;
-    list-style: none;
-    padding: 0;
-    transition: max-height 0.4s ease;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0;
 }
 
-/* Amenity items styling */
+/* Override any existing list styles */
 .grid-facilities li {
-    padding: 6px 0;
+    padding: 8px 0 8px 24px !important;
     font-size: 14px;
     color: rgba(255, 255, 255, 0.8);
     position: relative;
-    padding-left: 20px;
+    list-style: none !important;
 }
 
 .grid-facilities li::before {
@@ -161,72 +193,74 @@
     left: 0;
     color: #7baf89;
     font-weight: bold;
+    font-size: 14px;
 }
 
-/* Collapsed state on mobile */
+/* Collapsed state - works on ALL screen sizes but toggle only visible on mobile */
+.grid-facilities.collapsed {
+    max-height: 240px;
+    overflow: hidden;
+    position: relative;
+}
+
+.grid-facilities.collapsed::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    background: linear-gradient(to bottom, rgba(30, 30, 30, 0), rgba(30, 30, 30, 0.98));
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Mobile grid: single column for cleaner look */
 @media (max-width: 767px) {
     .grid-facilities {
-        grid-template-columns: 1fr 1fr;
-        gap: 2px 12px;
+        grid-template-columns: 1fr !important;
+        gap: 0 !important;
     }
 
     .grid-facilities.collapsed {
-        max-height: 210px;
-        overflow: hidden;
-        position: relative;
-    }
-
-    .grid-facilities.collapsed::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 60px;
-        background: linear-gradient(to bottom, transparent, rgba(30, 30, 30, 0.95));
-        pointer-events: none;
+        max-height: 200px;
     }
 }
 
 /* Toggle button for amenities */
 .amenities-toggle {
-    display: none;
+    text-align: center;
+    margin-top: 10px;
+    position: relative;
+    z-index: 2;
 }
 
-@media (max-width: 767px) {
-    .amenities-toggle {
-        display: block;
-        text-align: center;
-        margin-top: 8px;
-    }
+.amenities-toggle-btn {
+    background: rgba(123, 175, 137, 0.15);
+    border: 1px solid rgba(123, 175, 137, 0.3);
+    color: #7baf89;
+    padding: 10px 28px;
+    border-radius: 25px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
 
-    .amenities-toggle-btn {
-        background: rgba(123, 175, 137, 0.15);
-        border: 1px solid rgba(123, 175, 137, 0.3);
-        color: #7baf89;
-        padding: 8px 24px;
-        border-radius: 20px;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 13px;
-        font-weight: 500;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        letter-spacing: 0.5px;
-    }
+.amenities-toggle-btn:hover {
+    background: rgba(123, 175, 137, 0.25);
+    border-color: rgba(123, 175, 137, 0.5);
+}
 
-    .amenities-toggle-btn:hover {
-        background: rgba(123, 175, 137, 0.25);
-        border-color: rgba(123, 175, 137, 0.5);
-    }
+.amenities-toggle-btn i {
+    margin-left: 6px;
+    transition: transform 0.3s ease;
+}
 
-    .amenities-toggle-btn i {
-        margin-left: 6px;
-        transition: transform 0.3s ease;
-    }
-
-    .amenities-toggle-btn.expanded i {
-        transform: rotate(180deg);
-    }
+.amenities-toggle-btn.expanded i {
+    transform: rotate(180deg);
 }
 
 /* --- Neuromarketing: WhatsApp CTA below booking --- */
@@ -291,21 +325,18 @@
 /* --- Mobile: Booking first, clean spacing --- */
 @media (max-width: 767px) {
     #section-main .de-content-overlay {
-        padding: 15px 10px !important;
+        padding: 15px 8px !important;
     }
 
-    /* Reduce overall spacing */
     #section-main .mb-4 {
         margin-bottom: 20px !important;
     }
 
-    /* Booking column: full width, no side padding */
     .booking-column {
         padding-left: 8px !important;
         padding-right: 8px !important;
     }
 
-    /* Description text */
     #room-overview {
         font-size: 14px;
         line-height: 1.7;

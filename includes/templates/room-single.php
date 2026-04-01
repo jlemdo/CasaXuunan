@@ -31,6 +31,8 @@ $propertyId = $_GET['id'];
                             <div class="d-arrow-left mod-a"><i class="fa fa-angle-left"></i></div>
                             <div class="d-arrow-right mod-a"><i class="fa fa-angle-right"></i></div>
                         </div>
+                        <!-- Image counter (mobile replaces dots) -->
+                        <div class="carousel-counter" id="carousel-counter"></div>
 
                         <!-- Detalles de la Habitación -->
                         <div class="row">
@@ -360,6 +362,18 @@ $propertyId = $_GET['id'];
                 $('.d-carousel .d-arrow-left').off('click').on('click', function() {
                     $('#carousel-rooms').trigger('prev.owl.carousel');
                 });
+
+                // Image counter for mobile (replaces dots)
+                const totalImages = images.length;
+                const counterEl = document.getElementById('carousel-counter');
+                if (counterEl) {
+                    counterEl.innerHTML = `<span>1</span> / ${totalImages}`;
+                    $('#carousel-rooms').on('changed.owl.carousel', function(event) {
+                        const current = event.item.index - event.relatedTarget._clones.length / 2 + 1;
+                        const adjustedCurrent = ((current - 1) % totalImages + totalImages) % totalImages + 1;
+                        counterEl.innerHTML = `<span>${adjustedCurrent}</span> / ${totalImages}`;
+                    });
+                }
 
 
                 // **Asignar el src del iframe dinámicamente usando ID de propiedad**
