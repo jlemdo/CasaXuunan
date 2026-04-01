@@ -82,7 +82,7 @@ jQuery(document).ready(function($) {
         // Google Ads Conversion Tracking - Reserva enviada
         if (typeof gtag === 'function') {
             gtag('event', 'conversion', {
-                'send_to': 'AW-18041631980/BOOKING_LABEL',
+                'send_to': 'AW-18041631980/6AUyCN_D3pMcEOzp9ZpD',
                 'value': 1400,
                 'currency': 'MXN'
             });
