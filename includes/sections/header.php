@@ -74,6 +74,9 @@
     <!-- Language Switcher Styles -->
     <link rel="stylesheet" href="css/language-switcher.css" type="text/css">
 
+    <!-- WhatsApp Floating Button (todas las paginas) -->
+    <link rel="stylesheet" href="css/whatsapp-float.css" type="text/css">
+
     <?php if (basename($_SERVER['SCRIPT_NAME']) === 'index.php'): ?>
     <!-- Reviews Section Styles (solo para index) -->
     <link rel="stylesheet" href="css/reviews-section.css" type="text/css">
@@ -84,6 +87,7 @@
     <?php if (basename($_SERVER['SCRIPT_NAME']) === 'contact.php'): ?>
     <!-- Contact Form Styles (solo para contact) -->
     <link rel="stylesheet" href="css/contact-alerts.css" type="text/css">
+    <link rel="stylesheet" href="css/contact-page.css" type="text/css">
     <?php endif; ?>
 
     <?php if (basename($_SERVER['SCRIPT_NAME']) === 'garden.php' || basename($_SERVER['SCRIPT_NAME']) === 'plant.php'): ?>
