@@ -112,7 +112,7 @@
         #content-absolute {
             position: relative !important;
             overflow-x: hidden;
-            background: #18191b !important;
+            /* background inherited from style.css */
         }
         .search-widget-fullwidth {
             max-width: 1240px;
