@@ -112,7 +112,7 @@
         #content-absolute {
             position: relative !important;
             overflow-x: hidden;
-            background: rgba(24, 25, 27, 0.95) !important; /* near-opaque dark bg */
+            background: #18191b !important; /* solid dark bg, no bleed-through */
         }
         .search-widget-fullwidth {
             padding: 0 15px;
