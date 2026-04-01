@@ -3,6 +3,15 @@
 
 <head>
     <meta charset="utf-8">
+
+    <!-- Google Ads Conversion Tracking -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18041631980"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-18041631980');
+    </script>
     <title><?php echo t('meta_title'); ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 

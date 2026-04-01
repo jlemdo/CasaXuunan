@@ -79,6 +79,15 @@ jQuery(document).ready(function($) {
         // Construir URL de WhatsApp
         var whatsappURL = 'https://api.whatsapp.com/send?phone=' + whatsappNumber + '&text=' + encodedMessage;
 
+        // Google Ads Conversion Tracking - Reserva enviada
+        if (typeof gtag === 'function') {
+            gtag('event', 'conversion', {
+                'send_to': 'AW-18041631980/BOOKING_LABEL',
+                'value': 1400,
+                'currency': 'MXN'
+            });
+        }
+
         // Mostrar mensaje de éxito
         $('#success_message').fadeIn();
 
