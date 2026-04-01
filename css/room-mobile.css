@@ -168,28 +168,30 @@
 }
 
 @media (max-width: 767px) {
+    /* Iframe: slightly wider than wrapper to hide scrollbar */
     .booking-iframe-responsive {
         height: 580px;
-        width: 100% !important;
-        min-width: 100% !important;
-        max-width: 100% !important;
+        width: calc(100% + 20px) !important;
+        min-width: calc(100% + 20px) !important;
+        max-width: none !important;
         border: none !important;
         display: block;
+        margin-left: -10px;
     }
 
+    /* Wrapper: clips the iframe, hiding scrollbar */
     .booking-iframe-wrapper {
         margin: 0;
         width: 100%;
         border-radius: 12px;
-        overflow-x: hidden !important;
-        overflow-y: auto;
+        overflow: hidden !important;
         background: #fff;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-        -webkit-overflow-scrolling: touch;
+        position: relative;
     }
 
     .booking-column {
-        overflow-x: hidden !important;
+        overflow: hidden !important;
         max-width: 100% !important;
     }
 
