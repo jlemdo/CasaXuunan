@@ -133,22 +133,23 @@
 */
 .home-search-section {
     position: fixed;
-    bottom: 80px;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     z-index: 50;
-    width: 95%;
-    max-width: 920px;
+    width: 100%;
+    max-width: 960px;
     pointer-events: none;
 }
 
 .home-search-wrapper {
-    background: rgba(10, 10, 10, 0.75);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 14px;
+    background: rgba(10, 10, 10, 0.50);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
     padding: 14px 0 10px;
+    margin-bottom: 99px;
     text-align: center;
     pointer-events: all;
     overflow: hidden;
@@ -232,15 +233,15 @@
 
     /* Homepage search bar — compact mobile */
     .home-search-section {
-        bottom: 70px;
+        bottom: 0;
         width: 100%;
-        border-radius: 0;
     }
 
     .home-search-wrapper {
         padding: 10px 0 6px;
-        background: rgba(10, 10, 10, 0.82);
+        background: rgba(10, 10, 10, 0.60);
         border-radius: 0;
+        margin-bottom: 80px;
     }
 
     /* Hide title and subtitle on mobile to save vertical space */
@@ -272,6 +273,7 @@
 
     .home-search-wrapper {
         border-radius: 0;
+        margin-bottom: 90px;
     }
 
     .home-search-title {
