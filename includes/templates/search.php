@@ -15,12 +15,12 @@
 
     <!-- Search Results -->
     <section id="section-main" class="no-bg no-top" aria-label="search-results">
+
+        <!-- Trust Badge (contained) -->
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="de-content-overlay search-results-overlay">
-
-                        <!-- Trust Badge -->
                         <div class="search-trust-bar">
                             <div class="trust-item">
                                 <i class="fa fa-shield"></i>
@@ -35,13 +35,21 @@
                                 <span><?php echo t('search_trust_rating'); ?></span>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                        <!-- Hospitable Search Widget (Results Mode) -->
-                        <div class="search-widget-container">
-                            <hospitable-direct-mps identifier="acfc5534-2d3d-4f1e-88a0-74360d86804f" type="custom"></hospitable-direct-mps>
-                        </div>
+        <!-- Hospitable Search Widget (full-width, no container restriction) -->
+        <div class="search-widget-fullwidth">
+            <hospitable-direct-mps identifier="acfc5534-2d3d-4f1e-88a0-74360d86804f" type="custom"></hospitable-direct-mps>
+        </div>
 
-                        <!-- WhatsApp Help CTA -->
+        <!-- WhatsApp Help CTA (contained) -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="de-content-overlay search-results-overlay" style="margin-top: 0;">
                         <div class="search-help-cta">
                             <div class="search-help-icon">
                                 <i class="fa fa-whatsapp"></i>
@@ -58,11 +66,11 @@
                                 <?php echo t('search_help_btn'); ?>
                             </a>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
+
     </section>
 
 </div>
