@@ -411,6 +411,26 @@ $propertyId = $_GET['id'];
 
                     bookingIframeElement.src = finalSrc;
                     console.log(`✅ Iframe cargado correctamente para: ${property.name} (ID: ${propertyId})`);
+
+                    // --- Hospitable iframe postMessage integration ---
+                    // Listen for iframeHeight and language messages from the booking widget
+                    window.addEventListener("message", function (event) {
+                        if (event.origin !== "https://booking.hospitable.com") return;
+
+                        // Auto-resize iframe height (recommended by Hospitable docs)
+                        if (event.data && event.data.iframeHeight) {
+                            bookingIframeElement.style.height = event.data.iframeHeight + "px";
+                        }
+
+                        // Respond to language request from widget
+                        if (event.data && event.data.type === "GET_HOSPITABLE_LANGUAGE") {
+                            const lang = document.documentElement.lang || 'en';
+                            bookingIframeElement.contentWindow.postMessage(
+                                { type: "SET_HOSPITABLE_LANGUAGE", language: lang },
+                                "https://booking.hospitable.com"
+                            );
+                        }
+                    });
                 }
 
             } catch (error) {
