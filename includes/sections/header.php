@@ -112,10 +112,12 @@
         #content-absolute {
             position: relative !important;
             overflow-x: hidden;
-            background: #18191b !important; /* solid dark bg, no bleed-through */
+            background: #18191b !important;
         }
         .search-widget-fullwidth {
-            padding: 0 15px;
+            max-width: 1240px;
+            margin: 0 auto 20px;
+            overflow: hidden;
             box-sizing: border-box;
         }
     </style>
