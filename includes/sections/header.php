@@ -112,6 +112,7 @@
         #content-absolute {
             position: relative !important;
             overflow-x: hidden;
+            background: rgba(24, 25, 27, 0.95) !important; /* near-opaque dark bg */
         }
         .search-widget-fullwidth {
             padding: 0 15px;
