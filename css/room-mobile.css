@@ -151,12 +151,10 @@
     letter-spacing: 0.5px;
 }
 
-/* --- Booking iframe: Widget is 320px + padding + scrollbar --- */
-/* Strategy: wrapper is 320px, iframe is 340px (20px extra for scrollbar) */
-/* overflow:hidden on wrapper clips the scrollbar perfectly */
+/* --- Booking iframe: Hide scrollbar using negative margin technique --- */
+/* The iframe scrollbar is ~17px. We make the iframe wider and hide the overflow */
 .booking-iframe-wrapper {
-    width: 320px;
-    max-width: 320px;
+    width: 100%;
     margin: 0 auto;
     overflow: hidden !important;
     border-radius: 12px;
@@ -167,32 +165,23 @@
 .booking-iframe-responsive {
     border: none !important;
     display: block;
-    width: 340px !important;
-    min-width: 340px !important;
+    /* Make iframe 20px wider than wrapper, scrollbar goes outside right edge */
+    width: calc(100% + 20px) !important;
+    min-width: calc(100% + 20px) !important;
     height: 530px;
+    margin-right: -20px;
 }
 
 @media (max-width: 767px) {
     .booking-iframe-wrapper {
-        width: 100%;
-        max-width: 320px;
         background: #fff;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         border: none;
     }
 
-    .booking-iframe-responsive {
-        width: 340px !important;
-        min-width: 340px !important;
-        height: 530px;
-    }
-
     .booking-column {
         overflow: hidden !important;
         max-width: 100% !important;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
     }
 
     .booking-column #booking-title {
@@ -383,18 +372,5 @@
 @media (min-width: 768px) and (max-width: 991px) {
     .grid-facilities {
         grid-template-columns: repeat(3, 1fr);
-    }
-
-    /* Tablet: col-md-5 is narrow, scale iframe slightly */
-    .booking-iframe-wrapper {
-        width: 100% !important;
-        max-width: 100% !important;
-    }
-
-    .booking-iframe-responsive {
-        width: 110% !important;
-        min-width: 110% !important;
-        transform: scale(0.91);
-        transform-origin: top left;
     }
 }
