@@ -102,18 +102,7 @@ $propertyId = $_GET['id'];
         </div>
     </section>
 
-    <!-- Estilos inline mínimos (el resto en room-mobile.css) -->
-    <style>
-        .booking-iframe-responsive {
-            height: 700px;
-        }
-        @media (min-width: 768px) {
-            .booking-iframe-responsive { height: 650px; }
-        }
-        @media (min-width: 992px) {
-            .booking-iframe-responsive { height: 600px; }
-        }
-    </style>
+    <!-- Estilos manejados por room-mobile.css -->
 
     <!-- JavaScript para cargar los detalles de la propiedad -->
     <script>
