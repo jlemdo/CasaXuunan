@@ -134,13 +134,13 @@
 .home-search-section {
     position: fixed;
     bottom: 80px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    right: 0;
     z-index: 50;
-    width: 100%;
-    max-width: 900px;
-    padding: 0 20px;
+    padding: 0 30px;
     pointer-events: none;
+    display: flex;
+    justify-content: center;
 }
 
 .home-search-wrapper {
@@ -149,10 +149,11 @@
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 14px;
-    padding: 18px 24px 14px;
+    padding: 18px 0 14px;
     text-align: center;
     pointer-events: all;
-    overflow: hidden;
+    width: 100%;
+    max-width: 900px;
 }
 
 .home-search-title {
@@ -160,8 +161,9 @@
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
     font-weight: 500;
-    margin-bottom: 10px;
+    margin-bottom: 0;
     letter-spacing: 0.5px;
+    padding: 0 24px;
 }
 
 .home-search-title span {
@@ -169,6 +171,10 @@
     font-weight: 600;
 }
 
+/* The Hospitable widget's .search-bar-container uses width:100vw
+   with margin-left:-50vw and left:50% to break out of any parent.
+   We let it do its thing — it will center itself relative to our wrapper.
+   The wrapper has no overflow:hidden so nothing gets cut. */
 .home-search-wrapper hospitable-direct-mps {
     display: block;
     width: 100%;
@@ -234,12 +240,11 @@
     /* Homepage search bar — compact mobile */
     .home-search-section {
         bottom: 70px;
-        padding: 0 10px;
-        max-width: 100%;
+        padding: 0 8px;
     }
 
     .home-search-wrapper {
-        padding: 12px 12px 8px;
+        padding: 12px 0 8px;
         border-radius: 10px;
         background: rgba(10, 10, 10, 0.82);
     }
@@ -258,11 +263,11 @@
 @media (max-width: 374px) {
     .home-search-section {
         bottom: 65px;
-        padding: 0 6px;
+        padding: 0 4px;
     }
 
     .home-search-wrapper {
-        padding: 10px 8px 6px;
+        padding: 10px 0 6px;
     }
 }
 
@@ -273,8 +278,13 @@
     }
 
     .home-search-section {
-        max-width: 700px;
         bottom: 80px;
+        padding: 0 20px;
+    }
+
+    .home-search-wrapper {
+        max-width: 750px;
+        margin: 0 auto;
     }
 
     .home-search-title {
@@ -289,7 +299,7 @@
 
 /* --- Large Desktop --- */
 @media (min-width: 1200px) {
-    .home-search-section {
-        max-width: 860px;
+    .home-search-wrapper {
+        max-width: 900px;
     }
 }
