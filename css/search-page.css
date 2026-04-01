@@ -3,14 +3,6 @@
    Hospitable Property Search Widget Integration
    ============================================= */
 
-/* --- GLOBAL: Kill horizontal overflow caused by widget's 100vw shadow DOM ---
-   The Hospitable widget uses width:100vw inside its shadow DOM which
-   includes scrollbar width and breaks out of any parent container.
-   We clip at html/body level so NO horizontal scroll appears anywhere. */
-html, body {
-    overflow-x: hidden !important;
-}
-
 /* --- Search Results Overlay --- */
 .search-results-overlay {
     padding: 30px 20px !important;

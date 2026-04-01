@@ -101,6 +101,13 @@
     <link rel="stylesheet" href="css/search-page.css" type="text/css">
     <?php endif; ?>
 
+    <?php if (basename($_SERVER['SCRIPT_NAME']) === 'search.php'): ?>
+    <!-- Search page: fix #content-absolute position so results are scrollable -->
+    <style>
+        #content-absolute { position: relative !important; overflow-x: hidden; }
+    </style>
+    <?php endif; ?>
+
     <?php if (basename($_SERVER['SCRIPT_NAME']) === 'garden.php' || basename($_SERVER['SCRIPT_NAME']) === 'plant.php'): ?>
     <!-- Garden Styles -->
     <link rel="stylesheet" href="css/garden.css" type="text/css">
