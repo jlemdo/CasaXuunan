@@ -168,14 +168,16 @@
 }
 
 @media (max-width: 767px) {
-    /* Iframe: wider by 17px right to push scrollbar outside wrapper */
+    /* Iframe: scale trick - render wider, scale down to fit, hides scrollbar */
     .booking-iframe-responsive {
-        height: 530px;
-        width: calc(100% + 17px) !important;
-        min-width: calc(100% + 17px) !important;
+        height: 560px;
+        width: 110% !important;
+        min-width: 110% !important;
         max-width: none !important;
         border: none !important;
         display: block;
+        transform: scale(0.91);
+        transform-origin: top left;
     }
 
     /* Wrapper: clips right scrollbar and any bottom overflow */
