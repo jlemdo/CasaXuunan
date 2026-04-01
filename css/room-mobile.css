@@ -384,4 +384,17 @@
     .grid-facilities {
         grid-template-columns: repeat(3, 1fr);
     }
+
+    /* Tablet: col-md-5 is narrow, scale iframe slightly */
+    .booking-iframe-wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .booking-iframe-responsive {
+        width: 110% !important;
+        min-width: 110% !important;
+        transform: scale(0.91);
+        transform-origin: top left;
+    }
 }
