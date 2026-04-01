@@ -1,0 +1,325 @@
+/* =============================================
+   Room Single Page - Mobile UX Optimization
+   Casa Xu'unan B&B Familiar
+   ============================================= */
+
+/* --- Carousel Images: Full width, proper height --- */
+.d-carousel .picframe {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* --- Owl Carousel Dots: Limit visible dots --- */
+#carousel-rooms .owl-dots {
+    text-align: center;
+    margin-top: 12px;
+}
+
+#carousel-rooms .owl-dot span {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+#carousel-rooms .owl-dot.active span {
+    background: #7baf89;
+    transform: scale(1.3);
+}
+
+/* Hide dots beyond 5th on mobile */
+@media (max-width: 767px) {
+    #carousel-rooms .owl-dot:nth-child(n+6) {
+        display: none;
+    }
+
+    /* Add "more" indicator after 5th dot */
+    #carousel-rooms .owl-dots::after {
+        content: '...';
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 16px;
+        vertical-align: middle;
+        margin-left: 4px;
+    }
+}
+
+/* --- Carousel Arrows: Smaller on mobile --- */
+@media (max-width: 767px) {
+    .d-carousel .d-arrow-left,
+    .d-carousel .d-arrow-right {
+        width: 36px !important;
+        height: 36px !important;
+        line-height: 36px !important;
+        font-size: 16px !important;
+    }
+
+    .d-carousel .d-arrow-left i,
+    .d-carousel .d-arrow-right i {
+        font-size: 16px !important;
+    }
+
+    /* Carousel images: taller on mobile for better view */
+    .d-carousel .picframe {
+        height: 260px !important;
+    }
+}
+
+/* Tablet carousel height */
+@media (min-width: 768px) and (max-width: 991px) {
+    .d-carousel .picframe {
+        height: 280px !important;
+    }
+}
+
+/* Desktop carousel height */
+@media (min-width: 992px) {
+    .d-carousel .picframe {
+        height: 300px !important;
+    }
+}
+
+/* --- Room Details Bar: Mobile friendly --- */
+@media (max-width: 767px) {
+    .d-room-details.de-flex {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 8px !important;
+    }
+
+    .d-room-details .de-flex-col {
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+}
+
+/* --- Booking Column: Mobile CTA enhancement --- */
+.booking-column {
+    position: relative;
+}
+
+/* Booking title neuromarketing */
+.booking-column #booking-title {
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* --- Booking iframe: No horizontal scroll --- */
+.booking-iframe-wrapper {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.booking-iframe-responsive {
+    border: none;
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block;
+    -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 767px) {
+    .booking-iframe-responsive {
+        height: 680px;
+        min-width: 100% !important;
+    }
+
+    .booking-iframe-wrapper {
+        margin: 0 -10px;
+        width: calc(100% + 20px);
+        border-radius: 8px;
+    }
+}
+
+/* --- Amenities: Collapsible on mobile --- */
+.grid-facilities {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 4px 16px;
+    list-style: none;
+    padding: 0;
+    transition: max-height 0.4s ease;
+}
+
+/* Amenity items styling */
+.grid-facilities li {
+    padding: 6px 0;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    padding-left: 20px;
+}
+
+.grid-facilities li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #7baf89;
+    font-weight: bold;
+}
+
+/* Collapsed state on mobile */
+@media (max-width: 767px) {
+    .grid-facilities {
+        grid-template-columns: 1fr 1fr;
+        gap: 2px 12px;
+    }
+
+    .grid-facilities.collapsed {
+        max-height: 210px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .grid-facilities.collapsed::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        background: linear-gradient(to bottom, transparent, rgba(30, 30, 30, 0.95));
+        pointer-events: none;
+    }
+}
+
+/* Toggle button for amenities */
+.amenities-toggle {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .amenities-toggle {
+        display: block;
+        text-align: center;
+        margin-top: 8px;
+    }
+
+    .amenities-toggle-btn {
+        background: rgba(123, 175, 137, 0.15);
+        border: 1px solid rgba(123, 175, 137, 0.3);
+        color: #7baf89;
+        padding: 8px 24px;
+        border-radius: 20px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        letter-spacing: 0.5px;
+    }
+
+    .amenities-toggle-btn:hover {
+        background: rgba(123, 175, 137, 0.25);
+        border-color: rgba(123, 175, 137, 0.5);
+    }
+
+    .amenities-toggle-btn i {
+        margin-left: 6px;
+        transition: transform 0.3s ease;
+    }
+
+    .amenities-toggle-btn.expanded i {
+        transform: rotate(180deg);
+    }
+}
+
+/* --- Neuromarketing: WhatsApp CTA below booking --- */
+.room-whatsapp-cta {
+    text-align: center;
+    margin-top: 20px;
+    padding: 16px;
+    background: rgba(37, 211, 102, 0.08);
+    border: 1px solid rgba(37, 211, 102, 0.2);
+    border-radius: 12px;
+}
+
+.room-whatsapp-cta a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #25D366;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.room-whatsapp-cta a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.room-whatsapp-cta a i {
+    font-size: 22px;
+}
+
+.room-whatsapp-cta .cta-subtitle {
+    display: block;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 11px;
+    margin-top: 6px;
+    font-weight: 400;
+}
+
+/* --- Neuromarketing: Social Proof Badge --- */
+.room-social-proof {
+    text-align: center;
+    margin-top: 12px;
+    padding: 10px;
+}
+
+.room-social-proof span {
+    color: rgba(255, 255, 255, 0.5);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+.room-social-proof .stars {
+    color: #eddd98;
+    font-size: 14px;
+    margin-right: 6px;
+}
+
+/* --- Mobile: Booking first, clean spacing --- */
+@media (max-width: 767px) {
+    #section-main .de-content-overlay {
+        padding: 15px 10px !important;
+    }
+
+    /* Reduce overall spacing */
+    #section-main .mb-4 {
+        margin-bottom: 20px !important;
+    }
+
+    /* Booking column: full width, no side padding */
+    .booking-column {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+
+    /* Description text */
+    #room-overview {
+        font-size: 14px;
+        line-height: 1.7;
+        color: rgba(255, 255, 255, 0.75);
+    }
+}
+
+/* --- Tablet adjustments --- */
+@media (min-width: 768px) and (max-width: 991px) {
+    .booking-iframe-responsive {
+        height: 650px;
+    }
+
+    .grid-facilities {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

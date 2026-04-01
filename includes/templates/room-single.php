@@ -50,6 +50,22 @@ $propertyId = $_GET['id'];
                                     <iframe id="booking-iframe" sandbox="allow-top-navigation allow-scripts allow-same-origin" src="" allowfullscreen loading="lazy" class="booking-iframe-responsive">
                                     </iframe>
                                 </div>
+
+                                <!-- Neuromarketing: WhatsApp CTA -->
+                                <div class="room-whatsapp-cta">
+                                    <a href="https://api.whatsapp.com/send?phone=5219852580599&text=<?php echo urlencode(getCurrentLanguage() === 'es' ? '¡Hola! Me interesa reservar una habitación en Casa Xu\'unan' : 'Hi! I\'m interested in booking a room at Casa Xu\'unan'); ?>"
+                                       target="_blank" rel="noopener noreferrer"
+                                       onclick="if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-18041631980/6AUyCN_D3pMcEOzp9ZpD','value':1400,'currency':'MXN'});}">
+                                        <i class="fa fa-whatsapp"></i>
+                                        <?php echo getCurrentLanguage() === 'es' ? '¿Dudas? Escríbenos' : 'Questions? Message us'; ?>
+                                    </a>
+                                    <span class="cta-subtitle"><?php echo getCurrentLanguage() === 'es' ? 'Respuesta rápida por WhatsApp' : 'Quick reply via WhatsApp'; ?></span>
+                                </div>
+
+                                <!-- Neuromarketing: Social Proof -->
+                                <div class="room-social-proof">
+                                    <span><span class="stars">★★★★★</span> <?php echo getCurrentLanguage() === 'es' ? '4.8/5 · Más de 50 reseñas' : '4.8/5 · 50+ reviews'; ?></span>
+                                </div>
                             </div>
 
                             <!-- Lado Izquierdo: Room Overview y Room Facilities -->
@@ -65,9 +81,14 @@ $propertyId = $_GET['id'];
                                 <!-- Room Facilities (Movido Debajo de Room Overview) -->
                                 <div class="mb-4">
                                     <h3 id="facilities-title"><?php echo t('room_amenities'); ?></h3>
-                                    <ul id="room-facilities" class="ul-style-2 grid-facilities">
+                                    <ul id="room-facilities" class="ul-style-2 grid-facilities collapsed">
                                         <!-- Facilidades de la habitación se insertarán aquí -->
                                     </ul>
+                                    <div class="amenities-toggle">
+                                        <button class="amenities-toggle-btn" onclick="toggleAmenities(this)">
+                                            <?php echo getCurrentLanguage() === 'es' ? 'Ver todas' : 'See all'; ?> <i class="fa fa-chevron-down"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -79,35 +100,16 @@ $propertyId = $_GET['id'];
         </div>
     </section>
 
-    <!-- Estilos responsive para iframe de booking -->
+    <!-- Estilos inline mínimos (el resto en room-mobile.css) -->
     <style>
-        /* Wrapper sin restricciones */
-        .booking-iframe-wrapper {
-            width: 100%;
-            overflow: hidden;
-        }
-
-        /* Mobile: 100% ancho sin scroll */
         .booking-iframe-responsive {
-            border: none;
-            width: 100% !important;
             height: 700px;
-            max-width: 100%;
-            display: block;
         }
-
-        /* Tablet: mantener 100% */
         @media (min-width: 768px) {
-            .booking-iframe-responsive {
-                height: 650px;
-            }
+            .booking-iframe-responsive { height: 650px; }
         }
-
-        /* Desktop: mantener 100% */
         @media (min-width: 992px) {
-            .booking-iframe-responsive {
-                height: 600px;
-            }
+            .booking-iframe-responsive { height: 600px; }
         }
     </style>
 
@@ -269,7 +271,7 @@ $propertyId = $_GET['id'];
                 // Insertar imágenes en la galería
                 const imageGallery = images.map(image => `
                     <div class="item">
-                        <div class="picframe" style="position: relative; overflow: hidden; width: 100%; height: 200px;">
+                        <div class="picframe" style="position: relative; overflow: hidden; width: 100%;">
                             <!-- Enlace con la URL de la imagen -->
                             <a class="popup-gallery-item" href="${image.url}">
                                 <span class="overlay">
@@ -313,17 +315,25 @@ $propertyId = $_GET['id'];
                 $('#carousel-rooms').owlCarousel({
                     items: 3,
                     margin: 20,
-                    loop: false,
+                    loop: true,
                     dots: true,
+                    nav: false,
+                    touchDrag: true,
+                    mouseDrag: true,
+                    autoHeight: false,
                     responsive: {
                         0: {
-                            items: 1
+                            items: 1,
+                            margin: 0,
+                            stagePadding: 0
                         },
                         600: {
-                            items: 2
+                            items: 2,
+                            margin: 15
                         },
                         1000: {
-                            items: 3
+                            items: 3,
+                            margin: 20
                         }
                     }
                 });
@@ -380,6 +390,24 @@ $propertyId = $_GET['id'];
             } catch (error) {
                 console.error('Error:', error);
                 alert('Hubo un problema al cargar los detalles de la habitación.');
+            }
+        }
+
+        // Toggle amenidades (ver más / ver menos)
+        function toggleAmenities(btn) {
+            const list = document.getElementById('room-facilities');
+            const isCollapsed = list.classList.contains('collapsed');
+
+            if (isCollapsed) {
+                list.classList.remove('collapsed');
+                btn.classList.add('expanded');
+                btn.innerHTML = '<?php echo getCurrentLanguage() === "es" ? "Ver menos" : "See less"; ?> <i class="fa fa-chevron-up"></i>';
+            } else {
+                list.classList.add('collapsed');
+                btn.classList.remove('expanded');
+                btn.innerHTML = '<?php echo getCurrentLanguage() === "es" ? "Ver todas" : "See all"; ?> <i class="fa fa-chevron-down"></i>';
+                // Scroll back to amenities section
+                document.getElementById('facilities-title').scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         }
 
