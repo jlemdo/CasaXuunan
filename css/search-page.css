@@ -134,9 +134,11 @@
 .home-search-section {
     position: fixed;
     bottom: 80px;
-    left: 0;
-    right: 0;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 50;
+    width: 95%;
+    max-width: 920px;
     pointer-events: none;
 }
 
@@ -144,12 +146,12 @@
     background: rgba(10, 10, 10, 0.75);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
     padding: 14px 0 10px;
     text-align: center;
     pointer-events: all;
-    width: 100%;
+    overflow: hidden;
 }
 
 .home-search-title {
@@ -231,11 +233,14 @@
     /* Homepage search bar — compact mobile */
     .home-search-section {
         bottom: 70px;
+        width: 100%;
+        border-radius: 0;
     }
 
     .home-search-wrapper {
         padding: 10px 0 6px;
         background: rgba(10, 10, 10, 0.82);
+        border-radius: 0;
     }
 
     /* Hide title and subtitle on mobile to save vertical space */
@@ -259,6 +264,14 @@
 @media (min-width: 768px) and (max-width: 991px) {
     #slidecaption {
         padding-bottom: 280px;
+    }
+
+    .home-search-section {
+        width: 100%;
+    }
+
+    .home-search-wrapper {
+        border-radius: 0;
     }
 
     .home-search-title {
