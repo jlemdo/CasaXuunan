@@ -3,6 +3,12 @@
    Hospitable Property Search Widget Integration
    ============================================= */
 
+/* --- Force no horizontal scroll (widget uses 100vw in shadow DOM) --- */
+/* Search page: clip at page container level */
+#content-absolute {
+    overflow-x: hidden;
+}
+
 /* --- Search Results Overlay --- */
 .search-results-overlay {
     padding: 30px 20px !important;
@@ -37,11 +43,12 @@
     font-size: 16px;
 }
 
-/* --- Search Widget Container (full-width, no restrictions) --- */
+/* --- Search Widget Container (full-width, clip 100vw overflow) --- */
 .search-widget-fullwidth {
     width: 100%;
     min-height: 400px;
     margin-bottom: 20px;
+    overflow-x: hidden;       /* clip the widget's 100vw shadow-DOM trick */
 }
 
 .search-widget-fullwidth hospitable-direct-mps {
@@ -150,6 +157,7 @@
     margin-bottom: 132px;
     text-align: center;
     pointer-events: all;
+    overflow-x: hidden;        /* clip widget's 100vw shadow-DOM trick */
 }
 
 .home-search-title {
