@@ -239,13 +239,14 @@
         border-radius: 12px;
     }
 
-    /* Hide title and subtitle on mobile to save vertical space */
     .home-search-title {
-        display: none;
+        font-size: 12px;
+        margin-bottom: 0;
     }
 
     .home-search-subtitle {
-        display: none;
+        font-size: 9px;
+        margin-top: 4px;
     }
 }
 
