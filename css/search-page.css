@@ -137,23 +137,19 @@
     left: 0;
     right: 0;
     z-index: 50;
-    padding: 0 30px;
     pointer-events: none;
-    display: flex;
-    justify-content: center;
 }
 
 .home-search-wrapper {
     background: rgba(10, 10, 10, 0.75);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 14px;
-    padding: 18px 0 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 14px 0 10px;
     text-align: center;
     pointer-events: all;
     width: 100%;
-    max-width: 900px;
 }
 
 .home-search-title {
@@ -163,7 +159,6 @@
     font-weight: 500;
     margin-bottom: 0;
     letter-spacing: 0.5px;
-    padding: 0 24px;
 }
 
 .home-search-title span {
@@ -171,10 +166,6 @@
     font-weight: 600;
 }
 
-/* The Hospitable widget's .search-bar-container uses width:100vw
-   with margin-left:-50vw and left:50% to break out of any parent.
-   We let it do its thing — it will center itself relative to our wrapper.
-   The wrapper has no overflow:hidden so nothing gets cut. */
 .home-search-wrapper hospitable-direct-mps {
     display: block;
     width: 100%;
@@ -240,12 +231,10 @@
     /* Homepage search bar — compact mobile */
     .home-search-section {
         bottom: 70px;
-        padding: 0 8px;
     }
 
     .home-search-wrapper {
-        padding: 12px 0 8px;
-        border-radius: 10px;
+        padding: 10px 0 6px;
         background: rgba(10, 10, 10, 0.82);
     }
 
@@ -263,11 +252,6 @@
 @media (max-width: 374px) {
     .home-search-section {
         bottom: 65px;
-        padding: 0 4px;
-    }
-
-    .home-search-wrapper {
-        padding: 10px 0 6px;
     }
 }
 
@@ -277,29 +261,11 @@
         padding-bottom: 280px;
     }
 
-    .home-search-section {
-        bottom: 80px;
-        padding: 0 20px;
-    }
-
-    .home-search-wrapper {
-        max-width: 750px;
-        margin: 0 auto;
-    }
-
     .home-search-title {
         font-size: 13px;
-        margin-bottom: 8px;
     }
 
     .search-trust-bar {
         gap: 20px;
-    }
-}
-
-/* --- Large Desktop --- */
-@media (min-width: 1200px) {
-    .home-search-wrapper {
-        max-width: 900px;
     }
 }
