@@ -168,23 +168,20 @@
 }
 
 @media (max-width: 767px) {
-    /* Iframe: scale trick - render wider, scale down to fit, hides scrollbar */
+    /* Iframe: full width, no tricks needed on mobile */
     .booking-iframe-responsive {
-        height: 560px;
-        width: 110% !important;
-        min-width: 110% !important;
+        height: 550px;
+        width: calc(100% + 17px) !important;
+        min-width: calc(100% + 17px) !important;
         max-width: none !important;
         border: none !important;
         display: block;
-        transform: scale(0.91);
-        transform-origin: top left;
     }
 
-    /* Wrapper: clips right scrollbar and any bottom overflow */
+    /* Wrapper: clips right scrollbar */
     .booking-iframe-wrapper {
         margin: 0;
         width: 100%;
-        max-height: 515px;
         border-radius: 12px;
         overflow: hidden !important;
         background: #fff;
@@ -384,10 +381,28 @@
 /* --- Tablet adjustments --- */
 @media (min-width: 768px) and (max-width: 991px) {
     .booking-iframe-responsive {
-        height: 650px;
+        height: 600px;
+        width: calc(100% + 17px) !important;
+        max-width: none !important;
+    }
+
+    .booking-iframe-wrapper {
+        overflow: hidden !important;
     }
 
     .grid-facilities {
         grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* --- Desktop: hide scrollbar too --- */
+@media (min-width: 992px) {
+    .booking-iframe-responsive {
+        width: calc(100% + 17px) !important;
+        max-width: none !important;
+    }
+
+    .booking-iframe-wrapper {
+        overflow: hidden !important;
     }
 }
