@@ -50,19 +50,38 @@
         height: 250px !important;
     }
 
-    /* Arrows: compact on mobile */
+    /* Arrows: centered vertically, compact on mobile */
     .d-carousel .d-arrow-left,
     .d-carousel .d-arrow-right {
         width: 34px !important;
         height: 34px !important;
         line-height: 34px !important;
         font-size: 14px !important;
-        opacity: 0.7;
+        opacity: 0.8;
+        margin-top: 0 !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+    }
+
+    .d-carousel .d-arrow-left {
+        left: 0 !important;
+        border-radius: 0 8px 8px 0 !important;
+    }
+
+    .d-carousel .d-arrow-right {
+        right: 0 !important;
+        border-radius: 8px 0 0 8px !important;
     }
 
     .d-carousel .d-arrow-left i,
     .d-carousel .d-arrow-right i {
         font-size: 14px !important;
+        position: static !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
     }
 }
 
@@ -151,20 +170,30 @@
 
 @media (max-width: 767px) {
     .booking-iframe-responsive {
-        height: 680px;
+        height: 600px;
         min-width: 100% !important;
     }
 
     .booking-iframe-wrapper {
-        margin: 0 -10px;
-        width: calc(100% + 20px);
-        border-radius: 8px;
-        overflow-x: hidden !important;
+        margin: 0 -5px;
+        width: calc(100% + 10px);
+        border-radius: 12px;
+        overflow: hidden !important;
+        background: #fff;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     }
 
     /* Kill ANY horizontal scroll on booking column */
     .booking-column {
         overflow-x: hidden !important;
+    }
+
+    /* Better booking title on mobile */
+    .booking-column #booking-title {
+        font-size: 20px;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
     }
 }
 
