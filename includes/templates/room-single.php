@@ -46,7 +46,7 @@ $propertyId = $_GET['id'];
                         <!-- **Nuevo Layout con Dos Columnas Izquierdas y Una Derecha** -->
                         <div class="row">
                             <!-- Lado Derecho: Booking Iframe -->
-                            <div class="col-md-4 order-1 order-md-2 mb-4 booking-column">
+                            <div class="col-md-5 order-1 order-md-2 mb-4 booking-column">
                                 <h3 class="text-center mb-3" id="booking-title"><?php echo t('room_book_now'); ?></h3>
                                 <div class="booking-iframe-wrapper">
                                     <iframe id="booking-iframe" sandbox="allow-top-navigation allow-scripts allow-same-origin" src="" allowfullscreen loading="lazy" class="booking-iframe-responsive">
@@ -71,7 +71,7 @@ $propertyId = $_GET['id'];
                             </div>
 
                             <!-- Lado Izquierdo: Room Overview y Room Facilities -->
-                            <div class="col-md-8 order-2 order-md-1">
+                            <div class="col-md-7 order-2 order-md-1">
                                 <!-- Room Overview -->
                                 <div class="mb-4">
                                     <h3 id="overview-title"><?php echo t('room_description'); ?></h3>
