@@ -170,7 +170,7 @@
 @media (max-width: 767px) {
     /* Iframe: scale down to hide scrollbar, works on all mobile widths */
     .booking-iframe-responsive {
-        height: 580px;
+        height: 750px;
         width: 115% !important;
         min-width: 115% !important;
         max-width: none !important;
@@ -180,11 +180,11 @@
         transform-origin: top center;
     }
 
-    /* Wrapper: fixed height clips scaled iframe */
+    /* Wrapper: fixed height clips scaled iframe — no whitespace, no scrollbar */
     .booking-iframe-wrapper {
         margin: 0 auto;
         width: 100%;
-        height: 505px;
+        height: 460px;
         border-radius: 12px;
         overflow: hidden !important;
         background: #fff;
