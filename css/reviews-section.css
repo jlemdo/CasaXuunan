@@ -5,7 +5,7 @@
 /* Contenedor del botón - fijo en la parte de abajo del slider */
 .reviews-scroll-btn-wrapper {
     position: fixed;
-    bottom: 100px;
+    bottom: 80px;
     left: 0;
     right: 0;
     text-align: center;
@@ -189,7 +189,7 @@
 /* Mobile */
 @media (max-width: 992px) {
     .reviews-scroll-btn-wrapper {
-        bottom: 100px;
+        bottom: 80px;
     }
 
     .scroll-text {
