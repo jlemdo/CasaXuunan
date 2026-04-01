@@ -124,33 +124,35 @@
 }
 
 /* --- Homepage Search Bar --- */
+/* Strategy: sits BELOW slider as its own section.
+   On desktop (1200+), uses negative margin-top to overlap slider elegantly.
+   On mobile/tablet, sits cleanly below with no overlap issues. */
 .home-search-section {
-    position: absolute;
-    bottom: 80px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
     z-index: 10;
-    width: 100%;
     max-width: 800px;
+    margin: 0 auto;
     padding: 0 20px;
+    margin-top: -60px;
 }
 
 .home-search-wrapper {
-    background: rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(20, 20, 20, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
-    padding: 24px 28px;
+    padding: 22px 28px 18px;
     text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
 .home-search-title {
     color: #fff;
     font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 500;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
     letter-spacing: 0.5px;
 }
 
@@ -168,7 +170,7 @@
     color: rgba(255, 255, 255, 0.4);
     font-family: 'Montserrat', sans-serif;
     font-size: 11px;
-    margin-top: 10px;
+    margin-top: 8px;
     letter-spacing: 0.5px;
 }
 
@@ -207,24 +209,25 @@
         justify-content: center;
     }
 
-    /* Homepage search bar */
+    /* Homepage search bar - sits below slider, no overlap */
     .home-search-section {
-        bottom: 60px;
+        margin-top: -30px;
         padding: 0 12px;
     }
 
     .home-search-wrapper {
-        padding: 16px;
+        padding: 16px 14px 12px;
         border-radius: 12px;
     }
 
     .home-search-title {
         font-size: 13px;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
     }
 
     .home-search-subtitle {
         font-size: 10px;
+        margin-top: 6px;
     }
 }
 
@@ -232,7 +235,7 @@
 @media (min-width: 768px) and (max-width: 991px) {
     .home-search-section {
         max-width: 680px;
-        bottom: 70px;
+        margin-top: -45px;
     }
 
     .search-trust-bar {
@@ -244,5 +247,6 @@
 @media (min-width: 1200px) {
     .home-search-section {
         max-width: 860px;
+        margin-top: -70px;
     }
 }

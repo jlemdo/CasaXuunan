@@ -24,15 +24,6 @@
     </a>
 </div>
 
-<!-- Search Bar - Hospitable Property Search -->
-<div class="home-search-section">
-    <div class="home-search-wrapper">
-        <div class="home-search-title"><?php echo t('search_home_title'); ?> <span><?php echo t('search_home_highlight'); ?></span></div>
-        <hospitable-direct-mps identifier="acfc5534-2d3d-4f1e-88a0-74360d86804f" type="custom" results-url="/search"></hospitable-direct-mps>
-        <div class="home-search-subtitle"><i class="fa fa-star"></i> <?php echo t('search_home_subtitle'); ?></div>
-    </div>
-</div>
-
 <div class="container">
     <div id="prevthumb"></div>
     <div id="nextthumb"></div>
@@ -65,6 +56,15 @@
 
 </div>
 <!-- content close -->
+
+<!-- Search Bar - Hospitable Property Search -->
+<div class="home-search-section">
+    <div class="home-search-wrapper">
+        <div class="home-search-title"><?php echo t('search_home_title'); ?> <span><?php echo t('search_home_highlight'); ?></span></div>
+        <hospitable-direct-mps identifier="acfc5534-2d3d-4f1e-88a0-74360d86804f" type="custom" results-url="/search"></hospitable-direct-mps>
+        <div class="home-search-subtitle"><i class="fa fa-star"></i> <?php echo t('search_home_subtitle'); ?></div>
+    </div>
+</div>
 
 <!-- reviews overlay begin -->
 <div id="reviews-overlay" class="slideUp">
