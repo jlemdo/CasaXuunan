@@ -124,33 +124,42 @@
 }
 
 /* --- Homepage Search Bar --- */
+/* LAYOUT MAP (fixed positions, bottom to top):
+   - Slider controls:    bottom: 30px  (z-index: 100)
+   - Search bar:         bottom: 80px  (z-index: 50)  ← HERE
+   - Ver Comentarios:    bottom: 120px (z-index: 1000)
+   - Navbar:             top: 0        (z-index: 1001)
+   Desktop widget renders inline (1 row). Mobile stacks (3 rows = tall).
+*/
 .home-search-section {
-    position: absolute;
+    position: fixed;
     bottom: 80px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 10;
+    z-index: 50;
     width: 100%;
     max-width: 800px;
     padding: 0 20px;
+    pointer-events: none;
 }
 
 .home-search-wrapper {
-    background: rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    padding: 24px 28px;
+    background: rgba(10, 10, 10, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 18px 24px 14px;
     text-align: center;
+    pointer-events: all;
 }
 
 .home-search-title {
-    color: #fff;
+    color: rgba(255, 255, 255, 0.85);
     font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
-    margin-bottom: 14px;
+    margin-bottom: 10px;
     letter-spacing: 0.5px;
 }
 
@@ -165,10 +174,10 @@
 }
 
 .home-search-subtitle {
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.35);
     font-family: 'Montserrat', sans-serif;
     font-size: 11px;
-    margin-top: 10px;
+    margin-top: 6px;
     letter-spacing: 0.5px;
 }
 
@@ -177,7 +186,16 @@
     margin-right: 4px;
 }
 
-/* --- Mobile Responsive --- */
+/* --- Push slider text up to make room for search bar --- */
+/* #slidecaption uses display:table + table-cell vertical-align:middle.
+   Adding padding-bottom shifts the vertical center upward. */
+#slidecaption {
+    padding-bottom: 220px;
+}
+
+/* --- Mobile: Search bar compact, no title/subtitle --- */
+/* Widget stacks vertically on mobile (~280px tall).
+   Hide title & subtitle to save space. Position above controls. */
 @media (max-width: 767px) {
     /* Search results page */
     .search-results-overlay {
@@ -207,32 +225,60 @@
         justify-content: center;
     }
 
-    /* Homepage search bar */
+    /* Push slider text higher on mobile (widget is taller) */
+    #slidecaption {
+        padding-bottom: 320px;
+    }
+
+    /* Homepage search bar — compact mobile */
     .home-search-section {
-        bottom: 60px;
-        padding: 0 12px;
+        bottom: 70px;
+        padding: 0 10px;
+        max-width: 100%;
     }
 
     .home-search-wrapper {
-        padding: 16px;
-        border-radius: 12px;
+        padding: 12px 12px 8px;
+        border-radius: 10px;
+        background: rgba(10, 10, 10, 0.82);
     }
 
+    /* Hide title and subtitle on mobile to save vertical space */
     .home-search-title {
-        font-size: 13px;
-        margin-bottom: 10px;
+        display: none;
     }
 
     .home-search-subtitle {
-        font-size: 10px;
+        display: none;
+    }
+}
+
+/* --- Small mobile (320px) --- */
+@media (max-width: 374px) {
+    .home-search-section {
+        bottom: 65px;
+        padding: 0 6px;
+    }
+
+    .home-search-wrapper {
+        padding: 10px 8px 6px;
     }
 }
 
 /* --- Tablet --- */
 @media (min-width: 768px) and (max-width: 991px) {
+    #slidecaption {
+        padding-bottom: 280px;
+    }
+
     .home-search-section {
-        max-width: 680px;
-        bottom: 70px;
+        max-width: 700px;
+        bottom: 80px;
+    }
+
+    .home-search-title {
+        font-size: 13px;
+        margin-bottom: 8px;
     }
 
     .search-trust-bar {
