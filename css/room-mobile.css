@@ -379,8 +379,20 @@
     }
 }
 
-/* --- Tablet adjustments --- */
+/* --- Mobile: remove container padding for full width --- */
+@media (max-width: 575.98px) {
+    .container {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+}
+
+/* --- Tablet: wider container to fit booking iframe --- */
 @media (min-width: 768px) and (max-width: 991px) {
+    .container, .container-md, .container-sm {
+        max-width: 838px !important;
+    }
+
     .grid-facilities {
         grid-template-columns: repeat(3, 1fr);
     }
