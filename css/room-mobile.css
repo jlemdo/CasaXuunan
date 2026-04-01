@@ -151,10 +151,12 @@
     letter-spacing: 0.5px;
 }
 
-/* --- Booking iframe: Widget is 320px max-width + 17px scrollbar = 337px --- */
+/* --- Booking iframe: Widget is 320px + padding + scrollbar --- */
+/* Strategy: wrapper is 320px, iframe is 340px (20px extra for scrollbar) */
+/* overflow:hidden on wrapper clips the scrollbar perfectly */
 .booking-iframe-wrapper {
-    width: 100%;
-    max-width: 340px;
+    width: 320px;
+    max-width: 320px;
     margin: 0 auto;
     overflow: hidden !important;
     border-radius: 12px;
@@ -165,26 +167,32 @@
 .booking-iframe-responsive {
     border: none !important;
     display: block;
-    width: 337px !important;
-    min-width: 337px !important;
+    width: 340px !important;
+    min-width: 340px !important;
     height: 530px;
 }
 
 @media (max-width: 767px) {
     .booking-iframe-wrapper {
-        max-width: 100%;
+        width: 100%;
+        max-width: 320px;
         background: #fff;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         border: none;
     }
 
     .booking-iframe-responsive {
+        width: 340px !important;
+        min-width: 340px !important;
         height: 530px;
     }
 
     .booking-column {
         overflow: hidden !important;
         max-width: 100% !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .booking-column #booking-title {
