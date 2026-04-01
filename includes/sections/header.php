@@ -102,9 +102,21 @@
     <?php endif; ?>
 
     <?php if (basename($_SERVER['SCRIPT_NAME']) === 'search.php'): ?>
-    <!-- Search page: fix #content-absolute position so results are scrollable -->
+    <!-- Search page fixes:
+         1. position:relative so body grows with content (enables scroll)
+         2. overflow-x:hidden at every level to clip the widget's 100vw trick
+         3. padding on widget container so results don't touch viewport edges -->
     <style>
-        #content-absolute { position: relative !important; overflow-x: hidden; }
+        html { overflow-x: hidden !important; }
+        body { overflow-x: hidden !important; }
+        #content-absolute {
+            position: relative !important;
+            overflow-x: hidden;
+        }
+        .search-widget-fullwidth {
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
     </style>
     <?php endif; ?>
 
