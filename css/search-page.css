@@ -134,12 +134,11 @@
 .home-search-section {
     position: fixed;
     bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    right: 0;
     z-index: 50;
-    width: 100%;
-    max-width: 960px;
     pointer-events: none;
+    padding: 0 20px;
 }
 
 .home-search-wrapper {
@@ -152,7 +151,6 @@
     margin-bottom: 99px;
     text-align: center;
     pointer-events: all;
-    overflow: hidden;
 }
 
 .home-search-title {
@@ -233,15 +231,12 @@
 
     /* Homepage search bar — compact mobile */
     .home-search-section {
-        bottom: 0;
-        width: 100%;
+        padding: 0 8px;
     }
 
     .home-search-wrapper {
         padding: 10px 0 6px;
-        background: rgba(10, 10, 10, 0.60);
-        border-radius: 0;
-        margin-bottom: 80px;
+        border-radius: 12px;
     }
 
     /* Hide title and subtitle on mobile to save vertical space */
@@ -268,12 +263,7 @@
     }
 
     .home-search-section {
-        width: 100%;
-    }
-
-    .home-search-wrapper {
-        border-radius: 0;
-        margin-bottom: 90px;
+        padding: 0 15px;
     }
 
     .home-search-title {
