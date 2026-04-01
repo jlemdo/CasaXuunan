@@ -401,16 +401,24 @@
     }
 }
 
-/* --- Desktop: subtle scale to hide scrollbar --- */
+/* --- Desktop: scale to hide scrollbar --- */
 @media (min-width: 992px) {
     .booking-iframe-responsive {
-        width: 108% !important;
+        width: 120% !important;
         max-width: none !important;
-        transform: scale(0.93);
+        transform: scale(0.84);
         transform-origin: top center;
     }
 
     .booking-iframe-wrapper {
         overflow: hidden !important;
+    }
+}
+
+/* --- Large desktop: less aggressive scale --- */
+@media (min-width: 1200px) {
+    .booking-iframe-responsive {
+        width: 112% !important;
+        transform: scale(0.90);
     }
 }
