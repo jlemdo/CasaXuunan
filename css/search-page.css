@@ -240,7 +240,7 @@
     .home-search-wrapper {
         padding: 8px 0 4px;
         border-radius: 12px;
-        margin-bottom: 50px;  /* leave room for reviews button below */
+        margin-bottom: 65px;  /* raise above reviews button (bottom:10px + ~45px height) */
     }
 
     .home-search-title {
