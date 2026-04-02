@@ -11,21 +11,22 @@ if (session_status() == PHP_SESSION_NONE) {
 
 // Función para obtener el idioma actual
 function getCurrentLanguage() {
-    // 1. Verificar si hay un parámetro GET
+    // 1. Si hay ?lang= en la URL, el usuario eligió idioma explícitamente
     if (isset($_GET['lang'])) {
         $lang = $_GET['lang'];
         if ($lang === 'en' || $lang === 'es') {
             $_SESSION['lang'] = $lang;
+            $_SESSION['lang_explicit'] = true;
             return $lang;
         }
     }
 
-    // 2. Verificar si hay un idioma guardado en sesión
-    if (isset($_SESSION['lang'])) {
+    // 2. Si el usuario eligió idioma manualmente antes, respetar esa elección
+    if (!empty($_SESSION['lang_explicit']) && isset($_SESSION['lang'])) {
         return $_SESSION['lang'];
     }
 
-    // 3. Detectar idioma del navegador
+    // 3. Auto-detectar idioma del navegador (siempre en visitas sin elección explícita)
     $browser_lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? 'en', 0, 2);
     if ($browser_lang === 'es') {
         $_SESSION['lang'] = 'es';
