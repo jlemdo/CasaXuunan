@@ -32,15 +32,20 @@ function getCurrentLanguage() {
     }
 
     // 3. Auto-detectar idioma del navegador
-    $browser_lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? 'en', 0, 2);
-    if ($browser_lang === 'es') {
-        $_SESSION['lang'] = 'es';
-        return 'es';
+    //    Buscar 'es' en cualquier posición del Accept-Language (ej: "en-US,en;q=0.9,es;q=0.8")
+    $accept = $_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? '';
+    $primary_lang = substr($accept, 0, 2);
+
+    // Si el idioma principal del navegador es inglés, mostrar inglés
+    if ($primary_lang === 'en') {
+        $_SESSION['lang'] = 'en';
+        return 'en';
     }
 
-    // 4. Por defecto: si el navegador no es español, intentar español para mercado mexicano
-    $_SESSION['lang'] = 'en';
-    return 'en';
+    // 4. Para cualquier otro idioma (o sin header), default español
+    //    Casa Xu'unan es un B&B en México — español es el idioma natural
+    $_SESSION['lang'] = 'es';
+    return 'es';
 }
 
 // Función para obtener traducción
