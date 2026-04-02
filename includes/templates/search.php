@@ -88,6 +88,113 @@
     var btnShowText = lang === 'en' ? 'Show unavailable rooms' : 'Mostrar habitaciones no disponibles';
     var btnHideText = lang === 'en' ? 'Hide unavailable rooms' : 'Ocultar habitaciones no disponibles';
 
+    var btn, btnWrapper, showing = false;
+    var styleInjected = false;
+
+    function injectStyle(sr) {
+        if (styleInjected) return;
+        if (sr.querySelector('#cx-unavailable-toggle')) { styleInjected = true; return; }
+        var s = document.createElement('style');
+        s.id = 'cx-unavailable-toggle';
+        s.textContent = [
+            'a.property.cx-hidden { display: none !important; }',
+            'a.property { transition: opacity 0.3s ease; }',
+            '.properties { display: flex; flex-direction: column; }' // collapse gaps
+        ].join('\n');
+        sr.appendChild(s);
+        styleInjected = true;
+    }
+
+    function hideUnavailable() {
+        var sr = el.shadowRoot;
+        if (!sr) return;
+
+        var properties = sr.querySelectorAll('a.property');
+        if (properties.length === 0) return;
+
+        injectStyle(sr);
+
+        var unavailableCards = [];
+        var availableCount = 0;
+        properties.forEach(function(card) {
+            if (card.querySelector('.unavailable-fade')) {
+                unavailableCards.push(card);
+                if (!showing) card.classList.add('cx-hidden');
+            } else {
+                card.classList.remove('cx-hidden');
+                availableCount++;
+            }
+        });
+
+        // Create or update button
+        if (unavailableCards.length === 0) {
+            if (btnWrapper) btnWrapper.style.display = 'none';
+            return;
+        }
+
+        if (!btn) {
+            btnWrapper = document.createElement('div');
+            btnWrapper.style.cssText = 'text-align:center;margin:0 auto 20px;max-width:600px;padding:0 16px;';
+
+            btn = document.createElement('button');
+            btn.style.cssText = [
+                'display:inline-flex;align-items:center;gap:8px',
+                'padding:12px 28px',
+                'background:rgba(255,255,255,0.08)',
+                'border:1px solid rgba(255,255,255,0.2)',
+                'border-radius:30px',
+                'color:rgba(255,255,255,0.7)',
+                'font-family:Montserrat,sans-serif',
+                'font-size:13px',
+                'font-weight:500',
+                'letter-spacing:0.3px',
+                'cursor:pointer',
+                'transition:all 0.3s ease',
+                '-webkit-tap-highlight-color:transparent'
+            ].join(';');
+
+            btn.addEventListener('click', function() {
+                showing = !showing;
+                var sr = el.shadowRoot;
+                var cards = sr.querySelectorAll('a.property');
+                cards.forEach(function(card) {
+                    if (!card.querySelector('.unavailable-fade')) return;
+                    if (showing) {
+                        card.classList.remove('cx-hidden');
+                        card.style.opacity = '0';
+                        requestAnimationFrame(function() {
+                            requestAnimationFrame(function() { card.style.opacity = '1'; });
+                        });
+                    } else {
+                        card.style.opacity = '0';
+                        setTimeout(function() {
+                            card.classList.add('cx-hidden');
+                            card.style.opacity = '';
+                        }, 300);
+                    }
+                });
+                updateBtnText(cards);
+            });
+
+            btnWrapper.appendChild(btn);
+            var widgetContainer = document.querySelector('.search-widget-fullwidth');
+            widgetContainer.parentNode.insertBefore(btnWrapper, widgetContainer.nextSibling);
+        }
+
+        btnWrapper.style.display = '';
+        updateBtnText(properties);
+    }
+
+    function updateBtnText(properties) {
+        if (!btn) return;
+        var count = 0;
+        properties.forEach(function(c) { if (c.querySelector('.unavailable-fade')) count++; });
+        btn.textContent = (showing ? btnHideText : btnShowText) + ' (' + count + ')';
+        btn.style.background = showing ? 'rgba(123,175,137,0.15)' : 'rgba(255,255,255,0.08)';
+        btn.style.borderColor = showing ? 'rgba(123,175,137,0.3)' : 'rgba(255,255,255,0.2)';
+    }
+
+    // Wait for shadow DOM, then observe for changes (new searches)
     var attempts = 0;
     var interval = setInterval(function() {
         if (!el.shadowRoot) { if (++attempts > 100) clearInterval(interval); return; }
@@ -97,74 +204,24 @@
 
         clearInterval(interval);
 
-        // Inject hide/show CSS into shadow DOM
-        var hideStyle = document.createElement('style');
-        hideStyle.id = 'unavailable-toggle';
-        hideStyle.textContent = 'a.property.cx-hidden { display: none !important; } a.property { transition: opacity 0.3s ease; }';
-        el.shadowRoot.appendChild(hideStyle);
+        // Initial hide
+        showing = false;
+        hideUnavailable();
 
-        // Identify and hide unavailable cards
-        var unavailableCards = [];
-        properties.forEach(function(card) {
-            if (card.querySelector('.unavailable-fade')) {
-                unavailableCards.push(card);
-                card.classList.add('cx-hidden');
-            }
+        // Watch for re-renders (new searches within the page)
+        var observer = new MutationObserver(function() {
+            // Debounce — wait for widget to finish rendering
+            clearTimeout(observer._timer);
+            observer._timer = setTimeout(function() {
+                showing = false;
+                hideUnavailable();
+            }, 500);
         });
 
-        if (unavailableCards.length === 0) return;
-
-        // Create toggle button
-        var btnWrapper = document.createElement('div');
-        btnWrapper.style.cssText = 'text-align:center;margin:0 auto 20px;max-width:600px;padding:0 16px;';
-
-        var btn = document.createElement('button');
-        btn.textContent = btnShowText + ' (' + unavailableCards.length + ')';
-        btn.style.cssText = [
-            'display:inline-flex;align-items:center;gap:8px',
-            'padding:12px 28px',
-            'background:rgba(255,255,255,0.08)',
-            'border:1px solid rgba(255,255,255,0.2)',
-            'border-radius:30px',
-            'color:rgba(255,255,255,0.7)',
-            'font-family:Montserrat,sans-serif',
-            'font-size:13px',
-            'font-weight:500',
-            'letter-spacing:0.3px',
-            'cursor:pointer',
-            'transition:all 0.3s ease',
-            '-webkit-tap-highlight-color:transparent'
-        ].join(';');
-
-        var showing = false;
-        btn.addEventListener('click', function() {
-            showing = !showing;
-            unavailableCards.forEach(function(card) {
-                if (showing) {
-                    card.classList.remove('cx-hidden');
-                    card.style.opacity = '0';
-                    requestAnimationFrame(function() {
-                        requestAnimationFrame(function() {
-                            card.style.opacity = '1';
-                        });
-                    });
-                } else {
-                    card.style.opacity = '0';
-                    setTimeout(function() {
-                        card.classList.add('cx-hidden');
-                        card.style.opacity = '';
-                    }, 300);
-                }
-            });
-            btn.textContent = (showing ? btnHideText : btnShowText) + ' (' + unavailableCards.length + ')';
-            btn.style.background = showing ? 'rgba(123,175,137,0.15)' : 'rgba(255,255,255,0.08)';
-            btn.style.borderColor = showing ? 'rgba(123,175,137,0.3)' : 'rgba(255,255,255,0.2)';
+        observer.observe(el.shadowRoot, {
+            childList: true,
+            subtree: true
         });
-
-        btnWrapper.appendChild(btn);
-        var widgetContainer = document.querySelector('.search-widget-fullwidth');
-        widgetContainer.parentNode.insertBefore(btnWrapper, widgetContainer.nextSibling);
-
     }, 300);
 })();
 </script>
