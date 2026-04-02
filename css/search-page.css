@@ -196,9 +196,11 @@
 
 /* --- Mobile & Tablet (≤992px) --- */
 @media (max-width: 992px) {
-    /* Fix search results page scroll on mobile */
-    .search-widget-fullwidth + .container {
-        padding-bottom: 20px;
+    /* Fix search results page scroll on mobile:
+       #content-absolute is position:absolute which breaks scrolling.
+       Change to relative so content flows naturally. */
+    #content-absolute {
+        position: relative !important;
     }
 
     .search-widget-fullwidth {

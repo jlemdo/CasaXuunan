@@ -78,7 +78,7 @@
 <!-- Mobile: hide unavailable properties, show toggle button -->
 <script>
 (function() {
-    if (window.innerWidth > 992) return; // Only on mobile/tablet
+    if (window.innerWidth > 992) return;
 
     var el = document.querySelector('.search-widget-fullwidth hospitable-direct-mps');
     if (!el) return;
@@ -97,22 +97,24 @@
 
         clearInterval(interval);
 
-        // Identify unavailable cards (have children with .unavailable-fade)
+        // Inject hide/show CSS into shadow DOM
+        var hideStyle = document.createElement('style');
+        hideStyle.id = 'unavailable-toggle';
+        hideStyle.textContent = 'a.property.cx-hidden { display: none !important; } a.property { transition: opacity 0.3s ease; }';
+        el.shadowRoot.appendChild(hideStyle);
+
+        // Identify and hide unavailable cards
         var unavailableCards = [];
-        var availableCount = 0;
         properties.forEach(function(card) {
             if (card.querySelector('.unavailable-fade')) {
                 unavailableCards.push(card);
-                card.style.display = 'none';
-                card.style.transition = 'opacity 0.3s ease, max-height 0.4s ease';
-            } else {
-                availableCount++;
+                card.classList.add('cx-hidden');
             }
         });
 
         if (unavailableCards.length === 0) return;
 
-        // Create toggle button outside the shadow DOM
+        // Create toggle button
         var btnWrapper = document.createElement('div');
         btnWrapper.style.cssText = 'text-align:center;margin:0 auto 20px;max-width:600px;padding:0 16px;';
 
@@ -139,14 +141,19 @@
             showing = !showing;
             unavailableCards.forEach(function(card) {
                 if (showing) {
-                    card.style.display = '';
+                    card.classList.remove('cx-hidden');
                     card.style.opacity = '0';
                     requestAnimationFrame(function() {
-                        card.style.opacity = '1';
+                        requestAnimationFrame(function() {
+                            card.style.opacity = '1';
+                        });
                     });
                 } else {
                     card.style.opacity = '0';
-                    setTimeout(function() { card.style.display = 'none'; }, 300);
+                    setTimeout(function() {
+                        card.classList.add('cx-hidden');
+                        card.style.opacity = '';
+                    }, 300);
                 }
             });
             btn.textContent = (showing ? btnHideText : btnShowText) + ' (' + unavailableCards.length + ')';
@@ -155,7 +162,6 @@
         });
 
         btnWrapper.appendChild(btn);
-        // Insert button after the widget container
         var widgetContainer = document.querySelector('.search-widget-fullwidth');
         widgetContainer.parentNode.insertBefore(btnWrapper, widgetContainer.nextSibling);
 
