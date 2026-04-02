@@ -42,8 +42,8 @@
         var style = document.createElement('style');
         style.id = 'home-widget-fix';
         style.textContent = [
-            '.date-picker-container { bottom: 100% !important; top: auto !important; }',
-            '.guests-expanded { bottom: 100% !important; top: auto !important; }',
+            '.date-picker-container { transform: translateY(-100%) !important; }',
+            '.guests-expanded { transform: translateY(-100%) !important; }',
             '.search-bar-container { margin-bottom: 0px !important; }'
         ].join('\n');
         widget.shadowRoot.appendChild(style);
