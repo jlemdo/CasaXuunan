@@ -152,6 +152,13 @@
     text-align: center;
     pointer-events: all;
     overflow: visible;         /* allow calendar/guest dropdowns to overflow */
+    /* Flip widget vertically so dropdowns open UPWARD instead of downward */
+    transform: scaleY(-1);
+}
+
+/* Un-flip the text/content inside so it reads normally */
+.home-search-wrapper > * {
+    transform: scaleY(-1);
 }
 
 .home-search-title {
