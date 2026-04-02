@@ -33,20 +33,44 @@
     </div>
 </div>
 
-<!-- Hospitable widget fixes: dropdowns open upward -->
+<!-- Hospitable widget fixes: dropdowns open upward + compact spacing -->
 <script>
 (function() {
-    function injectShadowStyles(widget) {
+    function initWidget(widget) {
         if (!widget || !widget.shadowRoot) return;
-        if (widget.shadowRoot.querySelector('#home-widget-fix')) return;
-        var style = document.createElement('style');
-        style.id = 'home-widget-fix';
-        style.textContent = [
-            '.date-picker-container { transform: translateY(calc(-100% - 58px)) !important; }',
-            '.guests-expanded { bottom: 100% !important; top: auto !important; }',
-            '.search-bar-container { margin-bottom: 0px !important; }'
-        ].join('\n');
-        widget.shadowRoot.appendChild(style);
+
+        // Base styles (guest picker + compact spacing)
+        if (!widget.shadowRoot.querySelector('#home-widget-fix')) {
+            var style = document.createElement('style');
+            style.id = 'home-widget-fix';
+            style.textContent = [
+                '.guests-expanded { bottom: 100% !important; top: auto !important; }',
+                '.search-bar-container { margin-bottom: 0px !important; }'
+            ].join('\n');
+            widget.shadowRoot.appendChild(style);
+        }
+
+        // Observe date-picker-container: when it gets height (calendar opens),
+        // flip it upward by setting top = -(calendarHeight + inputHeight)
+        var observer = new MutationObserver(function() {
+            var dpc = widget.shadowRoot.querySelector('.date-picker-container');
+            if (!dpc || dpc.offsetHeight === 0) return;
+
+            // The widget sets top:58px (input height). We need to move it above.
+            // New top = -(calendar height) so it sits right above the input.
+            var h = dpc.offsetHeight;
+            var newTop = -h + 'px';
+            if (dpc.style.top !== newTop) {
+                dpc.style.top = newTop;
+            }
+        });
+
+        observer.observe(widget.shadowRoot, {
+            childList: true,
+            subtree: true,
+            attributes: true,
+            attributeFilter: ['class', 'style']
+        });
     }
 
     var el = document.querySelector('.home-search-wrapper hospitable-direct-mps');
@@ -54,35 +78,8 @@
         var attempts = 0;
         var interval = setInterval(function() {
             if (el.shadowRoot) {
-                injectShadowStyles(el);
+                initWidget(el);
                 clearInterval(interval);
-
-                // DEBUG: log date-picker info on every click inside shadow DOM
-                el.shadowRoot.addEventListener('click', function(e) {
-                    var dpc = el.shadowRoot.querySelector('.date-picker-container');
-                    if (!dpc) return;
-                    var cs = window.getComputedStyle(dpc);
-                    var rect = dpc.getBoundingClientRect();
-                    console.log('=== CLICK DEBUG ===');
-                    console.log('clicked element:', e.target.tagName, e.target.className, e.target.textContent.trim().substring(0, 20));
-                    console.log('click coords: x=' + e.clientX + ' y=' + e.clientY);
-                    console.log('dpc position:', cs.position);
-                    console.log('dpc top:', cs.top, '| bottom:', cs.bottom);
-                    console.log('dpc display:', cs.display, '| visibility:', cs.visibility);
-                    console.log('dpc rect:', JSON.stringify(rect));
-                    console.log('dpc offsetHeight:', dpc.offsetHeight, '| offsetTop:', dpc.offsetTop);
-                    console.log('dpc inline style:', dpc.getAttribute('style'));
-                    // Check all parent computed styles up to shadow root
-                    var parent = dpc.parentElement;
-                    var i = 0;
-                    while (parent && i < 5) {
-                        var pcs = window.getComputedStyle(parent);
-                        console.log('parent[' + i + ']:', parent.tagName, parent.className, '| pos:', pcs.position, '| overflow:', pcs.overflow, '| rect:', JSON.stringify(parent.getBoundingClientRect()));
-                        parent = parent.parentElement;
-                        i++;
-                    }
-                    console.log('=== END CLICK DEBUG ===');
-                }, true);
             }
             if (++attempts > 50) clearInterval(interval);
         }, 100);
