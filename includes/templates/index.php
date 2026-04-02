@@ -33,6 +33,40 @@
     </div>
 </div>
 
+<!-- Force Hospitable widget calendar & guest picker to open UPWARD on homepage -->
+<script>
+(function() {
+    function injectShadowStyles(widget) {
+        if (!widget || !widget.shadowRoot) return;
+        // Check if already injected
+        if (widget.shadowRoot.querySelector('#home-widget-fix')) return;
+        var style = document.createElement('style');
+        style.id = 'home-widget-fix';
+        style.textContent = [
+            /* Calendar: position above the input instead of below */
+            '.date-picker-container { bottom: 100% !important; top: auto !important; }',
+            /* Guest picker: position above the input instead of below */
+            '.guests-expanded { bottom: 100% !important; top: auto !important; }'
+        ].join('\n');
+        widget.shadowRoot.appendChild(style);
+    }
+
+    // Try immediately and also observe for when the widget initializes its shadow DOM
+    var el = document.querySelector('.home-search-wrapper hospitable-direct-mps');
+    if (el) {
+        // Retry until shadow root is available
+        var attempts = 0;
+        var interval = setInterval(function() {
+            if (el.shadowRoot) {
+                injectShadowStyles(el);
+                clearInterval(interval);
+            }
+            if (++attempts > 50) clearInterval(interval); // stop after 5s
+        }, 100);
+    }
+})();
+</script>
+
 <div class="container">
     <div id="prevthumb"></div>
     <div id="nextthumb"></div>
