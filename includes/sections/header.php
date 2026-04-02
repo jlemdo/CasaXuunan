@@ -104,7 +104,7 @@
     <?php if (basename($_SERVER['SCRIPT_NAME']) === 'search.php'): ?>
     <!-- Search page: single scroll only.
          Body scroll is disabled; #content-absolute owns the only scrollbar.
-         This eliminates the confusing double-scroll on mobile. -->
+         #background stays fixed behind with z-index:0. -->
     <style>
         html, body {
             overflow: hidden !important;
@@ -113,6 +113,14 @@
         #wrapper {
             overflow: hidden !important;
             height: 100% !important;
+        }
+        #background {
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
         }
         #content-absolute {
             position: fixed;
