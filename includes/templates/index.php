@@ -55,11 +55,18 @@
 
         var isExpanded = false;
 
+        // Create dark overlay for focus effect
+        var overlay = document.createElement('div');
+        overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0);z-index:1001;pointer-events:none;transition:background 0.4s ease;';
+        document.body.appendChild(overlay);
+
         function collapseSearch() {
             if (!isExpanded) return;
             isExpanded = false;
             section.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
             section.style.transform = 'translateY(0)';
+            overlay.style.background = 'rgba(0,0,0,0)';
+            overlay.style.pointerEvents = 'none';
             if (reviews) {
                 reviews.style.transition = 'opacity 0.3s ease 0.2s';
                 reviews.style.opacity = '1';
@@ -77,12 +84,13 @@
         function expandSearch() {
             if (isExpanded) return;
             isExpanded = true;
-            // Raise just enough so calendar fits: move up ~40% of viewport
             var vh = window.innerHeight;
             var moveUp = Math.round(vh * 0.22);
 
             section.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
             section.style.transform = 'translateY(-' + moveUp + 'px)';
+            overlay.style.background = 'rgba(0,0,0,0.6)';
+            overlay.style.pointerEvents = 'auto';
 
             if (reviews) {
                 reviews.style.transition = 'opacity 0.3s ease';
@@ -97,6 +105,11 @@
             wrapper.style.background = 'rgba(10, 10, 10, 0.85)';
             wrapper.style.boxShadow = '0 -10px 60px rgba(0,0,0,0.5)';
         }
+
+        // Click on dark overlay = collapse
+        overlay.addEventListener('click', function() {
+            collapseSearch();
+        });
 
         // Detect any dropdown open inside shadow DOM
         function isAnyDropdownOpen() {
