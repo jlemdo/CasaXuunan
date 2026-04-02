@@ -56,6 +56,31 @@
             if (el.shadowRoot) {
                 injectShadowStyles(el);
                 clearInterval(interval);
+
+                // DEBUG: log date-picker-container info when it appears
+                var debugInterval = setInterval(function() {
+                    var dpc = el.shadowRoot.querySelector('.date-picker-container');
+                    if (dpc) {
+                        var cs = window.getComputedStyle(dpc);
+                        console.log('=== DATE PICKER DEBUG ===');
+                        console.log('position:', cs.position);
+                        console.log('top:', cs.top);
+                        console.log('bottom:', cs.bottom);
+                        console.log('left:', cs.left);
+                        console.log('transform:', cs.transform);
+                        console.log('inline style:', dpc.getAttribute('style'));
+                        console.log('offsetHeight:', dpc.offsetHeight);
+                        console.log('offsetTop:', dpc.offsetTop);
+                        console.log('getBoundingClientRect:', JSON.stringify(dpc.getBoundingClientRect()));
+                        console.log('parent position:', window.getComputedStyle(dpc.parentElement).position);
+                        console.log('parent tag:', dpc.parentElement.tagName);
+                        console.log('parent class:', dpc.parentElement.className);
+                        console.log('parent inline style:', dpc.parentElement.getAttribute('style'));
+                        console.log('=== END DEBUG ===');
+                        clearInterval(debugInterval);
+                    }
+                }, 500);
+                setTimeout(function() { clearInterval(debugInterval); }, 30000);
             }
             if (++attempts > 50) clearInterval(interval);
         }, 100);
