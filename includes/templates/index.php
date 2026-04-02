@@ -79,7 +79,7 @@
             isExpanded = true;
             // Raise just enough so calendar fits: move up ~40% of viewport
             var vh = window.innerHeight;
-            var moveUp = Math.round(vh * 0.35);
+            var moveUp = Math.round(vh * 0.22);
 
             section.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
             section.style.transform = 'translateY(-' + moveUp + 'px)';
