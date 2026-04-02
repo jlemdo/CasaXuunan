@@ -237,7 +237,7 @@
     .home-search-wrapper {
         padding: 8px 0 4px;
         border-radius: 12px;
-        margin-bottom: 10px;  /* reduce gap below the search box */
+        /* margin-bottom set dynamically by JS based on viewport height */
     }
 
     .home-search-title {

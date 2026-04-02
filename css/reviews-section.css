@@ -189,8 +189,7 @@
 /* Mobile */
 @media (max-width: 992px) {
     .reviews-scroll-btn-wrapper {
-        bottom: 80px;
-        z-index: 40;  /* below search section (z-index: 1002) so it doesn't block calendar */
+        /* bottom set dynamically by JS based on search wrapper height */
     }
 
     .scroll-text {
