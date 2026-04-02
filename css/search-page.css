@@ -235,7 +235,6 @@
     .home-search-section {
         padding: 0 8px;
         z-index: 1002;  /* above navbar (1001) so calendar/guest picker aren't blocked */
-        pointer-events: auto;  /* allow clicks on calendar that overflows outside wrapper */
     }
 
     .home-search-wrapper {
