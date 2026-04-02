@@ -140,6 +140,16 @@
             overflow-y: visible;
             box-sizing: border-box;
         }
+        /* WOW.js can't detect scroll inside fixed container — force visible */
+        #content-absolute .wow {
+            visibility: visible !important;
+            animation: none !important;
+            opacity: 1 !important;
+        }
+        /* Ensure section covers full viewport */
+        #section-main {
+            min-height: 100vh;
+        }
     </style>
     <?php endif; ?>
 
