@@ -83,16 +83,18 @@
 
         function expandSearch() {
             if (isExpanded) return;
-            // Desktop (>992px): don't expand/overlay — calendar opens inline without issues
-            if (window.innerWidth > 992) return;
             isExpanded = true;
             var vh = window.innerHeight;
-            var moveUp = Math.round(vh * 0.22);
+            var isDesktop = window.innerWidth > 992;
+            var moveUp = Math.round(vh * (isDesktop ? 0.12 : 0.22));
 
             section.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
             section.style.transform = 'translateY(-' + moveUp + 'px)';
-            overlay.style.background = 'rgba(0,0,0,0.6)';
-            overlay.style.pointerEvents = 'auto';
+
+            if (!isDesktop) {
+                overlay.style.background = 'rgba(0,0,0,0.6)';
+                overlay.style.pointerEvents = 'auto';
+            }
 
             if (reviews) {
                 reviews.style.transition = 'opacity 0.3s ease';
