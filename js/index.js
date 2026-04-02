@@ -1,9 +1,9 @@
 // js/index.js
 
 jQuery(function($){
-    // Detectar idioma actual desde el parámetro URL o sesión
+    // Detectar idioma actual desde PHP (servidor) o URL
     var urlParams = new URLSearchParams(window.location.search);
-    var currentLang = urlParams.get('lang') || 'es';
+    var currentLang = urlParams.get('lang') || window.PHP_LANG || 'es';
 
     console.log('Current language detected:', currentLang);
     console.log('URL params:', window.location.search);
