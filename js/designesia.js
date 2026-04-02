@@ -174,7 +174,16 @@ jQuery(document).ready(function () {
             type: 'image',
             mainClass: 'mfp-with-zoom mfp-img-mobile',
             gallery: {
-                enabled: true
+                enabled: true,
+                navigateByImgClick: true
+            },
+            image: {
+                titleSrc: function(item) {
+                    var el = item.el;
+                    if (el.find('.pf_caption').length) return el.find('.pf_caption').text();
+                    if (typeof NeuroCaptions !== 'undefined') return NeuroCaptions.getRandomWord();
+                    return '';
+                }
             }
         });
 

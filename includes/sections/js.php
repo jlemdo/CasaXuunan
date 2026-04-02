@@ -10,7 +10,7 @@
 <script src="<?php echo BASE_URL; ?>/js/plugins.js"></script>
 <script src="<?php echo BASE_URL; ?>/js/designesia.js"></script>
 <script src="<?php echo BASE_URL; ?>/js/custom-mobile-menu.js"></script>
-
+<script src="<?php echo BASE_URL; ?>/js/neuro-caption-words.js"></script>
 
 <!-- Supersized (solo para la página index) -->
 <?php
@@ -49,6 +49,11 @@ if (basename($_SERVER['SCRIPT_NAME']) === 'transporte.php') {
 <?php
 if (basename($_SERVER['SCRIPT_NAME']) === 'contact.php') {
     echo '<script src="' . BASE_URL . '/js/contact-whatsapp.js"></script>';
+}
+?>
+<?php
+if (basename($_SERVER['SCRIPT_NAME']) === 'gallery.php') {
+    echo '<script src="' . BASE_URL . '/js/gallery.js"></script>';
 }
 ?>
 <?php

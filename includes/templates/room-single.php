@@ -267,7 +267,7 @@ $propertyId = $_GET['id'];
                             <a class="popup-gallery-item" href="${image.url}">
                                 <span class="overlay">
                                     <span class="pf_title"><i class="icon_search"></i></span>
-                                    <span class="pf_caption">${image.caption || 'No Caption'}</span>
+                                    <span class="pf_caption">${image.caption || (typeof NeuroCaptions !== 'undefined' ? NeuroCaptions.getRandomWord() : '')}</span>
                                 </span>
                             </a>
                             <!-- Imagen de previsualización -->
