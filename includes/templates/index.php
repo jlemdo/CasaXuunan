@@ -86,7 +86,7 @@
             isExpanded = true;
             var vh = window.innerHeight;
             var isDesktop = window.innerWidth > 992;
-            var moveUp = Math.round(vh * (isDesktop ? 0.12 : 0.22));
+            var moveUp = Math.round(vh * (isDesktop ? 0.30 : 0.22));
 
             section.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
             section.style.transform = 'translateY(-' + moveUp + 'px)';
