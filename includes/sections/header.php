@@ -117,7 +117,8 @@
         .search-widget-fullwidth {
             max-width: 1240px;
             margin: 0 auto 20px;
-            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: visible;
             box-sizing: border-box;
         }
     </style>
