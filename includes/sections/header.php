@@ -103,16 +103,18 @@
 
     <?php if (basename($_SERVER['SCRIPT_NAME']) === 'search.php'): ?>
     <!-- Search page fixes:
-         1. position:relative so body grows with content (enables scroll)
-         2. overflow-x:hidden at every level to clip the widget's 100vw trick
-         3. padding on widget container so results don't touch viewport edges -->
+         #content-absolute stays position:absolute (over the fixed background).
+         We give it full viewport height + internal scroll so results are accessible.
+         overflow-x:hidden clips the widget's 100vw trick. -->
     <style>
         html { overflow-x: hidden !important; }
         body { overflow-x: hidden !important; }
         #content-absolute {
-            position: relative !important;
+            top: 0;
+            bottom: 0;
             overflow-x: hidden;
-            /* background inherited from style.css */
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
         }
         .search-widget-fullwidth {
             max-width: 1240px;
