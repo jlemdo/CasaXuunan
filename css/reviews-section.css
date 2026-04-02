@@ -189,7 +189,8 @@
 /* Mobile */
 @media (max-width: 992px) {
     .reviews-scroll-btn-wrapper {
-        bottom: 100px;  /* above search wrapper (~80px) + spacing */
+        bottom: 140px;  /* above search wrapper + spacing */
+        z-index: 1003;  /* above search section (1002) so it's not hidden behind it */
     }
 
     .scroll-text {
