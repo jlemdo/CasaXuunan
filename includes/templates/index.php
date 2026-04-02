@@ -83,6 +83,8 @@
 
         function expandSearch() {
             if (isExpanded) return;
+            // Desktop (>992px): don't expand/overlay — calendar opens inline without issues
+            if (window.innerWidth > 992) return;
             isExpanded = true;
             var vh = window.innerHeight;
             var moveUp = Math.round(vh * 0.22);
