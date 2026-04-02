@@ -140,6 +140,7 @@
     padding: 0 20px;
 }
 
+
 .home-search-wrapper {
     background: rgba(10, 10, 10, 0.50);
     backdrop-filter: blur(20px);
@@ -150,7 +151,7 @@
     margin-bottom: 132px;
     text-align: center;
     pointer-events: all;
-    overflow: hidden;          /* clip widget inside the rounded box */
+    overflow: visible;         /* allow calendar/guest dropdowns to overflow */
 }
 
 .home-search-title {
