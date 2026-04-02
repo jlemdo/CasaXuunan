@@ -102,19 +102,28 @@
     <?php endif; ?>
 
     <?php if (basename($_SERVER['SCRIPT_NAME']) === 'search.php'): ?>
-    <!-- Search page fixes:
-         #content-absolute stays position:absolute (over the fixed background).
-         We give it full viewport height + internal scroll so results are accessible.
-         overflow-x:hidden clips the widget's 100vw trick. -->
+    <!-- Search page: single scroll only.
+         Body scroll is disabled; #content-absolute owns the only scrollbar.
+         This eliminates the confusing double-scroll on mobile. -->
     <style>
-        html { overflow-x: hidden !important; }
-        body { overflow-x: hidden !important; }
+        html, body {
+            overflow: hidden !important;
+            height: 100% !important;
+        }
+        #wrapper {
+            overflow: hidden !important;
+            height: 100% !important;
+        }
         #content-absolute {
+            position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
             bottom: 0;
             overflow-x: hidden;
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
+            z-index: 1;
         }
         .search-widget-fullwidth {
             max-width: 1240px;
