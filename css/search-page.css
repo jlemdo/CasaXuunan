@@ -231,21 +231,28 @@
     /* Homepage search bar — compact mobile */
     .home-search-section {
         padding: 0 8px;
+        z-index: 1002;  /* above navbar (1001) so calendar/guest picker aren't blocked */
     }
 
     .home-search-wrapper {
-        padding: 10px 0 6px;
+        padding: 8px 0 4px;
         border-radius: 12px;
+        margin-bottom: 10px;  /* reduce gap below the search box */
     }
 
     .home-search-title {
-        font-size: 12px;
+        font-size: 11px;
         margin-bottom: 0;
     }
 
     .home-search-subtitle {
-        font-size: 9px;
-        margin-top: 4px;
+        font-size: 8px;
+        margin-top: 2px;
+    }
+
+    /* Hide carousel controls on mobile to save vertical space */
+    #controls-wrapper {
+        display: none !important;
     }
 }
 
