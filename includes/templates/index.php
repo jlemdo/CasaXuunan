@@ -67,6 +67,7 @@
             section.style.transform = 'translateY(0)';
             overlay.style.background = 'rgba(0,0,0,0)';
             overlay.style.pointerEvents = 'none';
+            overlay.style.zIndex = '1001';
             if (reviews) {
                 reviews.style.transition = 'opacity 0.3s ease 0.2s';
                 reviews.style.opacity = '1';
@@ -91,8 +92,14 @@
             section.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
             section.style.transform = 'translateY(-' + moveUp + 'px)';
 
-            if (!isDesktop) {
-                overlay.style.background = 'rgba(0,0,0,0.6)';
+            overlay.style.background = 'rgba(0,0,0,0.6)';
+            if (isDesktop) {
+                // Desktop: overlay behind search widget so it doesn't block calendar/guests
+                overlay.style.zIndex = '49';
+                overlay.style.pointerEvents = 'auto';
+            } else {
+                // Mobile: overlay above everything, search section is raised to 1002
+                overlay.style.zIndex = '1001';
                 overlay.style.pointerEvents = 'auto';
             }
 
