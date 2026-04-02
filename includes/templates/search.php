@@ -75,6 +75,24 @@
 
 </div>
 
+<!-- Fix widget search bar layout to match site container -->
+<script>
+(function() {
+    var el = document.querySelector('.search-widget-fullwidth hospitable-direct-mps');
+    if (!el) return;
+    var attempts = 0;
+    var interval = setInterval(function() {
+        if (!el.shadowRoot) { if (++attempts > 100) clearInterval(interval); return; }
+        if (el.shadowRoot.querySelector('#cx-searchbar-fix')) { clearInterval(interval); return; }
+        var s = document.createElement('style');
+        s.id = 'cx-searchbar-fix';
+        s.textContent = '.search-bar-container { width: 100%; position: relative; padding: 24px; margin-bottom: 24px; display: flex; justify-content: center; }';
+        el.shadowRoot.appendChild(s);
+        clearInterval(interval);
+    }, 300);
+})();
+</script>
+
 <!-- Mobile: hide unavailable properties, show toggle button -->
 <script>
 (function() {
@@ -99,7 +117,7 @@
         s.textContent = [
             'a.property.cx-hidden { display: none !important; }',
             'a.property { transition: opacity 0.3s ease; }',
-            '.properties { display: flex; flex-direction: column; }' // collapse gaps
+            '.properties { display: flex; flex-direction: column; }'
         ].join('\n');
         sr.appendChild(s);
         styleInjected = true;

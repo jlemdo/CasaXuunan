@@ -47,6 +47,7 @@
 .search-widget-fullwidth hospitable-direct-mps {
     display: block;
     width: 100%;
+    padding: 0 15px;
 }
 
 /* --- Help CTA (WhatsApp) --- */
