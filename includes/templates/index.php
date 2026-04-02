@@ -55,77 +55,114 @@
 
         var isExpanded = false;
 
-        // Smoothly slide the search box up when calendar/guest picker opens
-        function checkExpanded() {
-            var dpc = widget.shadowRoot.querySelector('.date-picker-container');
-            var guests = widget.shadowRoot.querySelector('.guests-expanded');
-            var calOpen = dpc && dpc.offsetHeight > 0;
-            var guestOpen = guests && guests.offsetHeight > 0;
-            var shouldExpand = calOpen || guestOpen;
-
-            if (shouldExpand && !isExpanded) {
-                isExpanded = true;
-                // Calculate how much to raise: put search bar near top third of screen
-                var vh = window.innerHeight;
-                var dropdownH = calOpen ? dpc.offsetHeight : (guests ? guests.offsetHeight : 0);
-                var wrapperH = wrapper ? wrapper.offsetHeight : 80;
-                // Center the whole thing (wrapper + dropdown) vertically
-                var totalH = wrapperH + dropdownH;
-                var targetTop = Math.max(20, (vh - totalH) / 3);
-                var currentBottom = wrapper ? wrapper.getBoundingClientRect().top : (vh - 100);
-                var moveUp = currentBottom - targetTop;
-
-                section.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-                section.style.transform = 'translateY(-' + moveUp + 'px)';
-
-                // Fade out other elements for focus
-                if (reviews) {
-                    reviews.style.transition = 'opacity 0.3s ease';
-                    reviews.style.opacity = '0';
-                    reviews.style.pointerEvents = 'none';
-                }
-                if (caption) {
-                    caption.style.transition = 'opacity 0.3s ease';
-                    caption.style.opacity = '0';
-                }
-
-                // Darken backdrop
-                wrapper.style.transition = 'background 0.4s ease, box-shadow 0.4s ease';
-                wrapper.style.background = 'rgba(10, 10, 10, 0.85)';
-                wrapper.style.boxShadow = '0 -10px 60px rgba(0,0,0,0.5)';
-
-            } else if (!shouldExpand && isExpanded) {
-                isExpanded = false;
-                // Slide back down
-                section.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-                section.style.transform = 'translateY(0)';
-
-                // Restore other elements
-                if (reviews) {
-                    reviews.style.transition = 'opacity 0.3s ease 0.2s';
-                    reviews.style.opacity = '1';
-                    reviews.style.pointerEvents = '';
-                }
-                if (caption) {
-                    caption.style.transition = 'opacity 0.3s ease 0.2s';
-                    caption.style.opacity = '1';
-                }
-
-                wrapper.style.transition = 'background 0.4s ease, box-shadow 0.4s ease';
-                wrapper.style.background = '';
-                wrapper.style.boxShadow = '';
+        function collapseSearch() {
+            if (!isExpanded) return;
+            isExpanded = false;
+            section.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+            section.style.transform = 'translateY(0)';
+            if (reviews) {
+                reviews.style.transition = 'opacity 0.3s ease 0.2s';
+                reviews.style.opacity = '1';
+                reviews.style.pointerEvents = '';
             }
+            if (caption) {
+                caption.style.transition = 'opacity 0.3s ease 0.2s';
+                caption.style.opacity = '1';
+            }
+            wrapper.style.transition = 'background 0.4s ease, box-shadow 0.4s ease';
+            wrapper.style.background = '';
+            wrapper.style.boxShadow = '';
         }
 
-        // Watch for calendar/guest picker opening/closing
+        function expandSearch() {
+            if (isExpanded) return;
+            isExpanded = true;
+            // Raise just enough so calendar fits: move up ~40% of viewport
+            var vh = window.innerHeight;
+            var moveUp = Math.round(vh * 0.35);
+
+            section.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+            section.style.transform = 'translateY(-' + moveUp + 'px)';
+
+            if (reviews) {
+                reviews.style.transition = 'opacity 0.3s ease';
+                reviews.style.opacity = '0';
+                reviews.style.pointerEvents = 'none';
+            }
+            if (caption) {
+                caption.style.transition = 'opacity 0.3s ease';
+                caption.style.opacity = '0';
+            }
+            wrapper.style.transition = 'background 0.4s ease, box-shadow 0.4s ease';
+            wrapper.style.background = 'rgba(10, 10, 10, 0.85)';
+            wrapper.style.boxShadow = '0 -10px 60px rgba(0,0,0,0.5)';
+        }
+
+        // Detect any dropdown open inside shadow DOM
+        function isAnyDropdownOpen() {
+            var sr = widget.shadowRoot;
+            // Check calendar
+            var dpc = sr.querySelector('.date-picker-container');
+            if (dpc && dpc.offsetHeight > 0) return true;
+            // Check guests
+            var guests = sr.querySelector('.guests-expanded');
+            if (guests && guests.offsetHeight > 0) return true;
+            // Check for any visible calendar/picker by looking at all containers
+            var allPickers = sr.querySelectorAll('[class*="date-picker"], [class*="calendar"], [class*="guest"]');
+            for (var i = 0; i < allPickers.length; i++) {
+                if (allPickers[i].offsetHeight > 50) return true;
+            }
+            return false;
+        }
+
+        // Listen for clicks inside shadow DOM to detect input focus
+        widget.shadowRoot.addEventListener('click', function(e) {
+            var tag = e.target.tagName;
+            var cls = e.target.className || '';
+            // If clicking on check-in, check-out inputs or guest-related elements
+            var isInput = tag === 'INPUT' || tag === 'SELECT';
+            var isDateCell = cls.indexOf('date-cell') > -1 || cls.indexOf('calendar') > -1;
+            var isGuestBtn = cls.indexOf('guest') > -1 || cls.indexOf('increment') > -1 || cls.indexOf('decrement') > -1;
+
+            if (isInput || isDateCell || isGuestBtn) {
+                // Small delay to let widget render the dropdown
+                setTimeout(function() {
+                    if (isAnyDropdownOpen()) {
+                        expandSearch();
+                    }
+                }, 150);
+            }
+        }, true);
+
+        // Watch for changes that might close dropdowns
         var observer = new MutationObserver(function() {
-            requestAnimationFrame(checkExpanded);
+            requestAnimationFrame(function() {
+                if (isExpanded && !isAnyDropdownOpen()) {
+                    collapseSearch();
+                }
+            });
         });
         observer.observe(widget.shadowRoot, {
             childList: true,
             subtree: true,
             attributes: true,
             attributeFilter: ['class', 'style']
+        });
+
+        // Click outside widget = collapse
+        document.addEventListener('click', function(e) {
+            if (!isExpanded) return;
+            // If click is outside the search wrapper, collapse
+            if (!wrapper.contains(e.target) && !widget.contains(e.target)) {
+                collapseSearch();
+            }
+        });
+
+        // Also collapse on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && isExpanded) {
+                collapseSearch();
+            }
         });
     }
 
