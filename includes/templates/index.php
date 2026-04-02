@@ -57,30 +57,32 @@
                 injectShadowStyles(el);
                 clearInterval(interval);
 
-                // DEBUG: log date-picker-container info when it appears
-                var debugInterval = setInterval(function() {
+                // DEBUG: log date-picker info on every click inside shadow DOM
+                el.shadowRoot.addEventListener('click', function(e) {
                     var dpc = el.shadowRoot.querySelector('.date-picker-container');
-                    if (dpc) {
-                        var cs = window.getComputedStyle(dpc);
-                        console.log('=== DATE PICKER DEBUG ===');
-                        console.log('position:', cs.position);
-                        console.log('top:', cs.top);
-                        console.log('bottom:', cs.bottom);
-                        console.log('left:', cs.left);
-                        console.log('transform:', cs.transform);
-                        console.log('inline style:', dpc.getAttribute('style'));
-                        console.log('offsetHeight:', dpc.offsetHeight);
-                        console.log('offsetTop:', dpc.offsetTop);
-                        console.log('getBoundingClientRect:', JSON.stringify(dpc.getBoundingClientRect()));
-                        console.log('parent position:', window.getComputedStyle(dpc.parentElement).position);
-                        console.log('parent tag:', dpc.parentElement.tagName);
-                        console.log('parent class:', dpc.parentElement.className);
-                        console.log('parent inline style:', dpc.parentElement.getAttribute('style'));
-                        console.log('=== END DEBUG ===');
-                        clearInterval(debugInterval);
+                    if (!dpc) return;
+                    var cs = window.getComputedStyle(dpc);
+                    var rect = dpc.getBoundingClientRect();
+                    console.log('=== CLICK DEBUG ===');
+                    console.log('clicked element:', e.target.tagName, e.target.className, e.target.textContent.trim().substring(0, 20));
+                    console.log('click coords: x=' + e.clientX + ' y=' + e.clientY);
+                    console.log('dpc position:', cs.position);
+                    console.log('dpc top:', cs.top, '| bottom:', cs.bottom);
+                    console.log('dpc display:', cs.display, '| visibility:', cs.visibility);
+                    console.log('dpc rect:', JSON.stringify(rect));
+                    console.log('dpc offsetHeight:', dpc.offsetHeight, '| offsetTop:', dpc.offsetTop);
+                    console.log('dpc inline style:', dpc.getAttribute('style'));
+                    // Check all parent computed styles up to shadow root
+                    var parent = dpc.parentElement;
+                    var i = 0;
+                    while (parent && i < 5) {
+                        var pcs = window.getComputedStyle(parent);
+                        console.log('parent[' + i + ']:', parent.tagName, parent.className, '| pos:', pcs.position, '| overflow:', pcs.overflow, '| rect:', JSON.stringify(parent.getBoundingClientRect()));
+                        parent = parent.parentElement;
+                        i++;
                     }
-                }, 500);
-                setTimeout(function() { clearInterval(debugInterval); }, 30000);
+                    console.log('=== END CLICK DEBUG ===');
+                }, true);
             }
             if (++attempts > 50) clearInterval(interval);
         }, 100);
