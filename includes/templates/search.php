@@ -86,7 +86,7 @@
         if (el.shadowRoot.querySelector('#cx-searchbar-fix')) { clearInterval(interval); return; }
         var s = document.createElement('style');
         s.id = 'cx-searchbar-fix';
-        s.textContent = '.search-bar-container { width: 100%; position: relative; padding: 24px; margin-bottom: 24px; display: flex; justify-content: center; }';
+        s.textContent = '.search-bar-container { width: 100%; position: relative; left: 0; margin-left: 0; padding: 24px; margin-bottom: 24px; display: flex; justify-content: center; }';
         el.shadowRoot.appendChild(s);
         clearInterval(interval);
     }, 300);
