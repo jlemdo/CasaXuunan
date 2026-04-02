@@ -240,8 +240,8 @@
 
         <div class="reviews-overlay-body">
             <div class="container">
-                <!-- Elfsight Google Reviews Widget (injected by JS on first open) -->
-                <div id="elfsight-reviews-placeholder"></div>
+                <!-- Elfsight Google Reviews Widget -->
+                <div class="elfsight-app-d417e2fd-4c4c-4718-af81-b5995cd6c060"></div>
 
                 <div class="text-center">
                     <div class="spacer-single"></div>

@@ -1,6 +1,10 @@
 /**
  * Reviews Overlay - Bottom Sheet
  * Casa Xuunan
+ *
+ * Elfsight script is loaded dynamically on first overlay open,
+ * after the overlay is visible (translateY(0)), so Elfsight's
+ * IntersectionObserver can detect the widget.
  */
 
 jQuery(document).ready(function($) {
@@ -10,26 +14,20 @@ jQuery(document).ready(function($) {
     var $closeBtn = $('#reviews-close-button');
 
     // Abrir overlay
-    var elfsightInjected = false;
+    var elfsightLoaded = false;
     $openBtn.on('click', function(e) {
         e.preventDefault();
         $overlay.addClass('active');
         $('body').css('overflow', 'hidden');
 
-        // Inject Elfsight widget on first open (after overlay is visible)
-        if (!elfsightInjected) {
-            elfsightInjected = true;
+        // Load Elfsight script on first open, after overlay transition completes
+        if (!elfsightLoaded) {
+            elfsightLoaded = true;
             setTimeout(function() {
-                var placeholder = document.getElementById('elfsight-reviews-placeholder');
-                if (placeholder) {
-                    var widgetDiv = document.createElement('div');
-                    widgetDiv.className = 'elfsight-app-d417e2fd-4c4c-4718-af81-b5995cd6c060';
-                    placeholder.appendChild(widgetDiv);
-                    // Tell Elfsight to scan for new widgets
-                    if (window.eapps && window.eapps.platform && window.eapps.platform.initialize) {
-                        window.eapps.platform.initialize();
-                    }
-                }
+                var script = document.createElement('script');
+                script.src = 'https://static.elfsight.com/platform/platform.js';
+                script.setAttribute('data-use-service-core', '');
+                document.head.appendChild(script);
             }, 500);
         }
     });
@@ -38,7 +36,7 @@ jQuery(document).ready(function($) {
     $closeBtn.on('click', function(e) {
         e.preventDefault();
         $overlay.removeClass('active');
-        $('body').css('overflow', ''); // Restaurar scroll
+        $('body').css('overflow', '');
     });
 
     // Cerrar overlay al hacer click en el backdrop (área oscura)
@@ -61,7 +59,6 @@ jQuery(document).ready(function($) {
     function hideElfsightLink() {
         $('.reviews-overlay-body a[href^="https://elfsight.com/google-reviews-widget/"]').each(function() {
             var $this = $(this);
-            // Verificar que tenga el z-index específico y el texto "Free Google Reviews widget"
             if ($this.attr('style') && $this.attr('style').indexOf('z-index:999999999') !== -1) {
                 if ($this.text().indexOf('Free Google Reviews widget') !== -1) {
                     $this.css({
@@ -78,12 +75,10 @@ jQuery(document).ready(function($) {
         });
     }
 
-    // Ejecutar inmediatamente
     hideElfsightLink();
 
-    // Observar cambios en el DOM para cambiar z-index si se carga después
     if (window.MutationObserver) {
-        var observer = new MutationObserver(function(mutations) {
+        var observer = new MutationObserver(function() {
             hideElfsightLink();
         });
 
@@ -96,7 +91,6 @@ jQuery(document).ready(function($) {
         }
     }
 
-    // También revisar periódicamente por si acaso
     setInterval(hideElfsightLink, 1000);
 
 });
