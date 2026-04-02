@@ -42,6 +42,7 @@
         var style = document.createElement('style');
         style.id = 'home-widget-fix';
         style.textContent = [
+            '.date-picker-container { transform: translateY(calc(-100% - 58px)) !important; }',
             '.guests-expanded { bottom: 100% !important; top: auto !important; }',
             '.search-bar-container { margin-bottom: 0px !important; }'
         ].join('\n');
