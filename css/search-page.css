@@ -188,13 +188,14 @@
 
 /* --- Push slider text up to make room for search bar --- */
 /* #slidecaption uses display:table + table-cell vertical-align:middle.
-   Adding padding-bottom shifts the vertical center upward. */
+   Adding padding-bottom shifts the vertical center upward.
+   padding-top prevents text from overlapping the navbar/hamburger. */
 #slidecaption {
     padding-bottom: 220px;
 }
 
-/* --- Mobile --- */
-@media (max-width: 767px) {
+/* --- Mobile & Tablet (≤992px) --- */
+@media (max-width: 992px) {
     /* Search results page */
     .search-results-overlay {
         padding: 15px 10px !important;
@@ -223,9 +224,11 @@
         justify-content: center;
     }
 
-    /* Push slider text higher on mobile (widget is taller) */
+    /* Slider text: pad top so it doesn't overlap navbar/hamburger,
+       pad bottom so it stays above search box + reviews button */
     #slidecaption {
-        padding-bottom: 320px;
+        padding-top: 80px;
+        padding-bottom: 200px;
     }
 
     /* Homepage search bar — compact mobile */
@@ -237,7 +240,7 @@
     .home-search-wrapper {
         padding: 8px 0 4px;
         border-radius: 12px;
-        /* margin-bottom set dynamically by JS based on viewport height */
+        margin-bottom: 8px;
     }
 
     .home-search-title {
@@ -250,23 +253,28 @@
         margin-top: 2px;
     }
 
-    /* Hide carousel controls on mobile to save vertical space */
-    #controls-wrapper {
+    /* Hide all slider controls on mobile/tablet */
+    #controls-wrapper,
+    #prevslide,
+    #nextslide,
+    #prevthumb,
+    #nextthumb,
+    #progress-back {
         display: none !important;
     }
 }
 
-/* --- Small mobile (320px) --- */
+/* --- Small mobile (≤374px) — extra safe-area padding --- */
 @media (max-width: 374px) {
-    .home-search-section {
-        bottom: 65px;
+    .home-search-wrapper {
+        margin-bottom: calc(8px + env(safe-area-inset-bottom, 0px));
     }
 }
 
-/* --- Tablet --- */
-@media (min-width: 768px) and (max-width: 991px) {
+/* --- Tablet landscape --- */
+@media (min-width: 768px) and (max-width: 992px) {
     #slidecaption {
-        padding-bottom: 280px;
+        padding-bottom: 240px;
     }
 
     .home-search-section {

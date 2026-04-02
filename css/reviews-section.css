@@ -189,7 +189,7 @@
 /* Mobile */
 @media (max-width: 992px) {
     .reviews-scroll-btn-wrapper {
-        /* bottom set dynamically by JS based on search wrapper height */
+        bottom: 100px;  /* above search wrapper (~80px) + spacing */
     }
 
     .scroll-text {

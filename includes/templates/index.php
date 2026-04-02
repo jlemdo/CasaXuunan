@@ -33,7 +33,7 @@
     </div>
 </div>
 
-<!-- Hospitable widget fixes: dropdowns open upward + dynamic layout -->
+<!-- Hospitable widget fixes: dropdowns open upward -->
 <script>
 (function() {
     function injectShadowStyles(widget) {
@@ -49,48 +49,6 @@
         widget.shadowRoot.appendChild(style);
     }
 
-    // Dynamically position fixed elements based on viewport height
-    function layoutFixedElements() {
-        var vh = window.innerHeight;
-        var wrapper = document.querySelector('.home-search-wrapper');
-        var reviews = document.querySelector('.reviews-scroll-btn-wrapper');
-        var controls = document.getElementById('controls-wrapper');
-        var caption = document.getElementById('slidecaption');
-
-        if (!wrapper) return;
-
-        // Measure the search wrapper height
-        var wrapperH = wrapper.offsetHeight;
-
-        // On mobile (<768px), stack elements tightly from the bottom
-        if (window.innerWidth < 768) {
-            // Search wrapper: 8px from bottom
-            wrapper.style.marginBottom = '8px';
-
-            // Reviews button: position just above the search wrapper
-            if (reviews) {
-                reviews.style.bottom = (wrapperH + 20) + 'px';
-            }
-
-            // Slider controls: just above reviews
-            if (controls) {
-                controls.style.bottom = (wrapperH + 60) + 'px';
-            }
-
-            // Slider caption: push up enough to not be hidden
-            if (caption) {
-                caption.style.paddingBottom = (wrapperH + 80) + 'px';
-            }
-        } else {
-            // Desktop: reset to CSS defaults
-            wrapper.style.marginBottom = '';
-            if (reviews) reviews.style.bottom = '';
-            if (controls) controls.style.bottom = '';
-            if (caption) caption.style.paddingBottom = '';
-        }
-    }
-
-    // Inject shadow DOM styles
     var el = document.querySelector('.home-search-wrapper hospitable-direct-mps');
     if (el) {
         var attempts = 0;
@@ -98,21 +56,10 @@
             if (el.shadowRoot) {
                 injectShadowStyles(el);
                 clearInterval(interval);
-                // Layout after widget is ready
-                setTimeout(layoutFixedElements, 200);
             }
             if (++attempts > 50) clearInterval(interval);
         }, 100);
     }
-
-    // Recalculate on resize and orientation change
-    window.addEventListener('resize', layoutFixedElements);
-    window.addEventListener('orientationchange', function() {
-        setTimeout(layoutFixedElements, 300);
-    });
-
-    // Initial layout
-    window.addEventListener('load', layoutFixedElements);
 })();
 </script>
 
