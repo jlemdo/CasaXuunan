@@ -75,44 +75,90 @@
 
 </div>
 
-<!-- Debug: inspect Hospitable widget shadow DOM structure -->
+<!-- Mobile: hide unavailable properties, show toggle button -->
 <script>
 (function() {
+    if (window.innerWidth > 992) return; // Only on mobile/tablet
+
     var el = document.querySelector('.search-widget-fullwidth hospitable-direct-mps');
     if (!el) return;
+
+    var lang = new URLSearchParams(window.location.search).get('lang') ||
+               document.documentElement.lang || 'es';
+    var btnShowText = lang === 'en' ? 'Show unavailable rooms' : 'Mostrar habitaciones no disponibles';
+    var btnHideText = lang === 'en' ? 'Hide unavailable rooms' : 'Ocultar habitaciones no disponibles';
+
     var attempts = 0;
     var interval = setInterval(function() {
-        if (el.shadowRoot) {
-            clearInterval(interval);
-            setTimeout(function() {
-                var sr = el.shadowRoot;
-                console.log('=== SEARCH WIDGET DEBUG ===');
-                var children = sr.children;
-                for (var i = 0; i < children.length; i++) {
-                    console.log('child[' + i + ']:', children[i].tagName, children[i].className);
+        if (!el.shadowRoot) { if (++attempts > 100) clearInterval(interval); return; }
+
+        var properties = el.shadowRoot.querySelectorAll('a.property');
+        if (properties.length === 0) { if (++attempts > 100) clearInterval(interval); return; }
+
+        clearInterval(interval);
+
+        // Identify unavailable cards (have children with .unavailable-fade)
+        var unavailableCards = [];
+        var availableCount = 0;
+        properties.forEach(function(card) {
+            if (card.querySelector('.unavailable-fade')) {
+                unavailableCards.push(card);
+                card.style.display = 'none';
+                card.style.transition = 'opacity 0.3s ease, max-height 0.4s ease';
+            } else {
+                availableCount++;
+            }
+        });
+
+        if (unavailableCards.length === 0) return;
+
+        // Create toggle button outside the shadow DOM
+        var btnWrapper = document.createElement('div');
+        btnWrapper.style.cssText = 'text-align:center;margin:0 auto 20px;max-width:600px;padding:0 16px;';
+
+        var btn = document.createElement('button');
+        btn.textContent = btnShowText + ' (' + unavailableCards.length + ')';
+        btn.style.cssText = [
+            'display:inline-flex;align-items:center;gap:8px',
+            'padding:12px 28px',
+            'background:rgba(255,255,255,0.08)',
+            'border:1px solid rgba(255,255,255,0.2)',
+            'border-radius:30px',
+            'color:rgba(255,255,255,0.7)',
+            'font-family:Montserrat,sans-serif',
+            'font-size:13px',
+            'font-weight:500',
+            'letter-spacing:0.3px',
+            'cursor:pointer',
+            'transition:all 0.3s ease',
+            '-webkit-tap-highlight-color:transparent'
+        ].join(';');
+
+        var showing = false;
+        btn.addEventListener('click', function() {
+            showing = !showing;
+            unavailableCards.forEach(function(card) {
+                if (showing) {
+                    card.style.display = '';
+                    card.style.opacity = '0';
+                    requestAnimationFrame(function() {
+                        card.style.opacity = '1';
+                    });
+                } else {
+                    card.style.opacity = '0';
+                    setTimeout(function() { card.style.display = 'none'; }, 300);
                 }
-                var allElements = sr.querySelectorAll('*');
-                var classes = {};
-                for (var j = 0; j < allElements.length; j++) {
-                    var cls = allElements[j].className;
-                    if (cls && typeof cls === 'string' && cls.length > 0) {
-                        cls.split(' ').forEach(function(c) {
-                            if (!classes[c]) classes[c] = 0;
-                            classes[c]++;
-                        });
-                    }
-                }
-                console.log('All CSS classes in shadow DOM:', JSON.stringify(classes, null, 2));
-                var possibleCards = sr.querySelectorAll('[class*="property"], [class*="card"], [class*="listing"], [class*="result"], [class*="available"], [class*="unavailable"]');
-                console.log('Possible card elements:', possibleCards.length);
-                for (var k = 0; k < possibleCards.length; k++) {
-                    var pc = possibleCards[k];
-                    console.log('  card[' + k + ']:', pc.tagName, pc.className, '| text:', pc.textContent.substring(0, 100));
-                }
-                console.log('=== END SEARCH WIDGET DEBUG ===');
-            }, 3000);
-        }
-        if (++attempts > 100) clearInterval(interval);
-    }, 200);
+            });
+            btn.textContent = (showing ? btnHideText : btnShowText) + ' (' + unavailableCards.length + ')';
+            btn.style.background = showing ? 'rgba(123,175,137,0.15)' : 'rgba(255,255,255,0.08)';
+            btn.style.borderColor = showing ? 'rgba(123,175,137,0.3)' : 'rgba(255,255,255,0.2)';
+        });
+
+        btnWrapper.appendChild(btn);
+        // Insert button after the widget container
+        var widgetContainer = document.querySelector('.search-widget-fullwidth');
+        widgetContainer.parentNode.insertBefore(btnWrapper, widgetContainer.nextSibling);
+
+    }, 300);
 })();
 </script>

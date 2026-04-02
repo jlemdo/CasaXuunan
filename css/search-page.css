@@ -196,6 +196,15 @@
 
 /* --- Mobile & Tablet (≤992px) --- */
 @media (max-width: 992px) {
+    /* Fix search results page scroll on mobile */
+    .search-widget-fullwidth + .container {
+        padding-bottom: 20px;
+    }
+
+    .search-widget-fullwidth {
+        min-height: auto;
+    }
+
     /* Search results page */
     .search-results-overlay {
         padding: 15px 10px !important;
