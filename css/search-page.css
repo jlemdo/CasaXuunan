@@ -262,6 +262,11 @@
     #progress-back {
         display: none !important;
     }
+
+    /* Hide slider CTA buttons on mobile (keep slide text) */
+    .slider-text .btn-line {
+        display: none !important;
+    }
 }
 
 /* --- Small mobile (≤374px) — extra safe-area padding --- */
