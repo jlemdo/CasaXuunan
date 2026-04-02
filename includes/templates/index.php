@@ -42,7 +42,6 @@
         var style = document.createElement('style');
         style.id = 'home-widget-fix';
         style.textContent = [
-            '.date-picker-container { bottom: 100% !important; top: auto !important; }',
             '.guests-expanded { bottom: 100% !important; top: auto !important; }',
             '.search-bar-container { margin-bottom: 0px !important; }'
         ].join('\n');
