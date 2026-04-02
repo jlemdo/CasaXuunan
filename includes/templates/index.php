@@ -241,7 +241,7 @@
         <div class="reviews-overlay-body">
             <div class="container">
                 <!-- Elfsight Google Reviews Widget -->
-                <div class="elfsight-app-d417e2fd-4c4c-4718-af81-b5995cd6c060" data-elfsight-app-lazy></div>
+                <div class="elfsight-app-d417e2fd-4c4c-4718-af81-b5995cd6c060"></div>
 
                 <div class="text-center">
                     <div class="spacer-single"></div>

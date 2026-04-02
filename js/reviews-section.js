@@ -10,31 +10,10 @@ jQuery(document).ready(function($) {
     var $closeBtn = $('#reviews-close-button');
 
     // Abrir overlay
-    var elfsightInitialized = false;
     $openBtn.on('click', function(e) {
         e.preventDefault();
         $overlay.addClass('active');
         $('body').css('overflow', 'hidden');
-
-        // Trigger Elfsight widget initialization on first open
-        if (!elfsightInitialized) {
-            elfsightInitialized = true;
-            // Remove lazy attribute so Elfsight processes the widget
-            var widgetEl = document.querySelector('.elfsight-app-d417e2fd-4c4c-4718-af81-b5995cd6c060');
-            if (widgetEl) {
-                widgetEl.removeAttribute('data-elfsight-app-lazy');
-            }
-            // Tell Elfsight platform to re-scan for widgets
-            if (window.elfsight && window.elfsight.reinit) {
-                window.elfsight.reinit();
-            } else if (window.eapps && window.eapps.Platform) {
-                window.eapps.Platform.publish();
-            }
-            // Dispatch resize to help widget calculate dimensions
-            setTimeout(function() {
-                window.dispatchEvent(new Event('resize'));
-            }, 300);
-        }
     });
 
     // Cerrar overlay con botón X
