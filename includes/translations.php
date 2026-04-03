@@ -572,6 +572,78 @@ $translations = [
         'search_home_title' => 'Encuentra tu estancia perfecta en',
         'search_home_highlight' => 'Casa Xu\'unan',
         'search_home_subtitle' => 'B&B familiar con desayuno incluido · Valladolid, Yucatán',
+
+        // ===== SEO PER-PAGE META TAGS =====
+        'index_meta_title' => 'Casa Xu\'unan - B&B Familiar en Valladolid, Yucatán | Hospedaje con Desayuno cerca de Chichén Itzá',
+        'index_meta_description' => 'B&B familiar en el barrio de Sisal, Valladolid. 9 habitaciones con desayuno casero incluido, piscina y jardín. A 40 min de Chichén Itzá. Atención personalizada de Don Miguel y Doña Susi.',
+        'index_meta_keywords' => 'bed and breakfast valladolid, hospedaje familiar valladolid yucatan, b&b valladolid mexico, alojamiento con desayuno valladolid, hospedaje cerca chichen itza, hotel valladolid yucatan, donde dormir valladolid, posada valladolid',
+        'index_h1' => 'B&B Familiar con Desayuno Incluido en Valladolid, Yucatán',
+
+        'rooms_meta_title' => 'Habitaciones en Casa Xu\'unan | B&B con Desayuno en Valladolid, Yucatán',
+        'rooms_meta_description' => '9 habitaciones limpias y cómodas con aire acondicionado, WiFi y desayuno casero incluido. B&B familiar en el barrio de Sisal, Valladolid, Yucatán. Reserva directo.',
+        'rooms_meta_keywords' => 'habitaciones valladolid yucatan, hospedaje con desayuno valladolid, cuartos baratos valladolid, hotel con alberca valladolid, alojamiento familiar valladolid',
+
+        'room_meta_title' => 'Habitación en Casa Xu\'unan | B&B Familiar Valladolid, Yucatán',
+        'room_meta_description' => 'Habitación con aire acondicionado, WiFi gratuito y desayuno casero incluido en Casa Xu\'unan. B&B familiar en Valladolid, Yucatán, cerca de cenotes y Chichén Itzá.',
+
+        'services_meta_title' => 'Servicios en Valladolid | Tours, Masajes y Transporte | Casa Xu\'unan',
+        'services_meta_description' => 'Tours guiados a Chichén Itzá y cenotes, masajes relajantes, spa y transporte privado. Servicios exclusivos para huéspedes de Casa Xu\'unan en Valladolid, Yucatán.',
+        'services_meta_keywords' => 'tours valladolid yucatan, masajes valladolid, transporte cancun valladolid, excursiones chichen itza, cenotes valladolid',
+
+        'tours_meta_title' => 'Tours desde Valladolid | Chichén Itzá, Cenotes y Ek Balam | Casa Xu\'unan',
+        'tours_meta_description' => 'Tours guiados a Chichén Itzá, Ek Balam, cenotes sagrados y Las Coloradas. Salidas desde Valladolid con guías locales expertos. Reserva en Casa Xu\'unan.',
+        'tours_meta_keywords' => 'tours chichen itza desde valladolid, cenotes cerca de valladolid, excursiones ek balam, tour las coloradas, que hacer en valladolid yucatan',
+
+        'masajes_meta_title' => 'Masajes Relajantes en Valladolid, Yucatán | Spa Casa Xu\'unan',
+        'masajes_meta_description' => 'Masajes de relajación, quiromasaje y aromaterapia en un entorno de paz en Valladolid. Servicio exclusivo para huéspedes de Casa Xu\'unan.',
+        'masajes_meta_keywords' => 'masajes valladolid yucatan, spa valladolid, masaje relajante valladolid, quiromasaje valladolid',
+
+        'personal_care_meta_title' => 'Manicure y Pedicure Spa en Valladolid | Casa Xu\'unan',
+        'personal_care_meta_description' => 'Servicio profesional de manicure, pedicure y cuidado personal en Casa Xu\'unan, Valladolid. Renuévate durante tu estancia en nuestro B&B familiar.',
+
+        'transport_meta_title' => 'Transporte Privado Cancún - Valladolid - Mérida | Casa Xu\'unan',
+        'transport_meta_description' => 'Traslados privados y seguros desde Cancún, Mérida y Tulum a Valladolid. Servicio personalizado para huéspedes de Casa Xu\'unan. Reserva tu transporte.',
+        'transport_meta_keywords' => 'transporte cancun valladolid, traslado merida valladolid, taxi privado tulum valladolid, como llegar a valladolid yucatan',
+
+        'gallery_meta_title' => 'Galería de Fotos | Casa Xu\'unan B&B en Valladolid, Yucatán',
+        'gallery_meta_description' => 'Fotos de nuestras habitaciones, piscina, jardín tropical y áreas comunes. Conoce Casa Xu\'unan, tu B&B familiar en el barrio de Sisal, Valladolid.',
+
+        'contact_meta_title' => 'Contacto y Reservaciones | Casa Xu\'unan B&B Valladolid',
+        'contact_meta_description' => 'Contáctanos por WhatsApp o formulario. Casa Xu\'unan B&B familiar en Valladolid, Yucatán. Respuesta rápida para reservaciones y consultas.',
+
+        'about_meta_title' => 'Sobre Nosotros | Don Miguel y Doña Susi - Casa Xu\'unan Valladolid',
+        'about_meta_description' => 'Conoce la historia de Casa Xu\'unan, B&B familiar en el histórico barrio de Sisal, Valladolid. Don Miguel y Doña Susi te reciben como en casa, frente al Convento de San Bernardino.',
+        'about_meta_keywords' => 'casa xuunan historia, bed and breakfast valladolid, barrio de sisal valladolid, calzada de los frailes hospedaje, convento san bernardino valladolid',
+
+        'search_meta_title' => 'Buscar Disponibilidad | Casa Xu\'unan B&B Valladolid',
+        'search_meta_description' => 'Consulta disponibilidad y precios en Casa Xu\'unan. B&B familiar con 9 habitaciones, desayuno incluido, en Valladolid, Yucatán.',
+
+        // ===== SEO BREADCRUMBS =====
+        'breadcrumb_home' => 'Inicio',
+
+        // ===== SEO FAQ (Tours) =====
+        'faq_tours_q1' => '¿Qué cenotes puedo visitar desde Valladolid?',
+        'faq_tours_a1' => 'Desde Valladolid puedes visitar cenotes como Suytun, Samulá, Xkekén (Dzitnup), Oxman y Zací. Todos están a menos de 20 minutos en auto. Nuestros tours incluyen transporte y guía.',
+        'faq_tours_q2' => '¿Qué tan lejos está Chichén Itzá de Valladolid?',
+        'faq_tours_a2' => 'Chichén Itzá está a solo 40 minutos en auto desde Valladolid. Es la ciudad más cercana a la zona arqueológica, ideal como base para visitarla temprano y evitar multitudes.',
+        'faq_tours_q3' => '¿Qué hacer en Valladolid, Yucatán?',
+        'faq_tours_a3' => 'Valladolid ofrece la Calzada de los Frailes, el Convento de San Bernardino, cenotes cercanos, gastronomía yucateca, Chichén Itzá a 40 min, Ek Balam a 30 min y Las Coloradas.',
+
+        // ===== SEO FAQ (About/General) =====
+        'faq_about_q1' => '¿Dónde se ubica Casa Xu\'unan?',
+        'faq_about_a1' => 'Estamos en el histórico barrio de Sisal, frente al Convento de San Bernardino de Siena, al inicio de la Calzada de los Frailes en Valladolid, Yucatán.',
+        'faq_about_q2' => '¿El desayuno está incluido?',
+        'faq_about_a2' => 'Sí, todas nuestras habitaciones incluyen desayuno casero mexicano preparado cada mañana. Es diferente cada día y con ingredientes frescos locales.',
+        'faq_about_q3' => '¿Tienen estacionamiento?',
+        'faq_about_a3' => 'Sí, contamos con estacionamiento privado y seguro dentro de la propiedad, sin costo adicional para nuestros huéspedes.',
+
+        // ===== SEO FAQ (Rooms) =====
+        'faq_rooms_q1' => '¿Qué amenidades tienen las habitaciones?',
+        'faq_rooms_a1' => 'Todas las habitaciones incluyen aire acondicionado, WiFi gratuito, ropa de cama de alta calidad, baño privado y desayuno casero incluido.',
+        'faq_rooms_q2' => '¿Cuál es el horario de check-in y check-out?',
+        'faq_rooms_a2' => 'El check-in es a las 3:00 PM y el check-out a las 11:00 AM. Podemos ser flexibles según disponibilidad, solo contáctanos.',
+        'faq_rooms_q3' => '¿Aceptan familias con niños?',
+        'faq_rooms_a3' => 'Sí, somos un B&B familiar. Recibimos parejas, familias con niños y grupos pequeños. Tenemos habitaciones de diferentes tamaños para adaptarnos a tus necesidades.',
     ],
 
     'en' => [
@@ -1142,6 +1214,78 @@ $translations = [
         'search_home_title' => 'Find your perfect stay at',
         'search_home_highlight' => 'Casa Xu\'unan',
         'search_home_subtitle' => 'Family B&B with breakfast included · Valladolid, Yucatán',
+
+        // ===== SEO PER-PAGE META TAGS =====
+        'index_meta_title' => 'Casa Xu\'unan - Family B&B in Valladolid, Yucatan | Accommodation near Chichen Itza',
+        'index_meta_description' => 'Family B&B in Sisal neighborhood, Valladolid. 9 rooms with homemade breakfast, pool & garden. 40 min from Chichen Itza. Personal attention by Don Miguel & Dona Susi.',
+        'index_meta_keywords' => 'bed and breakfast valladolid mexico, family accommodation valladolid yucatan, b&b near chichen itza, where to stay valladolid, hotel valladolid yucatan, guest house valladolid mexico, small hotel valladolid',
+        'index_h1' => 'Family Bed & Breakfast with Breakfast Included in Valladolid, Yucatan',
+
+        'rooms_meta_title' => 'Rooms at Casa Xu\'unan | B&B with Breakfast in Valladolid, Yucatan',
+        'rooms_meta_description' => '9 clean, comfortable rooms with AC, WiFi & homemade breakfast included. Family B&B in Sisal neighborhood, Valladolid, Yucatan. Book direct for best rates.',
+        'rooms_meta_keywords' => 'rooms valladolid yucatan, accommodation with breakfast valladolid, cheap rooms valladolid, hotel with pool valladolid, family lodging valladolid',
+
+        'room_meta_title' => 'Room at Casa Xu\'unan | Family B&B Valladolid, Yucatan',
+        'room_meta_description' => 'Room with AC, free WiFi & homemade breakfast included at Casa Xu\'unan. Family B&B in Valladolid, Yucatan, near cenotes and Chichen Itza.',
+
+        'services_meta_title' => 'Services in Valladolid | Tours, Massages & Transport | Casa Xu\'unan',
+        'services_meta_description' => 'Guided tours to Chichen Itza & cenotes, relaxing massages, spa & private transport. Exclusive services for Casa Xu\'unan guests in Valladolid, Yucatan.',
+        'services_meta_keywords' => 'tours valladolid yucatan, massages valladolid, transport cancun valladolid, chichen itza excursions, cenotes valladolid',
+
+        'tours_meta_title' => 'Tours from Valladolid | Chichen Itza, Cenotes & Ek Balam | Casa Xu\'unan',
+        'tours_meta_description' => 'Guided tours to Chichen Itza, Ek Balam, sacred cenotes & Las Coloradas. Departures from Valladolid with expert local guides. Book at Casa Xu\'unan.',
+        'tours_meta_keywords' => 'chichen itza tours from valladolid, cenotes near valladolid, ek balam excursions, las coloradas tour, things to do in valladolid yucatan',
+
+        'masajes_meta_title' => 'Relaxing Massages in Valladolid, Yucatan | Spa Casa Xu\'unan',
+        'masajes_meta_description' => 'Relaxation massages, chiropractic & aromatherapy in a peaceful setting in Valladolid. Exclusive service for Casa Xu\'unan guests.',
+        'masajes_meta_keywords' => 'massages valladolid yucatan, spa valladolid, relaxing massage valladolid, wellness valladolid',
+
+        'personal_care_meta_title' => 'Manicure & Pedicure Spa in Valladolid | Casa Xu\'unan',
+        'personal_care_meta_description' => 'Professional manicure, pedicure & personal care service at Casa Xu\'unan, Valladolid. Pamper yourself during your stay at our family B&B.',
+
+        'transport_meta_title' => 'Private Transport Cancun - Valladolid - Merida | Casa Xu\'unan',
+        'transport_meta_description' => 'Safe private transfers from Cancun, Merida & Tulum to Valladolid. Personalized service for Casa Xu\'unan guests. Book your transport.',
+        'transport_meta_keywords' => 'transport cancun valladolid, transfer merida valladolid, private taxi tulum valladolid, how to get to valladolid yucatan',
+
+        'gallery_meta_title' => 'Photo Gallery | Casa Xu\'unan B&B in Valladolid, Yucatan',
+        'gallery_meta_description' => 'Photos of our rooms, pool, tropical garden & common areas. Discover Casa Xu\'unan, your family B&B in Sisal neighborhood, Valladolid.',
+
+        'contact_meta_title' => 'Contact & Reservations | Casa Xu\'unan B&B Valladolid',
+        'contact_meta_description' => 'Contact us via WhatsApp or form. Casa Xu\'unan family B&B in Valladolid, Yucatan. Quick response for reservations and inquiries.',
+
+        'about_meta_title' => 'About Us | Don Miguel & Dona Susi - Casa Xu\'unan Valladolid',
+        'about_meta_description' => 'Discover the story of Casa Xu\'unan, family B&B in the historic Sisal neighborhood, Valladolid. Don Miguel & Dona Susi welcome you home, facing the San Bernardino Convent.',
+        'about_meta_keywords' => 'casa xuunan story, bed and breakfast valladolid, sisal neighborhood valladolid, calzada de los frailes lodging, san bernardino convent valladolid',
+
+        'search_meta_title' => 'Check Availability | Casa Xu\'unan B&B Valladolid',
+        'search_meta_description' => 'Check availability and prices at Casa Xu\'unan. Family B&B with 9 rooms, breakfast included, in Valladolid, Yucatan.',
+
+        // ===== SEO BREADCRUMBS =====
+        'breadcrumb_home' => 'Home',
+
+        // ===== SEO FAQ (Tours) =====
+        'faq_tours_q1' => 'What cenotes can I visit from Valladolid?',
+        'faq_tours_a1' => 'From Valladolid you can visit cenotes like Suytun, Samula, Xkeken (Dzitnup), Oxman and Zaci. All are less than 20 minutes by car. Our tours include transport and guide.',
+        'faq_tours_q2' => 'How far is Chichen Itza from Valladolid?',
+        'faq_tours_a2' => 'Chichen Itza is only 40 minutes by car from Valladolid. It is the closest city to the archaeological site, ideal as a base to visit early and avoid crowds.',
+        'faq_tours_q3' => 'What to do in Valladolid, Yucatan?',
+        'faq_tours_a3' => 'Valladolid offers the Calzada de los Frailes, San Bernardino Convent, nearby cenotes, Yucatecan cuisine, Chichen Itza 40 min away, Ek Balam 30 min away and Las Coloradas.',
+
+        // ===== SEO FAQ (About/General) =====
+        'faq_about_q1' => 'Where is Casa Xu\'unan located?',
+        'faq_about_a1' => 'We are in the historic Sisal neighborhood, facing the San Bernardino de Siena Convent, at the start of Calzada de los Frailes in Valladolid, Yucatan.',
+        'faq_about_q2' => 'Is breakfast included?',
+        'faq_about_a2' => 'Yes, all our rooms include homemade Mexican breakfast prepared each morning. It is different every day with fresh local ingredients.',
+        'faq_about_q3' => 'Do you have parking?',
+        'faq_about_a3' => 'Yes, we have private, secure parking within the property at no additional cost for our guests.',
+
+        // ===== SEO FAQ (Rooms) =====
+        'faq_rooms_q1' => 'What amenities do rooms have?',
+        'faq_rooms_a1' => 'All rooms include air conditioning, free WiFi, high-quality bedding, private bathroom and homemade breakfast included.',
+        'faq_rooms_q2' => 'What are check-in and check-out times?',
+        'faq_rooms_a2' => 'Check-in is at 3:00 PM and check-out at 11:00 AM. We can be flexible based on availability, just contact us.',
+        'faq_rooms_q3' => 'Do you accept families with children?',
+        'faq_rooms_a3' => 'Yes, we are a family B&B. We welcome couples, families with children and small groups. We have rooms of different sizes to suit your needs.',
     ]
 ];
 ?>

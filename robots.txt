@@ -1,10 +1,12 @@
-# robots.txt para Casa Xuunan Bed & Breakfast
+# robots.txt - Casa Xu'unan B&B Familiar, Valladolid, Yucatan
+# https://casaxuunan.com
 
 User-agent: *
 Allow: /
 
 # Bloquear archivos de sistema y directorios privados
 Disallow: /includes/
+Disallow: /config/
 Disallow: /api_proxy_secure.php
 Disallow: /whatsapp_config_secure.php
 Disallow: /whatsapp_sender.php
@@ -12,10 +14,17 @@ Disallow: /webhook_receiver.php
 Disallow: /test_*.php
 Disallow: /handler.php
 Disallow: /message_templates.php
+Disallow: /*.bak$
+Disallow: /*.sql$
+Disallow: /*.log$
 
-# Permitir recursos importantes
+# Permitir recursos importantes para renderizado
 Allow: /css/
 Allow: /js/
+Allow: /images/
+
+# Googlebot-specific: allow image crawling
+User-agent: Googlebot-Image
 Allow: /images/
 
 # Sitemap

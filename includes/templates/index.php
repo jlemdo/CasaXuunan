@@ -14,6 +14,9 @@
 
 <div class='slider-overlay'></div>
 
+<!-- SEO H1 - visible in slider area -->
+<h1 class="homepage-h1"><?php echo t('index_h1'); ?></h1>
+
 <div id="slidecaption"></div>
 
 <!-- Botón sutil dentro del slider -->

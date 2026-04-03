@@ -1,31 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- Página principal / Home -->
+  <!-- Pagina principal / Home -->
   <url>
     <loc>https://casaxuunan.com/</loc>
-    <lastmod>2025-01-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/"/>
+    <lastmod>2026-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://casaxuunan.com/images/gallery/gallery-item-1.jpg</image:loc>
-      <image:caption>Casa Xuunan Bed and Breakfast Valladolid</image:caption>
+      <image:caption>Casa Xu'unan B&amp;B Familiar en Valladolid Yucatan - Piscina y jardin tropical</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://casaxuunan.com/images/gallery/gallery-item-2.jpg</image:loc>
+      <image:caption>Jardin tropical y areas comunes Casa Xu'unan Valladolid</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://casaxuunan.com/images/gallery/gallery-item-3.jpg</image:loc>
+      <image:caption>Hospedaje familiar con desayuno incluido en Valladolid Yucatan</image:caption>
     </image:image>
   </url>
 
   <!-- Habitaciones -->
   <url>
     <loc>https://casaxuunan.com/rooms.php</loc>
-    <lastmod>2025-01-05</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/rooms.php?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/rooms.php?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/rooms.php"/>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://casaxuunan.com/images/gallery/gallery-item-1.jpg</image:loc>
+      <image:caption>Habitaciones con desayuno incluido en Casa Xu'unan Valladolid</image:caption>
+    </image:image>
   </url>
 
   <!-- Acerca de nosotros -->
   <url>
     <loc>https://casaxuunan.com/about.php</loc>
-    <lastmod>2025-01-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/about.php?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/about.php?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/about.php"/>
+    <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -33,31 +55,43 @@
   <!-- Servicios -->
   <url>
     <loc>https://casaxuunan.com/services.php</loc>
-    <lastmod>2025-01-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/services.php?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/services.php?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/services.php"/>
+    <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 
   <!-- Tours -->
   <url>
     <loc>https://casaxuunan.com/tours.php</loc>
-    <lastmod>2025-01-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/tours.php?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/tours.php?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/tours.php"/>
+    <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 
   <!-- Masajes -->
   <url>
     <loc>https://casaxuunan.com/masajes.php</loc>
-    <lastmod>2025-01-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/masajes.php?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/masajes.php?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/masajes.php"/>
+    <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
 
   <!-- Cuidado Personal -->
   <url>
     <loc>https://casaxuunan.com/cuidado-personal.php</loc>
-    <lastmod>2025-01-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/cuidado-personal.php?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/cuidado-personal.php?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/cuidado-personal.php"/>
+    <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -65,25 +99,53 @@
   <!-- Transporte -->
   <url>
     <loc>https://casaxuunan.com/transporte.php</loc>
-    <lastmod>2025-01-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/transporte.php?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/transporte.php?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/transporte.php"/>
+    <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
-  <!-- Galería -->
+  <!-- Galeria -->
   <url>
     <loc>https://casaxuunan.com/gallery.php</loc>
-    <lastmod>2025-01-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/gallery.php?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/gallery.php?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/gallery.php"/>
+    <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://casaxuunan.com/images/gallery/gallery-item-1.jpg</image:loc>
+      <image:caption>Piscina iluminada Casa Xu'unan B&amp;B Valladolid Yucatan</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://casaxuunan.com/images/gallery/gallery-item-2.jpg</image:loc>
+      <image:caption>Area de hamacas y jardin tropical Valladolid</image:caption>
+    </image:image>
   </url>
 
   <!-- Contacto -->
   <url>
     <loc>https://casaxuunan.com/contact.php</loc>
-    <lastmod>2025-01-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/contact.php?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/contact.php?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/contact.php"/>
+    <lastmod>2026-04-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
+  </url>
+
+  <!-- Buscar Disponibilidad -->
+  <url>
+    <loc>https://casaxuunan.com/search.php</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/search.php?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/search.php?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/search.php"/>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
 
 </urlset>

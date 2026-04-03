@@ -1,5 +1,54 @@
+<?php
+// ===== SEO ENGINE: Dynamic per-page meta tags, canonical, hreflang =====
+$_seo_current_page = basename($_SERVER['SCRIPT_NAME'], '.php');
+$_seo_page_file = basename($_SERVER['SCRIPT_NAME']);
+$_seo_lang = getCurrentLanguage();
+
+// Build canonical URL
+$_seo_canonical_path = ($_seo_page_file === 'index.php') ? '' : $_seo_page_file;
+// Special case: room.php keeps ?id= param in canonical
+if ($_seo_page_file === 'room.php' && isset($_GET['id'])) {
+    $_seo_canonical_url = 'https://casaxuunan.com/room.php?id=' . urlencode($_GET['id']);
+} else {
+    $_seo_canonical_url = 'https://casaxuunan.com/' . $_seo_canonical_path;
+}
+
+// Hreflang base (without lang param)
+$_seo_hreflang_base = $_seo_canonical_url;
+$_seo_hreflang_sep = (strpos($_seo_hreflang_base, '?') !== false) ? '&' : '?';
+
+// Page-specific SEO keys lookup
+$_seo_map = [
+    'index'            => ['title' => 'index_meta_title',         'desc' => 'index_meta_description',         'keywords' => 'index_meta_keywords'],
+    'rooms'            => ['title' => 'rooms_meta_title',         'desc' => 'rooms_meta_description',         'keywords' => 'rooms_meta_keywords'],
+    'room'             => ['title' => 'room_meta_title',          'desc' => 'room_meta_description',          'keywords' => ''],
+    'services'         => ['title' => 'services_meta_title',      'desc' => 'services_meta_description',      'keywords' => 'services_meta_keywords'],
+    'tours'            => ['title' => 'tours_meta_title',         'desc' => 'tours_meta_description',         'keywords' => 'tours_meta_keywords'],
+    'masajes'          => ['title' => 'masajes_meta_title',       'desc' => 'masajes_meta_description',       'keywords' => 'masajes_meta_keywords'],
+    'cuidado-personal' => ['title' => 'personal_care_meta_title', 'desc' => 'personal_care_meta_description', 'keywords' => ''],
+    'transporte'       => ['title' => 'transport_meta_title',     'desc' => 'transport_meta_description',     'keywords' => 'transport_meta_keywords'],
+    'gallery'          => ['title' => 'gallery_meta_title',       'desc' => 'gallery_meta_description',       'keywords' => ''],
+    'contact'          => ['title' => 'contact_meta_title',       'desc' => 'contact_meta_description',       'keywords' => ''],
+    'about'            => ['title' => 'about_meta_title',         'desc' => 'about_meta_description',         'keywords' => 'about_meta_keywords'],
+    'search'           => ['title' => 'search_meta_title',        'desc' => 'search_meta_description',        'keywords' => ''],
+];
+$_seo_data = $_seo_map[$_seo_current_page] ?? $_seo_map['index'];
+$_seo_title = t($_seo_data['title']);
+$_seo_description = t($_seo_data['desc']);
+$_seo_keywords = !empty($_seo_data['keywords']) ? t($_seo_data['keywords']) : t('index_meta_keywords');
+
+// OG image per page
+$_seo_og_images = [
+    'index'   => 'gallery-item-3.jpg',
+    'rooms'   => 'gallery-item-1.jpg',
+    'gallery' => 'gallery-item-2.jpg',
+    'about'   => 'gallery-item-3.jpg',
+    'tours'   => 'gallery-item-1.jpg',
+];
+$_seo_og_image = 'https://casaxuunan.com/images/gallery/' . ($_seo_og_images[$_seo_current_page] ?? 'gallery-item-3.jpg');
+?>
 <!DOCTYPE html>
-<html lang="<?php echo getCurrentLanguage(); ?>">
+<html lang="<?php echo $_seo_lang; ?>">
 
 <head>
     <meta charset="utf-8">
@@ -12,40 +61,40 @@
         gtag('js', new Date());
         gtag('config', 'AW-18041631980');
     </script>
-    <title><?php echo t('meta_title'); ?></title>
+    <title><?php echo $_seo_title; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Descripción y palabras clave para SEO -->
-    <meta name="description" content="<?php echo t('meta_description'); ?>">
-    <meta name="keywords" content="<?php echo t('meta_keywords'); ?>">
+    <!-- SEO Meta Tags (dynamic per page) -->
+    <meta name="description" content="<?php echo $_seo_description; ?>">
+    <meta name="keywords" content="<?php echo $_seo_keywords; ?>">
     <meta name="author" content="Casa Xu'unan">
 
-    <!-- Alternate language tags for SEO -->
-    <link rel="alternate" hreflang="es" href="https://casaxuunan.com/?lang=es">
-    <link rel="alternate" hreflang="en" href="https://casaxuunan.com/?lang=en">
-    <link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/">
+    <!-- Hreflang: per-page language alternates -->
+    <link rel="alternate" hreflang="es" href="<?php echo $_seo_hreflang_base . $_seo_hreflang_sep; ?>lang=es">
+    <link rel="alternate" hreflang="en" href="<?php echo $_seo_hreflang_base . $_seo_hreflang_sep; ?>lang=en">
+    <link rel="alternate" hreflang="x-default" href="<?php echo $_seo_hreflang_base; ?>">
     <link rel="icon" href="images/logo/logo.ico" type="image/x-icon" sizes="16x16">
 
-    <!-- Open Graph para Facebook y WhatsApp -->
-    <meta property="og:title" content="Casa Xu'unan - Bed & Breakfast Familiar en Valladolid, Yucatán">
-    <meta property="og:description" content="Hospedaje familiar con desayuno incluido en Valladolid. Ambiente hogareño y acogedor en una casa tradicional con 9 habitaciones cómodas. Perfecto para explorar cenotes y Chichén Itzá.">
-    <meta property="og:image" content="https://casaxuunan.com/images/gallery/gallery-item-3.jpg">
-    <meta property="og:url" content="https://casaxuunan.com/">
-    <meta property="og:type" content="hotel">
-    <meta property="og:locale" content="es_MX">
-    <meta property="og:locale:alternate" content="en_US">
+    <!-- Open Graph (dynamic per page) -->
+    <meta property="og:title" content="<?php echo $_seo_title; ?>">
+    <meta property="og:description" content="<?php echo $_seo_description; ?>">
+    <meta property="og:image" content="<?php echo $_seo_og_image; ?>">
+    <meta property="og:url" content="<?php echo $_seo_canonical_url; ?>">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="<?php echo ($_seo_lang === 'es') ? 'es_MX' : 'en_US'; ?>">
+    <meta property="og:locale:alternate" content="<?php echo ($_seo_lang === 'es') ? 'en_US' : 'es_MX'; ?>">
     <meta property="og:site_name" content="Casa Xu'unan Bed & Breakfast">
 
-    <!-- Twitter Cards -->
+    <!-- Twitter Cards (dynamic per page) -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Casa Xu'unan - Bed & Breakfast Familiar en Valladolid">
-    <meta name="twitter:description" content="Hospedaje familiar con desayuno incluido. 9 habitaciones en ambiente hogareño, cerca de cenotes y Chichén Itzá.">
-    <meta name="twitter:image" content="https://casaxuunan.com/images/gallery/gallery-item-3.jpg">
+    <meta name="twitter:title" content="<?php echo $_seo_title; ?>">
+    <meta name="twitter:description" content="<?php echo $_seo_description; ?>">
+    <meta name="twitter:image" content="<?php echo $_seo_og_image; ?>">
     <meta name="twitter:site" content="@CasaXuunan">
     <meta name="twitter:creator" content="@CasaXuunan">
 
-    <!-- Metaetiquetas adicionales -->
-    <link rel="canonical" href="https://casaxuunan.com/">
+    <!-- Canonical URL (self-referencing per page) -->
+    <link rel="canonical" href="<?php echo $_seo_canonical_url; ?>">
     <meta name="robots" content="index, follow">
 
     <!-- Preload Critical Resources -->
@@ -215,7 +264,156 @@
       "servesCuisine": "Desayuno mexicano tradicional",
       "acceptsReservations": "https://casaxuunan.com/rooms.php",
       "checkinTime": "15:00",
-      "checkoutTime": "11:00"
+      "checkoutTime": "11:00",
+      "sameAs": [
+        "https://www.facebook.com/people/Casa-Xuunan/61578964945156/",
+        "https://www.instagram.com/casa_xuunan/"
+      ],
+      "hasMap": "https://maps.google.com/?q=20.6896,-88.2019",
+      "paymentAccepted": "Cash, Credit Card, Debit Card",
+      "currenciesAccepted": "MXN, USD"
     }
     </script>
+
+    <?php if ($_seo_current_page !== 'index'): ?>
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "<?php echo t('breadcrumb_home'); ?>",
+          "item": "https://casaxuunan.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "<?php echo $_seo_title; ?>",
+          "item": "<?php echo $_seo_canonical_url; ?>"
+        }
+      ]
+    }
+    </script>
+    <?php endif; ?>
+
+    <?php if ($_seo_current_page === 'tours'): ?>
+    <!-- FAQPage Schema - Tours -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "<?php echo t('faq_tours_q1'); ?>",
+          "acceptedAnswer": { "@type": "Answer", "text": "<?php echo t('faq_tours_a1'); ?>" }
+        },
+        {
+          "@type": "Question",
+          "name": "<?php echo t('faq_tours_q2'); ?>",
+          "acceptedAnswer": { "@type": "Answer", "text": "<?php echo t('faq_tours_a2'); ?>" }
+        },
+        {
+          "@type": "Question",
+          "name": "<?php echo t('faq_tours_q3'); ?>",
+          "acceptedAnswer": { "@type": "Answer", "text": "<?php echo t('faq_tours_a3'); ?>" }
+        }
+      ]
+    }
+    </script>
+    <?php endif; ?>
+
+    <?php if ($_seo_current_page === 'about'): ?>
+    <!-- FAQPage Schema - About -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "<?php echo t('faq_about_q1'); ?>",
+          "acceptedAnswer": { "@type": "Answer", "text": "<?php echo t('faq_about_a1'); ?>" }
+        },
+        {
+          "@type": "Question",
+          "name": "<?php echo t('faq_about_q2'); ?>",
+          "acceptedAnswer": { "@type": "Answer", "text": "<?php echo t('faq_about_a2'); ?>" }
+        },
+        {
+          "@type": "Question",
+          "name": "<?php echo t('faq_about_q3'); ?>",
+          "acceptedAnswer": { "@type": "Answer", "text": "<?php echo t('faq_about_a3'); ?>" }
+        }
+      ]
+    }
+    </script>
+    <?php endif; ?>
+
+    <?php if ($_seo_current_page === 'rooms'): ?>
+    <!-- FAQPage Schema - Rooms -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "<?php echo t('faq_rooms_q1'); ?>",
+          "acceptedAnswer": { "@type": "Answer", "text": "<?php echo t('faq_rooms_a1'); ?>" }
+        },
+        {
+          "@type": "Question",
+          "name": "<?php echo t('faq_rooms_q2'); ?>",
+          "acceptedAnswer": { "@type": "Answer", "text": "<?php echo t('faq_rooms_a2'); ?>" }
+        },
+        {
+          "@type": "Question",
+          "name": "<?php echo t('faq_rooms_q3'); ?>",
+          "acceptedAnswer": { "@type": "Answer", "text": "<?php echo t('faq_rooms_a3'); ?>" }
+        }
+      ]
+    }
+    </script>
+    <?php endif; ?>
+
+    <?php if ($_seo_current_page === 'tours'): ?>
+    <!-- TouristTrip Schema - Tours -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "<?php echo t('tours_meta_title'); ?>",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Maravilla Maya - Chichen Itza", "url": "https://casaxuunan.com/tours.php" },
+        { "@type": "ListItem", "position": 2, "name": "Aventura Arqueologica - Ek Balam", "url": "https://casaxuunan.com/tours.php" },
+        { "@type": "ListItem", "position": 3, "name": "Magia Rosa - Las Coloradas", "url": "https://casaxuunan.com/tours.php" }
+      ]
+    }
+    </script>
+    <?php endif; ?>
+
+    <?php if ($_seo_current_page === 'masajes' || $_seo_current_page === 'cuidado-personal' || $_seo_current_page === 'transporte'): ?>
+    <!-- Service Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "<?php echo $_seo_title; ?>",
+      "description": "<?php echo $_seo_description; ?>",
+      "provider": {
+        "@type": "BedAndBreakfast",
+        "name": "Casa Xu'unan",
+        "url": "https://casaxuunan.com"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Valladolid, Yucatan"
+      }
+    }
+    </script>
+    <?php endif; ?>
 </head>

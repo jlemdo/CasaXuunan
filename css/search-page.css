@@ -3,6 +3,32 @@
    Hospitable Property Search Widget Integration
    ============================================= */
 
+/* Homepage H1 - SEO visible, integrated with slider */
+.homepage-h1 {
+    position: absolute;
+    bottom: 18%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    z-index: 50;
+    padding: 0 20px;
+    margin: 0;
+    pointer-events: none;
+}
+@media (max-width: 992px) {
+    .homepage-h1 {
+        font-size: 12px;
+        letter-spacing: 2px;
+        bottom: 32%;
+    }
+}
+
 /* --- Search Results Overlay --- */
 .search-results-overlay {
     padding: 30px 20px !important;
