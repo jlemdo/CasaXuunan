@@ -72,14 +72,14 @@ $translations = [
         'about_subtitle' => 'Conoce',
         'about_title' => 'Nuestra Historia',
         'about_main_title' => 'Más que un Hospedaje,<br>una Invitación a Ser Parte de la Familia',
-        'about_description_p1' => 'Casa Xu\'unan nació de un sueño sencillo: compartir con los viajeros la calidez de un hogar yucateco. Don Miguel y Doña Susi abrieron las puertas de su antigua casona en el histórico barrio de Sisal, frente al Convento de San Bernardino de Siena y al inicio de la Calzada de los Frailes, para ofrecer algo que ningún hotel convencional puede replicar: la experiencia de sentirte acogido como parte de la familia. Aquí no eres un número de habitación, eres un huésped en nuestra casa.',
+        'about_description_p1' => 'Casa Xu\'unan nació de un sueño sencillo: compartir con los viajeros la calidez de un hogar yucateco. Doña Susi abrieron las puertas de su antigua casona en el histórico barrio de Sisal, frente al Convento de San Bernardino de Siena y al inicio de la Calzada de los Frailes, para ofrecer algo que ningún hotel convencional puede replicar: la experiencia de sentirte acogido como parte de la familia. Aquí no eres un número de habitación, eres un huésped en nuestra casa.',
         'about_description_p2' => 'Cada mañana preparamos un desayuno casero diferente con ingredientes frescos del mercado local, servido en nuestro jardín tropical rodeado de vegetación y el canto de los pájaros. Después de un día explorando cenotes, Chichén Itzá o la propia Valladolid, regresa a refrescarte en nuestra piscina, descansar en una hamaca o simplemente disfrutar de una conversación con otros viajeros. Esa es la esencia de Casa Xu\'unan: tranquilidad, calidez humana y la magia de Valladolid en su forma más auténtica.',
         'about_book_now' => '¡Reserva Tu Estancia!',
         'about_hotel_services_title' => 'Lo Que Nos Hace Diferentes',
         'about_service1_title' => 'Jardín Tropical',
         'about_service1_desc' => 'Nuestro frondoso jardín interior es un oasis de tranquilidad en el corazón de Valladolid. Hamacas, vegetación nativa y el sonido de la naturaleza te envuelven en un espacio que nuestros huéspedes describen como mágico.',
         'about_service2_title' => 'Trato Familiar',
-        'about_service2_desc' => 'Don Miguel y Doña Susi son el alma de Casa Xu\'unan. Su atención va más allá de la cortesía profesional: te reciben como a un miembro de la familia, con recomendaciones locales y conversaciones que hacen la diferencia.',
+        'about_service2_desc' => 'Doña Susi son el alma de Casa Xu\'unan. Su atención va más allá de la cortesía profesional: te reciben como a un miembro de la familia, con recomendaciones locales y conversaciones que hacen la diferencia.',
         'about_service3_title' => 'Habitaciones Cómodas',
         'about_service3_desc' => 'Nueve habitaciones amplias, limpias y equipadas con aire acondicionado, Wi-Fi y ropa de cama de calidad. Sin pretensiones innecesarias, pero con todo lo que necesitas para descansar bien.',
         'about_service4_title' => 'Paz y Desconexión',
@@ -97,7 +97,7 @@ $translations = [
 
         // Alt texts
         'alt_nature' => 'Jardín tropical en Casa Xu\'unan B&B Valladolid',
-        'alt_hospitality' => 'Hospitalidad familiar de Don Miguel y Doña Susi',
+        'alt_hospitality' => 'Hospitalidad familiar de Doña Susi',
         'alt_comfort' => 'Habitaciones cómodas con aire acondicionado en Valladolid',
         'alt_tranquility' => 'Ambiente de paz en Casa Xu\'unan',
         'alt_culinary' => 'Desayuno casero yucateco incluido',
@@ -575,7 +575,7 @@ $translations = [
 
         // ===== SEO PER-PAGE META TAGS =====
         'index_meta_title' => 'Casa Xu\'unan - B&B Familiar en Valladolid, Yucatán | Hospedaje con Desayuno cerca de Chichén Itzá',
-        'index_meta_description' => 'B&B familiar en el barrio de Sisal, Valladolid. 9 habitaciones con desayuno casero incluido, piscina y jardín. A 40 min de Chichén Itzá. Atención personalizada de Don Miguel y Doña Susi.',
+        'index_meta_description' => 'B&B familiar en el barrio de Sisal, Valladolid. 9 habitaciones con desayuno casero incluido, piscina y jardín. A 40 min de Chichén Itzá. Atención personalizada de Doña Susi.',
         'index_meta_keywords' => 'bed and breakfast valladolid, hospedaje familiar valladolid yucatan, b&b valladolid mexico, alojamiento con desayuno valladolid, hospedaje cerca chichen itza, hotel valladolid yucatan, donde dormir valladolid, posada valladolid',
         'index_h1' => 'B&B Familiar con Desayuno Incluido en Valladolid, Yucatán',
 
@@ -611,8 +611,8 @@ $translations = [
         'contact_meta_title' => 'Contacto y Reservaciones | Casa Xu\'unan B&B Valladolid',
         'contact_meta_description' => 'Contáctanos por WhatsApp o formulario. Casa Xu\'unan B&B familiar en Valladolid, Yucatán. Respuesta rápida para reservaciones y consultas.',
 
-        'about_meta_title' => 'Sobre Nosotros | Don Miguel y Doña Susi - Casa Xu\'unan Valladolid',
-        'about_meta_description' => 'Conoce la historia de Casa Xu\'unan, B&B familiar en el histórico barrio de Sisal, Valladolid. Don Miguel y Doña Susi te reciben como en casa, frente al Convento de San Bernardino.',
+        'about_meta_title' => 'Sobre Nosotros | Doña Susi - Casa Xu\'unan Valladolid',
+        'about_meta_description' => 'Conoce la historia de Casa Xu\'unan, B&B familiar en el histórico barrio de Sisal, Valladolid. Doña Susi te reciben como en casa, frente al Convento de San Bernardino.',
         'about_meta_keywords' => 'casa xuunan historia, bed and breakfast valladolid, barrio de sisal valladolid, calzada de los frailes hospedaje, convento san bernardino valladolid',
 
         'search_meta_title' => 'Buscar Disponibilidad | Casa Xu\'unan B&B Valladolid',
@@ -714,14 +714,14 @@ $translations = [
         'about_subtitle' => 'Discover',
         'about_title' => 'Our Story',
         'about_main_title' => 'More Than a Place to Stay,<br>an Invitation to Be Part of the Family',
-        'about_description_p1' => 'Casa Xu\'unan was born from a simple dream: to share the warmth of a Yucatecan home with travelers from around the world. Don Miguel and Dona Susi opened the doors of their traditional house in the historic Sisal neighborhood, facing the San Bernardino de Siena Convent and at the start of the Calzada de los Frailes, to offer something no conventional hotel can replicate: the experience of feeling welcomed as part of the family. Here you are not a room number, you are a guest in our home.',
+        'about_description_p1' => 'Casa Xu\'unan was born from a simple dream: to share the warmth of a Yucatecan home with travelers from around the world. Dona Susi opened the doors of their traditional house in the historic Sisal neighborhood, facing the San Bernardino de Siena Convent and at the start of the Calzada de los Frailes, to offer something no conventional hotel can replicate: the experience of feeling welcomed as part of the family. Here you are not a room number, you are a guest in our home.',
         'about_description_p2' => 'Every morning we prepare a different homemade breakfast with fresh ingredients from the local market, served in our tropical garden surrounded by lush greenery and birdsong. After a day exploring cenotes, Chichen Itza or Valladolid itself, come back to cool off in our pool, rest in a hammock or simply enjoy a conversation with fellow travelers. That is the essence of Casa Xu\'unan: tranquility, human warmth and the magic of Valladolid in its most authentic form.',
         'about_book_now' => 'Book Your Stay!',
         'about_hotel_services_title' => 'What Makes Us Different',
         'about_service1_title' => 'Tropical Garden',
         'about_service1_desc' => 'Our lush inner garden is an oasis of tranquility in the heart of Valladolid. Hammocks, native plants and the sounds of nature wrap you in a space our guests describe as magical.',
         'about_service2_title' => 'Family Hospitality',
-        'about_service2_desc' => 'Don Miguel and Dona Susi are the heart and soul of Casa Xu\'unan. Their care goes beyond professional courtesy: they welcome you as a family member, with local tips and conversations that make all the difference.',
+        'about_service2_desc' => 'Dona Susi are the heart and soul of Casa Xu\'unan. Their care goes beyond professional courtesy: they welcome you as a family member, with local tips and conversations that make all the difference.',
         'about_service3_title' => 'Comfortable Rooms',
         'about_service3_desc' => 'Nine spacious, clean rooms equipped with AC, WiFi and quality bedding. No unnecessary pretension, but everything you need for a great night\'s rest.',
         'about_service4_title' => 'Peace & Disconnection',
@@ -739,7 +739,7 @@ $translations = [
 
         // Alt texts
         'alt_nature' => 'Tropical garden at Casa Xu\'unan B&B Valladolid',
-        'alt_hospitality' => 'Family hospitality Don Miguel and Dona Susi',
+        'alt_hospitality' => 'Family hospitality Dona Susi',
         'alt_comfort' => 'Comfortable rooms with AC in Valladolid',
         'alt_tranquility' => 'Peaceful atmosphere at Casa Xu\'unan',
         'alt_culinary' => 'Homemade Yucatecan breakfast included',
@@ -1217,7 +1217,7 @@ $translations = [
 
         // ===== SEO PER-PAGE META TAGS =====
         'index_meta_title' => 'Casa Xu\'unan - Family B&B in Valladolid, Yucatan | Accommodation near Chichen Itza',
-        'index_meta_description' => 'Family B&B in Sisal neighborhood, Valladolid. 9 rooms with homemade breakfast, pool & garden. 40 min from Chichen Itza. Personal attention by Don Miguel & Dona Susi.',
+        'index_meta_description' => 'Family B&B in Sisal neighborhood, Valladolid. 9 rooms with homemade breakfast, pool & garden. 40 min from Chichen Itza. Personal attention by Dona Susi.',
         'index_meta_keywords' => 'bed and breakfast valladolid mexico, family accommodation valladolid yucatan, b&b near chichen itza, where to stay valladolid, hotel valladolid yucatan, guest house valladolid mexico, small hotel valladolid',
         'index_h1' => 'Family Bed & Breakfast with Breakfast Included in Valladolid, Yucatan',
 
@@ -1253,8 +1253,8 @@ $translations = [
         'contact_meta_title' => 'Contact & Reservations | Casa Xu\'unan B&B Valladolid',
         'contact_meta_description' => 'Contact us via WhatsApp or form. Casa Xu\'unan family B&B in Valladolid, Yucatan. Quick response for reservations and inquiries.',
 
-        'about_meta_title' => 'About Us | Don Miguel & Dona Susi - Casa Xu\'unan Valladolid',
-        'about_meta_description' => 'Discover the story of Casa Xu\'unan, family B&B in the historic Sisal neighborhood, Valladolid. Don Miguel & Dona Susi welcome you home, facing the San Bernardino Convent.',
+        'about_meta_title' => 'About Us | Dona Susi - Casa Xu\'unan Valladolid',
+        'about_meta_description' => 'Discover the story of Casa Xu\'unan, family B&B in the historic Sisal neighborhood, Valladolid. Dona Susi welcome you home, facing the San Bernardino Convent.',
         'about_meta_keywords' => 'casa xuunan story, bed and breakfast valladolid, sisal neighborhood valladolid, calzada de los frailes lodging, san bernardino convent valladolid',
 
         'search_meta_title' => 'Check Availability | Casa Xu\'unan B&B Valladolid',
