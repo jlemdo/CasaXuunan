@@ -60,7 +60,7 @@ if (isset($_seo_blog_post_found)) {
     $_seo_keywords = ($_seo_lang === 'es') ? $_seo_blog_post_found['keywords_es'] : $_seo_blog_post_found['keywords_en'];
 }
 
-// OG image per page
+// OG image per page (blog posts use their own image)
 $_seo_og_images = [
     'index'   => 'gallery-item-3.jpg',
     'rooms'   => 'gallery-item-1.jpg',
@@ -68,9 +68,21 @@ $_seo_og_images = [
     'about'   => 'gallery-item-3.jpg',
     'tours'   => 'gallery-item-1.jpg',
     'blog'    => 'gallery-item-2.jpg',
-    'blog-post' => 'gallery-item-3.jpg',
 ];
 $_seo_og_image = 'https://casaxuunan.com/images/gallery/' . ($_seo_og_images[$_seo_current_page] ?? 'gallery-item-3.jpg');
+
+// Blog posts: use the actual post image for OG/Twitter (not generic)
+if (isset($_seo_blog_post_found)) {
+    $_blog_img = file_exists($_seo_blog_post_found['image']) ? $_seo_blog_post_found['image'] : $_seo_blog_post_found['fallback_image'];
+    $_seo_og_image = 'https://casaxuunan.com/' . $_blog_img;
+}
+
+// Blog posts: build correct hreflang URLs with language-specific slugs
+if (isset($_seo_blog_post_found)) {
+    $_seo_hreflang_es = 'https://casaxuunan.com/blog-post.php?slug=' . urlencode($_seo_blog_post_found['slug']) . '&lang=es';
+    $_seo_hreflang_en = 'https://casaxuunan.com/blog-post.php?slug=' . urlencode($_seo_blog_post_found['slug_en']) . '&lang=en';
+    $_seo_hreflang_default = 'https://casaxuunan.com/blog-post.php?slug=' . urlencode($_seo_blog_post_found['slug']);
+}
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $_seo_lang; ?>">
@@ -95,9 +107,15 @@ $_seo_og_image = 'https://casaxuunan.com/images/gallery/' . ($_seo_og_images[$_s
     <meta name="author" content="Casa Xu'unan">
 
     <!-- Hreflang: per-page language alternates -->
+    <?php if (isset($_seo_hreflang_es)): ?>
+    <link rel="alternate" hreflang="es" href="<?php echo $_seo_hreflang_es; ?>">
+    <link rel="alternate" hreflang="en" href="<?php echo $_seo_hreflang_en; ?>">
+    <link rel="alternate" hreflang="x-default" href="<?php echo $_seo_hreflang_default; ?>">
+    <?php else: ?>
     <link rel="alternate" hreflang="es" href="<?php echo $_seo_hreflang_base . $_seo_hreflang_sep; ?>lang=es">
     <link rel="alternate" hreflang="en" href="<?php echo $_seo_hreflang_base . $_seo_hreflang_sep; ?>lang=en">
     <link rel="alternate" hreflang="x-default" href="<?php echo $_seo_hreflang_base; ?>">
+    <?php endif; ?>
     <link rel="icon" href="images/logo/logo.ico" type="image/x-icon" sizes="16x16">
 
     <!-- Open Graph (dynamic per page) -->
@@ -105,7 +123,12 @@ $_seo_og_image = 'https://casaxuunan.com/images/gallery/' . ($_seo_og_images[$_s
     <meta property="og:description" content="<?php echo $_seo_description; ?>">
     <meta property="og:image" content="<?php echo $_seo_og_image; ?>">
     <meta property="og:url" content="<?php echo $_seo_canonical_url; ?>">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="<?php echo (isset($_seo_blog_post_found)) ? 'article' : 'website'; ?>">
+    <?php if (isset($_seo_blog_post_found)): ?>
+    <meta property="article:published_time" content="<?php echo $_seo_blog_post_found['date']; ?>">
+    <meta property="article:author" content="Casa Xu'unan">
+    <meta property="article:section" content="<?php echo ($_seo_lang === 'es') ? $_seo_blog_post_found['category_es'] : $_seo_blog_post_found['category_en']; ?>">
+    <?php endif; ?>
     <meta property="og:locale" content="<?php echo ($_seo_lang === 'es') ? 'es_MX' : 'en_US'; ?>">
     <meta property="og:locale:alternate" content="<?php echo ($_seo_lang === 'es') ? 'en_US' : 'es_MX'; ?>">
     <meta property="og:site_name" content="Casa Xu'unan Bed & Breakfast">
@@ -317,13 +340,25 @@ $_seo_og_image = 'https://casaxuunan.com/images/gallery/' . ($_seo_og_images[$_s
           "position": 1,
           "name": "<?php echo t('breadcrumb_home'); ?>",
           "item": "https://casaxuunan.com/"
-        },
+        }<?php if ($_seo_current_page === 'blog-post'): ?>,
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "<?php echo $_seo_title; ?>",
+          "name": "Blog",
+          "item": "https://casaxuunan.com/blog.php"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "<?php echo addslashes($_seo_title); ?>",
           "item": "<?php echo $_seo_canonical_url; ?>"
-        }
+        }<?php else: ?>,
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "<?php echo addslashes($_seo_title); ?>",
+          "item": "<?php echo $_seo_canonical_url; ?>"
+        }<?php endif; ?>
       ]
     }
     </script>
@@ -448,6 +483,11 @@ $_seo_og_image = 'https://casaxuunan.com/images/gallery/' . ($_seo_og_images[$_s
     <?php endif; ?>
 
     <?php if ($_seo_current_page === 'blog-post' && isset($_seo_blog_post_found)): ?>
+    <?php
+      $_blog_content_raw = ($_seo_lang === 'es') ? $_seo_blog_post_found['content_es'] : $_seo_blog_post_found['content_en'];
+      $_blog_word_count = str_word_count(strip_tags($_blog_content_raw));
+      $_blog_category = ($_seo_lang === 'es') ? $_seo_blog_post_found['category_es'] : $_seo_blog_post_found['category_en'];
+    ?>
     <!-- BlogPosting Schema -->
     <script type="application/ld+json">
     {
@@ -458,22 +498,34 @@ $_seo_og_image = 'https://casaxuunan.com/images/gallery/' . ($_seo_og_images[$_s
       "image": "https://casaxuunan.com/<?php echo file_exists($_seo_blog_post_found['image']) ? $_seo_blog_post_found['image'] : $_seo_blog_post_found['fallback_image']; ?>",
       "datePublished": "<?php echo $_seo_blog_post_found['date']; ?>",
       "dateModified": "<?php echo $_seo_blog_post_found['date']; ?>",
+      "inLanguage": "<?php echo $_seo_lang; ?>",
+      "wordCount": <?php echo $_blog_word_count; ?>,
+      "articleSection": "<?php echo addslashes($_blog_category); ?>",
+      "keywords": "<?php echo addslashes($_seo_keywords); ?>",
       "author": {
         "@type": "Organization",
         "name": "Casa Xu'unan",
-        "url": "https://casaxuunan.com"
+        "url": "https://casaxuunan.com",
+        "logo": "https://casaxuunan.com/images/logo/blanco.png"
       },
       "publisher": {
         "@type": "Organization",
         "name": "Casa Xu'unan",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://casaxuunan.com/images/logo/blanco.png"
+          "url": "https://casaxuunan.com/images/logo/blanco.png",
+          "width": 300,
+          "height": 60
         }
       },
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "<?php echo $_seo_canonical_url; ?>"
+      },
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "Blog Casa Xu'unan",
+        "url": "https://casaxuunan.com/blog.php"
       }
     }
     </script>
