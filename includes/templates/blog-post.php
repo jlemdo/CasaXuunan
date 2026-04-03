@@ -1,21 +1,28 @@
 <?php
-require_once __DIR__ . '/../blog-posts.php';
+// Use include (not require_once) because header.php already loaded blog-posts.php via require_once
+// and require_once won't re-execute it, leaving $blog_posts undefined in this scope
+include __DIR__ . '/../blog-posts.php';
 $lang = getCurrentLanguage();
 $slug = isset($_GET['slug']) ? $_GET['slug'] : '';
 
 // Find the post by slug (check both ES and EN slugs)
 $current_post = null;
-foreach ($blog_posts as $post) {
-    if ($post['slug'] === $slug || $post['slug_en'] === $slug) {
-        $current_post = $post;
-        break;
+if (isset($blog_posts) && is_array($blog_posts)) {
+    foreach ($blog_posts as $post) {
+        if ($post['slug'] === $slug || $post['slug_en'] === $slug) {
+            $current_post = $post;
+            break;
+        }
     }
 }
 
-// If post not found, redirect to blog
+// If post not found, show error instead of redirect (headers already sent)
 if (!$current_post) {
-    header('Location: blog.php');
-    exit;
+    echo '<div class="container" style="padding:100px 0;text-align:center;">';
+    echo '<h2>' . (getCurrentLanguage() === 'es' ? 'Artículo no encontrado' : 'Article not found') . '</h2>';
+    echo '<p><a href="blog.php" class="btn-line"><span>' . (getCurrentLanguage() === 'es' ? 'Volver al Blog' : 'Back to Blog') . '</span></a></p>';
+    echo '</div>';
+    return;
 }
 
 $title = ($lang === 'es') ? $current_post['title_es'] : $current_post['title_en'];
