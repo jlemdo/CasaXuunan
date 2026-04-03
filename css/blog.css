@@ -1,0 +1,394 @@
+/* =============================================
+   Blog Styles - Casa Xu'unan B&B Familiar
+   ============================================= */
+
+/* --- Blog Intro --- */
+.blog-intro {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+/* --- Blog Card --- */
+.blog-card-link {
+    text-decoration: none !important;
+    color: inherit !important;
+    display: block;
+}
+
+.blog-card {
+    background: rgba(20, 20, 20, 0.7);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.blog-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    border-color: rgba(123, 175, 137, 0.3);
+}
+
+.blog-card-image {
+    position: relative;
+    overflow: hidden;
+    height: 220px;
+}
+
+.blog-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.blog-card:hover .blog-card-image img {
+    transform: scale(1.08);
+}
+
+.blog-card-category {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(123, 175, 137, 0.9);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.blog-card-content {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-card-meta {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 12px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.blog-card-meta i {
+    margin-right: 4px;
+    color: rgba(123, 175, 137, 0.7);
+}
+
+.blog-card-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+.blog-card-excerpt {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 15px;
+}
+
+.blog-card-read {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(123, 175, 137, 0.9);
+    font-family: 'Montserrat', sans-serif;
+    transition: color 0.3s;
+}
+
+.blog-card:hover .blog-card-read {
+    color: #7baf89;
+}
+
+.blog-card-read i {
+    margin-left: 5px;
+    transition: transform 0.3s;
+}
+
+.blog-card:hover .blog-card-read i {
+    transform: translateX(4px);
+}
+
+/* --- Blog CTA Box (listing page) --- */
+.blog-cta-box {
+    background: rgba(123, 175, 137, 0.1);
+    border: 1px solid rgba(123, 175, 137, 0.25);
+    border-radius: 12px;
+    padding: 40px;
+    margin-top: 20px;
+}
+
+.blog-cta-box h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.blog-cta-box p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+/* =============================================
+   Blog Post Single Styles
+   ============================================= */
+
+/* --- Post Meta --- */
+.blog-post-meta {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 30px;
+}
+
+.blog-post-meta i {
+    margin-right: 5px;
+    color: rgba(123, 175, 137, 0.7);
+}
+
+.blog-post-meta .mx-3 {
+    margin: 0 12px;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+/* --- Featured Image --- */
+.blog-post-image {
+    margin-bottom: 35px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.blog-post-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- Article Content --- */
+.blog-post-content {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+.blog-post-content h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid rgba(123, 175, 137, 0.3);
+}
+
+.blog-post-content h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: rgba(123, 175, 137, 0.9);
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.blog-post-content p {
+    margin-bottom: 18px;
+}
+
+.blog-post-content strong {
+    color: #fff;
+}
+
+.blog-post-content ul,
+.blog-post-content ol {
+    padding-left: 25px;
+    margin-bottom: 20px;
+}
+
+.blog-post-content li {
+    margin-bottom: 8px;
+    line-height: 1.7;
+}
+
+.blog-post-content a {
+    color: rgba(123, 175, 137, 0.9);
+    text-decoration: underline;
+}
+
+.blog-post-content a:hover {
+    color: #7baf89;
+}
+
+.blog-post-content em {
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+}
+
+/* --- Share Buttons --- */
+.blog-post-share {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 0;
+    margin-bottom: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.blog-post-share span {
+    color: rgba(255, 255, 255, 0.5);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.blog-post-share a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.blog-post-share a:hover {
+    background: rgba(123, 175, 137, 0.3);
+    color: #fff;
+}
+
+/* --- Post CTA Box --- */
+.blog-post-cta {
+    background: rgba(123, 175, 137, 0.1);
+    border: 1px solid rgba(123, 175, 137, 0.25);
+    border-radius: 12px;
+    padding: 35px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.blog-post-cta h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.blog-post-cta p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* --- Related Posts --- */
+.blog-related {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.blog-related h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    color: #fff;
+}
+
+.blog-related-card {
+    display: block;
+    text-decoration: none !important;
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(20, 20, 20, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.blog-related-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(123, 175, 137, 0.3);
+}
+
+.blog-related-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+}
+
+.blog-related-card h4 {
+    padding: 12px 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* =============================================
+   Responsive
+   ============================================= */
+@media (max-width: 768px) {
+    .blog-card-image {
+        height: 180px;
+    }
+
+    .blog-card-title {
+        font-size: 15px;
+    }
+
+    .blog-card-excerpt {
+        font-size: 12px;
+    }
+
+    .blog-post-content {
+        font-size: 15px;
+    }
+
+    .blog-post-content h2 {
+        font-size: 20px;
+    }
+
+    .blog-post-content h3 {
+        font-size: 17px;
+    }
+
+    .blog-post-meta {
+        font-size: 12px;
+    }
+
+    .blog-post-meta .mx-3 {
+        margin: 0 6px;
+    }
+
+    .blog-cta-box,
+    .blog-post-cta {
+        padding: 25px 20px;
+    }
+
+    .blog-related-card img {
+        height: 120px;
+    }
+}

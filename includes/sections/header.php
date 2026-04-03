@@ -9,8 +9,22 @@ $_seo_canonical_path = ($_seo_page_file === 'index.php') ? '' : $_seo_page_file;
 // Special case: room.php keeps ?id= param in canonical
 if ($_seo_page_file === 'room.php' && isset($_GET['id'])) {
     $_seo_canonical_url = 'https://casaxuunan.com/room.php?id=' . urlencode($_GET['id']);
+} elseif ($_seo_page_file === 'blog-post.php' && isset($_GET['slug'])) {
+    $_seo_canonical_url = 'https://casaxuunan.com/blog-post.php?slug=' . urlencode($_GET['slug']);
 } else {
     $_seo_canonical_url = 'https://casaxuunan.com/' . $_seo_canonical_path;
+}
+
+// Special case: blog-post.php gets dynamic title/description from post data
+if ($_seo_page_file === 'blog-post.php' && isset($_GET['slug'])) {
+    require_once __DIR__ . '/../blog-posts.php';
+    $_blog_slug = $_GET['slug'];
+    foreach ($blog_posts as $_bp) {
+        if ($_bp['slug'] === $_blog_slug || $_bp['slug_en'] === $_blog_slug) {
+            $_seo_blog_post_found = $_bp;
+            break;
+        }
+    }
 }
 
 // Hreflang base (without lang param)
@@ -31,11 +45,20 @@ $_seo_map = [
     'contact'          => ['title' => 'contact_meta_title',       'desc' => 'contact_meta_description',       'keywords' => ''],
     'about'            => ['title' => 'about_meta_title',         'desc' => 'about_meta_description',         'keywords' => 'about_meta_keywords'],
     'search'           => ['title' => 'search_meta_title',        'desc' => 'search_meta_description',        'keywords' => ''],
+    'blog'             => ['title' => 'blog_meta_title',         'desc' => 'blog_meta_description',         'keywords' => 'blog_meta_keywords'],
+    'blog-post'        => ['title' => 'blog_meta_title',         'desc' => 'blog_meta_description',         'keywords' => 'blog_meta_keywords'],
 ];
 $_seo_data = $_seo_map[$_seo_current_page] ?? $_seo_map['index'];
 $_seo_title = t($_seo_data['title']);
 $_seo_description = t($_seo_data['desc']);
 $_seo_keywords = !empty($_seo_data['keywords']) ? t($_seo_data['keywords']) : t('index_meta_keywords');
+
+// Override with blog post data if available
+if (isset($_seo_blog_post_found)) {
+    $_seo_title = ($_seo_lang === 'es') ? $_seo_blog_post_found['title_es'] : $_seo_blog_post_found['title_en'];
+    $_seo_description = ($_seo_lang === 'es') ? $_seo_blog_post_found['meta_desc_es'] : $_seo_blog_post_found['meta_desc_en'];
+    $_seo_keywords = ($_seo_lang === 'es') ? $_seo_blog_post_found['keywords_es'] : $_seo_blog_post_found['keywords_en'];
+}
 
 // OG image per page
 $_seo_og_images = [
@@ -44,6 +67,8 @@ $_seo_og_images = [
     'gallery' => 'gallery-item-2.jpg',
     'about'   => 'gallery-item-3.jpg',
     'tours'   => 'gallery-item-1.jpg',
+    'blog'    => 'gallery-item-2.jpg',
+    'blog-post' => 'gallery-item-3.jpg',
 ];
 $_seo_og_image = 'https://casaxuunan.com/images/gallery/' . ($_seo_og_images[$_seo_current_page] ?? 'gallery-item-3.jpg');
 ?>
@@ -204,6 +229,11 @@ $_seo_og_image = 'https://casaxuunan.com/images/gallery/' . ($_seo_og_images[$_s
     <?php if (basename($_SERVER['SCRIPT_NAME']) === 'garden.php' || basename($_SERVER['SCRIPT_NAME']) === 'plant.php'): ?>
     <!-- Garden Styles -->
     <link rel="stylesheet" href="css/garden.css" type="text/css">
+    <?php endif; ?>
+
+    <?php if (basename($_SERVER['SCRIPT_NAME']) === 'blog.php' || basename($_SERVER['SCRIPT_NAME']) === 'blog-post.php'): ?>
+    <!-- Blog Styles -->
+    <link rel="stylesheet" href="css/blog.css" type="text/css">
     <?php endif; ?>
 
     <!-- Schema.org Structured Data para Bed and Breakfast -->
@@ -412,6 +442,38 @@ $_seo_og_image = 'https://casaxuunan.com/images/gallery/' . ($_seo_og_images[$_s
       "areaServed": {
         "@type": "City",
         "name": "Valladolid, Yucatan"
+      }
+    }
+    </script>
+    <?php endif; ?>
+
+    <?php if ($_seo_current_page === 'blog-post' && isset($_seo_blog_post_found)): ?>
+    <!-- BlogPosting Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "<?php echo addslashes($_seo_title); ?>",
+      "description": "<?php echo addslashes($_seo_description); ?>",
+      "image": "https://casaxuunan.com/<?php echo file_exists($_seo_blog_post_found['image']) ? $_seo_blog_post_found['image'] : $_seo_blog_post_found['fallback_image']; ?>",
+      "datePublished": "<?php echo $_seo_blog_post_found['date']; ?>",
+      "dateModified": "<?php echo $_seo_blog_post_found['date']; ?>",
+      "author": {
+        "@type": "Organization",
+        "name": "Casa Xu'unan",
+        "url": "https://casaxuunan.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Casa Xu'unan",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://casaxuunan.com/images/logo/blanco.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "<?php echo $_seo_canonical_url; ?>"
       }
     }
     </script>

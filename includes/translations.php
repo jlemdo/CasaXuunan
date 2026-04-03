@@ -573,6 +573,19 @@ $translations = [
         'search_home_highlight' => 'Casa Xu\'unan',
         'search_home_subtitle' => 'B&B familiar con desayuno incluido · Valladolid, Yucatán',
 
+        // ===== BLOG =====
+        'nav_blog' => 'Blog',
+        'blog_subtitle' => 'Nuestro',
+        'blog_title' => 'Blog',
+        'blog_intro' => 'Guías, tips y recomendaciones de Valladolid escritas por quienes vivimos aquí. Cenotes, gastronomía, Chichén Itzá y todo lo que necesitas saber para tu viaje.',
+        'blog_read_more' => 'Leer más',
+        'blog_cta_title' => '¿Planeando tu viaje a Valladolid?',
+        'blog_cta_desc' => 'Hospédate en Casa Xu\'unan, B&B familiar con desayuno casero incluido, piscina y jardín tropical. A pasos de la Calzada de los Frailes.',
+        'blog_cta_button' => 'Ver Habitaciones',
+        'blog_meta_title' => 'Blog | Guía de Valladolid, Cenotes y Chichén Itzá | Casa Xu\'unan',
+        'blog_meta_description' => 'Guías locales de Valladolid, Yucatán: cenotes, Chichén Itzá, gastronomía, itinerarios y tips de viaje. Escritas por locales desde Casa Xu\'unan.',
+        'blog_meta_keywords' => 'blog valladolid yucatan, guia valladolid, cenotes valladolid, que hacer valladolid, chichen itza desde valladolid',
+
         // ===== SEO PER-PAGE META TAGS =====
         'index_meta_title' => 'Casa Xu\'unan - B&B Familiar en Valladolid, Yucatán | Hospedaje con Desayuno cerca de Chichén Itzá',
         'index_meta_description' => 'B&B familiar en el barrio de Sisal, Valladolid. 9 habitaciones con desayuno casero incluido, piscina y jardín. A 40 min de Chichén Itzá. Atención personalizada de Doña Susi.',
@@ -1214,6 +1227,19 @@ $translations = [
         'search_home_title' => 'Find your perfect stay at',
         'search_home_highlight' => 'Casa Xu\'unan',
         'search_home_subtitle' => 'Family B&B with breakfast included · Valladolid, Yucatán',
+
+        // ===== BLOG =====
+        'nav_blog' => 'Blog',
+        'blog_subtitle' => 'Our',
+        'blog_title' => 'Blog',
+        'blog_intro' => 'Guides, tips and recommendations for Valladolid written by those who live here. Cenotes, gastronomy, Chichen Itza and everything you need to know for your trip.',
+        'blog_read_more' => 'Read more',
+        'blog_cta_title' => 'Planning your trip to Valladolid?',
+        'blog_cta_desc' => 'Stay at Casa Xu\'unan, a family B&B with homemade breakfast included, pool and tropical garden. Steps from the Calzada de los Frailes.',
+        'blog_cta_button' => 'View Rooms',
+        'blog_meta_title' => 'Blog | Valladolid Guide, Cenotes & Chichen Itza | Casa Xu\'unan',
+        'blog_meta_description' => 'Local guides to Valladolid, Yucatan: cenotes, Chichen Itza, gastronomy, itineraries and travel tips. Written by locals from Casa Xu\'unan.',
+        'blog_meta_keywords' => 'valladolid yucatan blog, valladolid guide, cenotes valladolid, things to do valladolid, chichen itza from valladolid',
 
         // ===== SEO PER-PAGE META TAGS =====
         'index_meta_title' => 'Casa Xu\'unan - Family B&B in Valladolid, Yucatan | Accommodation near Chichen Itza',

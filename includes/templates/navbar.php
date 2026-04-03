@@ -57,6 +57,9 @@
                                     </li>
                                     -->
                                     <li>
+                                        <a href="blog.php" class="<?= strpos($current_page, 'blog') !== false ? 'active-menu' : '' ?>"><?php echo t('nav_blog'); ?></a>
+                                    </li>
+                                    <li>
                                         <a href="contact.php" class="<?= $current_page === 'contact.php' ? 'active-menu' : '' ?>"><?php echo t('nav_contact'); ?></a>
                                     </li>
                                 </ul>
@@ -116,6 +119,7 @@
                                     <li><a href="gallery.php" class="<?= $current_page === 'gallery.php' ? 'active-menu' : '' ?>"><?php echo t('nav_gallery'); ?></a></li>
                                     <!-- Garden temporalmente oculto -->
                                     <!--<li><a href="garden.php" class="<?= $current_page === 'garden.php' || $current_page === 'plant.php' ? 'active-menu' : '' ?>"><?php echo t('nav_garden'); ?></a></li>-->
+                                    <li><a href="blog.php" class="<?= strpos($current_page, 'blog') !== false ? 'active-menu' : '' ?>"><?php echo t('nav_blog'); ?></a></li>
                                     <li><a href="contact.php" class="<?= $current_page === 'contact.php' ? 'active-menu' : '' ?>"><?php echo t('nav_contact'); ?></a></li>
                                     <li><a href="?lang=<?php echo switchLanguage(); ?>" class="lang-switcher-mobile"><?php echo $current_lang === 'es' ? 'English' : 'Español'; ?></a></li>
                                 </ul>

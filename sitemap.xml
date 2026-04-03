@@ -148,4 +148,77 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Blog -->
+  <url>
+    <loc>https://casaxuunan.com/blog.php</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/blog.php?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/blog.php?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/blog.php"/>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog Posts -->
+  <url>
+    <loc>https://casaxuunan.com/blog-post.php?slug=que-hacer-en-valladolid-yucatan</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://casaxuunan.com/blog-post.php?slug=mejores-cenotes-cerca-de-valladolid</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://casaxuunan.com/blog-post.php?slug=como-llegar-a-chichen-itza-desde-valladolid</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://casaxuunan.com/blog-post.php?slug=valladolid-vs-merida-donde-hospedarse</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://casaxuunan.com/blog-post.php?slug=calzada-de-los-frailes-guia-completa</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://casaxuunan.com/blog-post.php?slug=donde-comer-en-valladolid-yucatan</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://casaxuunan.com/blog-post.php?slug=cuantos-dias-en-valladolid-itinerario</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://casaxuunan.com/blog-post.php?slug=tren-maya-valladolid-guia</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://casaxuunan.com/blog-post.php?slug=ek-balam-desde-valladolid-guia</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://casaxuunan.com/blog-post.php?slug=vale-la-pena-visitar-valladolid</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
