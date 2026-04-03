@@ -18,11 +18,11 @@
                     <div class="row align-items-center">
                         <div class="col-lg-3 col-6">
                             <div class="spacer-double sm-hide"></div>
-                            <img src="<?php echo BASE_URL; ?>/images/misc/1.jpg" alt="" class="img-responsive wow fadeInUp" data-wow-duration="1s">
+                            <img src="<?php echo BASE_URL; ?>/images/misc/1.jpg" alt="<?php echo t('alt_nature'); ?>" class="img-responsive wow fadeInUp" data-wow-duration="1s">
                         </div>
 
                         <div class="col-lg-3 col-6">
-                            <img src="<?php echo BASE_URL; ?>/images/misc/2.jpg" alt="" class="img-responsive wow fadeInUp" data-wow-duration="1.5s">
+                            <img src="<?php echo BASE_URL; ?>/images/misc/2.jpg" alt="<?php echo t('alt_pool'); ?>" class="img-responsive wow fadeInUp" data-wow-duration="1.5s">
                         </div>
 
                         <div class="col-lg-6 wow fadeIn">
