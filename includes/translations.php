@@ -657,6 +657,82 @@ $translations = [
         'faq_rooms_a2' => 'El check-in es a las 3:00 PM y el check-out a las 11:00 AM. Podemos ser flexibles según disponibilidad, solo contáctanos.',
         'faq_rooms_q3' => '¿Aceptan familias con niños?',
         'faq_rooms_a3' => 'Sí, somos un B&B familiar. Recibimos parejas, familias con niños y grupos pequeños. Tenemos habitaciones de diferentes tamaños para adaptarnos a tus necesidades.',
+
+        // ===== HOMEPAGE CONVERSION SECTIONS =====
+        // Section 1: El Lujo de lo Auténtico
+        'hp_lujo_subtitle' => 'Casa Xu\'unan',
+        'hp_lujo_title' => 'El Lujo de lo Auténtico',
+        'hp_lujo_text' => 'No somos un destino para turistas; somos un refugio exclusivo para viajeros conscientes. Rompemos el molde corporativo para ofrecerte un oasis de tranquilidad donde la naturaleza y la historia convergen.',
+        'hp_lujo_location' => 'Ubicados al inicio de la emblemática Calzada de los Frailes, frente al Convento de San Bernardino de Siena en el Barrio de Sisal — te ofrecemos el verdadero lujo de hoy: la desconexión total y la experiencia real.',
+        'hp_scroll_discover' => 'Descubre más',
+
+        // Section 2: El Ecosistema de Pertenencia
+        'hp_eco_title' => 'El Ecosistema de Pertenencia',
+        'hp_eco_quote' => 'No solo te damos la bienvenida... te hacemos parte de nuestra familia.',
+        'hp_eco_philosophy' => 'Nuestra filosofía redefine la hospitalidad. Nuestro equipo es el alma de este santuario, transformando el servicio en un vínculo humano y auténtico que aleja la frialdad de las grandes cadenas y convierte a Casa Xu\'unan en tu hogar.',
+        'hp_eco_pillar1_title' => 'El Refugio',
+        'hp_eco_pillar1_desc' => 'Habitaciones amplias y auténticas, diseñadas para el descanso genuino, lejos de los estándares corporativos.',
+        'hp_eco_pillar2_title' => 'La Pausa',
+        'hp_eco_pillar2_desc' => 'Un jardín interior frondoso con alberca al aire libre; un oasis de paz.',
+        'hp_eco_pillar3_title' => 'El Antídoto',
+        'hp_eco_pillar3_desc' => 'Hamacas diseñadas para neutralizar por completo la fatiga del viajero.',
+        'hp_eco_breakfast_text' => 'Coronamos tu inmersión cultural cada mañana con un desayuno regional mexicano, casero y preparado con absoluta dedicación. Cero buffets impersonales.',
+        'hp_eco_breakfast_badge' => 'Incluido Diario',
+        'hp_eco_extra_wifi' => 'WiFi Starlink Gratis',
+        'hp_eco_extra_parking' => 'Estacionamiento Privado',
+        'hp_eco_extra_pool' => 'Alberca',
+        'hp_eco_extra_garden' => 'Jardín Tropical',
+        'hp_eco_anchor' => 'En un resort, estos extras cuestan +$50 USD/noche. Aquí, son parte de la experiencia.',
+        'hp_eco_cta' => 'Ver Habitaciones',
+
+        // Section 3: El Filtro de Autenticidad
+        'hp_filtro_title' => 'El Filtro de Autenticidad',
+        'hp_filtro_left' => 'Si buscas el aislamiento estéril y los servicios estandarizados de un resort corporativo, este no es tu lugar.',
+        'hp_filtro_right' => 'Pero si valoras la <span class="hp-highlight-green">tranquilidad genuina</span>, las conversaciones reales y la esencia pura de Valladolid, has encontrado <span class="hp-highlight-green">tu refugio</span>. Donde la <span class="hp-highlight-gold">hospitalidad</span> y la <span class="hp-highlight-gold">cultura</span> se encuentran.',
+        'hp_filtro_bottom' => 'Coronamos tu inmersión cultural cada mañana con un desayuno regional mexicano, casero y preparado con absoluta dedicación. Cero buffets impersonales.',
+
+        // Section 4: Experiencias Reales
+        'hp_social_subtitle' => 'Experiencias Reales',
+        'hp_social_title' => '4.8 de 5 Estrellas en Google',
+        'hp_social_subtext' => '+50 reseñas de huéspedes reales',
+        'hp_social_review1_text' => 'El desayuno fue increíble, cada mañana algo diferente. El jardín tropical es un sueño, despertamos con el canto de los pájaros. Sin duda el mejor lugar para hospedarse en Valladolid.',
+        'hp_social_review1_name' => 'María & Carlos — México',
+        'hp_social_review2_text' => 'Doña Susi nos recibió como si fuéramos familia. Nos recomendó cenotes que no aparecen en ninguna guía. Nuestros hijos no querían irse. Una experiencia que no encontrarás en ningún hotel.',
+        'hp_social_review2_name' => 'The Johnson Family — USA',
+        'hp_social_review3_text' => 'La ubicación es perfecta: a pasos de la Calzada de los Frailes y a minutos de los cenotes. Exactamente lo que buscaba: autenticidad sin sacrificar comodidad.',
+        'hp_social_review3_name' => 'Sophie — Francia',
+        'hp_social_counter_label' => 'huéspedes felices desde 2024',
+        'hp_social_see_all' => 'Ver Todas las Reseñas',
+        'hp_social_cta' => 'Reserva y Sé el Próximo',
+
+        // Section 5: Ubicación
+        'hp_location_subtitle' => 'Tu Base Perfecta',
+        'hp_location_title' => 'Todo Yucatán a Tu Alcance',
+        'hp_location_chichen_time' => '40 min',
+        'hp_location_chichen_name' => 'Chichén Itzá',
+        'hp_location_chichen_desc' => 'Maravilla del Mundo',
+        'hp_location_cenotes_time' => '10-15 min',
+        'hp_location_cenotes_name' => 'Cenotes',
+        'hp_location_cenotes_desc' => 'Suytun, Ik Kil, Samulá',
+        'hp_location_ekbalam_time' => '30 min',
+        'hp_location_ekbalam_name' => 'Ek Balam',
+        'hp_location_ekbalam_desc' => 'La pirámide que aún puedes subir',
+        'hp_location_calzada_time' => '2 min',
+        'hp_location_calzada_name' => 'Calzada de los Frailes',
+        'hp_location_calzada_desc' => 'Caminando desde tu puerta',
+        'hp_location_coloradas_time' => '2 hrs',
+        'hp_location_coloradas_name' => 'Las Coloradas',
+        'hp_location_coloradas_desc' => 'Los lagos rosa de Yucatán',
+        'hp_location_address' => 'Frente al Convento de San Bernardino de Siena, en el corazón del Barrio de Sisal',
+
+        // Section 6: CTA Final
+        'hp_final_title' => 'Solo 9 Habitaciones. La Tuya Te Está Esperando.',
+        'hp_final_subtext' => 'Las mejores fechas se reservan semanas antes. No dejes tu viaje al azar.',
+        'hp_final_cta' => 'Reservar Ahora',
+        'hp_final_trust1' => 'Cancelación flexible',
+        'hp_final_trust2' => 'Pago seguro',
+        'hp_final_trust3' => 'Respuesta inmediata',
+        'hp_final_wa' => '¿Preguntas? Escríbenos por WhatsApp',
     ],
 
     'en' => [
@@ -1312,6 +1388,82 @@ $translations = [
         'faq_rooms_a2' => 'Check-in is at 3:00 PM and check-out at 11:00 AM. We can be flexible based on availability, just contact us.',
         'faq_rooms_q3' => 'Do you accept families with children?',
         'faq_rooms_a3' => 'Yes, we are a family B&B. We welcome couples, families with children and small groups. We have rooms of different sizes to suit your needs.',
+
+        // ===== HOMEPAGE CONVERSION SECTIONS =====
+        // Section 1: The Luxury of Authenticity
+        'hp_lujo_subtitle' => 'Casa Xu\'unan',
+        'hp_lujo_title' => 'The Luxury of Authenticity',
+        'hp_lujo_text' => 'We are not a tourist destination; we are an exclusive refuge for conscious travelers. We break the corporate mold to offer you an oasis of tranquility where nature and history converge.',
+        'hp_lujo_location' => 'Located at the start of the iconic Calzada de los Frailes, facing the San Bernardino de Siena Convent in the Sisal neighborhood — we offer you today\'s true luxury: total disconnection and a real experience.',
+        'hp_scroll_discover' => 'Discover more',
+
+        // Section 2: The Belonging Ecosystem
+        'hp_eco_title' => 'The Belonging Ecosystem',
+        'hp_eco_quote' => 'We don\'t just welcome you... we make you part of our family.',
+        'hp_eco_philosophy' => 'Our philosophy redefines hospitality. Our team is the soul of this sanctuary, transforming service into a human, authentic bond that distances the coldness of large chains and turns Casa Xu\'unan into your home.',
+        'hp_eco_pillar1_title' => 'The Refuge',
+        'hp_eco_pillar1_desc' => 'Spacious and authentic rooms, designed for genuine rest, far from corporate standards.',
+        'hp_eco_pillar2_title' => 'The Pause',
+        'hp_eco_pillar2_desc' => 'A lush interior garden with an open-air pool; an oasis of peace.',
+        'hp_eco_pillar3_title' => 'The Antidote',
+        'hp_eco_pillar3_desc' => 'Hammocks designed to completely neutralize traveler fatigue.',
+        'hp_eco_breakfast_text' => 'We crown your cultural immersion each morning with a regional Mexican breakfast, homemade and prepared with absolute dedication. Zero impersonal buffets.',
+        'hp_eco_breakfast_badge' => 'Included Daily',
+        'hp_eco_extra_wifi' => 'Free Starlink WiFi',
+        'hp_eco_extra_parking' => 'Private Parking',
+        'hp_eco_extra_pool' => 'Swimming Pool',
+        'hp_eco_extra_garden' => 'Tropical Garden',
+        'hp_eco_anchor' => 'At a resort, these extras cost +$50 USD/night. Here, they\'re part of the experience.',
+        'hp_eco_cta' => 'View Rooms',
+
+        // Section 3: The Authenticity Filter
+        'hp_filtro_title' => 'The Authenticity Filter',
+        'hp_filtro_left' => 'If you seek the sterile isolation and standardized services of a corporate resort, this is not your place.',
+        'hp_filtro_right' => 'But if you value <span class="hp-highlight-green">genuine tranquility</span>, real conversations and the pure essence of Valladolid, you\'ve found <span class="hp-highlight-green">your refuge</span>. Where <span class="hp-highlight-gold">hospitality</span> and <span class="hp-highlight-gold">culture</span> meet.',
+        'hp_filtro_bottom' => 'We crown your cultural immersion each morning with a regional Mexican breakfast, homemade and prepared with absolute dedication. Zero impersonal buffets.',
+
+        // Section 4: Real Experiences
+        'hp_social_subtitle' => 'Real Experiences',
+        'hp_social_title' => '4.8 out of 5 Stars on Google',
+        'hp_social_subtext' => '50+ reviews from real guests',
+        'hp_social_review1_text' => 'The breakfast was incredible, something different every morning. The tropical garden is a dream, we woke up to birdsong. Without a doubt the best place to stay in Valladolid.',
+        'hp_social_review1_name' => 'María & Carlos — Mexico',
+        'hp_social_review2_text' => 'Dona Susi welcomed us as if we were family. She recommended cenotes that don\'t appear in any guidebook. Our kids didn\'t want to leave. An experience you won\'t find at any hotel.',
+        'hp_social_review2_name' => 'The Johnson Family — USA',
+        'hp_social_review3_text' => 'The location is perfect: steps from Calzada de los Frailes and minutes from the cenotes. Exactly what I was looking for: authenticity without sacrificing comfort.',
+        'hp_social_review3_name' => 'Sophie — France',
+        'hp_social_counter_label' => 'happy guests since 2024',
+        'hp_social_see_all' => 'See All Reviews',
+        'hp_social_cta' => 'Book & Be Next',
+
+        // Section 5: Location
+        'hp_location_subtitle' => 'Your Perfect Base',
+        'hp_location_title' => 'All of Yucatan Within Reach',
+        'hp_location_chichen_time' => '40 min',
+        'hp_location_chichen_name' => 'Chichén Itzá',
+        'hp_location_chichen_desc' => 'World Wonder',
+        'hp_location_cenotes_time' => '10-15 min',
+        'hp_location_cenotes_name' => 'Cenotes',
+        'hp_location_cenotes_desc' => 'Suytun, Ik Kil, Samulá',
+        'hp_location_ekbalam_time' => '30 min',
+        'hp_location_ekbalam_name' => 'Ek Balam',
+        'hp_location_ekbalam_desc' => 'The pyramid you can still climb',
+        'hp_location_calzada_time' => '2 min',
+        'hp_location_calzada_name' => 'Calzada de los Frailes',
+        'hp_location_calzada_desc' => 'Walking from your door',
+        'hp_location_coloradas_time' => '2 hrs',
+        'hp_location_coloradas_name' => 'Las Coloradas',
+        'hp_location_coloradas_desc' => 'Yucatan\'s pink lakes',
+        'hp_location_address' => 'Facing the San Bernardino de Siena Convent, in the heart of the Sisal neighborhood',
+
+        // Section 6: Final CTA
+        'hp_final_title' => 'Only 9 Rooms. Yours Is Waiting.',
+        'hp_final_subtext' => 'The best dates book weeks in advance. Don\'t leave your trip to chance.',
+        'hp_final_cta' => 'Book Now',
+        'hp_final_trust1' => 'Flexible cancellation',
+        'hp_final_trust2' => 'Secure payment',
+        'hp_final_trust3' => 'Immediate response',
+        'hp_final_wa' => 'Questions? Write us on WhatsApp',
     ]
 ];
 ?>

@@ -177,6 +177,8 @@ if (isset($_seo_blog_post_found)) {
     <?php if (basename($_SERVER['SCRIPT_NAME']) === 'index.php'): ?>
     <!-- Reviews Section Styles (solo para index) -->
     <link rel="stylesheet" href="css/reviews-section.css" type="text/css">
+    <!-- Homepage Conversion Sections -->
+    <link rel="stylesheet" href="css/homepage-sections.css" type="text/css">
     <!-- Elfsight Platform Script: loaded dynamically by reviews-section.js when overlay opens -->
     <?php endif; ?>
 

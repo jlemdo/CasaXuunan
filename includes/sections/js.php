@@ -19,6 +19,7 @@ if (basename($_SERVER['SCRIPT_NAME']) === 'index.php') {
     echo '<script src="' . BASE_URL . '/js/supersized/theme/supersized.shutter.min.js"></script>';
     echo '<script src="' . BASE_URL . '/js/index.js"></script>';
     echo '<script src="' . BASE_URL . '/js/reviews-section.js"></script>';
+    echo '<script src="' . BASE_URL . '/js/homepage-sections.js"></script>';
 }
 ?>
 <?php

@@ -1,0 +1,937 @@
+/* ============================================
+   HOMEPAGE CONVERSION SECTIONS - Casa Xu'unan
+   "El Lujo de lo Auténtico"
+   ============================================ */
+
+/* --- Scroll Indicator (fixed, floats over hero without touching slider DOM) --- */
+.hp-scroll-indicator {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 50;
+    text-align: center;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+.hp-scroll-indicator:hover {
+    opacity: 1;
+}
+.hp-scroll-indicator span {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 8px;
+}
+.hp-scroll-indicator i {
+    display: block;
+    color: rgba(255,255,255,0.8);
+    font-size: 20px;
+    animation: scrollBounce 2s ease-in-out infinite;
+}
+@keyframes scrollBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+}
+
+/* --- Hero element adjustments ---
+   With scrollable sections below, hero elements need more breathing room.
+   Shift slider text, search bar, and reviews button up by 20px. */
+body.hp-has-sections #slidecaption {
+    padding-bottom: 310px !important;
+}
+body.hp-has-sections .home-search-wrapper {
+    margin-bottom: 222px !important;
+}
+body.hp-has-sections .reviews-scroll-btn-wrapper {
+    bottom: 160px;
+}
+@media (max-width: 992px) {
+    body.hp-has-sections #slidecaption {
+        padding-bottom: 305px !important;
+    }
+    body.hp-has-sections .home-search-wrapper {
+        margin-bottom: 155px !important;
+    }
+    body.hp-has-sections .reviews-scroll-btn-wrapper {
+        bottom: 90px;
+    }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+    body.hp-has-sections #slidecaption {
+        padding-bottom: 330px !important;
+    }
+}
+
+/* --- Hero spacer ---
+   #content has no height in flow (all children are fixed/absolute).
+   This spacer creates the 100vh space so the hero is visible
+   before the sections begin. */
+.hp-hero-spacer {
+    height: 100vh;
+    pointer-events: none;
+}
+
+/* --- Override #wrapper overflow ONLY on index ---
+   #wrapper is overflow:hidden globally (style.css line 129).
+   Debug shows #wrapper h=0 with overflow:hidden clips ALL section content.
+   We MUST override to visible so spacer + sections are visible and scrollable.
+
+   body/html backgrounds (grey/dark) paint OVER the slider (z-index:-999).
+   Making them transparent lets the fixed slider show through the hero area. */
+body.hp-has-sections,
+body.hp-has-sections html {
+    background: transparent !important;
+}
+body.hp-has-sections #wrapper {
+    overflow: visible !important;
+}
+
+/* --- Homepage Sections Wrapper --- */
+.hp-sections-wrapper {
+    position: relative;
+    z-index: 200;
+    background: #fff;
+}
+
+/* --- Common Section Styles --- */
+.hp-section {
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+.hp-section-dark {
+    background: #1a1714;
+    color: #f5f0eb;
+}
+.hp-section-light {
+    background: #faf8f5;
+    color: #312b24;
+}
+.hp-section-warm {
+    background: linear-gradient(135deg, #faf8f5 0%, #f5efe8 100%);
+    color: #312b24;
+}
+
+/* Section Headers */
+.hp-subtitle {
+    font-family: 'Mrs Saint Delafield', cursive;
+    font-size: 42px;
+    color: #e2bad4;
+    margin-bottom: 5px;
+    line-height: 1.2;
+}
+.hp-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+.hp-section-dark .hp-title {
+    color: #f5f0eb;
+}
+.hp-section-light .hp-title,
+.hp-section-warm .hp-title {
+    color: #312b24;
+}
+.hp-text {
+    font-family: 'Heebo', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    opacity: 0.85;
+}
+
+/* --- Section 1: El Lujo de lo Auténtico --- */
+#hp-lujo {
+    padding: 100px 0 80px;
+    background: #1a1714;
+    position: relative;
+}
+#hp-lujo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../images/slider/1.jpg') center center / cover no-repeat;
+    opacity: 0.12;
+    pointer-events: none;
+}
+#hp-lujo .container {
+    position: relative;
+    z-index: 2;
+}
+#hp-lujo .hp-subtitle {
+    font-size: 48px;
+}
+#hp-lujo .hp-title {
+    font-size: 42px;
+    letter-spacing: 3px;
+    color: #f5f0eb;
+}
+#hp-lujo .hp-text {
+    color: rgba(245, 240, 235, 0.85);
+    font-size: 17px;
+}
+.hp-lujo-location {
+    max-width: 700px;
+    margin: 40px auto 0;
+    padding: 20px 30px;
+    border: 1px solid rgba(226, 186, 212, 0.2);
+    border-radius: 12px;
+    font-family: 'Heebo', sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(245, 240, 235, 0.7);
+    text-align: center;
+}
+
+/* --- Section 2: El Ecosistema de Pertenencia --- */
+#hp-ecosistema {
+    padding: 90px 0;
+}
+.hp-quote-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: #312b24;
+    position: relative;
+    padding: 0 20px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+.hp-quote-text::before,
+.hp-quote-text::after {
+    font-family: 'Mrs Saint Delafield', cursive;
+    font-size: 60px;
+    color: #e2bad4;
+    opacity: 0.5;
+    position: absolute;
+    line-height: 1;
+}
+.hp-quote-text::before {
+    content: '\201C';
+    top: -15px;
+    left: -10px;
+}
+.hp-quote-text::after {
+    content: '\201D';
+    bottom: -30px;
+    right: -10px;
+}
+.hp-philosophy-text {
+    font-family: 'Heebo', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555;
+    max-width: 650px;
+    margin-bottom: 40px;
+}
+
+/* Pillar Cards */
+.hp-pillar-card {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-left: 4px solid #7baf89;
+    border-radius: 16px;
+    padding: 28px 24px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+.hp-pillar-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+.hp-pillar-card h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #312b24;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.hp-pillar-card p {
+    font-family: 'Heebo', sans-serif;
+    font-size: 14.5px;
+    color: #666;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Breakfast Hero Card */
+.hp-breakfast-card {
+    background: linear-gradient(135deg, #fdfbf6 0%, #faf5ed 100%);
+    border: 2px solid #eddd98;
+    border-left: 5px solid #eddd98;
+    border-radius: 20px;
+    padding: 35px 30px;
+    margin: 40px 0 30px;
+    position: relative;
+    box-shadow: 0 8px 30px rgba(237, 221, 152, 0.15);
+}
+.hp-breakfast-card p {
+    font-family: 'Heebo', sans-serif;
+    font-size: 17px;
+    color: #312b24;
+    line-height: 1.8;
+    margin: 0;
+}
+.hp-badge {
+    display: inline-block;
+    background: #7baf89;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 20px;
+    margin-top: 15px;
+}
+.hp-badge-gold {
+    background: linear-gradient(135deg, #eddd98, #d4c47a);
+    color: #312b24;
+}
+
+/* Extras Row */
+.hp-extras-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 30px 0;
+}
+.hp-extra-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(123, 175, 137, 0.08);
+    border: 1px solid rgba(123, 175, 137, 0.15);
+    border-radius: 25px;
+    padding: 8px 18px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #4a7a56;
+    letter-spacing: 0.5px;
+}
+.hp-extra-item i {
+    color: #7baf89;
+    font-size: 14px;
+}
+
+/* Anchor Text */
+.hp-anchor-text {
+    font-family: 'Heebo', sans-serif;
+    font-size: 15px;
+    color: #888;
+    font-style: italic;
+    margin: 20px 0 30px;
+}
+
+/* CTA Button */
+.hp-cta-btn {
+    display: inline-block;
+    background: #7baf89;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 14px 40px;
+    border-radius: 30px;
+    border: 2px solid #7baf89;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+.hp-cta-btn:hover {
+    background: transparent;
+    color: #7baf89;
+    text-decoration: none;
+}
+
+/* --- Section 3: El Filtro de Autenticidad --- */
+#hp-filtro {
+    padding: 0;
+    position: relative;
+}
+.hp-filtro-image {
+    width: 100%;
+    height: 300px;
+    background: url('../images/slider/2.jpg') center center / cover no-repeat;
+    position: relative;
+}
+.hp-filtro-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, #faf8f5);
+}
+.hp-filtro-content {
+    padding: 50px 0 60px;
+    background: #faf8f5;
+}
+.hp-filtro-content .hp-title {
+    font-size: 34px;
+    margin-bottom: 40px;
+}
+.hp-filtro-columns {
+    display: flex;
+    gap: 0;
+    align-items: stretch;
+}
+.hp-filtro-col {
+    flex: 1;
+    padding: 30px 35px;
+}
+.hp-filtro-col-left {
+    color: #888;
+    font-family: 'Heebo', sans-serif;
+    font-size: 16px;
+    line-height: 1.9;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+.hp-filtro-col-left p {
+    margin: 0;
+}
+.hp-filtro-divider {
+    width: 1px;
+    background: #ddd;
+    flex-shrink: 0;
+}
+.hp-filtro-col-right {
+    font-family: 'Heebo', sans-serif;
+    font-size: 16px;
+    line-height: 1.9;
+}
+.hp-filtro-col-right p {
+    margin: 0;
+    color: #312b24;
+    font-weight: 600;
+}
+.hp-filtro-col-right .hp-highlight-green {
+    color: #7baf89;
+    font-weight: 700;
+}
+.hp-filtro-col-right .hp-highlight-gold {
+    color: #b8982a;
+    font-weight: 700;
+}
+.hp-filtro-bottom {
+    max-width: 800px;
+    margin: 40px auto 0;
+    padding: 25px 30px;
+    border: 1px solid rgba(123, 175, 137, 0.25);
+    border-radius: 12px;
+    background: rgba(123, 175, 137, 0.04);
+    text-align: center;
+    font-family: 'Heebo', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #312b24;
+    font-weight: 600;
+}
+
+/* --- Section 4: Experiencias Reales (Social Proof) --- */
+#hp-social-proof {
+    background: #1a1714;
+    padding: 90px 0;
+}
+#hp-social-proof .hp-subtitle {
+    font-size: 46px;
+}
+#hp-social-proof .hp-title {
+    color: #f5f0eb;
+}
+#hp-social-proof .hp-text {
+    color: rgba(245, 240, 235, 0.7);
+}
+
+/* Review Cards */
+.hp-review-card {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 30px 25px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.hp-review-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+.hp-review-stars {
+    color: #eddd98;
+    font-size: 16px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+.hp-review-quote {
+    font-family: 'Heebo', sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: rgba(245, 240, 235, 0.85);
+    font-style: italic;
+    flex: 1;
+    margin-bottom: 20px;
+}
+.hp-review-author {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(245, 240, 235, 0.6);
+    letter-spacing: 0.5px;
+}
+.hp-review-badge {
+    display: inline-block;
+    margin-top: 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(245, 240, 235, 0.4);
+    border: 1px solid rgba(245, 240, 235, 0.15);
+    padding: 3px 10px;
+    border-radius: 10px;
+}
+
+/* Counter */
+.hp-counter-row {
+    margin: 50px 0 30px;
+    text-align: center;
+}
+.hp-counter-number {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 48px;
+    color: #eddd98;
+    display: inline-block;
+}
+.hp-counter-label {
+    font-family: 'Heebo', sans-serif;
+    font-size: 16px;
+    color: rgba(245, 240, 235, 0.6);
+    margin-top: 5px;
+}
+
+/* Social Proof CTAs */
+.hp-social-ctas {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+.hp-cta-btn-outline {
+    display: inline-block;
+    background: transparent;
+    color: #f5f0eb;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 12px 30px;
+    border-radius: 30px;
+    border: 1px solid rgba(245, 240, 235, 0.3);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    cursor: pointer;
+}
+.hp-cta-btn-outline:hover {
+    border-color: #e2bad4;
+    color: #e2bad4;
+    text-decoration: none;
+}
+
+/* --- Section 5: Tu Base en Yucatán (Location) --- */
+#hp-ubicacion {
+    padding: 90px 0;
+}
+.hp-distance-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin: 40px 0;
+}
+.hp-distance-card {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-left: 4px solid #7baf89;
+    border-radius: 16px;
+    padding: 25px 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+.hp-distance-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+.hp-distance-icon {
+    font-size: 28px;
+    color: #7baf89;
+    margin-bottom: 12px;
+}
+.hp-distance-time {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    color: #312b24;
+    margin-bottom: 4px;
+}
+.hp-distance-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    color: #312b24;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+.hp-distance-desc {
+    font-family: 'Heebo', sans-serif;
+    font-size: 12px;
+    color: #888;
+    line-height: 1.5;
+}
+.hp-location-note {
+    font-family: 'Heebo', sans-serif;
+    font-size: 14px;
+    color: #888;
+    text-align: center;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* --- Section 6: CTA Final --- */
+#hp-final-cta {
+    padding: 100px 0;
+    position: relative;
+    background: #1a1714;
+    text-align: center;
+    overflow: hidden;
+}
+#hp-final-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../images/slider/3.jpg') center center / cover no-repeat;
+    opacity: 0.2;
+    pointer-events: none;
+}
+#hp-final-cta .container {
+    position: relative;
+    z-index: 2;
+}
+#hp-final-cta .hp-title {
+    font-size: 38px;
+    color: #f5f0eb;
+    max-width: 600px;
+    margin: 0 auto 20px;
+}
+#hp-final-cta .hp-text {
+    color: rgba(245, 240, 235, 0.7);
+    margin-bottom: 40px;
+}
+.hp-cta-glow {
+    display: inline-block;
+    background: #7baf89;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    padding: 18px 50px;
+    border-radius: 35px;
+    border: none;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 30px rgba(123, 175, 137, 0.3);
+    animation: ctaGlow 2.5s ease-in-out infinite;
+}
+.hp-cta-glow:hover {
+    background: #6a9e78;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 0 50px rgba(123, 175, 137, 0.5);
+    transform: translateY(-2px);
+}
+@keyframes ctaGlow {
+    0%, 100% { box-shadow: 0 0 25px rgba(123, 175, 137, 0.25); }
+    50% { box-shadow: 0 0 45px rgba(123, 175, 137, 0.45); }
+}
+
+/* Trust Signals */
+.hp-trust-row {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 35px;
+}
+.hp-trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(245, 240, 235, 0.5);
+    letter-spacing: 0.5px;
+}
+.hp-trust-item i {
+    color: #7baf89;
+    font-size: 14px;
+}
+
+/* WhatsApp Alternative */
+.hp-wa-alt {
+    margin-top: 25px;
+}
+.hp-wa-alt a {
+    font-family: 'Heebo', sans-serif;
+    font-size: 14px;
+    color: rgba(245, 240, 235, 0.5);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.hp-wa-alt a:hover {
+    color: #25D366;
+}
+.hp-wa-alt a i {
+    margin-right: 6px;
+}
+
+/* --- Back-to-top button redesign ---
+   Same size as WhatsApp (50px), same bottom, mirrored sides */
+body.hp-has-sections #back-to-top {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    background: rgba(123, 175, 137, 0.85);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    right: 20px;
+    bottom: 20px;
+    transition: all 0.3s ease;
+}
+body.hp-has-sections #back-to-top:hover {
+    background: #7baf89;
+    box-shadow: 0 4px 12px rgba(123, 175, 137, 0.3);
+}
+body.hp-has-sections #back-to-top:before {
+    font-size: 20px;
+    margin: 0;
+}
+
+/* --- Review Cards column spacing fix --- */
+#hp-social-proof .row > [class*="col-"] {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 20px;
+}
+.hp-review-card {
+    height: auto;
+}
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
+
+@media (max-width: 992px) {
+    .hp-section {
+        padding: 60px 0;
+    }
+    .hp-title {
+        font-size: 28px;
+    }
+    .hp-subtitle {
+        font-size: 36px;
+    }
+    #hp-lujo .hp-title {
+        font-size: 32px;
+    }
+    #hp-lujo .hp-subtitle {
+        font-size: 40px;
+    }
+    .hp-distance-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    #hp-final-cta .hp-title {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hp-section {
+        padding: 50px 0;
+    }
+    .hp-title {
+        font-size: 24px;
+        letter-spacing: 1px;
+    }
+    .hp-subtitle {
+        font-size: 32px;
+    }
+    .hp-text {
+        font-size: 15px;
+        padding: 0 10px;
+    }
+    #hp-lujo {
+        padding: 70px 0 60px;
+    }
+    #hp-lujo .hp-title {
+        font-size: 28px;
+    }
+    #hp-lujo .hp-subtitle {
+        font-size: 36px;
+    }
+    .hp-lujo-location {
+        padding: 15px 20px;
+        font-size: 13px;
+    }
+    .hp-quote-text {
+        font-size: 18px;
+    }
+    .hp-quote-text::before,
+    .hp-quote-text::after {
+        font-size: 45px;
+    }
+    .hp-pillar-card {
+        padding: 22px 20px;
+    }
+    .hp-breakfast-card {
+        padding: 25px 20px;
+    }
+    .hp-breakfast-card p {
+        font-size: 15px;
+    }
+    .hp-extras-row {
+        gap: 8px;
+    }
+    .hp-extra-item {
+        font-size: 11px;
+        padding: 6px 14px;
+    }
+
+    /* Filtro */
+    .hp-filtro-columns {
+        flex-direction: column;
+    }
+    .hp-filtro-divider {
+        width: 60%;
+        height: 1px;
+        margin: 0 auto;
+    }
+    .hp-filtro-col {
+        padding: 25px 20px;
+    }
+    .hp-filtro-content .hp-title {
+        font-size: 26px;
+    }
+
+    /* Distance Grid */
+    .hp-distance-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .hp-distance-time {
+        font-size: 20px;
+    }
+    .hp-distance-name {
+        font-size: 12px;
+    }
+
+    /* Social Proof */
+    .hp-counter-number {
+        font-size: 36px;
+    }
+
+    /* Final CTA */
+    #hp-final-cta {
+        padding: 70px 0;
+    }
+    #hp-final-cta .hp-title {
+        font-size: 26px;
+    }
+    .hp-cta-glow {
+        font-size: 13px;
+        padding: 15px 35px;
+        letter-spacing: 3px;
+    }
+    .hp-trust-row {
+        gap: 15px;
+    }
+    .hp-trust-item {
+        font-size: 11px;
+    }
+
+    /* Scroll indicator */
+    .hp-scroll-indicator {
+        bottom: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hp-distance-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .hp-distance-card {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        text-align: left;
+        padding: 18px 20px;
+    }
+    .hp-distance-icon {
+        margin-bottom: 0;
+        font-size: 24px;
+        min-width: 30px;
+    }
+    .hp-distance-time {
+        font-size: 18px;
+        margin-bottom: 2px;
+    }
+    .hp-distance-info {
+        flex: 1;
+    }
+    .hp-social-ctas {
+        flex-direction: column;
+        align-items: center;
+    }
+    .hp-trust-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
