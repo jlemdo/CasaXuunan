@@ -84,10 +84,10 @@ body.hp-has-sections .reviews-scroll-btn-wrapper {
         padding-bottom: 315px !important;
     }
     body.hp-has-sections .home-search-wrapper {
-        margin-bottom: 75px !important;
+        margin-bottom: 115px !important;
     }
     body.hp-has-sections .reviews-scroll-btn-wrapper {
-        bottom: 15px;
+        bottom: -55px;
     }
 }
 @media (min-width: 768px) and (max-width: 992px) {
