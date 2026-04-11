@@ -87,7 +87,7 @@ body.hp-has-sections .reviews-scroll-btn-wrapper {
         margin-bottom: 95px !important;
     }
     body.hp-has-sections .reviews-scroll-btn-wrapper {
-        bottom: -55px;
+        bottom: 10px;
     }
 }
 @media (min-width: 768px) and (max-width: 992px) {
@@ -784,6 +784,16 @@ body.hp-has-sections #wrapper {
     font-size: 12px;
     color: rgba(245, 240, 235, 0.3);
     letter-spacing: 0.5px;
+}
+
+/* --- Reviews overlay: reduce height so it doesn't peek on short screens --- */
+body.hp-has-sections #reviews-overlay {
+    height: 78vh;
+}
+@media (max-width: 768px) {
+    body.hp-has-sections #reviews-overlay {
+        height: 82vh;
+    }
 }
 
 /* --- Hide old back-to-top (replaced by scroll button) --- */
