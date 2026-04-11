@@ -78,10 +78,17 @@ if (isset($_seo_blog_post_found)) {
 }
 
 // Blog posts: build correct hreflang URLs with language-specific slugs
+// Each language version is its own canonical page
 if (isset($_seo_blog_post_found)) {
-    $_seo_hreflang_es = 'https://casaxuunan.com/blog-post.php?slug=' . urlencode($_seo_blog_post_found['slug']) . '&lang=es';
-    $_seo_hreflang_en = 'https://casaxuunan.com/blog-post.php?slug=' . urlencode($_seo_blog_post_found['slug_en']) . '&lang=en';
-    $_seo_hreflang_default = 'https://casaxuunan.com/blog-post.php?slug=' . urlencode($_seo_blog_post_found['slug']);
+    $_seo_hreflang_es = 'https://casaxuunan.com/blog-post.php?slug=' . urlencode($_seo_blog_post_found['slug']);
+    $_seo_hreflang_en = 'https://casaxuunan.com/blog-post.php?slug=' . urlencode($_seo_blog_post_found['slug_en']);
+    $_seo_hreflang_default = $_seo_hreflang_es;
+    // Canonical must match current language slug
+    if ($_seo_lang === 'en') {
+        $_seo_canonical_url = $_seo_hreflang_en;
+    } else {
+        $_seo_canonical_url = $_seo_hreflang_es;
+    }
 }
 ?>
 <!DOCTYPE html>

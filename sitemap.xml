@@ -6,10 +6,10 @@
   <!-- Pagina principal / Home -->
   <url>
     <loc>https://casaxuunan.com/</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/?lang=en"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/"/>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -29,10 +29,10 @@
   <!-- Habitaciones -->
   <url>
     <loc>https://casaxuunan.com/rooms.php</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/rooms.php?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/rooms.php"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/rooms.php?lang=en"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/rooms.php"/>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -44,10 +44,10 @@
   <!-- Acerca de nosotros -->
   <url>
     <loc>https://casaxuunan.com/about.php</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/about.php?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/about.php"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/about.php?lang=en"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/about.php"/>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -55,10 +55,10 @@
   <!-- Servicios -->
   <url>
     <loc>https://casaxuunan.com/services.php</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/services.php?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/services.php"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/services.php?lang=en"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/services.php"/>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -66,10 +66,10 @@
   <!-- Tours -->
   <url>
     <loc>https://casaxuunan.com/tours.php</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/tours.php?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/tours.php"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/tours.php?lang=en"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/tours.php"/>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -77,21 +77,21 @@
   <!-- Masajes -->
   <url>
     <loc>https://casaxuunan.com/masajes.php</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/masajes.php?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/masajes.php"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/masajes.php?lang=en"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/masajes.php"/>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
 
   <!-- Cuidado Personal -->
   <url>
     <loc>https://casaxuunan.com/cuidado-personal.php</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/cuidado-personal.php?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/cuidado-personal.php"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/cuidado-personal.php?lang=en"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/cuidado-personal.php"/>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -99,10 +99,10 @@
   <!-- Transporte -->
   <url>
     <loc>https://casaxuunan.com/transporte.php</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/transporte.php?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/transporte.php"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/transporte.php?lang=en"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/transporte.php"/>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -110,10 +110,10 @@
   <!-- Galeria -->
   <url>
     <loc>https://casaxuunan.com/gallery.php</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/gallery.php?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/gallery.php"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/gallery.php?lang=en"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/gallery.php"/>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -129,10 +129,10 @@
   <!-- Contacto -->
   <url>
     <loc>https://casaxuunan.com/contact.php</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/contact.php?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/contact.php"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/contact.php?lang=en"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/contact.php"/>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -140,10 +140,10 @@
   <!-- Buscar Disponibilidad -->
   <url>
     <loc>https://casaxuunan.com/search.php</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/search.php?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/search.php"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/search.php?lang=en"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/search.php"/>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -151,21 +151,23 @@
   <!-- Blog -->
   <url>
     <loc>https://casaxuunan.com/blog.php</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/blog.php?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/blog.php"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/blog.php?lang=en"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/blog.php"/>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Blog Posts (with bilingual hreflang alternates + images) -->
+  <!-- ==================== BLOG POSTS (ES + EN as separate URLs) ==================== -->
+
+  <!-- 1. Que hacer en Valladolid (ES) -->
   <url>
     <loc>https://casaxuunan.com/blog-post.php?slug=que-hacer-en-valladolid-yucatan</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/blog-post.php?slug=que-hacer-en-valladolid-yucatan&amp;lang=es"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/blog-post.php?slug=things-to-do-in-valladolid-yucatan&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/blog-post.php?slug=que-hacer-en-valladolid-yucatan"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/blog-post.php?slug=things-to-do-in-valladolid-yucatan"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/blog-post.php?slug=que-hacer-en-valladolid-yucatan"/>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -173,12 +175,24 @@
       <image:caption>Que hacer en Valladolid Yucatan - Guia local de actividades y experiencias</image:caption>
     </image:image>
   </url>
+  <!-- 1. Things to do in Valladolid (EN) -->
+  <url>
+    <loc>https://casaxuunan.com/blog-post.php?slug=things-to-do-in-valladolid-yucatan</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/blog-post.php?slug=que-hacer-en-valladolid-yucatan"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/blog-post.php?slug=things-to-do-in-valladolid-yucatan"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/blog-post.php?slug=que-hacer-en-valladolid-yucatan"/>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 2. Cenotes (ES) -->
   <url>
     <loc>https://casaxuunan.com/blog-post.php?slug=mejores-cenotes-cerca-de-valladolid</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/blog-post.php?slug=mejores-cenotes-cerca-de-valladolid&amp;lang=es"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/blog-post.php?slug=best-cenotes-near-valladolid&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/blog-post.php?slug=mejores-cenotes-cerca-de-valladolid"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/blog-post.php?slug=best-cenotes-near-valladolid"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/blog-post.php?slug=mejores-cenotes-cerca-de-valladolid"/>
-    <lastmod>2026-03-20</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -186,12 +200,24 @@
       <image:caption>Mejores cenotes cerca de Valladolid Yucatan con precios y tips locales</image:caption>
     </image:image>
   </url>
+  <!-- 2. Cenotes (EN) -->
+  <url>
+    <loc>https://casaxuunan.com/blog-post.php?slug=best-cenotes-near-valladolid</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/blog-post.php?slug=mejores-cenotes-cerca-de-valladolid"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/blog-post.php?slug=best-cenotes-near-valladolid"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/blog-post.php?slug=mejores-cenotes-cerca-de-valladolid"/>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 3. Chichen Itza (ES) -->
   <url>
     <loc>https://casaxuunan.com/blog-post.php?slug=como-llegar-a-chichen-itza-desde-valladolid</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/blog-post.php?slug=como-llegar-a-chichen-itza-desde-valladolid&amp;lang=es"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/blog-post.php?slug=how-to-get-to-chichen-itza-from-valladolid&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/blog-post.php?slug=como-llegar-a-chichen-itza-desde-valladolid"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/blog-post.php?slug=how-to-get-to-chichen-itza-from-valladolid"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/blog-post.php?slug=como-llegar-a-chichen-itza-desde-valladolid"/>
-    <lastmod>2026-03-22</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -199,96 +225,162 @@
       <image:caption>Como llegar a Chichen Itza desde Valladolid - transporte colectivo ADO y tours</image:caption>
     </image:image>
   </url>
+  <!-- 3. Chichen Itza (EN) -->
+  <url>
+    <loc>https://casaxuunan.com/blog-post.php?slug=how-to-get-to-chichen-itza-from-valladolid</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/blog-post.php?slug=como-llegar-a-chichen-itza-desde-valladolid"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/blog-post.php?slug=how-to-get-to-chichen-itza-from-valladolid"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/blog-post.php?slug=como-llegar-a-chichen-itza-desde-valladolid"/>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 4. Valladolid vs Merida (ES) -->
   <url>
     <loc>https://casaxuunan.com/blog-post.php?slug=valladolid-vs-merida-donde-hospedarse</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/blog-post.php?slug=valladolid-vs-merida-donde-hospedarse&amp;lang=es"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/blog-post.php?slug=valladolid-vs-merida-where-to-stay&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/blog-post.php?slug=valladolid-vs-merida-donde-hospedarse"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/blog-post.php?slug=valladolid-vs-merida-where-to-stay"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/blog-post.php?slug=valladolid-vs-merida-donde-hospedarse"/>
-    <lastmod>2026-03-25</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://casaxuunan.com/images/gallery/gallery-item-4.jpg</image:loc>
-      <image:caption>Valladolid vs Merida donde hospedarse en Yucatan comparativa</image:caption>
-    </image:image>
   </url>
+  <!-- 4. Valladolid vs Merida (EN) -->
+  <url>
+    <loc>https://casaxuunan.com/blog-post.php?slug=valladolid-vs-merida-where-to-stay</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/blog-post.php?slug=valladolid-vs-merida-donde-hospedarse"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/blog-post.php?slug=valladolid-vs-merida-where-to-stay"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/blog-post.php?slug=valladolid-vs-merida-donde-hospedarse"/>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 5. Calzada de los Frailes (ES) -->
   <url>
     <loc>https://casaxuunan.com/blog-post.php?slug=calzada-de-los-frailes-guia-completa</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/blog-post.php?slug=calzada-de-los-frailes-guia-completa&amp;lang=es"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/blog-post.php?slug=calzada-de-los-frailes-complete-guide&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/blog-post.php?slug=calzada-de-los-frailes-guia-completa"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/blog-post.php?slug=calzada-de-los-frailes-complete-guide"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/blog-post.php?slug=calzada-de-los-frailes-guia-completa"/>
-    <lastmod>2026-03-28</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://casaxuunan.com/images/gallery/gallery-item-5.jpg</image:loc>
-      <image:caption>Calzada de los Frailes Valladolid guia completa que ver y hacer</image:caption>
-    </image:image>
   </url>
+  <!-- 5. Calzada de los Frailes (EN) -->
+  <url>
+    <loc>https://casaxuunan.com/blog-post.php?slug=calzada-de-los-frailes-complete-guide</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/blog-post.php?slug=calzada-de-los-frailes-guia-completa"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/blog-post.php?slug=calzada-de-los-frailes-complete-guide"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/blog-post.php?slug=calzada-de-los-frailes-guia-completa"/>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 6. Donde comer (ES) -->
   <url>
     <loc>https://casaxuunan.com/blog-post.php?slug=donde-comer-en-valladolid-yucatan</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/blog-post.php?slug=donde-comer-en-valladolid-yucatan&amp;lang=es"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/blog-post.php?slug=where-to-eat-in-valladolid-yucatan&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/blog-post.php?slug=donde-comer-en-valladolid-yucatan"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/blog-post.php?slug=where-to-eat-in-valladolid-yucatan"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/blog-post.php?slug=donde-comer-en-valladolid-yucatan"/>
-    <lastmod>2026-03-30</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://casaxuunan.com/images/gallery/gallery-item-6.jpg</image:loc>
-      <image:caption>Donde comer en Valladolid Yucatan restaurantes y comida tipica yucateca</image:caption>
-    </image:image>
   </url>
+  <!-- 6. Where to eat (EN) -->
+  <url>
+    <loc>https://casaxuunan.com/blog-post.php?slug=where-to-eat-in-valladolid-yucatan</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/blog-post.php?slug=donde-comer-en-valladolid-yucatan"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/blog-post.php?slug=where-to-eat-in-valladolid-yucatan"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/blog-post.php?slug=donde-comer-en-valladolid-yucatan"/>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 7. Cuantos dias (ES) -->
   <url>
     <loc>https://casaxuunan.com/blog-post.php?slug=cuantos-dias-en-valladolid-itinerario</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/blog-post.php?slug=cuantos-dias-en-valladolid-itinerario&amp;lang=es"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/blog-post.php?slug=how-many-days-in-valladolid-itinerary&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/blog-post.php?slug=cuantos-dias-en-valladolid-itinerario"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/blog-post.php?slug=how-many-days-in-valladolid-itinerary"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/blog-post.php?slug=cuantos-dias-en-valladolid-itinerario"/>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://casaxuunan.com/images/gallery/gallery-item-7.jpg</image:loc>
-      <image:caption>Cuantos dias en Valladolid itinerario de 1 3 y 5 dias perfecto</image:caption>
-    </image:image>
   </url>
+  <!-- 7. How many days (EN) -->
+  <url>
+    <loc>https://casaxuunan.com/blog-post.php?slug=how-many-days-in-valladolid-itinerary</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/blog-post.php?slug=cuantos-dias-en-valladolid-itinerario"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/blog-post.php?slug=how-many-days-in-valladolid-itinerary"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/blog-post.php?slug=cuantos-dias-en-valladolid-itinerario"/>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 8. Tren Maya (ES) -->
   <url>
     <loc>https://casaxuunan.com/blog-post.php?slug=tren-maya-valladolid-guia</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/blog-post.php?slug=tren-maya-valladolid-guia&amp;lang=es"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/blog-post.php?slug=tren-maya-valladolid-guide&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/blog-post.php?slug=tren-maya-valladolid-guia"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/blog-post.php?slug=tren-maya-valladolid-guide"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/blog-post.php?slug=tren-maya-valladolid-guia"/>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://casaxuunan.com/images/slider/1.jpg</image:loc>
-      <image:caption>Tren Maya estacion Valladolid rutas horarios y precios actualizados</image:caption>
-    </image:image>
   </url>
+  <!-- 8. Tren Maya (EN) -->
+  <url>
+    <loc>https://casaxuunan.com/blog-post.php?slug=tren-maya-valladolid-guide</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/blog-post.php?slug=tren-maya-valladolid-guia"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/blog-post.php?slug=tren-maya-valladolid-guide"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/blog-post.php?slug=tren-maya-valladolid-guia"/>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 9. Ek Balam (ES) -->
   <url>
     <loc>https://casaxuunan.com/blog-post.php?slug=ek-balam-desde-valladolid-guia</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/blog-post.php?slug=ek-balam-desde-valladolid-guia&amp;lang=es"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/blog-post.php?slug=ek-balam-from-valladolid-guide&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/blog-post.php?slug=ek-balam-desde-valladolid-guia"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/blog-post.php?slug=ek-balam-from-valladolid-guide"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/blog-post.php?slug=ek-balam-desde-valladolid-guia"/>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://casaxuunan.com/images/slider/2.jpg</image:loc>
-      <image:caption>Ek Balam desde Valladolid guia completa zona arqueologica y cenote Xcanche</image:caption>
-    </image:image>
   </url>
+  <!-- 9. Ek Balam (EN) -->
+  <url>
+    <loc>https://casaxuunan.com/blog-post.php?slug=ek-balam-from-valladolid-guide</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/blog-post.php?slug=ek-balam-desde-valladolid-guia"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/blog-post.php?slug=ek-balam-from-valladolid-guide"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/blog-post.php?slug=ek-balam-desde-valladolid-guia"/>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 10. Vale la pena (ES) -->
   <url>
     <loc>https://casaxuunan.com/blog-post.php?slug=vale-la-pena-visitar-valladolid</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/blog-post.php?slug=vale-la-pena-visitar-valladolid&amp;lang=es"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/blog-post.php?slug=is-valladolid-worth-visiting&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/blog-post.php?slug=vale-la-pena-visitar-valladolid"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/blog-post.php?slug=is-valladolid-worth-visiting"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/blog-post.php?slug=vale-la-pena-visitar-valladolid"/>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://casaxuunan.com/images/slider/3.jpg</image:loc>
-      <image:caption>Vale la pena visitar Valladolid Yucatan opinion honesta de un local</image:caption>
-    </image:image>
+  </url>
+  <!-- 10. Is Valladolid worth visiting (EN) -->
+  <url>
+    <loc>https://casaxuunan.com/blog-post.php?slug=is-valladolid-worth-visiting</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casaxuunan.com/blog-post.php?slug=vale-la-pena-visitar-valladolid"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casaxuunan.com/blog-post.php?slug=is-valladolid-worth-visiting"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casaxuunan.com/blog-post.php?slug=vale-la-pena-visitar-valladolid"/>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
 </urlset>
