@@ -221,6 +221,17 @@ body.hp-has-sections #wrapper {
     padding: 90px 0;
     text-align: center;
 }
+#hp-ecosistema .hp-pillar-card {
+    text-align: left;
+}
+#hp-ecosistema .hp-breakfast-card {
+    text-align: center;
+}
+#hp-ecosistema .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 .hp-quote-text {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
@@ -411,6 +422,20 @@ body.hp-has-sections #wrapper {
     background: #faf8f5;
     text-align: center;
 }
+.hp-filtro-columns {
+    margin: 0 auto;
+}
+.hp-filtro-bottom {
+    margin-left: auto;
+    margin-right: auto;
+}
+.hp-filtro-col-left {
+    text-align: center;
+    justify-content: center;
+}
+.hp-filtro-col-right p {
+    text-align: center;
+}
 .hp-filtro-content .hp-title {
     font-size: 34px;
     margin-bottom: 40px;
@@ -419,6 +444,8 @@ body.hp-has-sections #wrapper {
     display: flex;
     gap: 0;
     align-items: stretch;
+    margin: 0 auto;
+    justify-content: center;
 }
 .hp-filtro-col {
     flex: 1;
@@ -450,6 +477,7 @@ body.hp-has-sections #wrapper {
     margin: 0;
     color: #312b24;
     font-weight: 600;
+    text-align: center;
 }
 .hp-filtro-col-right .hp-highlight-green {
     color: #7baf89;

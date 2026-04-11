@@ -33,7 +33,7 @@
     <section id="hp-ecosistema" class="hp-section hp-section-warm">
         <div class="container">
             <div class="row">
-                <div class="col-lg-10 col-lg-offset-1">
+                <div class="col-lg-10" style="float:none;margin:0 auto;">
                     <div class="text-center">
                         <div class="wow fadeInUp" data-wow-delay="0.1s">
                             <h2 class="hp-title"><?php echo t('hp_eco_title'); ?></h2>
@@ -102,7 +102,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
+                    <div class="col-lg-8" style="float:none;margin:0 auto;">
                         <div class="hp-filtro-columns wow fadeInUp" data-wow-delay="0.2s">
                             <div class="hp-filtro-col hp-filtro-col-left">
                                 <p><?php echo t('hp_filtro_left'); ?></p>
