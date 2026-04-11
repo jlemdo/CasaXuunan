@@ -12,19 +12,19 @@ jQuery(function($){
     var slidesES = [
         {
             image: 'images/slider/1.jpg',
-            title: "<div class='slider-text'><h2 class='wow fadeInUp'>Relájate</h2><a class='btn-line wow fadeInUp' data-wow-delay='.3s' href='about.php'><span>Nuestras Instalaciones</span></a></div>",
+            title: "<div class='slider-text'><h2 class='wow fadeInUp'>Relájate</h2><p class='hp-slide-hook wow fadeInUp' data-wow-delay='.2s'>Tu escape del ruido comienza aquí</p><a class='btn-line wow fadeInUp' data-wow-delay='.4s' href='about.php'><span>Nuestras Instalaciones</span></a></div>",
             thumb: '',
             url: ''
         },
         {
             image: 'images/slider/2.jpg',
-            title: "<div class='slider-text'><h2 class='wow fadeInUp'>Confort</h2><a class='btn-line wow fadeInUp' data-wow-delay='.3s' href='rooms.php'><span>Elige Habitación</span></a></div>",
+            title: "<div class='slider-text'><h2 class='wow fadeInUp'>Confort</h2><p class='hp-slide-hook wow fadeInUp' data-wow-delay='.2s'>Sin lujos artificiales, sin frialdad corporativa</p><a class='btn-line wow fadeInUp' data-wow-delay='.4s' href='rooms.php'><span>Elige Habitación</span></a></div>",
             thumb: '',
             url: ''
         },
         {
             image: 'images/slider/3.jpg',
-            title: "<div class='slider-text'><h2 class='wow fadeInUp'>Paz</h2><a class='btn-line wow fadeInUp' data-wow-delay='.3s' href='about.php'><span>Nuestras Instalaciones</span></a></div>",
+            title: "<div class='slider-text'><h2 class='wow fadeInUp'>Paz</h2><p class='hp-slide-hook wow fadeInUp' data-wow-delay='.2s'>Donde el tiempo se detiene para ti</p><a class='btn-line wow fadeInUp' data-wow-delay='.4s' href='about.php'><span>Nuestras Instalaciones</span></a></div>",
             thumb: '',
             url: ''
         }
@@ -34,19 +34,19 @@ jQuery(function($){
     var slidesEN = [
         {
             image: 'images/slider/1.jpg',
-            title: "<div class='slider-text'><h2 class='wow fadeInUp'>Relax</h2><a class='btn-line wow fadeInUp' data-wow-delay='.3s' href='about.php'><span>Our Facilities</span></a></div>",
+            title: "<div class='slider-text'><h2 class='wow fadeInUp'>Relax</h2><p class='hp-slide-hook wow fadeInUp' data-wow-delay='.2s'>Your escape from the noise starts here</p><a class='btn-line wow fadeInUp' data-wow-delay='.4s' href='about.php'><span>Our Facilities</span></a></div>",
             thumb: '',
             url: ''
         },
         {
             image: 'images/slider/2.jpg',
-            title: "<div class='slider-text'><h2 class='wow fadeInUp'>Comfort</h2><a class='btn-line wow fadeInUp' data-wow-delay='.3s' href='rooms.php'><span>Choose Room</span></a></div>",
+            title: "<div class='slider-text'><h2 class='wow fadeInUp'>Comfort</h2><p class='hp-slide-hook wow fadeInUp' data-wow-delay='.2s'>No artificial luxury, no corporate coldness</p><a class='btn-line wow fadeInUp' data-wow-delay='.4s' href='rooms.php'><span>Choose Room</span></a></div>",
             thumb: '',
             url: ''
         },
         {
             image: 'images/slider/3.jpg',
-            title: "<div class='slider-text'><h2 class='wow fadeInUp'>Peace</h2><a class='btn-line wow fadeInUp' data-wow-delay='.3s' href='about.php'><span>Our Facilities</span></a></div>",
+            title: "<div class='slider-text'><h2 class='wow fadeInUp'>Peace</h2><p class='hp-slide-hook wow fadeInUp' data-wow-delay='.2s'>Where time stands still for you</p><a class='btn-line wow fadeInUp' data-wow-delay='.4s' href='about.php'><span>Our Facilities</span></a></div>",
             thumb: '',
             url: ''
         }

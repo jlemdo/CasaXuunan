@@ -3,86 +3,106 @@
    "El Lujo de lo Auténtico"
    ============================================ */
 
-/* --- Scroll Indicator (fixed, floats over hero without touching slider DOM) --- */
-.hp-scroll-indicator {
+/* --- Floating Scroll Button (bottom-right, toggles direction) --- */
+.hp-scroll-btn {
     position: fixed;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 50;
-    text-align: center;
+    bottom: 20px;
+    right: 20px;
+    z-index: 998;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(123, 175, 137, 0.9);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    opacity: 0.7;
-    transition: opacity 0.3s ease;
+    transition: all 0.3s ease;
 }
-.hp-scroll-indicator:hover {
-    opacity: 1;
+.hp-scroll-btn:hover {
+    background: #7baf89;
+    box-shadow: 0 4px 20px rgba(123, 175, 137, 0.4);
+    transform: translateY(-2px);
 }
-.hp-scroll-indicator span {
-    display: block;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.7);
-    margin-bottom: 8px;
+.hp-scroll-btn i {
+    color: #fff;
+    font-size: 24px;
+    line-height: 1;
 }
-.hp-scroll-indicator i {
-    display: block;
-    color: rgba(255,255,255,0.8);
-    font-size: 20px;
-    animation: scrollBounce 2s ease-in-out infinite;
+.hp-scroll-btn-bounce {
+    animation: scrollBtnBounce 2.5s ease-in-out infinite;
 }
-@keyframes scrollBounce {
+@keyframes scrollBtnBounce {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(8px); }
+    50% { transform: translateY(6px); }
+}
+.hp-scroll-btn-bounce:hover {
+    animation: none;
+}
+
+/* Reviews button: slower, softer bounce (different rhythm) */
+body.hp-has-sections .reviews-scroll-btn-wrapper .reviews-scroll-btn {
+    animation: reviewsBounce 3s ease-in-out infinite;
+}
+@keyframes reviewsBounce {
+    0%, 100% { transform: translateY(0); }
+    60% { transform: translateY(-5px); }
+}
+
+/* Slider hook subtexts */
+.hp-slide-hook {
+    font-family: 'Heebo', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.75);
+    letter-spacing: 1px;
+    margin: 10px auto 25px;
+    text-transform: none;
+}
+@media (max-width: 768px) {
+    .hp-slide-hook {
+        font-size: 13px;
+        margin: 6px auto 18px;
+        padding: 0 15px;
+    }
 }
 
 /* --- Hero element adjustments ---
-   With scrollable sections below, hero elements need more breathing room.
-   Shift slider text, search bar, and reviews button up by 20px. */
+   Bajar search bar y reviews (quitamos discover more, más espacio) */
 body.hp-has-sections #slidecaption {
-    padding-bottom: 310px !important;
+    padding-bottom: 270px !important;
 }
 body.hp-has-sections .home-search-wrapper {
-    margin-bottom: 222px !important;
+    margin-bottom: 182px !important;
 }
 body.hp-has-sections .reviews-scroll-btn-wrapper {
-    bottom: 160px;
+    bottom: 120px;
 }
 @media (max-width: 992px) {
     body.hp-has-sections #slidecaption {
-        padding-bottom: 305px !important;
+        padding-bottom: 315px !important;
     }
     body.hp-has-sections .home-search-wrapper {
-        margin-bottom: 155px !important;
+        margin-bottom: 75px !important;
     }
     body.hp-has-sections .reviews-scroll-btn-wrapper {
-        bottom: 90px;
+        bottom: 15px;
     }
 }
 @media (min-width: 768px) and (max-width: 992px) {
     body.hp-has-sections #slidecaption {
-        padding-bottom: 330px !important;
+        padding-bottom: 290px !important;
     }
 }
 
-/* --- Hero spacer ---
-   #content has no height in flow (all children are fixed/absolute).
-   This spacer creates the 100vh space so the hero is visible
-   before the sections begin. */
+/* --- Hero spacer --- */
 .hp-hero-spacer {
     height: 100vh;
     pointer-events: none;
 }
 
-/* --- Override #wrapper overflow ONLY on index ---
-   #wrapper is overflow:hidden globally (style.css line 129).
-   Debug shows #wrapper h=0 with overflow:hidden clips ALL section content.
-   We MUST override to visible so spacer + sections are visible and scrollable.
-
-   body/html backgrounds (grey/dark) paint OVER the slider (z-index:-999).
-   Making them transparent lets the fixed slider show through the hero area. */
+/* --- Override #wrapper overflow & body backgrounds for index --- */
 body.hp-has-sections,
 body.hp-has-sections html {
     background: transparent !important;
@@ -280,6 +300,7 @@ body.hp-has-sections #wrapper {
     margin: 40px 0 30px;
     position: relative;
     box-shadow: 0 8px 30px rgba(237, 221, 152, 0.15);
+    text-align: center;
 }
 .hp-breakfast-card p {
     font-family: 'Heebo', sans-serif;
@@ -474,9 +495,7 @@ body.hp-has-sections #wrapper {
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 20px;
     padding: 30px 25px;
-    margin-bottom: 20px;
     transition: all 0.3s ease;
-    height: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -518,6 +537,13 @@ body.hp-has-sections #wrapper {
     border: 1px solid rgba(245, 240, 235, 0.15);
     padding: 3px 10px;
     border-radius: 10px;
+}
+
+/* Review Cards column spacing */
+#hp-social-proof .row > [class*="col-"] {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 20px;
 }
 
 /* Counter */
@@ -631,7 +657,7 @@ body.hp-has-sections #wrapper {
 
 /* --- Section 6: CTA Final --- */
 #hp-final-cta {
-    padding: 100px 0;
+    padding: 100px 0 60px;
     position: relative;
     background: #1a1714;
     text-align: center;
@@ -732,36 +758,93 @@ body.hp-has-sections #wrapper {
     margin-right: 6px;
 }
 
-/* --- Back-to-top button redesign ---
-   Same size as WhatsApp (50px), same bottom, mirrored sides */
-body.hp-has-sections #back-to-top {
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    border-radius: 50%;
-    background: rgba(123, 175, 137, 0.85);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-    right: 20px;
-    bottom: 20px;
-    transition: all 0.3s ease;
+/* --- Inline Footer (copyright + social inside CTA section) --- */
+.hp-footer-info {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
-body.hp-has-sections #back-to-top:hover {
-    background: #7baf89;
-    box-shadow: 0 4px 12px rgba(123, 175, 137, 0.3);
+.hp-footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 12px;
 }
-body.hp-has-sections #back-to-top:before {
-    font-size: 20px;
-    margin: 0;
+.hp-footer-social a {
+    color: rgba(245, 240, 235, 0.4);
+    font-size: 18px;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+.hp-footer-social a:hover {
+    color: #e2bad4;
+}
+.hp-footer-copy {
+    font-family: 'Heebo', sans-serif;
+    font-size: 12px;
+    color: rgba(245, 240, 235, 0.3);
+    letter-spacing: 0.5px;
 }
 
-/* --- Review Cards column spacing fix --- */
-#hp-social-proof .row > [class*="col-"] {
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-bottom: 20px;
+/* --- Hide old back-to-top (replaced by scroll button) --- */
+body.hp-has-sections #back-to-top {
+    display: none !important;
 }
-.hp-review-card {
-    height: auto;
+
+/* --- Mobile Header: 2 levels instead of 3 --- */
+@media (max-width: 992px) {
+    /* Row 2: hamburger + lang + book in ONE horizontal line */
+    body.hp-has-sections .de-flex-col-mobile {
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        width: auto !important;
+    }
+
+    /* Hamburger: inline, left side */
+    body.hp-has-sections header .de-flex-mobile-vertical #menu-btn {
+        order: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* Buttons container: inline */
+    body.hp-has-sections .de-flex-col-mobile .d-extra {
+        order: 1 !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+    }
+
+    /* Compact book button for 2-level layout */
+    body.hp-has-sections .btn-mobile-reservas {
+        padding: 8px 22px !important;
+        font-size: 12px !important;
+        text-align: center !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        letter-spacing: 1.5px !important;
+    }
+
+    /* Lang switcher: flag style, compact */
+    body.hp-has-sections .lang-switcher {
+        padding: 6px 12px !important;
+        font-size: 12px !important;
+        min-width: auto !important;
+        gap: 0 !important;
+    }
+    body.hp-has-sections .lang-switcher::before {
+        content: none !important;
+    }
+    body.hp-has-sections .lang-switcher::after {
+        display: none !important;
+    }
+}
+
+/* --- Language Switcher: with flag emoji (set by JS) --- */
+body.hp-has-sections .lang-switcher::before {
+    content: none !important;
 }
 
 /* ============================================
@@ -878,7 +961,7 @@ body.hp-has-sections #back-to-top:before {
 
     /* Final CTA */
     #hp-final-cta {
-        padding: 70px 0;
+        padding: 70px 0 50px;
     }
     #hp-final-cta .hp-title {
         font-size: 26px;
@@ -893,11 +976,6 @@ body.hp-has-sections #back-to-top:before {
     }
     .hp-trust-item {
         font-size: 11px;
-    }
-
-    /* Scroll indicator */
-    .hp-scroll-indicator {
-        bottom: 20px;
     }
 }
 

@@ -1,187 +1,196 @@
 /**
  * Homepage Conversion Sections - Casa Xu'unan
- * Scroll effects, animated counters, and interactions
+ * Professional scroll snap, hero fade, counter, CTA routing
  */
 (function() {
     'use strict';
 
-    // --- Fade & snap: when user scrolls down from hero, smooth-snap to first section ---
-    var heroElements = [
-        '.float-text',
-        '#slidecaption',
-        '.reviews-scroll-btn-wrapper',
-        '.home-search-section',
-        '#controls-wrapper',
-        '#progress-back',
-        '#prevslide',
-        '#nextslide',
-        '.hp-scroll-indicator',
-        'header'
+    // ---- STATE ----
+    var inSections = false;   // true = user is in sections area
+    var isAnimating = false;  // lock during scroll animations
+    var LOCK_MS = 900;        // animation lock duration
+
+    // ---- ELEMENTS ----
+    var heroEls = [
+        '.float-text', '#slidecaption', '.reviews-scroll-btn-wrapper',
+        '.home-search-section', '#controls-wrapper', '#progress-back',
+        '#prevslide', '#nextslide', 'header'
     ];
 
-    var heroFaded = false;
-    var isSnapping = false;
-    var snapTimeout = null;
-    var ctaScrolling = false; // flag: user clicked a CTA to go back to hero
+    var scrollBtn = null; // the floating scroll button
 
-    function fadeHero(out) {
-        heroElements.forEach(function(sel) {
+    // ---- HERO SHOW/HIDE ----
+    function setHeroVisible(show) {
+        heroEls.forEach(function(sel) {
             var el = document.querySelector(sel);
-            if (el) {
-                if (out) {
+            if (!el) return;
+            if (show) {
+                el.style.display = '';
+                requestAnimationFrame(function() {
                     el.style.transition = 'opacity 0.5s ease';
-                    el.style.opacity = '0';
-                    setTimeout(function() {
-                        if (heroFaded) {
-                            el.style.display = 'none';
-                        }
-                    }, 500);
-                } else {
-                    el.style.display = '';
-                    // Small delay so display takes effect before fade in
-                    setTimeout(function() {
-                        el.style.transition = 'opacity 0.5s ease';
-                        el.style.opacity = '';
-                    }, 20);
-                }
+                    el.style.opacity = '';
+                });
+            } else {
+                el.style.transition = 'opacity 0.4s ease';
+                el.style.opacity = '0';
+                setTimeout(function() {
+                    if (inSections) el.style.display = 'none';
+                }, 450);
             }
         });
     }
 
-    function snapToHero() {
-        if (isSnapping) return;
-        isSnapping = true;
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        fadeHero(false);
-        heroFaded = false;
-        clearTimeout(snapTimeout);
-        snapTimeout = setTimeout(function() { isSnapping = false; }, 1200);
+    // ---- SCROLL BUTTON (arrow down when in hero, arrow up when in sections) ----
+    function updateScrollBtn() {
+        if (!scrollBtn) return;
+        var icon = scrollBtn.querySelector('i');
+        if (!icon) return;
+        if (inSections) {
+            icon.className = 'fa fa-angle-up';
+            scrollBtn.classList.remove('hp-scroll-btn-bounce');
+        } else {
+            icon.className = 'fa fa-angle-down';
+            scrollBtn.classList.add('hp-scroll-btn-bounce');
+        }
     }
 
-    function snapToSections() {
-        if (isSnapping) return;
-        isSnapping = true;
+    // ---- NAVIGATE ----
+    function goToSections() {
+        if (isAnimating || inSections) return;
+        isAnimating = true;
+        inSections = true;
+        setHeroVisible(false);
+        updateScrollBtn();
         var target = document.getElementById('hp-lujo');
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
-        }
-        clearTimeout(snapTimeout);
-        snapTimeout = setTimeout(function() { isSnapping = false; }, 1200);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(function() { isAnimating = false; }, LOCK_MS);
     }
 
-    // CTA scroll: go to hero and show everything (no re-snap down)
-    function ctaGoToHero() {
-        ctaScrolling = true;
-        heroFaded = false;
-        isSnapping = true;
-        fadeHero(false);
+    function goToHero() {
+        if (isAnimating || !inSections) return;
+        isAnimating = true;
+        inSections = false;
+        setHeroVisible(true);
+        updateScrollBtn();
         window.scrollTo({ top: 0, behavior: 'smooth' });
-        clearTimeout(snapTimeout);
-        snapTimeout = setTimeout(function() {
-            isSnapping = false;
-            ctaScrolling = false;
-        }, 1500);
+        setTimeout(function() { isAnimating = false; }, LOCK_MS);
     }
 
-    function handleHeroScroll() {
-        // Don't interfere when CTA is scrolling user back to hero
-        if (ctaScrolling) return;
+    // ---- SCROLL DETECTION ----
+    var lastScrollY = 0;
+    var scrollTick = false;
 
-        var scrollY = window.pageYOffset || document.documentElement.scrollTop;
-        var vh = window.innerHeight;
-        var downThreshold = vh * 0.08;
-        var upSnapZone = vh * 0.5;
+    function onScroll() {
+        if (scrollTick) return;
+        scrollTick = true;
+        requestAnimationFrame(function() {
+            scrollTick = false;
+            if (isAnimating) return;
 
-        // Scrolling DOWN past hero threshold
-        if (scrollY > downThreshold && !heroFaded) {
-            heroFaded = true;
-            fadeHero(true);
-            snapToSections();
-        }
-        // Scrolling UP into snap zone — snap back to hero top
-        else if (scrollY > 0 && scrollY < upSnapZone && heroFaded && !isSnapping) {
-            snapToHero();
-        }
-        // Already at top
-        else if (scrollY <= 0 && heroFaded) {
-            heroFaded = false;
-            fadeHero(false);
-        }
+            var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+            var vh = window.innerHeight;
+
+            // In hero zone, user scrolls down → snap to sections
+            if (!inSections && scrollY > vh * 0.08) {
+                goToSections();
+            }
+            // In sections, user scrolls up near hero → snap back
+            else if (inSections && scrollY < vh * 0.5 && scrollY < lastScrollY) {
+                goToHero();
+            }
+            // Edge: somehow at top but state says inSections
+            else if (inSections && scrollY === 0) {
+                inSections = false;
+                setHeroVisible(true);
+                updateScrollBtn();
+            }
+
+            lastScrollY = scrollY;
+        });
     }
 
-    window.addEventListener('scroll', handleHeroScroll, { passive: true });
+    window.addEventListener('scroll', onScroll, { passive: true });
 
-    // --- Smooth scroll for scroll indicator ---
+    // ---- SCROLL BUTTON CLICK ----
     document.addEventListener('click', function(e) {
-        var indicator = e.target.closest('.hp-scroll-indicator');
-        if (indicator) {
-            e.preventDefault();
-            snapToSections();
-            fadeHero(true);
-            heroFaded = true;
+        var btn = e.target.closest('#hp-scroll-btn');
+        if (!btn) return;
+        e.preventDefault();
+        if (inSections) {
+            goToHero();
+        } else {
+            goToSections();
         }
     });
 
-    // --- ALL CTA buttons inside homepage sections scroll to hero search bar ---
+    // ---- HEADER "BOOK NOW" BUTTON → search.php ----
     document.addEventListener('click', function(e) {
-        var btn = e.target.closest('.hp-cta-btn, .hp-cta-glow, .hp-cta-btn-outline');
-        // Skip the "Ver Todas las Reseñas" button (has its own handler)
-        if (btn && btn.id === 'hp-see-all-reviews') return;
-        // Only intercept buttons inside the homepage sections
+        var btn = e.target.closest('.btn-main.btn-mobile-reservas, .btn-main.btn-reservas');
+        if (btn && btn.closest('header')) {
+            e.preventDefault();
+            window.location.href = '/search.php';
+        }
+    });
+
+    // ---- CTA BUTTONS inside sections → search.php ----
+    document.addEventListener('click', function(e) {
+        var btn = e.target.closest('.hp-cta-btn, .hp-cta-glow');
         if (btn && btn.closest('.hp-sections-wrapper')) {
-            e.preventDefault();
-            ctaGoToHero();
+            // Let normal href="/search.php" work — don't prevent
+            return;
         }
     });
 
-    // --- Animated counter on scroll into view ---
+    // ---- "Ver Todas" button triggers existing reviews overlay ----
+    document.addEventListener('click', function(e) {
+        var btn = e.target.closest('#hp-see-all-reviews');
+        if (btn) {
+            e.preventDefault();
+            var reviewsBtn = document.getElementById('open-reviews-overlay');
+            if (reviewsBtn) reviewsBtn.click();
+        }
+    });
+
+    // ---- ANIMATED COUNTER ----
     function animateCounter(el) {
         var target = parseInt(el.getAttribute('data-count'), 10);
         if (isNaN(target)) return;
-
         var duration = 2000;
         var startTime = null;
-        var startVal = 0;
-
-        function step(timestamp) {
-            if (!startTime) startTime = timestamp;
-            var progress = Math.min((timestamp - startTime) / duration, 1);
-            var eased = 1 - Math.pow(1 - progress, 3);
-            var current = Math.floor(startVal + (target - startVal) * eased);
-            el.textContent = current + '+';
-            if (progress < 1) {
-                requestAnimationFrame(step);
-            } else {
-                el.textContent = target + '+';
-            }
+        function step(ts) {
+            if (!startTime) startTime = ts;
+            var p = Math.min((ts - startTime) / duration, 1);
+            var eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.floor(target * eased) + '+';
+            if (p < 1) requestAnimationFrame(step);
+            else el.textContent = target + '+';
         }
-
         requestAnimationFrame(step);
     }
 
     var counterEl = document.querySelector('.hp-counter-number[data-count]');
     if (counterEl && 'IntersectionObserver' in window) {
-        var counterObserver = new IntersectionObserver(function(entries) {
+        var obs = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
                     animateCounter(entry.target);
-                    counterObserver.unobserve(entry.target);
+                    obs.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.5 });
-        counterObserver.observe(counterEl);
+        obs.observe(counterEl);
     }
 
-    // --- "Ver Todas" button triggers existing reviews overlay ---
-    document.addEventListener('click', function(e) {
-        var seeAllBtn = e.target.closest('#hp-see-all-reviews');
-        if (seeAllBtn) {
-            e.preventDefault();
-            var reviewsBtn = document.getElementById('open-reviews-overlay');
-            if (reviewsBtn) {
-                reviewsBtn.click();
-            }
-        }
+    // ---- LANG SWITCHER: replace text with flags ----
+    var langBtns = document.querySelectorAll('.lang-switcher');
+    langBtns.forEach(function(btn) {
+        var text = btn.textContent.trim();
+        if (text === 'EN') btn.textContent = '🇺🇸 EN';
+        else if (text === 'ES') btn.textContent = '🇲🇽 ES';
     });
+
+    // ---- INIT: set scroll button ref ----
+    scrollBtn = document.getElementById('hp-scroll-btn');
+    updateScrollBtn();
 
 })();
