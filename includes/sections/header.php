@@ -269,20 +269,79 @@ if (isset($_seo_blog_post_found)) {
     <?php endif; ?>
 
     <!-- Schema.org Structured Data para Bed and Breakfast -->
+    <!-- Organization Schema (top-level, enables Knowledge Panel) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://casaxuunan.com/#organization",
+      "name": "Casa Xu'unan",
+      "alternateName": "Casa Xuunan B&B",
+      "url": "https://casaxuunan.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://casaxuunan.com/images/logo/blanco.png",
+        "width": 300,
+        "height": 60
+      },
+      "image": "https://casaxuunan.com/images/gallery/gallery-item-3.jpg",
+      "telephone": "+52-985-258-0599",
+      "email": "reservas@casaxuunan.com",
+      "sameAs": [
+        "https://www.facebook.com/people/Casa-Xuunan/61578964945156/",
+        "https://www.instagram.com/casa_xuunan/"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+52-985-258-0599",
+        "contactType": "reservations",
+        "availableLanguage": ["Spanish", "English"],
+        "areaServed": "MX"
+      }
+    }
+    </script>
+
+    <!-- WebSite Schema (enables Sitelinks Search Box in Google) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://casaxuunan.com/#website",
+      "name": "Casa Xu'unan - B&B Familiar Valladolid",
+      "url": "https://casaxuunan.com",
+      "inLanguage": ["es", "en"],
+      "publisher": { "@id": "https://casaxuunan.com/#organization" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://casaxuunan.com/search.php?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <!-- BedAndBreakfast Schema (enhanced with reviews, amenities, offers) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "BedAndBreakfast",
+      "@id": "https://casaxuunan.com/#hotel",
       "name": "Casa Xu'unan",
+      "alternateName": "Casa Xuunan Bed and Breakfast",
       "image": [
         "https://casaxuunan.com/images/gallery/gallery-item-1.jpg",
         "https://casaxuunan.com/images/gallery/gallery-item-2.jpg",
-        "https://casaxuunan.com/images/gallery/gallery-item-3.jpg"
+        "https://casaxuunan.com/images/gallery/gallery-item-3.jpg",
+        "https://casaxuunan.com/images/gallery/gallery-item-4.jpg",
+        "https://casaxuunan.com/images/gallery/gallery-item-5.jpg",
+        "https://casaxuunan.com/images/slider/1.jpg",
+        "https://casaxuunan.com/images/slider/2.jpg",
+        "https://casaxuunan.com/images/slider/3.jpg"
       ],
-      "description": "Bed and Breakfast familiar en el corazón de Valladolid, Yucatán. 9 habitaciones limpias y cómodas con ambiente hogareño, desayuno incluido.",
+      "description": "B&B familiar en el barrio de Sisal, Valladolid, Yucatán. 9 habitaciones con desayuno regional casero incluido, piscina, jardín tropical y Starlink WiFi. A 40 min de Chichén Itzá. Atención personalizada de Doña Susi.",
+      "slogan": "El Lujo de lo Auténtico",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Valladolid Centro",
+        "streetAddress": "Calle 49, Barrio de Sisal, frente al Convento de San Bernardino de Siena",
         "addressLocality": "Valladolid",
         "addressRegion": "Yucatán",
         "postalCode": "97780",
@@ -297,45 +356,116 @@ if (isset($_seo_blog_post_found)) {
       "telephone": "+52-985-258-0599",
       "priceRange": "$$",
       "amenityFeature": [
-        {
-          "@type": "LocationFeatureSpecification",
-          "name": "Desayuno incluido",
-          "value": true
-        },
-        {
-          "@type": "LocationFeatureSpecification",
-          "name": "WiFi gratuito",
-          "value": true
-        },
-        {
-          "@type": "LocationFeatureSpecification",
-          "name": "Ambiente familiar",
-          "value": true
-        }
+        { "@type": "LocationFeatureSpecification", "name": "Desayuno regional casero incluido", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Starlink WiFi", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Piscina al aire libre", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Jardín tropical", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Estacionamiento privado gratuito", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Aire acondicionado", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Hamacas", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Atención personalizada", "value": true }
       ],
       "numberOfRooms": 9,
+      "petsAllowed": false,
       "starRating": {
         "@type": "Rating",
-        "ratingValue": "4.8"
+        "ratingValue": "4.8",
+        "bestRating": "5"
       },
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.8",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "50",
         "reviewCount": "50"
       },
-      "servesCuisine": "Desayuno mexicano tradicional",
-      "acceptsReservations": "https://casaxuunan.com/rooms.php",
+      "review": [
+        {
+          "@type": "Review",
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "author": { "@type": "Person", "name": "María" },
+          "reviewBody": "El desayuno fue increíble, cada mañana algo diferente. El jardín tropical es un sueño. Sin duda el mejor lugar para hospedarse en Valladolid.",
+          "datePublished": "2026-02-15"
+        },
+        {
+          "@type": "Review",
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "author": { "@type": "Person", "name": "Johnson Family" },
+          "reviewBody": "Doña Susi nos recibió como si fuéramos familia. Nos recomendó cenotes que no aparecen en ninguna guía. Una experiencia que no encontrarás en ningún hotel.",
+          "datePublished": "2026-01-20"
+        },
+        {
+          "@type": "Review",
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "author": { "@type": "Person", "name": "Sophie" },
+          "reviewBody": "La ubicación es perfecta: a pasos de la Calzada de los Frailes y a minutos de los cenotes. Exactamente lo que buscaba: autenticidad sin sacrificar comodidad.",
+          "datePublished": "2025-12-10"
+        }
+      ],
+      "servesCuisine": ["Desayuno mexicano tradicional", "Cocina yucateca"],
+      "acceptsReservations": "https://casaxuunan.com/search.php",
       "checkinTime": "15:00",
       "checkoutTime": "11:00",
+      "availableLanguage": ["Spanish", "English"],
       "sameAs": [
         "https://www.facebook.com/people/Casa-Xuunan/61578964945156/",
         "https://www.instagram.com/casa_xuunan/"
       ],
       "hasMap": "https://maps.google.com/?q=20.6896,-88.2019",
       "paymentAccepted": "Cash, Credit Card, Debit Card",
-      "currenciesAccepted": "MXN, USD"
+      "currenciesAccepted": "MXN, USD",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "07:00",
+        "closes": "22:00"
+      },
+      "tourBookingPage": "https://casaxuunan.com/tours.php",
+      "containsPlace": {
+        "@type": "TouristAttraction",
+        "name": "Jardín Xu'unan - Experiencia Botánica",
+        "description": "Jardín tropical con más de 100 plantas nativas yucatecas, sistema interactivo con códigos QR"
+      }
     }
     </script>
+
+    <?php if ($_seo_current_page === 'index'): ?>
+    <!-- FAQPage Schema - Home (enables FAQ rich results on main search result) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "<?php echo t('faq_about_q1'); ?>",
+          "acceptedAnswer": { "@type": "Answer", "text": "<?php echo t('faq_about_a1'); ?>" }
+        },
+        {
+          "@type": "Question",
+          "name": "<?php echo t('faq_about_q2'); ?>",
+          "acceptedAnswer": { "@type": "Answer", "text": "<?php echo t('faq_about_a2'); ?>" }
+        },
+        {
+          "@type": "Question",
+          "name": "<?php echo t('faq_about_q3'); ?>",
+          "acceptedAnswer": { "@type": "Answer", "text": "<?php echo t('faq_about_a3'); ?>" }
+        },
+        {
+          "@type": "Question",
+          "name": "<?php echo t('faq_rooms_q1'); ?>",
+          "acceptedAnswer": { "@type": "Answer", "text": "<?php echo t('faq_rooms_a1'); ?>" }
+        },
+        {
+          "@type": "Question",
+          "name": "<?php echo t('faq_rooms_q2'); ?>",
+          "acceptedAnswer": { "@type": "Answer", "text": "<?php echo t('faq_rooms_a2'); ?>" }
+        }
+      ]
+    }
+    </script>
+    <?php endif; ?>
 
     <?php if ($_seo_current_page !== 'index'): ?>
     <!-- BreadcrumbList Schema -->
