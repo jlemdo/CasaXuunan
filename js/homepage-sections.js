@@ -123,21 +123,21 @@
         }
     });
 
-    // ---- HEADER "BOOK NOW" BUTTON → search.php ----
+    // ---- HEADER "BOOK NOW" BUTTON → scroll to hero search bar ----
     document.addEventListener('click', function(e) {
         var btn = e.target.closest('.btn-main.btn-mobile-reservas, .btn-main.btn-reservas');
         if (btn && btn.closest('header')) {
             e.preventDefault();
-            window.location.href = '/search.php';
+            goToHero();
         }
     });
 
-    // ---- CTA BUTTONS inside sections → search.php ----
+    // ---- CTA BUTTONS inside sections → scroll to hero search bar ----
     document.addEventListener('click', function(e) {
-        var btn = e.target.closest('.hp-cta-btn, .hp-cta-glow');
-        if (btn && btn.closest('.hp-sections-wrapper')) {
-            // Let normal href="/search.php" work — don't prevent
-            return;
+        var btn = e.target.closest('.hp-scroll-to-hero');
+        if (btn) {
+            e.preventDefault();
+            goToHero();
         }
     });
 
@@ -181,13 +181,38 @@
         obs.observe(counterEl);
     }
 
-    // ---- LANG SWITCHER: replace text with flags ----
-    var langBtns = document.querySelectorAll('.lang-switcher');
-    langBtns.forEach(function(btn) {
-        var text = btn.textContent.trim();
-        if (text === 'EN') btn.textContent = '🇺🇸 EN';
-        else if (text === 'ES') btn.textContent = '🇲🇽 ES';
-    });
+    // ---- SLIDE HOOK SYNC: show matching hook text for active slide ----
+    var hookContainer = document.getElementById('hp-slide-hook-fixed');
+    if (hookContainer) {
+        var lang = window.PHP_LANG || 'es';
+        var allHooks = hookContainer.querySelectorAll('span');
+        var lastSlide = -1;
+
+        function updateHook() {
+            // Supersized uses .activeslide class on the active li
+            var slides = document.querySelectorAll('#supersized li');
+            var activeIdx = 0;
+            for (var i = 0; i < slides.length; i++) {
+                if (slides[i].classList.contains('activeslide')) {
+                    activeIdx = i;
+                    break;
+                }
+            }
+            if (activeIdx === lastSlide) return;
+            lastSlide = activeIdx;
+
+            allHooks.forEach(function(s) { s.classList.remove('active'); });
+            var target = hookContainer.querySelector('span[data-lang="'+lang+'"][data-slide="'+activeIdx+'"]');
+            if (target) target.classList.add('active');
+        }
+
+        // Poll for slide changes (Supersized doesn't emit events)
+        setInterval(updateHook, 500);
+        updateHook();
+
+        // Add to heroEls so it hides on scroll
+        heroEls.push('#hp-slide-hook-fixed');
+    }
 
     // ---- INIT: set scroll button ref ----
     scrollBtn = document.getElementById('hp-scroll-btn');

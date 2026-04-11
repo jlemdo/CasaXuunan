@@ -5,6 +5,15 @@
     window.PHP_LANG = '<?php echo getCurrentLanguage(); ?>';
 </script>
 
+<!-- Lang switcher: replace text with flags (all pages) -->
+<script>
+document.querySelectorAll('.lang-switcher').forEach(function(b){
+    var t=b.textContent.trim();
+    if(t==='EN')b.textContent='\uD83C\uDDFA\uD83C\uDDF8 EN';
+    else if(t==='ES')b.textContent='\uD83C\uDDF2\uD83C\uDDFD ES';
+});
+</script>
+
 <!-- JS aquí -->
 <!-- Archivos Javascript Comunes -->
 <script src="<?php echo BASE_URL; ?>/js/plugins.js"></script>

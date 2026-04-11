@@ -85,7 +85,7 @@
                     <!-- Anchor Text -->
                     <div class="text-center wow fadeInUp" data-wow-delay="0.5s">
                         <p class="hp-anchor-text"><?php echo t('hp_eco_anchor'); ?></p>
-                        <a href="/search.php" class="hp-cta-btn"><?php echo t('hp_eco_cta'); ?></a>
+                        <a href="#" class="hp-cta-btn hp-scroll-to-hero"><?php echo t('hp_eco_cta'); ?></a>
                     </div>
                 </div>
             </div>
@@ -168,7 +168,7 @@
             <!-- CTAs -->
             <div class="hp-social-ctas wow fadeInUp" data-wow-delay="0.4s">
                 <a href="#" id="hp-see-all-reviews" class="hp-cta-btn-outline"><?php echo t('hp_social_see_all'); ?></a>
-                <a href="/search.php" class="hp-cta-btn"><?php echo t('hp_social_cta'); ?></a>
+                <a href="#" class="hp-cta-btn hp-scroll-to-hero"><?php echo t('hp_social_cta'); ?></a>
             </div>
         </div>
     </section>
@@ -238,7 +238,7 @@
                 <p class="hp-text"><?php echo t('hp_final_subtext'); ?></p>
             </div>
             <div class="wow fadeInUp" data-wow-delay="0.3s">
-                <a href="/search.php" class="hp-cta-glow"><?php echo t('hp_final_cta'); ?></a>
+                <a href="#" class="hp-cta-glow hp-scroll-to-hero"><?php echo t('hp_final_cta'); ?></a>
             </div>
             <div class="hp-trust-row wow fadeInUp" data-wow-delay="0.4s">
                 <div class="hp-trust-item"><i class="fa fa-check-circle"></i> <?php echo t('hp_final_trust1'); ?></div>

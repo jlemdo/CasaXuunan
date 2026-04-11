@@ -8,6 +8,7 @@
                 <div class="col-md-12 text-center">
                     <h4><?php echo t('search_subtitle'); ?></h4>
                     <h1><?php echo t('search_title'); ?></h1>
+                    <p class="search-hero-hook"><?php echo t('search_hook'); ?></p>
                 </div>
             </div>
         </div>
@@ -34,6 +35,14 @@
                                 <i class="fa fa-star"></i>
                                 <span><?php echo t('search_trust_rating'); ?></span>
                             </div>
+                            <div class="trust-item">
+                                <i class="fa fa-wifi"></i>
+                                <span><?php echo t('search_trust_wifi'); ?></span>
+                            </div>
+                            <div class="trust-item">
+                                <i class="fa fa-home"></i>
+                                <span><?php echo t('search_trust_rooms'); ?></span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -43,6 +52,19 @@
         <!-- Hospitable Search Widget (full-width, no container restriction) -->
         <div class="search-widget-fullwidth">
             <hospitable-direct-mps identifier="acfc5534-2d3d-4f1e-88a0-74360d86804f" type="custom"></hospitable-direct-mps>
+        </div>
+
+        <!-- Micro-trust bar -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="search-micro-trust">
+                        <span><i class="fa fa-check"></i> <?php echo t('search_micro_cancel'); ?></span>
+                        <span><i class="fa fa-check"></i> <?php echo t('search_micro_secure'); ?></span>
+                        <span><i class="fa fa-check"></i> <?php echo t('search_micro_hidden'); ?></span>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- WhatsApp Help CTA (contained) -->
@@ -74,6 +96,18 @@
     </section>
 
 </div>
+
+<!-- Auto-scroll to search widget on page load -->
+<script>
+window.addEventListener('load', function() {
+    var widget = document.querySelector('.search-widget-fullwidth');
+    if (widget) {
+        setTimeout(function() {
+            widget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 300);
+    }
+});
+</script>
 
 <!-- Fix widget search bar layout to match site container -->
 <script>
@@ -144,7 +178,6 @@
             }
         });
 
-        // Create or update button
         if (unavailableCards.length === 0) {
             if (btnWrapper) btnWrapper.style.display = 'none';
             return;
@@ -212,7 +245,6 @@
         btn.style.borderColor = showing ? 'rgba(123,175,137,0.3)' : 'rgba(255,255,255,0.2)';
     }
 
-    // Wait for shadow DOM, then observe for changes (new searches)
     var attempts = 0;
     var interval = setInterval(function() {
         if (!el.shadowRoot) { if (++attempts > 100) clearInterval(interval); return; }
@@ -222,13 +254,10 @@
 
         clearInterval(interval);
 
-        // Initial hide
         showing = false;
         hideUnavailable();
 
-        // Watch for re-renders (new searches within the page)
         var observer = new MutationObserver(function() {
-            // Debounce — wait for widget to finish rendering
             clearTimeout(observer._timer);
             observer._timer = setTimeout(function() {
                 showing = false;

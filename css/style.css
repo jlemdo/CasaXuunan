@@ -11105,16 +11105,15 @@ html.no-scroll {
         padding: 10px 0;
     }
 
-    /* Ajustar altura del header en mobile para evitar encimado */
+    /* Ajustar altura del header en mobile (2-level layout) */
     header.header-fullwidth {
         height: auto !important;
-        min-height: 110px;
+        min-height: 90px;
     }
-
 
     /* Bajar el subheader para que no quede debajo del navbar */
     #subheader {
-        margin-top: 110px;
+        margin-top: 90px;
     }
 
     /* Aumentar tamaño de h4 en mobile para mejor visibilidad */
@@ -11163,47 +11162,62 @@ html.no-scroll {
         display: none !important;
     }
 
-    /* Contenedor de botón y menú - ORDEN 2 */
+    /* Contenedor de botón y menú - ORDEN 2 (horizontal row) */
     .de-flex-col-mobile {
         display: flex !important;
-        flex-direction: column !important;
+        flex-direction: row !important;
         align-items: center !important;
         justify-content: center !important;
-        gap: 12px;
+        gap: 10px;
         order: 2;
-        width: 100%;
+        width: auto !important;
     }
 
-    /* Botón de reservas - ORDEN 2.1 */
-    .de-flex-col-mobile .d-extra {
-        order: 1;
-        margin: 0 !important;
-    }
-
-    .btn-mobile-reservas {
-        padding: 12px 35px !important;
-        font-size: 15px !important;
-        font-weight: 600 !important;
-        border-radius: 5px !important;
-        display: inline-block !important;
-    }
-
-    /* Menú hamburguesa - ORDEN 2.2 */
+    /* Hamburguesa - left side */
     header .de-flex-mobile-vertical #menu-btn {
-        position: static !important; /* Sobrescribe position: absolute */
+        position: static !important;
         right: auto !important;
         top: auto !important;
         margin: 0 !important;
-        order: 2;
+        order: 0;
         display: block !important;
         float: none !important;
     }
 
-    /* Botón de reservas también sin position absoluta */
-    header .de-flex-mobile-vertical .d-extra {
+    /* Botones container - right side */
+    .de-flex-col-mobile .d-extra {
+        order: 1;
+        margin: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
         position: static !important;
         right: auto !important;
         top: auto !important;
+    }
+
+    .btn-mobile-reservas {
+        padding: 8px 22px !important;
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        border-radius: 5px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        letter-spacing: 1.5px !important;
+    }
+
+    /* Lang switcher compact */
+    .lang-switcher {
+        padding: 6px 12px !important;
+        font-size: 12px !important;
+        min-width: auto !important;
+    }
+    .lang-switcher::before {
+        content: none !important;
+    }
+    .lang-switcher::after {
+        display: none !important;
     }
 }
 

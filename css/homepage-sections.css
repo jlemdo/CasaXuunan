@@ -50,21 +50,20 @@ body.hp-has-sections .reviews-scroll-btn-wrapper .reviews-scroll-btn {
     60% { transform: translateY(-5px); }
 }
 
-/* Slider hook subtexts */
+/* Slider hook subtexts (inside slider, styled via .hp-slide-hook class) */
 .hp-slide-hook {
     font-family: 'Heebo', sans-serif;
     font-size: 16px;
     font-weight: 300;
     color: rgba(255, 255, 255, 0.75);
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     margin: 10px auto 25px;
     text-transform: none;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .hp-slide-hook {
-        font-size: 13px;
+        font-size: 14px;
         margin: 6px auto 18px;
-        padding: 0 15px;
     }
 }
 
@@ -84,11 +83,12 @@ body.hp-has-sections .reviews-scroll-btn-wrapper {
         padding-bottom: 315px !important;
     }
     body.hp-has-sections .home-search-wrapper {
-        margin-bottom: 95px !important;
+        margin-bottom: 89px !important;
     }
     body.hp-has-sections .reviews-scroll-btn-wrapper {
         bottom: 10px;
     }
+
 }
 @media (min-width: 768px) and (max-width: 992px) {
     body.hp-has-sections #slidecaption {
@@ -801,61 +801,7 @@ body.hp-has-sections #back-to-top {
     display: none !important;
 }
 
-/* --- Mobile Header: 2 levels instead of 3 --- */
-@media (max-width: 992px) {
-    /* Row 2: hamburger + lang + book in ONE horizontal line */
-    body.hp-has-sections .de-flex-col-mobile {
-        flex-direction: row !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 10px !important;
-        width: auto !important;
-    }
-
-    /* Hamburger: inline, left side */
-    body.hp-has-sections header .de-flex-mobile-vertical #menu-btn {
-        order: 0 !important;
-        margin: 0 !important;
-    }
-
-    /* Buttons container: inline */
-    body.hp-has-sections .de-flex-col-mobile .d-extra {
-        order: 1 !important;
-        display: flex !important;
-        align-items: center !important;
-        gap: 8px !important;
-    }
-
-    /* Compact book button for 2-level layout */
-    body.hp-has-sections .btn-mobile-reservas {
-        padding: 8px 22px !important;
-        font-size: 12px !important;
-        text-align: center !important;
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        letter-spacing: 1.5px !important;
-    }
-
-    /* Lang switcher: flag style, compact */
-    body.hp-has-sections .lang-switcher {
-        padding: 6px 12px !important;
-        font-size: 12px !important;
-        min-width: auto !important;
-        gap: 0 !important;
-    }
-    body.hp-has-sections .lang-switcher::before {
-        content: none !important;
-    }
-    body.hp-has-sections .lang-switcher::after {
-        display: none !important;
-    }
-}
-
-/* --- Language Switcher: with flag emoji (set by JS) --- */
-body.hp-has-sections .lang-switcher::before {
-    content: none !important;
-}
+/* (Mobile header styles moved to style.css for all pages) */
 
 /* ============================================
    RESPONSIVE BREAKPOINTS
