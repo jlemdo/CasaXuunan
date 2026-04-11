@@ -219,6 +219,7 @@ body.hp-has-sections #wrapper {
 /* --- Section 2: El Ecosistema de Pertenencia --- */
 #hp-ecosistema {
     padding: 90px 0;
+    text-align: center;
 }
 .hp-quote-text {
     font-family: 'Montserrat', sans-serif;
@@ -408,6 +409,7 @@ body.hp-has-sections #wrapper {
 .hp-filtro-content {
     padding: 50px 0 60px;
     background: #faf8f5;
+    text-align: center;
 }
 .hp-filtro-content .hp-title {
     font-size: 34px;

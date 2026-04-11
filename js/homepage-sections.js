@@ -26,16 +26,19 @@
             if (!el) return;
             if (show) {
                 el.style.display = '';
+                el.style.visibility = '';
                 requestAnimationFrame(function() {
                     el.style.transition = 'opacity 0.5s ease';
                     el.style.opacity = '';
                 });
             } else {
-                el.style.transition = 'opacity 0.4s ease';
+                el.style.transition = 'opacity 0.3s ease';
                 el.style.opacity = '0';
+                el.style.visibility = 'hidden';
+                el.style.pointerEvents = 'none';
                 setTimeout(function() {
                     if (inSections) el.style.display = 'none';
-                }, 450);
+                }, 300);
             }
         });
     }
