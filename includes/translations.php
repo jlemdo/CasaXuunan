@@ -571,7 +571,7 @@ $translations = [
         'search_help_btn' => 'Escríbenos',
         'search_home_title' => 'Encuentra tu estancia perfecta en',
         'search_home_highlight' => 'Casa Xu\'unan',
-        'search_home_subtitle' => '★ 4.8 Google · Desayuno incluido · Starlink WiFi · Valladolid, Yucatán',
+        'search_home_subtitle' => '★ 4.8 Google · Desayuno incluido · Starlink WiFi · B&B · Valladolid, Yucatán',
 
         // ===== BLOG =====
         'nav_blog' => 'Blog',
@@ -1302,7 +1302,7 @@ $translations = [
         'search_help_btn' => 'Message us',
         'search_home_title' => 'Find your perfect stay at',
         'search_home_highlight' => 'Casa Xu\'unan',
-        'search_home_subtitle' => '★ 4.8 Google · Breakfast included · Starlink WiFi · Valladolid, Yucatán',
+        'search_home_subtitle' => '★ 4.8 Google · Breakfast included · Starlink WiFi · B&B · Valladolid, Yucatán',
 
         // ===== BLOG =====
         'nav_blog' => 'Blog',
