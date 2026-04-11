@@ -80,12 +80,48 @@
     var lastScrollY = 0;
     var scrollTick = false;
 
+    // ---- SEARCH WIDGET INTERACTION LOCK ----
+    // When user interacts with the home search widget, pause snap for 2s
+    // This prevents the snap from firing before the widget's transform applies
+    var searchLocked = false;
+    var searchLockTimer = null;
+
+    function lockForSearch() {
+        searchLocked = true;
+        clearTimeout(searchLockTimer);
+        // Keep scroll at 0 while interacting with search widget in hero
+        if (!inSections) {
+            window.scrollTo(0, 0);
+        }
+        searchLockTimer = setTimeout(function() { searchLocked = false; }, 2000);
+    }
+
+    // Detect clicks on the search widget area
+    var searchSection = document.querySelector('.home-search-section');
+    if (searchSection) {
+        searchSection.addEventListener('click', function() {
+            lockForSearch();
+            // Prevent browser auto-scroll on focus within fixed elements
+            if (!inSections) {
+                requestAnimationFrame(function() { window.scrollTo(0, 0); });
+            }
+        }, true);
+        searchSection.addEventListener('touchstart', lockForSearch, true);
+    }
+
+    function isSearchExpanded() {
+        var s = document.querySelector('.home-search-section');
+        if (!s) return false;
+        var t = s.style.transform;
+        return t && t.indexOf('translateY') > -1 && t !== 'translateY(0px)' && t !== 'translateY(0)';
+    }
+
     function onScroll() {
         if (scrollTick) return;
         scrollTick = true;
         requestAnimationFrame(function() {
             scrollTick = false;
-            if (isAnimating) return;
+            if (isAnimating || searchLocked || isSearchExpanded()) return;
 
             var scrollY = window.pageYOffset || document.documentElement.scrollTop;
             var vh = window.innerHeight;
@@ -123,12 +159,12 @@
         }
     });
 
-    // ---- HEADER "BOOK NOW" BUTTON → scroll to hero search bar ----
+    // ---- HEADER "BOOK NOW" BUTTON → search.php ----
     document.addEventListener('click', function(e) {
         var btn = e.target.closest('.btn-main.btn-mobile-reservas, .btn-main.btn-reservas');
         if (btn && btn.closest('header')) {
             e.preventDefault();
-            goToHero();
+            window.location.href = '/search.php';
         }
     });
 

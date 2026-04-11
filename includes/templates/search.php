@@ -97,14 +97,16 @@
 
 </div>
 
-<!-- Auto-scroll to search widget on page load -->
+<!-- Auto-scroll to trust bar (just above results) on page load -->
 <script>
 window.addEventListener('load', function() {
-    var widget = document.querySelector('.search-widget-fullwidth');
-    if (widget) {
+    var trust = document.querySelector('.search-trust-bar');
+    var scrollContainer = document.querySelector('#content-absolute');
+    if (trust && scrollContainer) {
         setTimeout(function() {
-            widget.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 300);
+            var trustTop = trust.offsetTop - 10;
+            scrollContainer.scrollTo({ top: trustTop, behavior: 'smooth' });
+        }, 400);
     }
 });
 </script>
@@ -120,155 +122,168 @@ window.addEventListener('load', function() {
         if (el.shadowRoot.querySelector('#cx-searchbar-fix')) { clearInterval(interval); return; }
         var s = document.createElement('style');
         s.id = 'cx-searchbar-fix';
-        s.textContent = '.search-bar-container { width: 100%; position: relative; left: 0; margin-left: 0; padding: 24px; margin-bottom: 24px; display: flex; justify-content: center; }';
+        s.textContent = [
+            '.search-bar-container{width:100%!important;position:relative!important;left:0!important;margin-left:0!important;padding:20px!important;margin-bottom:20px!important;display:flex!important;justify-content:center!important;background:rgba(10,10,10,0.50)!important;backdrop-filter:blur(20px)!important;-webkit-backdrop-filter:blur(20px)!important;border:1px solid rgba(255,255,255,0.1)!important;border-radius:16px!important;overflow:visible!important}',
+            '.search-bar,.search-bar *:not(input){overflow:visible!important}',
+            '.date-picker-container{position:relative!important;z-index:9999!important;overflow:visible!important}',
+            '.guests-expanded{position:relative!important;z-index:9999!important;overflow:visible!important}',
+            '.properties,.properties-container,.results-container,.left{min-height:auto!important;height:auto!important}',
+            '.search-bar *{box-sizing:border-box!important}',
+            'input.check-in,input.check-in:focus{background:#fff!important;border:1px solid rgba(255,255,255,0.15)!important;border-radius:12px!important;color:#312b24!important;outline:none!important;box-shadow:none!important}',
+            '.guest-picker,.guest-picker *{border-color:rgba(255,255,255,0.15)!important}',
+            '.guest-picker-summary{background:#fff!important;border:1px solid rgba(255,255,255,0.15)!important;border-radius:12px!important;color:#312b24!important}',
+            'button.search-btn{background:#ea8f71!important;height:auto!important}',
+            'button.search-btn:hover{background:#d9775c!important}',
+            'svg{fill:#ea8f71!important}',
+            '.search-bar{border:none!important;background:transparent!important;box-shadow:none!important}'
+        ].join('');
         el.shadowRoot.appendChild(s);
         clearInterval(interval);
     }, 300);
 })();
 </script>
 
-<!-- Mobile: hide unavailable properties, show toggle button -->
+<!-- Hide unavailable properties with toggle button (desktop + mobile) -->
 <script>
 (function() {
-    if (window.innerWidth > 992) return;
-
     var el = document.querySelector('.search-widget-fullwidth hospitable-direct-mps');
     if (!el) return;
 
     var lang = new URLSearchParams(window.location.search).get('lang') ||
                document.documentElement.lang || 'es';
-    var btnShowText = lang === 'en' ? 'Show unavailable rooms' : 'Mostrar habitaciones no disponibles';
-    var btnHideText = lang === 'en' ? 'Hide unavailable rooms' : 'Ocultar habitaciones no disponibles';
+    var txtShow = lang === 'en' ? 'Show unavailable rooms' : 'Mostrar no disponibles';
+    var txtHide = lang === 'en' ? 'Hide unavailable rooms' : 'Ocultar no disponibles';
+    var txtNone = lang === 'en' ? 'No rooms available for these dates — try different dates or ' : 'No hay habitaciones para estas fechas — prueba otras fechas o ';
+    var txtWa = lang === 'en' ? 'message us' : 'escríbenos';
 
-    var btn, btnWrapper, showing = false;
-    var styleInjected = false;
+    var btn = null, btnWrap = null, noResultsMsg = null;
+    var showing = false, styleReady = false;
 
-    function injectStyle(sr) {
-        if (styleInjected) return;
-        if (sr.querySelector('#cx-unavailable-toggle')) { styleInjected = true; return; }
+    function ensureStyle(sr) {
+        if (styleReady) return;
+        if (sr.querySelector('#cx-toggle-style')) { styleReady = true; return; }
         var s = document.createElement('style');
-        s.id = 'cx-unavailable-toggle';
+        s.id = 'cx-toggle-style';
         s.textContent = [
-            'a.property.cx-hidden { display: none !important; }',
-            'a.property { transition: opacity 0.3s ease; }',
-            '.properties { display: flex; flex-direction: column; }'
-        ].join('\n');
+            '.property.cx-off{display:none!important}',
+            '.property{transition:opacity .3s ease}',
+            '.properties,.properties-container,section.results-container,.left{min-height:auto!important;height:auto!important}',
+            'h2{display:none!important}'
+        ].join('');
         sr.appendChild(s);
-        styleInjected = true;
+        styleReady = true;
     }
 
-    function hideUnavailable() {
+    function getCards() {
         var sr = el.shadowRoot;
-        if (!sr) return;
+        if (!sr) return { avail: [], unavail: [], all: [] };
+        // Cards can be div.property or a.property
+        var all = Array.from(sr.querySelectorAll('.property'));
+        var avail = [], unavail = [];
+        all.forEach(function(c) {
+            if (c.querySelector('.unavailable-fade')) unavail.push(c);
+            else avail.push(c);
+        });
+        return { avail: avail, unavail: unavail, all: all };
+    }
 
-        var properties = sr.querySelectorAll('a.property');
-        if (properties.length === 0) return;
+    function createBtn() {
+        if (btn) return;
+        btnWrap = document.createElement('div');
+        btnWrap.style.cssText = 'text-align:center;margin:0 auto 20px;max-width:600px;padding:0 16px;';
 
-        injectStyle(sr);
+        btn = document.createElement('button');
+        btn.style.cssText = 'display:inline-flex;align-items:center;gap:8px;padding:10px 24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);border-radius:30px;color:rgba(255,255,255,0.7);font-family:Montserrat,sans-serif;font-size:12px;font-weight:500;letter-spacing:.3px;cursor:pointer;transition:all .3s ease;-webkit-tap-highlight-color:transparent';
 
-        var unavailableCards = [];
-        var availableCount = 0;
-        properties.forEach(function(card) {
-            if (card.querySelector('.unavailable-fade')) {
-                unavailableCards.push(card);
-                if (!showing) card.classList.add('cx-hidden');
-            } else {
-                card.classList.remove('cx-hidden');
-                availableCount++;
+        btn.addEventListener('click', function() {
+            showing = !showing;
+            var cards = getCards();
+            cards.unavail.forEach(function(c) {
+                if (showing) {
+                    c.classList.remove('cx-off');
+                    c.style.opacity = '0';
+                    requestAnimationFrame(function() {
+                        requestAnimationFrame(function() { c.style.opacity = '1'; });
+                    });
+                } else {
+                    c.style.opacity = '0';
+                    setTimeout(function() { c.classList.add('cx-off'); c.style.opacity = ''; }, 300);
+                }
+            });
+            updateBtn(cards);
+
+            if (showing && cards.unavail.length > 0) {
+                setTimeout(function() {
+                    cards.unavail[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 350);
             }
         });
 
-        if (unavailableCards.length === 0) {
-            if (btnWrapper) btnWrapper.style.display = 'none';
-            return;
-        }
-
-        if (!btn) {
-            btnWrapper = document.createElement('div');
-            btnWrapper.style.cssText = 'text-align:center;margin:0 auto 20px;max-width:600px;padding:0 16px;';
-
-            btn = document.createElement('button');
-            btn.style.cssText = [
-                'display:inline-flex;align-items:center;gap:8px',
-                'padding:12px 28px',
-                'background:rgba(255,255,255,0.08)',
-                'border:1px solid rgba(255,255,255,0.2)',
-                'border-radius:30px',
-                'color:rgba(255,255,255,0.7)',
-                'font-family:Montserrat,sans-serif',
-                'font-size:13px',
-                'font-weight:500',
-                'letter-spacing:0.3px',
-                'cursor:pointer',
-                'transition:all 0.3s ease',
-                '-webkit-tap-highlight-color:transparent'
-            ].join(';');
-
-            btn.addEventListener('click', function() {
-                showing = !showing;
-                var sr = el.shadowRoot;
-                var cards = sr.querySelectorAll('a.property');
-                cards.forEach(function(card) {
-                    if (!card.querySelector('.unavailable-fade')) return;
-                    if (showing) {
-                        card.classList.remove('cx-hidden');
-                        card.style.opacity = '0';
-                        requestAnimationFrame(function() {
-                            requestAnimationFrame(function() { card.style.opacity = '1'; });
-                        });
-                    } else {
-                        card.style.opacity = '0';
-                        setTimeout(function() {
-                            card.classList.add('cx-hidden');
-                            card.style.opacity = '';
-                        }, 300);
-                    }
-                });
-                updateBtnText(cards);
-            });
-
-            btnWrapper.appendChild(btn);
-            var widgetContainer = document.querySelector('.search-widget-fullwidth');
-            widgetContainer.parentNode.insertBefore(btnWrapper, widgetContainer.nextSibling);
-        }
-
-        btnWrapper.style.display = '';
-        updateBtnText(properties);
+        btnWrap.appendChild(btn);
+        var wc = document.querySelector('.search-widget-fullwidth');
+        wc.parentNode.insertBefore(btnWrap, wc.nextSibling);
     }
 
-    function updateBtnText(properties) {
+    function createNoResults() {
+        if (noResultsMsg) return;
+        noResultsMsg = document.createElement('div');
+        noResultsMsg.style.cssText = 'text-align:center;padding:30px 20px;margin:0 auto 20px;max-width:600px;background:rgba(226,186,212,0.08);border:1px solid rgba(226,186,212,0.15);border-radius:12px;color:rgba(255,255,255,0.7);font-family:Heebo,sans-serif;font-size:14px;line-height:1.6;display:none';
+        var wc = document.querySelector('.search-widget-fullwidth');
+        wc.parentNode.insertBefore(noResultsMsg, wc.nextSibling);
+    }
+
+    function updateBtn(cards) {
         if (!btn) return;
-        var count = 0;
-        properties.forEach(function(c) { if (c.querySelector('.unavailable-fade')) count++; });
-        btn.textContent = (showing ? btnHideText : btnShowText) + ' (' + count + ')';
+        var n = cards.unavail.length;
+        btn.textContent = (showing ? txtHide : txtShow) + ' (' + n + ')';
         btn.style.background = showing ? 'rgba(123,175,137,0.15)' : 'rgba(255,255,255,0.08)';
         btn.style.borderColor = showing ? 'rgba(123,175,137,0.3)' : 'rgba(255,255,255,0.2)';
     }
 
-    var attempts = 0;
-    var interval = setInterval(function() {
-        if (!el.shadowRoot) { if (++attempts > 100) clearInterval(interval); return; }
+    function process() {
+        var sr = el.shadowRoot;
+        if (!sr) return;
 
-        var properties = el.shadowRoot.querySelectorAll('a.property');
-        if (properties.length === 0) { if (++attempts > 100) clearInterval(interval); return; }
+        var cards = getCards();
+        if (cards.all.length === 0) return;
 
-        clearInterval(interval);
+        ensureStyle(sr);
+        createBtn();
+        createNoResults();
 
         showing = false;
-        hideUnavailable();
+        cards.unavail.forEach(function(c) { c.classList.add('cx-off'); });
+        cards.avail.forEach(function(c) { c.classList.remove('cx-off'); });
 
-        var observer = new MutationObserver(function() {
-            clearTimeout(observer._timer);
-            observer._timer = setTimeout(function() {
-                showing = false;
-                hideUnavailable();
-            }, 500);
-        });
+        if (cards.unavail.length > 0) {
+            btnWrap.style.display = '';
+            updateBtn(cards);
+        } else {
+            btnWrap.style.display = 'none';
+        }
 
-        observer.observe(el.shadowRoot, {
-            childList: true,
-            subtree: true
+        if (cards.avail.length === 0 && cards.unavail.length > 0) {
+            noResultsMsg.innerHTML = txtNone + '<a href="https://api.whatsapp.com/send?phone=5219852580599" target="_blank" style="color:#25D366;text-decoration:underline">' + txtWa + '</a>';
+            noResultsMsg.style.display = 'block';
+        } else {
+            noResultsMsg.style.display = 'none';
+        }
+    }
+
+    var attempts = 0;
+    var poll = setInterval(function() {
+        if (!el.shadowRoot) { if (++attempts > 150) clearInterval(poll); return; }
+        var props = el.shadowRoot.querySelectorAll('.property');
+        if (props.length === 0) { if (++attempts > 150) clearInterval(poll); return; }
+        clearInterval(poll);
+
+        process();
+
+        var obs = new MutationObserver(function() {
+            clearTimeout(obs._t);
+            obs._t = setTimeout(process, 600);
         });
+        obs.observe(el.shadowRoot, { childList: true, subtree: true });
     }, 300);
 })();
 </script>

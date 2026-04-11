@@ -75,7 +75,7 @@
                                        data-tooltip="<?php echo $current_lang === 'es' ? 'View site in English' : 'Ver sitio en Español'; ?>">
                                         <?php echo $current_lang === 'es' ? 'EN' : 'ES'; ?>
                                     </a>
-                                    <a class="btn-main btn-mobile-reservas" href="/rooms.php"><?php echo t('btn_bookings'); ?></a>
+                                    <a class="btn-main btn-mobile-reservas" href="/search.php"><?php echo t('btn_bookings'); ?></a>
                                 </div>
                                 <div id="menu-btn" class="menu-btn-mobile-overlay"></div>
                             </div>
