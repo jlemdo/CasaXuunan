@@ -1,73 +1,103 @@
 /**
- * Homepage Conversion Sections - Casa Xu'unan
- * Professional scroll snap, hero fade, counter, CTA routing
+ * Homepage Sections - Casa Xu'unan
+ * Clean rewrite: scroll snap, hero visibility, counter, CTAs
+ * Compatible: Chrome, Safari, Firefox, mobile + desktop
  */
 (function() {
     'use strict';
 
-    // ---- STATE ----
-    var inSections = false;
-    var isAnimating = false;
-    var LOCK_MS = 900;
+    // ========== STATE ==========
+    var state = 'hero'; // 'hero' or 'sections'
+    var locked = false;
 
-    // ---- ELEMENTS ----
-    var heroEls = [
-        '.float-text', '#slidecaption', '.reviews-scroll-btn-wrapper',
-        '.home-search-section', '#controls-wrapper', '#progress-back',
-        '#prevslide', '#nextslide', 'header'
+    function lock(ms) {
+        locked = true;
+        setTimeout(function() { locked = false; }, ms || 1000);
+    }
+
+    // ========== HERO ELEMENTS ==========
+    // Gather all hero fixed/absolute elements that must hide when in sections
+    var heroSelectors = [
+        'header',
+        '.float-text',
+        '#slidecaption',
+        '.reviews-scroll-btn-wrapper',
+        '.home-search-section',
+        '#controls-wrapper',
+        '#progress-back',
+        '#prevslide',
+        '#nextslide'
     ];
 
-    // Cache DOM references once
-    var heroDomEls = [];
-    function cacheHeroEls() {
-        if (heroDomEls.length > 0) return;
-        heroEls.forEach(function(sel) {
+    // Store original display values so we can restore them
+    var heroOriginals = [];
+    var heroReady = false;
+
+    function initHeroEls() {
+        if (heroReady) return;
+        heroSelectors.forEach(function(sel) {
             var el = document.querySelector(sel);
-            if (el) heroDomEls.push(el);
-        });
-    }
-
-    var scrollBtn = null;
-
-    function dbgHero() {}
-
-    // ---- HERO SHOW/HIDE ----
-    function setHeroVisible(show) {
-        cacheHeroEls();
-        heroDomEls.forEach(function(el) {
-            if (show) {
-                el.style.display = '';
-                el.style.visibility = 'visible';
-                el.style.opacity = '1';
-                el.style.pointerEvents = '';
-                el.style.transition = '';
-            } else {
-                el.style.transition = 'opacity 0.3s ease';
-                el.style.opacity = '0';
-                el.style.pointerEvents = 'none';
+            if (el) {
+                heroOriginals.push({
+                    el: el,
+                    display: getComputedStyle(el).display,
+                    visibility: getComputedStyle(el).visibility
+                });
             }
         });
-
-        if (!show) {
-            setTimeout(function() {
-                if (inSections) {
-                    heroDomEls.forEach(function(el) {
-                        el.style.display = 'none';
-                        el.style.visibility = 'hidden';
-                    });
-                }
-            }, 350);
-        }
-
-        dbgHero(show ? 'SHOW' : 'HIDE');
+        heroReady = true;
     }
 
-    // ---- SCROLL BUTTON ----
+    function hideHero() {
+        initHeroEls();
+        heroOriginals.forEach(function(item) {
+            item.el.style.transition = 'opacity 0.4s ease';
+            item.el.style.opacity = '0';
+        });
+        // After fade, fully remove from layout
+        setTimeout(function() {
+            if (state !== 'sections') return;
+            heroOriginals.forEach(function(item) {
+                item.el.style.display = 'none';
+                item.el.style.pointerEvents = 'none';
+            });
+        }, 400);
+    }
+
+    function showHero() {
+        initHeroEls();
+        // First restore display and visibility
+        heroOriginals.forEach(function(item) {
+            item.el.style.display = item.display;
+            item.el.style.visibility = 'visible';
+            item.el.style.pointerEvents = '';
+            item.el.style.opacity = '0';
+        });
+        // Then fade in on next frame
+        requestAnimationFrame(function() {
+            heroOriginals.forEach(function(item) {
+                item.el.style.transition = 'opacity 0.4s ease';
+                item.el.style.opacity = '1';
+            });
+            // Clean up inline styles after animation
+            setTimeout(function() {
+                if (state !== 'hero') return;
+                heroOriginals.forEach(function(item) {
+                    item.el.style.transition = '';
+                    item.el.style.opacity = '';
+                });
+            }, 450);
+        });
+    }
+
+    // ========== SCROLL BUTTON ==========
+    var scrollBtn = document.getElementById('hp-scroll-btn');
+
     function updateScrollBtn() {
         if (!scrollBtn) return;
         var icon = scrollBtn.querySelector('i');
         if (!icon) return;
-        if (inSections) {
+        if (state === 'sections') {
             icon.className = 'fa fa-angle-up';
             scrollBtn.classList.remove('hp-scroll-btn-bounce');
         } else {
@@ -76,117 +106,90 @@
         }
     }
 
-    // ---- NAVIGATE ----
+    // ========== NAVIGATION ==========
     function goToSections() {
-        if (isAnimating || inSections) return;
-        isAnimating = true;
-        inSections = true;
-        setHeroVisible(false);
+        if (locked || state === 'sections') return;
+        state = 'sections';
+        lock(1200);
+        hideHero();
         updateScrollBtn();
         var target = document.getElementById('hp-lujo');
         if (target) target.scrollIntoView({ behavior: 'smooth' });
-        setTimeout(function() { isAnimating = false; }, LOCK_MS);
     }
 
     function goToHero() {
-        if (isAnimating || !inSections) return;
-        isAnimating = true;
-        inSections = false;
-        setHeroVisible(true);
+        if (locked || state === 'hero') return;
+        state = 'hero';
+        lock(1200);
+        showHero();
         updateScrollBtn();
         window.scrollTo({ top: 0, behavior: 'smooth' });
-        setTimeout(function() {
-            isAnimating = false;
-            dbgHero('HERO-READY');
-        }, LOCK_MS);
     }
 
-    // ---- SEARCH WIDGET INTERACTION LOCK ----
-    var searchLocked = false;
-    var searchLockTimer = null;
+    // ========== SCROLL DETECTION ==========
+    // Simple approach: detect scroll direction + position
+    var lastY = 0;
+    var scrollCount = 0; // counts consecutive same-direction scrolls
 
-    function lockForSearch() {
-        searchLocked = true;
-        clearTimeout(searchLockTimer);
-        if (!inSections) {
-            window.scrollTo(0, 0);
-        }
-        searchLockTimer = setTimeout(function() { searchLocked = false; }, 2000);
-    }
+    window.addEventListener('scroll', function() {
+        if (locked) return;
 
-    var searchSection = document.querySelector('.home-search-section');
-    var searchWrapper = document.querySelector('.home-search-wrapper');
-    if (searchSection) {
-        searchSection.addEventListener('click', function() {
-            lockForSearch();
-            if (!inSections) {
-                requestAnimationFrame(function() { window.scrollTo(0, 0); });
+        var y = window.pageYOffset || 0;
+        var vh = window.innerHeight;
+
+        if (state === 'hero' && y > vh * 0.06) {
+            // User scrolled down past 6% of viewport — go to sections
+            goToSections();
+        } else if (state === 'sections' && y < vh * 0.4 && y < lastY) {
+            // User is scrolling UP and is in the top 40% — go to hero
+            scrollCount++;
+            if (scrollCount >= 2) { // require 2 consecutive up-scrolls to avoid accidental triggers
+                goToHero();
+                scrollCount = 0;
             }
-        }, true);
-        searchSection.addEventListener('touchstart', lockForSearch, true);
-    }
-    // Block touch-scroll on search wrapper when in hero (prevents page scroll)
+        } else if (y >= lastY) {
+            scrollCount = 0; // reset if scrolling down
+        }
+
+        // Edge case: somehow at 0 but state is sections
+        if (y === 0 && state === 'sections' && !locked) {
+            state = 'hero';
+            showHero();
+            updateScrollBtn();
+        }
+
+        lastY = y;
+    }, { passive: true });
+
+    // ========== SEARCH WIDGET TOUCH PROTECTION ==========
+    // Prevent touch-scroll when user interacts with the search widget in hero
+    var searchWrapper = document.querySelector('.home-search-wrapper');
     if (searchWrapper) {
         searchWrapper.addEventListener('touchmove', function(e) {
-            if (!inSections) {
+            if (state === 'hero') {
                 e.preventDefault();
                 window.scrollTo(0, 0);
             }
         }, { passive: false });
+
+        searchWrapper.addEventListener('touchstart', function() {
+            if (state === 'hero') {
+                lock(2000);
+                window.scrollTo(0, 0);
+            }
+        }, { passive: true });
     }
 
-    function isSearchExpanded() {
-        var s = document.querySelector('.home-search-section');
-        if (!s) return false;
-        var t = s.style.transform;
-        return t && t.indexOf('translateY') > -1 && t !== 'translateY(0px)' && t !== 'translateY(0)';
-    }
-
-    // ---- SCROLL DETECTION ----
-    var lastScrollY = 0;
-    var scrollTick = false;
-
-    function onScroll() {
-        if (scrollTick) return;
-        scrollTick = true;
-        requestAnimationFrame(function() {
-            scrollTick = false;
-            if (isAnimating || searchLocked || isSearchExpanded()) return;
-
-            var scrollY = window.pageYOffset || document.documentElement.scrollTop;
-            var vh = window.innerHeight;
-
-            if (!inSections && scrollY > vh * 0.08) {
-                goToSections();
-            }
-            else if (inSections && scrollY < vh * 0.5 && scrollY < lastScrollY) {
-                goToHero();
-            }
-            else if (inSections && scrollY === 0) {
-                inSections = false;
-                setHeroVisible(true);
-                updateScrollBtn();
-            }
-
-            lastScrollY = scrollY;
+    // ========== SCROLL BUTTON CLICK ==========
+    if (scrollBtn) {
+        scrollBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (state === 'sections') goToHero();
+            else goToSections();
         });
     }
 
-    window.addEventListener('scroll', onScroll, { passive: true });
-
-    // ---- SCROLL BUTTON CLICK ----
-    document.addEventListener('click', function(e) {
-        var btn = e.target.closest('#hp-scroll-btn');
-        if (!btn) return;
-        e.preventDefault();
-        if (inSections) {
-            goToHero();
-        } else {
-            goToSections();
-        }
-    });
-
-    // ---- HEADER "BOOK NOW" BUTTON → search.php ----
+    // ========== HEADER BOOK NOW → search.php ==========
     document.addEventListener('click', function(e) {
         var btn = e.target.closest('.btn-main.btn-mobile-reservas, .btn-main.btn-reservas');
         if (btn && btn.closest('header')) {
@@ -195,7 +198,7 @@
         }
     });
 
-    // ---- CTA BUTTONS inside sections → scroll to hero search bar ----
+    // ========== CTA BUTTONS → scroll to hero ==========
     document.addEventListener('click', function(e) {
         var btn = e.target.closest('.hp-scroll-to-hero');
         if (btn) {
@@ -204,7 +207,7 @@
         }
     });
 
-    // ---- "Ver Todas" button triggers existing reviews overlay ----
+    // ========== VER TODAS REVIEWS → open overlay ==========
     document.addEventListener('click', function(e) {
         var btn = e.target.closest('#hp-see-all-reviews');
         if (btn) {
@@ -214,29 +217,23 @@
         }
     });
 
-    // ---- ANIMATED COUNTER ----
-    function animateCounter(el) {
-        var target = parseInt(el.getAttribute('data-count'), 10);
-        if (isNaN(target)) return;
-        var duration = 2000;
-        var startTime = null;
-        function step(ts) {
-            if (!startTime) startTime = ts;
-            var p = Math.min((ts - startTime) / duration, 1);
-            var eased = 1 - Math.pow(1 - p, 3);
-            el.textContent = Math.floor(target * eased) + '+';
-            if (p < 1) requestAnimationFrame(step);
-            else el.textContent = target + '+';
-        }
-        requestAnimationFrame(step);
-    }
-
+    // ========== ANIMATED COUNTER ==========
     var counterEl = document.querySelector('.hp-counter-number[data-count]');
     if (counterEl && 'IntersectionObserver' in window) {
         var obs = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
-                    animateCounter(entry.target);
+                    var target = parseInt(entry.target.getAttribute('data-count'), 10);
+                    if (isNaN(target)) return;
+                    var start = null;
+                    (function step(ts) {
+                        if (!start) start = ts;
+                        var p = Math.min((ts - start) / 2000, 1);
+                        var v = Math.floor(target * (1 - Math.pow(1 - p, 3)));
+                        entry.target.textContent = v + '+';
+                        if (p < 1) requestAnimationFrame(step);
+                        else entry.target.textContent = target + '+';
+                    })(performance.now());
                     obs.unobserve(entry.target);
                 }
             });
@@ -244,31 +241,7 @@
         obs.observe(counterEl);
     }
 
-    // ---- SLIDE HOOK SYNC ----
-    var hookContainer = document.getElementById('hp-slide-hook-fixed');
-    if (hookContainer) {
-        var lang = window.PHP_LANG || 'es';
-        var allHooks = hookContainer.querySelectorAll('span');
-        var lastSlide = -1;
-        function updateHook() {
-            var slides = document.querySelectorAll('#supersized li');
-            var activeIdx = 0;
-            for (var i = 0; i < slides.length; i++) {
-                if (slides[i].classList.contains('activeslide')) { activeIdx = i; break; }
-            }
-            if (activeIdx === lastSlide) return;
-            lastSlide = activeIdx;
-            allHooks.forEach(function(s) { s.classList.remove('active'); });
-            var target = hookContainer.querySelector('span[data-lang="'+lang+'"][data-slide="'+activeIdx+'"]');
-            if (target) target.classList.add('active');
-        }
-        setInterval(updateHook, 500);
-        updateHook();
-        heroEls.push('#hp-slide-hook-fixed');
-    }
-
-    // ---- INIT ----
-    scrollBtn = document.getElementById('hp-scroll-btn');
+    // ========== INIT ==========
     updateScrollBtn();
 
 })();
