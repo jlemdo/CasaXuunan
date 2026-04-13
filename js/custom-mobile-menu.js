@@ -1,150 +1,107 @@
 /**
- * Custom Mobile Menu para Casa Xuunan
- * Hace que el botón menu-btn abra el overlay en lugar del menú desktop
- * @version 1.0
+ * Mobile Menu - Casa Xu'unan
+ * Works WITH the slideDown class system
  */
+document.addEventListener('DOMContentLoaded', function() {
+    'use strict';
 
-jQuery(document).ready(function($) {
+    if (window.innerWidth >= 993) return;
 
-    // En mobile, hacer que #menu-btn abra el menu overlay
-    if ($(window).width() < 993) {
+    var overlay = document.getElementById('menu-overlay');
+    var menuBtn = document.getElementById('menu-btn');
+    var mainMenu = document.getElementById('mainmenu');
 
-        // Remover TODOS los eventos del menu-btn (incluyendo los del designesia.js)
-        $('#menu-btn').off('click');
-        $('#menu-btn').off();
+    if (!overlay || !menuBtn) return;
+    if (mainMenu) mainMenu.style.display = 'none';
 
-        // Prevenir que el designesia.js agregue eventos
-        $('#menu-btn').unbind();
+    // Clone buttons to remove ALL existing event listeners
+    var newMenuBtn = menuBtn.cloneNode(true);
+    menuBtn.parentNode.replaceChild(newMenuBtn, menuBtn);
 
-        // Agregar nuevo evento para abrir overlay con transición suave
-        $('#menu-btn.menu-btn-mobile-overlay').on('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            e.stopImmediatePropagation(); // Detener cualquier otro evento
-
-            // Abrir el overlay con animación suave
-            $('html, body').addClass('no-scroll');
-
-            // Mostrar overlay y animar desde arriba
-            $('#menu-overlay').css({
-                'display': 'block',
-                'top': '-100%',
-                'opacity': 0
-            }).animate({
-                'top': '0',
-                'opacity': 1
-            }, 400, 'swing');
-
-            // Animar los items del menú con delay
-            $('#mo-menu li').each(function(index) {
-                $(this).css({
-                    'opacity': 0,
-                    'transform': 'translateY(-20px)'
-                }).delay(100 * index).animate({
-                    'opacity': 1
-                }, 300).css({
-                    'transform': 'translateY(0)'
-                });
-            });
-
-            // Asegurar que no se agreguen clases extrañas al menu-btn
-            $('#menu-btn').removeClass('clicked unclick');
-
-            console.log('Menu overlay abierto');
-        });
-
-        // Ocultar el mainmenu en mobile (por si acaso)
-        $('#mainmenu').hide();
+    var oldCloseBtn = document.getElementById('mo-button-close');
+    var newCloseBtn = null;
+    if (oldCloseBtn) {
+        newCloseBtn = oldCloseBtn.cloneNode(true);
+        oldCloseBtn.parentNode.replaceChild(newCloseBtn, oldCloseBtn);
     }
 
-    // Mejorar el botón de cerrar
-    $('#mo-button-close').on('click', function(e) {
+    // Clone menu links too
+    document.querySelectorAll('#mo-menu a').forEach(function(link) {
+        var newLink = link.cloneNode(true);
+        link.parentNode.replaceChild(newLink, link);
+    });
+
+    var isOpen = false;
+    var isAnimating = false;
+
+    // Ensure starts closed
+    overlay.classList.add('slideDown');
+
+    function openMenu() {
+        if (isOpen || isAnimating) return;
+        isAnimating = true;
+        isOpen = true;
+
+        document.body.style.overflow = 'hidden';
+        overlay.classList.remove('slideDown');
+        overlay.style.transition = 'none';
+        overlay.style.top = '-100%';
+        overlay.offsetHeight;
+        overlay.style.transition = 'top 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+        overlay.style.top = '0';
+
+        setTimeout(function() { isAnimating = false; }, 450);
+    }
+
+    function closeMenu() {
+        if (!isOpen || isAnimating) return;
+        isAnimating = true;
+
+        overlay.style.transition = 'top 0.35s cubic-bezier(0.5, 0, 0.75, 0)';
+        overlay.style.top = '-100%';
+
+        setTimeout(function() {
+            overlay.classList.add('slideDown');
+            overlay.style.transition = 'none';
+            overlay.style.top = '';
+            document.body.style.overflow = '';
+            isOpen = false;
+            isAnimating = false;
+        }, 380);
+    }
+
+    // Attach handlers to cloned elements (no old listeners)
+    newMenuBtn.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
-
-        // Animar items del menú primero (fade out)
-        $('#mo-menu li').each(function(index) {
-            $(this).delay(50 * index).animate({
-                'opacity': 0
-            }, 200);
-        });
-
-        // Animar cierre del overlay después
-        $('#menu-overlay').delay(200).animate({
-            'top': '-100%',
-            'opacity': 0
-        }, 400, 'swing', function() {
-            $(this).css('display', 'none');
-        });
-
-        $('html, body').delay(600).removeClass('no-scroll');
-
-        // Limpiar cualquier clase del menu-btn
-        $('#menu-btn').removeClass('clicked unclick');
-
-        console.log('Menu overlay cerrado');
+        openMenu();
     });
 
-    // Cerrar al hacer click en un link
-    $('#mo-menu a').on('click', function() {
-        // Animar items del menú primero (fade out)
-        $('#mo-menu li').each(function(index) {
-            $(this).delay(50 * index).animate({
-                'opacity': 0
-            }, 200);
+    if (newCloseBtn) {
+        newCloseBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            closeMenu();
         });
+    }
 
-        // Animar cierre del overlay después
-        $('#menu-overlay').delay(200).animate({
-            'top': '-100%',
-            'opacity': 0
-        }, 400, 'swing', function() {
-            $(this).css('display', 'none');
-        });
-
-        $('html, body').delay(600).removeClass('no-scroll');
-
-        // Limpiar cualquier clase del menu-btn
-        $('#menu-btn').removeClass('clicked unclick');
+    document.querySelectorAll('#mo-menu a').forEach(function(link) {
+        link.addEventListener('click', closeMenu);
     });
 
-    // Re-verificar en resize
-    $(window).on('resize', function() {
-        if ($(window).width() < 993) {
-            $('#menu-btn').off('click');
-
-            $('#menu-btn.menu-btn-mobile-overlay').on('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-
-                $('html, body').addClass('no-scroll');
-
-                $('#menu-overlay').css({
-                    'display': 'block',
-                    'top': '-100%',
-                    'opacity': 0
-                }).animate({
-                    'top': '0',
-                    'opacity': 1
-                }, 400, 'swing');
-
-                $('#mo-menu li').each(function(index) {
-                    $(this).css({
-                        'opacity': 0,
-                        'transform': 'translateY(-20px)'
-                    }).delay(100 * index).animate({
-                        'opacity': 1
-                    }, 300).css({
-                        'transform': 'translateY(0)'
-                    });
-                });
-            });
-
-            $('#mainmenu').hide();
-        } else {
-            // En desktop, restaurar comportamiento normal
-            $('#mainmenu').show();
-        }
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && isOpen) closeMenu();
     });
 
+    // Kill any jQuery handlers that designesia.js might add later
+    if (window.jQuery) {
+        setTimeout(function() {
+            jQuery('#menu-btn').off();
+            jQuery('#mo-button-close').off();
+        }, 500);
+        setTimeout(function() {
+            jQuery('#menu-btn').off();
+            jQuery('#mo-button-close').off();
+        }, 1000);
+    }
 });

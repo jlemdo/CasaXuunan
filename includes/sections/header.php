@@ -337,7 +337,7 @@ if (isset($_seo_blog_post_found)) {
         "https://casaxuunan.com/images/slider/2.jpg",
         "https://casaxuunan.com/images/slider/3.jpg"
       ],
-      "description": "B&B familiar en el barrio de Sisal, Valladolid, Yucatán. 9 habitaciones con desayuno regional casero incluido, piscina, jardín tropical y Starlink WiFi. A 40 min de Chichén Itzá. Atención personalizada de Doña Susi.",
+      "description": "B&B familiar en el barrio de Sisal, Valladolid, Yucatán. 9 habitaciones con desayuno regional casero incluido, piscina, jardín tropical y Starlink WiFi. A 40 min de Chichén Itzá. Atención personalizada con la calidez que nos define.",
       "slogan": "El Lujo de lo Auténtico",
       "address": {
         "@type": "PostalAddress",
