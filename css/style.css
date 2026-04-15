@@ -849,18 +849,20 @@ header:not(.header-mobile):not(.force-header-mobile)
 
 #menu-overlay {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(20, 20, 20, 0.6);
+  background: rgba(16, 14, 12, 0.85);
   color: #ffffff;
   z-index: 10000;
   overflow-y: auto;
   display: none;
   overflow-x: hidden;
-  -webkit-backdrop-filter: blur(10px);
-    -o-backdrop-filter: blur(10px);
-    -moz-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(25px);
+    -o-backdrop-filter: blur(25px);
+    -moz-backdrop-filter: blur(25px);
+    backdrop-filter: blur(25px);
 }
 #menu-overlay.slideDown {
   top: -100%;
@@ -949,26 +951,58 @@ header:not(.header-mobile):not(.force-header-mobile)
 
 #mo-menu {
   font-size: 16px;
-  margin-left: -30px;
+  margin-left: 0;
+  padding: 0;
+  list-style: none;
 }
 
 #mo-menu a {
   text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#mo-menu a:hover {
+  color: #e2bad4 !important;
+}
+
+#mo-menu a.active-menu {
+  color: #7baf89 !important;
 }
 
 #mo-menu li ul a:hover {
   color: #ffffff;
 }
 
+/* Mobile menu social + language */
+.mo-nav .mo-footer {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.mo-nav .mo-social {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 15px;
+}
+.mo-nav .mo-social a {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+.mo-nav .mo-social a:hover {
+  color: #e2bad4 !important;
+}
+
 #mo-menu > li {
   font-family: "Montserrat";
   font-weight: 600;
   text-transform: uppercase;
-  font-size: 40px;
-  padding: 15px 0;
+  font-size: 28px;
+  padding: 12px 0;
   display: block;
   cursor: pointer;
-  letter-spacing: 5px;
+  letter-spacing: 3px;
 }
 #mo-menu > li > ul > li{
   font-weight: 500;
@@ -6457,31 +6491,131 @@ footer.style-2 {
 }
 
 .de-room .d-label {
-  z-index: 1;
+  z-index: 2;
   position: absolute;
-  color: #ffffff; /* Color del texto */
-  background: #333333; /* Color de fondo por defecto */
-  padding: 5px;
+  color: #ffffff;
+  background: #333333;
+  padding: 8px 12px;
   margin: 15px;
   right: 0;
   top: 0;
   text-transform: uppercase;
-  font-size: 10px;
-  line-height: 1em;
-  letter-spacing: 2px;
-  padding-left: 7px;
-  padding-bottom: 4px;
-  border-radius: 5px;
+  font-size: 11px;
+  line-height: 1.2em;
+  letter-spacing: 1px;
+  font-weight: 600;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
 }
 
-/* Clase para cuando la habitación está disponible */
+/* Disponible — verde con pulso sutil */
 .de-room .d-label.available {
-  background: green; /* Color de fondo para disponible */
+  background: #27ae60;
+  animation: cx-pulse-green 2.5s ease-in-out infinite;
+}
+@keyframes cx-pulse-green {
+  0%, 100% { box-shadow: 0 2px 8px rgba(39,174,96,0.35); }
+  50%      { box-shadow: 0 2px 14px rgba(39,174,96,0.75); }
 }
 
-/* Clase para cuando la habitación no está disponible */
+/* No disponible — rojo atenuado */
 .de-room .d-label.not-available {
-  background: red; /* Color de fondo para no disponible */
+  background: #c0392b;
+  opacity: 0.92;
+}
+
+/* Bloque de precio */
+.de-room .d-price {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin: 12px 0 8px;
+  flex-wrap: wrap;
+}
+.de-room .d-price-from {
+  font-size: 13px;
+  color: #8a7a66;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.de-room .d-price-amount {
+  font-size: 26px;
+  font-weight: 700;
+  color: #312b24;
+  font-family: 'Montserrat', sans-serif;
+}
+.de-room .d-price-currency {
+  font-size: 13px;
+  font-weight: 600;
+  color: #8a7a66;
+}
+.de-room .d-price-night {
+  font-size: 13px;
+  color: #8a7a66;
+}
+
+/* Trust badges en tarjeta */
+.de-room .d-trust {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 0 0 14px;
+  padding: 8px 0;
+  border-top: 1px dashed rgba(0,0,0,0.08);
+  border-bottom: 1px dashed rgba(0,0,0,0.08);
+}
+.de-room .d-trust-item {
+  font-size: 11px;
+  color: #5a5144;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  letter-spacing: 0.3px;
+}
+.de-room .d-trust-item i {
+  color: #27ae60;
+  font-size: 12px;
+}
+
+/* CTA primario (reservar) */
+.de-room .d-cta {
+  display: inline-block;
+  text-decoration: none !important;
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+  margin-top: 6px;
+}
+.de-room .d-cta i {
+  margin-left: 6px;
+  transition: transform 0.25s ease;
+}
+.de-room .d-cta:hover i {
+  transform: translateX(4px);
+}
+.de-room .d-cta-primary {
+  background: #ea8f71;
+  color: #fff !important;
+  box-shadow: 0 4px 14px rgba(234,143,113,0.35);
+}
+.de-room .d-cta-primary:hover {
+  background: #d9775c;
+  box-shadow: 0 6px 20px rgba(234,143,113,0.55);
+  transform: translateY(-2px);
+}
+.de-room .d-cta-secondary {
+  background: transparent;
+  color: #5a5144 !important;
+  border: 1.5px solid #c9bfa8;
+}
+.de-room .d-cta-secondary:hover {
+  background: #f5efe4;
+  border-color: #8a7a66;
 }
 
 
