@@ -45,9 +45,12 @@ $propertyId = $_GET['id'];
                         <!-- Detalles de la Habitación -->
                         <div class="row">
                             <div class="col-md-12">
+                                <!-- Barra room-details comentada: ya no se necesita con subtitulo + trust bar + price block
                                 <div id="room-details" class="d-room-details de-flex">
-                                    <!-- Detalles dinámicos de la habitación se insertarán aquí -->
+                                    Detalles dinámicos de la habitación se insertarán aquí
                                 </div>
+                                -->
+                                <div id="room-details" style="display:none;"></div>
                                 <!-- Trust badges debajo del meta -->
                                 <div class="room-trust-bar">
                                     <span class="room-trust-item"><i class="fa fa-bolt"></i> <?php echo t('rooms_instant_confirm'); ?></span>
@@ -241,11 +244,11 @@ $propertyId = $_GET['id'];
             <p class="room-hero-subtitle">${subtitle}</p>
         `;
 
-                // Insertar detalles (sin precio, ahora va prominente arriba del iframe)
-                roomDetailsElement.innerHTML = `
-            <div class="de-flex-col"><img src="images/ui/user.svg" alt=""> ${property.capacity.max} ${t('room_guests')}</div>
-            <div class="de-flex-col"><img src="images/ui/floorplan.svg" alt=""> ${property.capacity.bedrooms} ${t('room_bedrooms')}</div>
-        `;
+                // Barra room-details deshabilitada: datos ya se muestran en subtitulo + trust bar + price block
+                // roomDetailsElement.innerHTML = `
+                //     <div class="de-flex-col"><img src="images/ui/user.svg" alt=""> ${property.capacity.max} ${t('room_guests')}</div>
+                //     <div class="de-flex-col"><img src="images/ui/floorplan.svg" alt=""> ${property.capacity.bedrooms} ${t('room_bedrooms')}</div>
+                // `;
 
                 // Llenar bloque de precio prominente + sticky CTA mobile
                 if (nightlyPrice && nightlyPrice !== '---') {
