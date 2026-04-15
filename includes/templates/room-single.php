@@ -132,21 +132,15 @@ $propertyId = $_GET['id'];
         // Función para cargar traducciones
         async function loadTranslations() {
             currentLang = getCurrentLanguage();
-            console.log('🌐 Cargando traducciones para idioma:', currentLang);
 
             try {
                 const response = await fetch(`api/get_translations.php?lang=${currentLang}`);
-                console.log('📡 Respuesta de API:', response.status, response.statusText);
 
                 if (!response.ok) {
                     throw new Error('Error al cargar traducciones: ' + response.status);
                 }
                 translations = await response.json();
-                console.log('✅ Traducciones cargadas:', Object.keys(translations).length, 'claves');
-                console.log('🔍 Ejemplo - room_guests:', translations.room_guests);
-                console.log('🔍 Ejemplo - room_amenities:', translations.room_amenities);
             } catch (error) {
-                console.error('❌ Error cargando traducciones:', error);
                 translations = {}; // Usar objeto vacío como fallback
             }
         }
@@ -195,12 +189,6 @@ $propertyId = $_GET['id'];
                 const translatedName = t(translationKey);
                 const displayName = translatedName !== translationKey ? translatedName : property.name;
 
-                console.log('🏠 Room ID:', propertyId);
-                console.log('🔑 Buscando clave:', translationKey);
-                console.log('📝 Nombre API:', property.name);
-                console.log('🌐 Nombre traducido:', translatedName);
-                console.log('✅ ¿Encontró traducción?:', translatedName !== translationKey);
-
                 // Dividir el nombre en "nombre" y "código"
                 const [name, code] = displayName.split(':').map(part => part.trim());
 
@@ -222,10 +210,6 @@ $propertyId = $_GET['id'];
                 const translatedSummary = t(summaryKey);
                 const descriptionText = translatedSummary !== summaryKey ? translatedSummary : property.description;
 
-                console.log('📄 Buscando descripción:', summaryKey);
-                console.log('🌐 Descripción traducida encontrada:', translatedSummary !== summaryKey);
-                console.log('📝 Texto a mostrar (primeros 100 chars):', descriptionText.substring(0, 100) + '...');
-
                 const formattedDescription = descriptionText.replace(/\n/g, '<br>');
                 roomOverviewElement.innerHTML = formattedDescription;
 
@@ -238,11 +222,8 @@ $propertyId = $_GET['id'];
                         return translatedAmenity;
                     }
                     // Fallback: convertir snake_case a texto legible
-                    console.warn(`⚠️ No se encontró traducción para amenidad: ${amenity}`);
                     return amenity.replace(/_/g, ' ').replace(/^\w/, (c) => c.toUpperCase());
                 };
-
-                console.log('🛠️ Formateando', property.amenities.length, 'amenidades...');
 
 
                 // Generar la lista con formato
@@ -383,7 +364,6 @@ $propertyId = $_GET['id'];
                 const iframeSrc = bookingIframesByID[propertyId];
 
                 if (!iframeSrc) {
-                    console.error(`No se encontró URL de iframe para la propiedad ID: ${propertyId}`);
                     bookingIframeElement.src = 'about:blank';
                 } else {
                     // Pre-populate dates from search widget (Step 3 integration)
@@ -406,11 +386,9 @@ $propertyId = $_GET['id'];
                         if (infants) params.push(`infants=${infants}`);
                         if (pets) params.push(`pets=${pets}`);
                         finalSrc += separator + params.join('&');
-                        console.log('📅 Pre-populated booking dates from search');
                     }
 
                     bookingIframeElement.src = finalSrc;
-                    console.log(`✅ Iframe cargado correctamente para: ${property.name} (ID: ${propertyId})`);
 
                     // --- Hospitable iframe postMessage integration ---
                     // Listen for iframeHeight and language messages from the booking widget
@@ -434,7 +412,6 @@ $propertyId = $_GET['id'];
                 }
 
             } catch (error) {
-                console.error('Error:', error);
                 alert('Hubo un problema al cargar los detalles de la habitación.');
             }
         }
@@ -460,8 +437,6 @@ $propertyId = $_GET['id'];
         // Inicializar: Cargar traducciones y luego cargar detalles de la habitación
         (async function init() {
             await loadTranslations();
-            console.log('🚀 Iniciando carga de detalles de habitación...');
-            // Cargar detalles de la habitación
             await loadRoomDetails(<?php echo json_encode($propertyId); ?>);
         })();
     </script>
