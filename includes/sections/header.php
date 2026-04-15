@@ -173,6 +173,10 @@ if (isset($_seo_blog_post_found)) {
     <link rel="preconnect" href="https://hospitable.b-cdn.net" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 
+    <!-- Google Fonts (moved from CSS @import for faster loading) -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700;800&family=Montserrat:wght@300;400;600;700;800&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+
     <!-- Preload Critical Resources -->
     <link rel="preload" href="css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
