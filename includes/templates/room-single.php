@@ -26,7 +26,9 @@ $propertyId = $_GET['id'];
                 <div class="col-md-12">
                     <div class="de-content-overlay">
                         <!-- Carrusel de Imágenes -->
-                        <div class="d-carousel wow fadeInRight animated" data-wow-delay="2s">
+                        <div class="d-carousel wow fadeInRight animated" data-wow-delay="2s" style="position:relative;">
+                            <!-- Banderín de disponibilidad flotante -->
+                            <div id="room-availability-badge" class="room-availability-badge" style="display:none;"></div>
                             <div id="carousel-rooms" class="owl-carousel owl-theme owl-loaded owl-drag"></div>
                             <div class="d-arrow-left mod-a"><i class="fa fa-angle-left"></i></div>
                             <div class="d-arrow-right mod-a"><i class="fa fa-angle-right"></i></div>
@@ -40,6 +42,12 @@ $propertyId = $_GET['id'];
                                 <div id="room-details" class="d-room-details de-flex">
                                     <!-- Detalles dinámicos de la habitación se insertarán aquí -->
                                 </div>
+                                <!-- Trust badges debajo del meta -->
+                                <div class="room-trust-bar">
+                                    <span class="room-trust-item"><i class="fa fa-bolt"></i> <?php echo t('rooms_instant_confirm'); ?></span>
+                                    <span class="room-trust-item"><i class="fa fa-credit-card"></i> <?php echo t('rooms_no_prepay'); ?></span>
+                                    <span class="room-trust-item"><i class="fa fa-check-circle"></i> <?php echo t('rooms_free_cancel'); ?></span>
+                                </div>
                             </div>
                         </div>
 
@@ -49,7 +57,7 @@ $propertyId = $_GET['id'];
                             <div class="col-md-5 order-1 order-md-2 mb-4 booking-column">
                                 <h3 class="text-center mb-3" id="booking-title"><?php echo t('room_book_now'); ?></h3>
                                 <div class="booking-iframe-wrapper">
-                                    <iframe id="booking-iframe" sandbox="allow-top-navigation allow-scripts allow-forms allow-popups" src="" allowfullscreen loading="lazy" class="booking-iframe-responsive">
+                                    <iframe id="booking-iframe" sandbox="allow-top-navigation allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox" src="" allowfullscreen loading="lazy" class="booking-iframe-responsive">
                                     </iframe>
                                 </div>
 
@@ -202,9 +210,52 @@ $propertyId = $_GET['id'];
                 roomDetailsElement.innerHTML = `
             <div class="de-flex-col"><img src="images/ui/user.svg" alt=""> ${property.capacity.max} ${t('room_guests')}</div>
             <div class="de-flex-col"><img src="images/ui/floorplan.svg" alt=""> ${property.capacity.bedrooms} ${t('room_bedrooms')}</div>
-            <div class="de-flex-col"><img src="images/ui/bed.svg" alt=""> $${nightlyPrice} MXN ${t('room_per_night')} ${t('room_plus_tax')}</div>
+            <div class="de-flex-col"><img src="images/ui/bed.svg" alt=""> <strong>$${Number(nightlyPrice).toLocaleString(currentLang === 'es' ? 'es-MX' : 'en-US')}</strong> MXN ${t('room_per_night')} ${t('room_plus_tax')}</div>
 
         `;
+
+                // Banderin de disponibilidad (usa fechas de URL si hay, o HOY)
+                (async function renderAvailabilityBadge() {
+                    try {
+                        const params = new URLSearchParams(window.location.search);
+                        const ci = params.get('checkin');
+                        const co = params.get('checkout');
+                        let startDate, endDate, hasDates = false;
+                        if (ci && co) {
+                            startDate = ci; endDate = co; hasDates = true;
+                        } else {
+                            const today = new Date();
+                            startDate = endDate = today.toISOString().split('T')[0];
+                        }
+                        const resp = await fetch(`api_proxy_secure.php?endpoint=properties/${propertyId}/calendar?start_date=${startDate}&end_date=${endDate}`);
+                        if (!resp.ok) return;
+                        const json = await resp.json();
+                        const days = json?.data?.days || [];
+                        if (days.length === 0) return;
+                        const available = days.every(d => d.status && d.status.available);
+                        const badge = document.getElementById('room-availability-badge');
+                        if (!badge) return;
+
+                        let text;
+                        if (hasDates) {
+                            // Formato "20-22 abr"
+                            const locale = currentLang === 'es' ? 'es-MX' : 'en-US';
+                            const ciD = new Date(ci + 'T00:00:00');
+                            const coD = new Date(co + 'T00:00:00');
+                            const range = ciD.getMonth() === coD.getMonth()
+                                ? ciD.toLocaleDateString(locale, { day: 'numeric' }) + '-' + coD.toLocaleDateString(locale, { day: 'numeric', month: 'short' })
+                                : ciD.toLocaleDateString(locale, { day: 'numeric', month: 'short' }) + ' - ' + coD.toLocaleDateString(locale, { day: 'numeric', month: 'short' });
+                            text = available
+                                ? `${t('room_available_dates')} ${range}`
+                                : t('room_unavailable_dates');
+                        } else {
+                            text = available ? t('room_available') : t('room_not_available');
+                        }
+                        badge.textContent = text;
+                        badge.className = 'room-availability-badge ' + (available ? 'available' : 'not-available');
+                        badge.style.display = 'inline-block';
+                    } catch (e) {}
+                })();
                 // Intentar obtener descripción traducida, si no existe usar la de la API
                 const summaryKey = `property_${propertyId}_summary`;
                 const translatedSummary = t(summaryKey);

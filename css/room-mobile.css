@@ -397,3 +397,79 @@
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
+/* ============================================
+   Conversión: Banderín de disponibilidad room.php
+   ============================================ */
+.room-availability-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+    padding: 10px 16px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+}
+.room-availability-badge.available {
+    background: #27ae60;
+    animation: room-pulse-green 2.5s ease-in-out infinite;
+}
+.room-availability-badge.not-available {
+    background: #c0392b;
+    opacity: 0.95;
+}
+@keyframes room-pulse-green {
+    0%, 100% { box-shadow: 0 4px 14px rgba(39,174,96,0.4); }
+    50%      { box-shadow: 0 4px 22px rgba(39,174,96,0.85); }
+}
+
+/* ============================================
+   Conversión: Trust bar debajo del meta
+   ============================================ */
+.room-trust-bar {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 14px 20px;
+    margin: -5px 0 20px;
+    border-radius: 0 0 12px 12px;
+    background: rgba(255,255,255,0.04);
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+.room-trust-item {
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+}
+.room-trust-item i {
+    color: #6fd39a;
+    font-size: 14px;
+}
+
+@media (max-width: 600px) {
+    .room-availability-badge {
+        top: 12px;
+        right: 12px;
+        padding: 7px 11px;
+        font-size: 10px;
+        letter-spacing: 0.5px;
+    }
+    .room-trust-bar {
+        gap: 14px;
+        padding: 12px 14px;
+    }
+    .room-trust-item {
+        font-size: 11px;
+    }
+}
