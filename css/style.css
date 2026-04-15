@@ -6529,52 +6529,57 @@ footer.style-2 {
   display: flex;
   align-items: baseline;
   gap: 6px;
-  margin: 12px 0 8px;
+  margin: 12px 0 10px;
   flex-wrap: wrap;
 }
 .de-room .d-price-from {
-  font-size: 13px;
-  color: #8a7a66;
+  font-size: 12px;
+  color: #e2bad4;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
+  font-weight: 600;
 }
 .de-room .d-price-amount {
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 700;
-  color: #312b24;
+  color: #ffffff;
   font-family: 'Montserrat', sans-serif;
+  line-height: 1;
 }
 .de-room .d-price-currency {
   font-size: 13px;
   font-weight: 600;
-  color: #8a7a66;
+  color: #ffffff;
+  opacity: 0.85;
 }
 .de-room .d-price-night {
   font-size: 13px;
-  color: #8a7a66;
+  color: #ffffff;
+  opacity: 0.7;
 }
 
 /* Trust badges en tarjeta */
 .de-room .d-trust {
   display: flex;
-  gap: 16px;
+  gap: 18px;
   flex-wrap: wrap;
-  margin: 0 0 14px;
-  padding: 8px 0;
-  border-top: 1px dashed rgba(0,0,0,0.08);
-  border-bottom: 1px dashed rgba(0,0,0,0.08);
+  margin: 0 0 16px;
+  padding: 10px 0;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
 }
 .de-room .d-trust-item {
-  font-size: 11px;
-  color: #5a5144;
+  font-size: 12px;
+  color: #ffffff;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   letter-spacing: 0.3px;
+  font-weight: 500;
 }
 .de-room .d-trust-item i {
-  color: #27ae60;
-  font-size: 12px;
+  color: #6fd39a;
+  font-size: 13px;
 }
 
 /* CTA primario (reservar) */
@@ -6610,12 +6615,12 @@ footer.style-2 {
 }
 .de-room .d-cta-secondary {
   background: transparent;
-  color: #5a5144 !important;
-  border: 1.5px solid #c9bfa8;
+  color: #ffffff !important;
+  border: 1.5px solid rgba(255,255,255,0.4);
 }
 .de-room .d-cta-secondary:hover {
-  background: #f5efe4;
-  border-color: #8a7a66;
+  background: rgba(255,255,255,0.08);
+  border-color: #ffffff;
 }
 
 

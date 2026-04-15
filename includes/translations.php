@@ -142,8 +142,8 @@ $translations = [
         'footer_rights' => 'Todos los derechos reservados',
 
         // Rooms - UI Labels
-        'room_available' => 'Disponible',
-        'room_not_available' => 'No Disponible',
+        'room_available' => '✓ Disponible hoy',
+        'room_not_available' => '✗ No disponible hoy',
         'room_available_dates' => '✓ Disponible',
         'room_unavailable_dates' => '✗ No disponible estas fechas',
         'rooms_cta_book' => 'Reservar ahora',
@@ -1072,8 +1072,8 @@ $translations = [
         'personal_care_mercadopago_button' => 'Pay with Mercado Pago',
 
         // Rooms - UI Labels
-        'room_available' => 'Available',
-        'room_not_available' => 'Not Available',
+        'room_available' => '✓ Available today',
+        'room_not_available' => '✗ Not available today',
         'room_available_dates' => '✓ Available',
         'room_unavailable_dates' => '✗ Not available these dates',
         'rooms_cta_book' => 'Book now',
