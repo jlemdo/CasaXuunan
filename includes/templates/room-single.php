@@ -49,7 +49,7 @@ $propertyId = $_GET['id'];
                             <div class="col-md-5 order-1 order-md-2 mb-4 booking-column">
                                 <h3 class="text-center mb-3" id="booking-title"><?php echo t('room_book_now'); ?></h3>
                                 <div class="booking-iframe-wrapper">
-                                    <iframe id="booking-iframe" sandbox="allow-top-navigation allow-scripts allow-same-origin" src="" allowfullscreen loading="lazy" class="booking-iframe-responsive">
+                                    <iframe id="booking-iframe" sandbox="allow-top-navigation allow-scripts allow-forms allow-popups" src="" allowfullscreen loading="lazy" class="booking-iframe-responsive">
                                     </iframe>
                                 </div>
 
