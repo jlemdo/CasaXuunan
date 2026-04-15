@@ -166,6 +166,13 @@ if (isset($_seo_blog_post_found)) {
     <link rel="canonical" href="<?php echo $_seo_canonical_url; ?>">
     <meta name="robots" content="index, follow">
 
+    <!-- DNS Prefetch for external resources -->
+    <link rel="dns-prefetch" href="//hospitable.b-cdn.net">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    <link rel="preconnect" href="https://hospitable.b-cdn.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+
     <!-- Preload Critical Resources -->
     <link rel="preload" href="css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">

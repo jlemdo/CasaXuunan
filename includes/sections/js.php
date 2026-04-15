@@ -19,7 +19,7 @@ document.querySelectorAll('.lang-switcher').forEach(function(b){
 <script src="<?php echo BASE_URL; ?>/js/plugins.js"></script>
 <script src="<?php echo BASE_URL; ?>/js/designesia.js"></script>
 <script src="<?php echo BASE_URL; ?>/js/custom-mobile-menu.js"></script>
-<script src="<?php echo BASE_URL; ?>/js/neuro-caption-words.js"></script>
+<script src="<?php echo BASE_URL; ?>/js/neuro-caption-words.js" defer></script>
 
 <!-- Supersized (solo para la página index) -->
 <?php

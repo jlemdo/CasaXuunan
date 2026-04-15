@@ -54,7 +54,7 @@ $translations = [
         'services_personal_care_desc' => 'Descubre nuestros nuevos servicios de cuidado personal para una renovación completa.',
         'services_personal_care_tag' => 'Cuidado Personal',
         'services_transport_title' => 'Traslados Privados',
-        'services_transport_desc' => 'Viaja cómodo y seguro desde/hacia Cancún, Mérida y Tulum con nuestro servicio de transporte personalizado.',
+        'services_transport_desc' => 'Viaja cómodo y seguro hacia Cancún, Mérida y Tulum con nuestro servicio de transporte personalizado.',
         'services_transport_tag' => 'Transporte',
 
         // Gallery
@@ -152,7 +152,7 @@ $translations = [
         'rooms_night' => '/ noche',
         'rooms_instant_confirm' => 'Confirmación inmediata',
         'rooms_free_cancel' => 'Cancelación gratis',
-        'rooms_no_prepay' => 'Sin pago adelantado',
+        'rooms_no_prepay' => 'Cancelación gratuita',
         'room_for' => 'Para',
         'room_guest_singular' => 'Huésped',
         'room_bedroom_singular' => 'Habitación',
@@ -647,7 +647,7 @@ $translations = [
         'personal_care_meta_description' => 'Servicio profesional de manicure, pedicure y cuidado personal en Casa Xu\'unan, Valladolid. Renuévate durante tu estancia en nuestro B&B familiar.',
 
         'transport_meta_title' => 'Transporte Privado Cancún - Valladolid - Mérida | Casa Xu\'unan',
-        'transport_meta_description' => 'Traslados privados y seguros desde Cancún, Mérida y Tulum a Valladolid. Servicio personalizado para huéspedes de Casa Xu\'unan. Reserva tu transporte.',
+        'transport_meta_description' => 'Traslados privados y seguros hacia Cancún, Mérida y Tulum desde Valladolid. Servicio personalizado para huéspedes de Casa Xu\'unan. Reserva tu transporte.',
         'transport_meta_keywords' => 'transporte cancun valladolid, traslado merida valladolid, taxi privado tulum valladolid, como llegar a valladolid yucatan',
 
         'gallery_meta_title' => 'Galería de Fotos | Casa Xu\'unan B&B en Valladolid, Yucatán',
@@ -733,7 +733,7 @@ $translations = [
         'hp_social_review2_name' => 'The Johnson Family — USA',
         'hp_social_review3_text' => 'La ubicación es perfecta: a pasos de la Calzada de los Frailes y a minutos de los cenotes. Exactamente lo que buscaba: autenticidad sin sacrificar comodidad.',
         'hp_social_review3_name' => 'Sophie — Francia',
-        'hp_social_counter_label' => 'huéspedes felices desde 2024',
+        'hp_social_counter_label' => 'huéspedes felices desde 2016',
         'hp_social_see_all' => 'Ver Todas las Reseñas',
         'hp_social_cta' => 'Reserva y Sé el Próximo',
 
@@ -817,7 +817,7 @@ $translations = [
         'services_personal_care_desc' => 'Discover our new personal care services for a complete renewal.',
         'services_personal_care_tag' => 'Personal Care',
         'services_transport_title' => 'Private Transfers',
-        'services_transport_desc' => 'Travel comfortably and safely to/from Cancun, Merida, and Tulum with our personalized transportation service.',
+        'services_transport_desc' => 'Travel comfortably and safely to Cancun, Merida, and Tulum with our personalized transportation service.',
         'services_transport_tag' => 'Transportation',
 
         // Gallery
@@ -1085,7 +1085,7 @@ $translations = [
         'rooms_night' => '/ night',
         'rooms_instant_confirm' => 'Instant confirmation',
         'rooms_free_cancel' => 'Free cancellation',
-        'rooms_no_prepay' => 'No prepayment',
+        'rooms_no_prepay' => 'Free cancellation',
         'room_for' => 'For',
         'room_guest_singular' => 'Guest',
         'room_bedroom_singular' => 'Bedroom',
@@ -1410,7 +1410,7 @@ $translations = [
         'personal_care_meta_description' => 'Professional manicure, pedicure & personal care service at Casa Xu\'unan, Valladolid. Pamper yourself during your stay at our family B&B.',
 
         'transport_meta_title' => 'Private Transport Cancun - Valladolid - Merida | Casa Xu\'unan',
-        'transport_meta_description' => 'Safe private transfers from Cancun, Merida & Tulum to Valladolid. Personalized service for Casa Xu\'unan guests. Book your transport.',
+        'transport_meta_description' => 'Safe private transfers to Cancun, Merida & Tulum from Valladolid. Personalized service for Casa Xu\'unan guests. Book your transport.',
         'transport_meta_keywords' => 'transport cancun valladolid, transfer merida valladolid, private taxi tulum valladolid, how to get to valladolid yucatan',
 
         'gallery_meta_title' => 'Photo Gallery | Casa Xu\'unan B&B in Valladolid, Yucatan',
@@ -1496,7 +1496,7 @@ $translations = [
         'hp_social_review2_name' => 'The Johnson Family — USA',
         'hp_social_review3_text' => 'The location is perfect: steps from Calzada de los Frailes and minutes from the cenotes. Exactly what I was looking for: authenticity without sacrificing comfort.',
         'hp_social_review3_name' => 'Sophie — France',
-        'hp_social_counter_label' => 'happy guests since 2024',
+        'hp_social_counter_label' => 'happy guests since 2016',
         'hp_social_see_all' => 'See All Reviews',
         'hp_social_cta' => 'Book & Be Next',
 

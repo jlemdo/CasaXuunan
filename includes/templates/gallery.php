@@ -26,7 +26,7 @@
                                 <span class="pf_caption"></span>
                             </span>
                         </a>
-                        <img src="images/gallery/gallery-item-1.jpg" alt="<?php echo t('gallery_alt_pool'); ?>" class="cover-image">
+                        <img src="images/gallery/gallery-item-1.jpg" alt="<?php echo t('gallery_alt_pool'); ?>" class="cover-image" loading="lazy">
                     </div>
                 </div>
                 <div class="item foto2">
@@ -37,7 +37,7 @@
                                 <span class="pf_caption"></span>
                             </span>
                         </a>
-                        <img src="images/gallery/gallery-item-2.jpg" alt="<?php echo t('gallery_alt_hammocks'); ?>" class="cover-image">
+                        <img src="images/gallery/gallery-item-2.jpg" alt="<?php echo t('gallery_alt_hammocks'); ?>" class="cover-image" loading="lazy">
                     </div>
                 </div>
                 <div class="item foto3">
@@ -48,7 +48,7 @@
                                 <span class="pf_caption"></span>
                             </span>
                         </a>
-                        <img src="images/gallery/gallery-item-3.jpg" alt="<?php echo t('gallery_alt_landscape'); ?>" class="cover-image">
+                        <img src="images/gallery/gallery-item-3.jpg" alt="<?php echo t('gallery_alt_landscape'); ?>" class="cover-image" loading="lazy">
                     </div>
                 </div>
 
@@ -61,7 +61,7 @@
                                 <span class="pf_caption"></span>
                             </span>
                         </a>
-                        <img src="images/gallery/gallery-item-4.jpg" alt="<?php echo t('gallery_alt_terrace'); ?>" class="cover-image">
+                        <img src="images/gallery/gallery-item-4.jpg" alt="<?php echo t('gallery_alt_terrace'); ?>" class="cover-image" loading="lazy">
                     </div>
                 </div>
                 <div class="item foto5">
@@ -72,7 +72,7 @@
                                 <span class="pf_caption"></span>
                             </span>
                         </a>
-                        <img src="images/gallery/gallery-item-5.jpg" alt="<?php echo t('gallery_alt_group'); ?>" class="cover-image">
+                        <img src="images/gallery/gallery-item-5.jpg" alt="<?php echo t('gallery_alt_group'); ?>" class="cover-image" loading="lazy">
                     </div>
                 </div>
 
@@ -85,7 +85,7 @@
                                 <span class="pf_caption"></span>
                             </span>
                         </a>
-                        <img src="images/gallery/gallery-item-6.jpg" alt="<?php echo t('gallery_alt_sunset'); ?>" class="cover-image">
+                        <img src="images/gallery/gallery-item-6.jpg" alt="<?php echo t('gallery_alt_sunset'); ?>" class="cover-image" loading="lazy">
                     </div>
                 </div>
                 <div class="item foto7">
@@ -96,7 +96,7 @@
                                 <span class="pf_caption"></span>
                             </span>
                         </a>
-                        <img src="images/gallery/gallery-item-7.jpg" alt="<?php echo t('gallery_alt_sharing'); ?>" class="cover-image">
+                        <img src="images/gallery/gallery-item-7.jpg" alt="<?php echo t('gallery_alt_sharing'); ?>" class="cover-image" loading="lazy">
                     </div>
                 </div>
             </div>

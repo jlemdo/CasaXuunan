@@ -47,7 +47,7 @@
                                             </a>
                                             <img
                                                 src="images/offer/1.png"
-                                                class="img-fluid"
+                                                class="img-fluid" loading="lazy"
                                                 alt="Tours en Valladolid" />
                                         </div>
                                     </div>
@@ -67,7 +67,7 @@
                                             </a>
                                             <img
                                                 src="images/offer/2.png"
-                                                class="img-fluid"
+                                                class="img-fluid" loading="lazy"
                                                 alt="Comida tradicional Yucatán" />
                                         </div>
                                     </div> -->
@@ -86,7 +86,7 @@
                                             </a>
                                             <img
                                                 src="images/offer/3.png"
-                                                class="img-fluid"
+                                                class="img-fluid" loading="lazy"
                                                 alt="Masajes en Casa Xuunan" />
                                         </div>
                                     </div>
@@ -105,7 +105,7 @@
                                             </a>
                                             <img
                                                 src="images/offer/4.png"
-                                                class="img-fluid"
+                                                class="img-fluid" loading="lazy"
                                                 alt="Cuidado Personal en Casa Xuunan" />
                                         </div>
                                     </div>
@@ -124,7 +124,7 @@
                                             </a>
                                             <img
                                                 src="images/offer/5.png"
-                                                class="img-fluid"
+                                                class="img-fluid" loading="lazy"
                                                 alt="Traslados en Casa Xuunan" />
                                         </div>
                                     </div>

@@ -262,7 +262,7 @@ function createRoomContent(property, images, availability, price) {
     trustDiv.classList.add('d-trust');
     trustDiv.innerHTML = `
         <span class="d-trust-item"><i class="fa fa-bolt"></i> ${t('rooms_instant_confirm')}</span>
-        <span class="d-trust-item"><i class="fa fa-credit-card"></i> ${t('rooms_no_prepay')}</span>
+        <span class="d-trust-item"><i class="fa fa-check-circle"></i> ${t('rooms_no_prepay')}</span>
     `;
     textDiv.appendChild(trustDiv);
 

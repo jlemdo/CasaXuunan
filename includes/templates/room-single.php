@@ -55,7 +55,7 @@ $propertyId = $_GET['id'];
                                 <!-- Trust badges debajo del meta -->
                                 <div class="room-trust-bar">
                                     <span class="room-trust-item"><i class="fa fa-bolt"></i> <?php echo t('rooms_instant_confirm'); ?></span>
-                                    <span class="room-trust-item"><i class="fa fa-credit-card"></i> <?php echo t('rooms_no_prepay'); ?></span>
+                                    <span class="room-trust-item"><i class="fa fa-check-circle"></i> <?php echo t('rooms_no_prepay'); ?></span>
                                     <span class="room-trust-item"><i class="fa fa-check-circle"></i> <?php echo t('rooms_free_cancel'); ?></span>
                                 </div>
                             </div>
