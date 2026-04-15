@@ -25,6 +25,12 @@ $propertyId = $_GET['id'];
             <div class="row">
                 <div class="col-md-12">
                     <div class="de-content-overlay">
+                        <!-- Social proof sobre el carrusel -->
+                        <div class="room-hero-trust">
+                            <span class="room-hero-stars">★★★★★</span>
+                            <span class="room-hero-rating"><?php echo getCurrentLanguage() === 'es' ? '4.8/5 · Más de 50 reseñas verificadas' : '4.8/5 · 50+ verified reviews'; ?></span>
+                        </div>
+
                         <!-- Carrusel de Imágenes -->
                         <div class="d-carousel wow fadeInRight animated" data-wow-delay="2s" style="position:relative;">
                             <!-- Banderín de disponibilidad flotante -->
@@ -55,6 +61,18 @@ $propertyId = $_GET['id'];
                         <div class="row">
                             <!-- Lado Derecho: Booking Iframe -->
                             <div class="col-md-5 order-1 order-md-2 mb-4 booking-column">
+                                <!-- Bloque de precio prominente -->
+                                <div id="room-price-block" class="room-price-block" style="display:none;">
+                                    <span class="room-price-from"><?php echo t('rooms_from'); ?></span>
+                                    <div class="room-price-row">
+                                        <span class="room-price-amount" id="room-price-amount"></span>
+                                        <span class="room-price-unit">
+                                            <span class="room-price-currency">MXN</span>
+                                            <span class="room-price-night"><?php echo t('rooms_night'); ?></span>
+                                        </span>
+                                    </div>
+                                    <span class="room-price-tax"><?php echo t('room_plus_tax'); ?></span>
+                                </div>
                                 <h3 class="text-center mb-3" id="booking-title"><?php echo t('room_book_now'); ?></h3>
                                 <div class="booking-iframe-wrapper">
                                     <iframe id="booking-iframe" sandbox="allow-top-navigation allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox" src="" allowfullscreen loading="lazy" class="booking-iframe-responsive">
@@ -109,6 +127,17 @@ $propertyId = $_GET['id'];
             </div>
         </div>
     </section>
+
+    <!-- Sticky CTA mobile (solo visible en mobile) -->
+    <div class="room-sticky-cta" id="room-sticky-cta" style="display:none;">
+        <div class="sticky-cta-info">
+            <span class="sticky-cta-from"><?php echo t('rooms_from'); ?></span>
+            <span class="sticky-cta-price" id="sticky-cta-price"></span>
+        </div>
+        <a href="#booking-title" class="sticky-cta-btn">
+            <?php echo t('rooms_cta_book'); ?> <i class="fa fa-arrow-right"></i>
+        </a>
+    </div>
 
     <!-- Estilos manejados por room-mobile.css -->
 
@@ -200,19 +229,38 @@ $propertyId = $_GET['id'];
                 // Dividir el nombre en "nombre" y "código"
                 const [name, code] = displayName.split(':').map(part => part.trim());
 
+                // Subtitulo descriptivo: capacidad + bedrooms (datos REALES de Hospitable, sin inventar)
+                const guestsLabel = property.capacity.max == 1 ? t('room_guest_singular') : t('room_guests');
+                const bedroomsLabel = property.capacity.bedrooms == 1 ? t('room_bedroom_singular') : t('room_bedrooms');
+                const subtitle = `${t('room_for')} ${property.capacity.max} ${guestsLabel.toLowerCase()} · ${property.capacity.bedrooms} ${bedroomsLabel.toLowerCase()}`;
+
                 // Insertar nombre de la habitación dinámicamente
                 roomNameElement.innerHTML = `
             <h4>${name || ''}</h4>
             <h1>${code || ''}</h1>
+            <p class="room-hero-subtitle">${subtitle}</p>
         `;
 
-                // Insertar detalles principales de la habitación
+                // Insertar detalles (sin precio, ahora va prominente arriba del iframe)
                 roomDetailsElement.innerHTML = `
             <div class="de-flex-col"><img src="images/ui/user.svg" alt=""> ${property.capacity.max} ${t('room_guests')}</div>
             <div class="de-flex-col"><img src="images/ui/floorplan.svg" alt=""> ${property.capacity.bedrooms} ${t('room_bedrooms')}</div>
-            <div class="de-flex-col"><img src="images/ui/bed.svg" alt=""> <strong>$${Number(nightlyPrice).toLocaleString(currentLang === 'es' ? 'es-MX' : 'en-US')}</strong> MXN ${t('room_per_night')} ${t('room_plus_tax')}</div>
-
         `;
+
+                // Llenar bloque de precio prominente + sticky CTA mobile
+                if (nightlyPrice && nightlyPrice !== '---') {
+                    const formattedPrice = Number(nightlyPrice).toLocaleString(currentLang === 'es' ? 'es-MX' : 'en-US');
+                    const priceBlock = document.getElementById('room-price-block');
+                    const priceAmount = document.getElementById('room-price-amount');
+                    const stickyPrice = document.getElementById('sticky-cta-price');
+                    const stickyCta = document.getElementById('room-sticky-cta');
+                    if (priceBlock && priceAmount) {
+                        priceAmount.textContent = '$' + formattedPrice;
+                        priceBlock.style.display = 'block';
+                    }
+                    if (stickyPrice) stickyPrice.textContent = '$' + formattedPrice + ' MXN';
+                    if (stickyCta) stickyCta.style.display = '';
+                }
 
                 // Banderin de disponibilidad (usa fechas de URL si hay, o HOY)
                 (async function renderAvailabilityBadge() {

@@ -473,3 +473,175 @@
         font-size: 11px;
     }
 }
+
+/* ============================================
+   Hero Social Proof (sobre el carrusel)
+   ============================================ */
+.room-hero-trust {
+    text-align: center;
+    margin: 0 0 12px;
+    padding: 8px 12px;
+}
+.room-hero-stars {
+    color: #f1c40f;
+    font-size: 15px;
+    letter-spacing: 2px;
+    margin-right: 8px;
+}
+.room-hero-rating {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Subtitulo bajo el título del cuarto */
+.room-hero-subtitle {
+    color: #e2bad4;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+/* ============================================
+   Precio Prominente (arriba del iframe)
+   ============================================ */
+.room-price-block {
+    background: linear-gradient(135deg, rgba(234,143,113,0.12), rgba(226,186,212,0.08));
+    border: 1px solid rgba(234,143,113,0.25);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 18px;
+    text-align: center;
+}
+.room-price-from {
+    display: block;
+    color: #e2bad4;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+.room-price-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 8px;
+    margin: 2px 0;
+}
+.room-price-amount {
+    color: #ffffff;
+    font-size: 36px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1;
+}
+.room-price-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 12px;
+    line-height: 1.2;
+}
+.room-price-currency {
+    color: #ffffff;
+    font-weight: 600;
+}
+.room-price-night {
+    color: #ffffff;
+    opacity: 0.75;
+}
+.room-price-tax {
+    display: block;
+    color: #ffffff;
+    opacity: 0.6;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+}
+
+/* ============================================
+   Sticky CTA mobile
+   ============================================ */
+.room-sticky-cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: rgba(20,20,20,0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 10px 14px;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.35);
+}
+.sticky-cta-info {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+.sticky-cta-from {
+    font-size: 10px;
+    color: #e2bad4;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+.sticky-cta-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+}
+.sticky-cta-btn {
+    background: #ea8f71;
+    color: #fff !important;
+    text-decoration: none !important;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    white-space: nowrap;
+    transition: all 0.25s ease;
+    box-shadow: 0 3px 12px rgba(234,143,113,0.4);
+}
+.sticky-cta-btn:hover {
+    background: #d9775c;
+    box-shadow: 0 4px 16px rgba(234,143,113,0.6);
+}
+.sticky-cta-btn i {
+    margin-left: 4px;
+}
+
+/* Solo visible en mobile */
+@media (min-width: 768px) {
+    .room-sticky-cta {
+        display: none !important;
+    }
+}
+@media (max-width: 767px) {
+    .room-sticky-cta[style*="display:"] {
+        display: flex !important;
+    }
+    /* padding bottom para que sticky CTA no tape contenido */
+    body {
+        padding-bottom: 70px;
+    }
+    .room-price-amount {
+        font-size: 30px;
+    }
+    .room-hero-subtitle {
+        font-size: 12px;
+    }
+}
