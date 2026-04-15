@@ -406,7 +406,7 @@ if (isset($_seo_blog_post_found)) {
           "@type": "Review",
           "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
           "author": { "@type": "Person", "name": "Johnson Family" },
-          "reviewBody": "Doña Susi nos recibió como si fuéramos familia. Nos recomendó cenotes que no aparecen en ninguna guía. Una experiencia que no encontrarás en ningún hotel.",
+          "reviewBody": "Nos recibieron como si fuéramos familia. Nos recomendaron cenotes que no aparecen en ninguna guía. Una experiencia que no encontrarás en ningún hotel.",
           "datePublished": "2026-01-20"
         },
         {

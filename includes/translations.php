@@ -72,7 +72,7 @@ $translations = [
         'about_subtitle' => 'Conoce',
         'about_title' => 'Nuestra Historia',
         'about_main_title' => 'Más que un Hospedaje,<br>una Invitación a Ser Parte de la Familia',
-        'about_description_p1' => 'Casa Xu\'unan nació de un sueño sencillo: compartir con los viajeros la calidez de un hogar yucateco. Doña Susi abrieron las puertas de su antigua casona en el histórico barrio de Sisal, frente al Convento de San Bernardino de Siena y al inicio de la Calzada de los Frailes, para ofrecer algo que ningún hotel convencional puede replicar: la experiencia de sentirte acogido como parte de la familia. Aquí no eres un número de habitación, eres un huésped en nuestra casa.',
+        'about_description_p1' => 'Casa Xu\'unan nació de un sueño sencillo: compartir con los viajeros la calidez de un hogar yucateco. Abrimos las puertas de nuestra casona en el histórico barrio de Sisal, frente al Convento de San Bernardino de Siena y al inicio de la Calzada de los Frailes, para ofrecer algo que ningún hotel convencional puede replicar: la experiencia de sentirte acogido como parte de la familia. Aquí no eres un número de habitación, eres un huésped en nuestra casa.',
         'about_description_p2' => 'Cada mañana preparamos un desayuno casero diferente con ingredientes frescos del mercado local, servido en nuestro jardín tropical rodeado de vegetación y el canto de los pájaros. Después de un día explorando cenotes, Chichén Itzá o la propia Valladolid, regresa a refrescarte en nuestra piscina, descansar en una hamaca o simplemente disfrutar de una conversación con otros viajeros. Esa es la esencia de Casa Xu\'unan: tranquilidad, calidez humana y la magia de Valladolid en su forma más auténtica.',
         'about_book_now' => '¡Reserva Tu Estancia!',
         'about_hotel_services_title' => 'Lo Que Nos Hace Diferentes',
@@ -617,7 +617,7 @@ $translations = [
 
         // ===== SEO PER-PAGE META TAGS =====
         'index_meta_title' => 'Casa Xu\'unan - B&B Familiar en Valladolid, Yucatán | Hospedaje con Desayuno cerca de Chichén Itzá',
-        'index_meta_description' => 'B&B familiar en el barrio de Sisal, Valladolid. 9 habitaciones con desayuno casero incluido, piscina y jardín. A 40 min de Chichén Itzá. Atención personalizada de Doña Susi.',
+        'index_meta_description' => 'B&B familiar en el barrio de Sisal, Valladolid. 9 habitaciones con desayuno casero incluido, piscina y jardín. A 40 min de Chichén Itzá. Atención personalizada con la calidez que nos define.',
         'index_meta_keywords' => 'bed and breakfast valladolid, hospedaje familiar valladolid yucatan, b&b valladolid mexico, alojamiento con desayuno valladolid, hospedaje cerca chichen itza, hotel valladolid yucatan, donde dormir valladolid, posada valladolid',
         'index_h1' => 'B&B Familiar con Desayuno Incluido en Valladolid, Yucatán',
 
@@ -653,8 +653,8 @@ $translations = [
         'contact_meta_title' => 'Contacto y Reservaciones | Casa Xu\'unan B&B Valladolid',
         'contact_meta_description' => 'Contáctanos por WhatsApp o formulario. Casa Xu\'unan B&B familiar en Valladolid, Yucatán. Respuesta rápida para reservaciones y consultas.',
 
-        'about_meta_title' => 'Sobre Nosotros | Doña Susi - Casa Xu\'unan Valladolid',
-        'about_meta_description' => 'Conoce la historia de Casa Xu\'unan, B&B familiar en el histórico barrio de Sisal, Valladolid. Doña Susi te reciben como en casa, frente al Convento de San Bernardino.',
+        'about_meta_title' => 'Sobre Nosotros | Casa Xu\'unan B&B Familiar Valladolid',
+        'about_meta_description' => 'Conoce la historia de Casa Xu\'unan, B&B familiar en el histórico barrio de Sisal, Valladolid. Te recibimos como en casa, frente al Convento de San Bernardino.',
         'about_meta_keywords' => 'casa xuunan historia, bed and breakfast valladolid, barrio de sisal valladolid, calzada de los frailes hospedaje, convento san bernardino valladolid',
 
         'search_meta_title' => 'Buscar Disponibilidad | Casa Xu\'unan B&B Valladolid',
@@ -726,7 +726,7 @@ $translations = [
         'hp_social_subtext' => '+50 reseñas de huéspedes reales',
         'hp_social_review1_text' => 'El desayuno fue increíble, cada mañana algo diferente. El jardín tropical es un sueño, despertamos con el canto de los pájaros. Sin duda el mejor lugar para hospedarse en Valladolid.',
         'hp_social_review1_name' => 'María & Carlos — México',
-        'hp_social_review2_text' => 'Doña Susi nos recibió como si fuéramos familia. Nos recomendó cenotes que no aparecen en ninguna guía. Nuestros hijos no querían irse. Una experiencia que no encontrarás en ningún hotel.',
+        'hp_social_review2_text' => 'Nos recibieron como si fuéramos familia. Nos recomendaron cenotes que no aparecen en ninguna guía. Nuestros hijos no querían irse. Una experiencia que no encontrarás en ningún hotel.',
         'hp_social_review2_name' => 'The Johnson Family — USA',
         'hp_social_review3_text' => 'La ubicación es perfecta: a pasos de la Calzada de los Frailes y a minutos de los cenotes. Exactamente lo que buscaba: autenticidad sin sacrificar comodidad.',
         'hp_social_review3_name' => 'Sophie — Francia',
@@ -832,7 +832,7 @@ $translations = [
         'about_subtitle' => 'Discover',
         'about_title' => 'Our Story',
         'about_main_title' => 'More Than a Place to Stay,<br>an Invitation to Be Part of the Family',
-        'about_description_p1' => 'Casa Xu\'unan was born from a simple dream: to share the warmth of a Yucatecan home with travelers from around the world. Dona Susi opened the doors of their traditional house in the historic Sisal neighborhood, facing the San Bernardino de Siena Convent and at the start of the Calzada de los Frailes, to offer something no conventional hotel can replicate: the experience of feeling welcomed as part of the family. Here you are not a room number, you are a guest in our home.',
+        'about_description_p1' => 'Casa Xu\'unan was born from a simple dream: to share the warmth of a Yucatecan home with travelers from around the world. We opened the doors of our traditional house in the historic Sisal neighborhood, facing the San Bernardino de Siena Convent and at the start of the Calzada de los Frailes, to offer something no conventional hotel can replicate: the experience of feeling welcomed as part of the family. Here you are not a room number, you are a guest in our home.',
         'about_description_p2' => 'Every morning we prepare a different homemade breakfast with fresh ingredients from the local market, served in our tropical garden surrounded by lush greenery and birdsong. After a day exploring cenotes, Chichen Itza or Valladolid itself, come back to cool off in our pool, rest in a hammock or simply enjoy a conversation with fellow travelers. That is the essence of Casa Xu\'unan: tranquility, human warmth and the magic of Valladolid in its most authentic form.',
         'about_book_now' => 'Book Your Stay!',
         'about_hotel_services_title' => 'What Makes Us Different',
@@ -1377,7 +1377,7 @@ $translations = [
 
         // ===== SEO PER-PAGE META TAGS =====
         'index_meta_title' => 'Casa Xu\'unan - Family B&B in Valladolid, Yucatan | Accommodation near Chichen Itza',
-        'index_meta_description' => 'Family B&B in Sisal neighborhood, Valladolid. 9 rooms with homemade breakfast, pool & garden. 40 min from Chichen Itza. Personal attention by Dona Susi.',
+        'index_meta_description' => 'Family B&B in Sisal neighborhood, Valladolid. 9 rooms with homemade breakfast, pool & garden. 40 min from Chichen Itza. Personal attention with the warmth that defines us.',
         'index_meta_keywords' => 'bed and breakfast valladolid mexico, family accommodation valladolid yucatan, b&b near chichen itza, where to stay valladolid, hotel valladolid yucatan, guest house valladolid mexico, small hotel valladolid',
         'index_h1' => 'Family Bed & Breakfast with Breakfast Included in Valladolid, Yucatan',
 
@@ -1413,8 +1413,8 @@ $translations = [
         'contact_meta_title' => 'Contact & Reservations | Casa Xu\'unan B&B Valladolid',
         'contact_meta_description' => 'Contact us via WhatsApp or form. Casa Xu\'unan family B&B in Valladolid, Yucatan. Quick response for reservations and inquiries.',
 
-        'about_meta_title' => 'About Us | Dona Susi - Casa Xu\'unan Valladolid',
-        'about_meta_description' => 'Discover the story of Casa Xu\'unan, family B&B in the historic Sisal neighborhood, Valladolid. Dona Susi welcome you home, facing the San Bernardino Convent.',
+        'about_meta_title' => 'About Us | Casa Xu\'unan Family B&B Valladolid',
+        'about_meta_description' => 'Discover the story of Casa Xu\'unan, family B&B in the historic Sisal neighborhood, Valladolid. We welcome you home, facing the San Bernardino Convent.',
         'about_meta_keywords' => 'casa xuunan story, bed and breakfast valladolid, sisal neighborhood valladolid, calzada de los frailes lodging, san bernardino convent valladolid',
 
         'search_meta_title' => 'Check Availability | Casa Xu\'unan B&B Valladolid',
@@ -1486,7 +1486,7 @@ $translations = [
         'hp_social_subtext' => '50+ reviews from real guests',
         'hp_social_review1_text' => 'The breakfast was incredible, something different every morning. The tropical garden is a dream, we woke up to birdsong. Without a doubt the best place to stay in Valladolid.',
         'hp_social_review1_name' => 'María & Carlos — Mexico',
-        'hp_social_review2_text' => 'Dona Susi welcomed us as if we were family. She recommended cenotes that don\'t appear in any guidebook. Our kids didn\'t want to leave. An experience you won\'t find at any hotel.',
+        'hp_social_review2_text' => 'They welcomed us as if we were family. They recommended cenotes that don\'t appear in any guidebook. Our kids didn\'t want to leave. An experience you won\'t find at any hotel.',
         'hp_social_review2_name' => 'The Johnson Family — USA',
         'hp_social_review3_text' => 'The location is perfect: steps from Calzada de los Frailes and minutes from the cenotes. Exactly what I was looking for: authenticity without sacrificing comfort.',
         'hp_social_review3_name' => 'Sophie — France',

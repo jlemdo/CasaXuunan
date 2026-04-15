@@ -82,7 +82,7 @@ $blog_posts = [
 </ul>
 
 <h2>¿Dónde Hospedarse?</h2>
-<p>Si buscas una experiencia auténtica, lejos de la frialdad de los hoteles de cadena, <strong>Casa Xu\'unan</strong> es un B&B familiar en el barrio de Sisal, al inicio de la Calzada de los Frailes. Doña Susi te reciben como en casa, con desayuno casero incluido, piscina, jardín tropical y toda la información local que necesitas.</p>
+<p>Si buscas una experiencia auténtica, lejos de la frialdad de los hoteles de cadena, <strong>Casa Xu\'unan</strong> es un B&B familiar en el barrio de Sisal, al inicio de la Calzada de los Frailes. Nuestro equipo te recibe como en casa, con desayuno casero incluido, piscina, jardín tropical y toda la información local que necesitas.</p>
 ',
 
         'content_en' => '
@@ -144,7 +144,7 @@ $blog_posts = [
 </ul>
 
 <h2>Where to Stay?</h2>
-<p>If you are looking for an authentic experience, away from the coldness of chain hotels, <strong>Casa Xu\'unan</strong> is a family B&B in the Sisal neighborhood, at the start of the Calzada de los Frailes. Dona Susi welcome you as family, with homemade breakfast included, pool, tropical garden and all the local insider info you need.</p>
+<p>If you are looking for an authentic experience, away from the coldness of chain hotels, <strong>Casa Xu\'unan</strong> is a family B&B in the Sisal neighborhood, at the start of the Calzada de los Frailes. Our team welcomes you as family, with homemade breakfast included, pool, tropical garden and all the local insider info you need.</p>
 ',
     ],
 
@@ -228,7 +228,7 @@ $blog_posts = [
 </ul>
 
 <h2>¿Dónde Hospedarse para Explorar Cenotes?</h2>
-<p>Desde <strong>Casa Xu\'unan</strong> en el barrio de Sisal todos los cenotes están a menos de 30 minutos. Desayunas con nosotros por la mañana, sales a explorar cenotes y regresas a refrescarte en nuestra piscina. Doña Susi conoce cada cenote personalmente y te dará las mejores recomendaciones.</p>
+<p>Desde <strong>Casa Xu\'unan</strong> en el barrio de Sisal todos los cenotes están a menos de 30 minutos. Desayunas con nosotros por la mañana, sales a explorar cenotes y regresas a refrescarte en nuestra piscina. Nuestro equipo conoce cada cenote personalmente y te dará las mejores recomendaciones.</p>
 ',
 
         'content_en' => '
@@ -294,7 +294,7 @@ $blog_posts = [
 </ul>
 
 <h2>Where to Stay for Cenote Exploration?</h2>
-<p>From <strong>Casa Xu\'unan</strong> in the Sisal neighborhood, all cenotes are less than 30 minutes away. Have breakfast with us in the morning, head out to explore cenotes and come back to cool off in our pool. Dona Susi knows each cenote personally and will give you the best recommendations.</p>
+<p>From <strong>Casa Xu\'unan</strong> in the Sisal neighborhood, all cenotes are less than 30 minutes away. Have breakfast with us in the morning, head out to explore cenotes and come back to cool off in our pool. Our team knows each cenote personally and will give you the best recommendations.</p>
 ',
     ],
 
@@ -364,7 +364,7 @@ $blog_posts = [
 <p>Los tours desde Cancún implican 3 horas de camión de ida, llegar a Chichén al mediodía con 40°C y miles de personas, y 3 horas de regreso. Desde Valladolid son 40 minutos, llegas fresco y temprano, y el resto del día puedes explorar cenotes o disfrutar la ciudad. No hay comparación.</p>
 
 <h2>Hospédate en Valladolid</h2>
-<p><strong>Casa Xu\'unan</strong> está a 40 minutos de Chichén Itzá. Desayunas temprano con nosotros, sales a la maravilla del mundo, y regresas a descansar en nuestro jardín tropical con piscina. Doña Susi te da las indicaciones exactas y te ayuda a organizar tu transporte. Así de simple.</p>
+<p><strong>Casa Xu\'unan</strong> está a 40 minutos de Chichén Itzá. Desayunas temprano con nosotros, sales a la maravilla del mundo, y regresas a descansar en nuestro jardín tropical con piscina. Nuestro equipo te da las indicaciones exactas y te ayuda a organizar tu transporte. Así de simple.</p>
 ',
 
         'content_en' => '
@@ -416,7 +416,7 @@ $blog_posts = [
 <p>Tours from Cancun involve 3 hours on a bus each way, arriving at Chichen at noon with 40 C heat and thousands of people, and 3 hours back. From Valladolid it is 40 minutes, you arrive fresh and early, and the rest of the day you can explore cenotes or enjoy the city. There is no comparison.</p>
 
 <h2>Stay in Valladolid</h2>
-<p><strong>Casa Xu\'unan</strong> is 40 minutes from Chichen Itza. Have an early breakfast with us, head to the wonder of the world, and return to relax in our tropical garden with pool. Dona Susi gives you exact directions and helps organize your transport. That simple.</p>
+<p><strong>Casa Xu\'unan</strong> is 40 minutes from Chichen Itza. Have an early breakfast with us, head to the wonder of the world, and return to relax in our tropical garden with pool. Our team gives you exact directions and helps organize your transport. That simple.</p>
 ',
     ],
 
@@ -822,7 +822,7 @@ $blog_posts = [
 </ul>
 
 <h2>¿Dónde Hospedarte Estos Días?</h2>
-<p><strong>Casa Xu\'unan</strong> es la base perfecta para cualquier itinerario. Desayuno casero diferente cada mañana, piscina para regresar después de las aventuras, jardín tropical con hamacas para descansar, y Doña Susi que te ayuda a planear cada día con tips que solo un local conoce.</p>
+<p><strong>Casa Xu\'unan</strong> es la base perfecta para cualquier itinerario. Desayuno casero diferente cada mañana, piscina para regresar después de las aventuras, jardín tropical con hamacas para descansar, y nuestro equipo te ayuda a planear cada día con tips que solo un local conoce.</p>
 ',
 
         'content_en' => '
@@ -886,7 +886,7 @@ $blog_posts = [
 </ul>
 
 <h2>Where to Stay During Your Visit?</h2>
-<p><strong>Casa Xu\'unan</strong> is the perfect base for any itinerary. Different homemade breakfast every morning, pool to return to after adventures, tropical garden with hammocks to rest, and Dona Susi who helps you plan each day with tips only a local knows.</p>
+<p><strong>Casa Xu\'unan</strong> is the perfect base for any itinerary. Different homemade breakfast every morning, pool to return to after adventures, tropical garden with hammocks to rest, and our team helps you plan each day with tips only a local knows.</p>
 ',
     ],
 
