@@ -465,3 +465,24 @@ $propertyId = $_GET['id'];
             await loadRoomDetails(<?php echo json_encode($propertyId); ?>);
         })();
     </script>
+
+    <!-- Google Ads: Track booking intent when user reaches a room page from search -->
+    <script>
+    (function() {
+        if (typeof gtag !== 'function') return;
+        try {
+            if (sessionStorage.getItem('cx_intent_fired') === '1') return;
+            var params = new URLSearchParams(window.location.search);
+            // Solo contar como intent si vino con fechas (busqueda real, no navegacion directa)
+            if (!params.get('checkin') || !params.get('checkout')) return;
+            gtag('event', 'conversion', {
+                'send_to': 'AW-18041631980/iN5dCO6stpwcEOzp9ZpD',
+                'value': 2500.0,
+                'currency': 'MXN',
+                'transaction_id': 'cx_room_' + Date.now(),
+                'transport_type': 'beacon'
+            });
+            sessionStorage.setItem('cx_intent_fired', '1');
+        } catch(e) {}
+    })();
+    </script>

@@ -305,8 +305,10 @@ window.addEventListener('load', function() {
             'send_to': 'AW-18041631980/iN5dCO6stpwcEOzp9ZpD',
             'value': detectedValue || 2500.0,
             'currency': 'MXN',
-            'transaction_id': 'cx_intent_' + Date.now()
+            'transaction_id': 'cx_intent_' + Date.now(),
+            'transport_type': 'beacon'
         });
+        try { sessionStorage.setItem('cx_intent_fired', '1'); } catch(e){}
     }
 
     function trackSearchIntent() {
@@ -318,7 +320,8 @@ window.addEventListener('load', function() {
             'send_to': 'AW-18041631980/iN5dCO6stpwcEOzp9ZpD',
             'value': 50.0,
             'currency': 'MXN',
-            'transaction_id': 'cx_search_' + Date.now()
+            'transaction_id': 'cx_search_' + Date.now(),
+            'transport_type': 'beacon'
         });
     }
 
