@@ -287,3 +287,80 @@ window.addEventListener('load', function() {
     }, 300);
 })();
 </script>
+
+<!-- Google Ads: Track conversion when user clicks "Reservar" inside Hospitable widget -->
+<script>
+(function() {
+    var el = document.querySelector('.search-widget-fullwidth hospitable-direct-mps');
+    if (!el) return;
+
+    var conversionFired = false; // prevenir disparos duplicados en la misma sesion
+    var searchFired = false;
+
+    function trackBookingIntent(detectedValue) {
+        if (conversionFired) return;
+        if (typeof gtag !== 'function') return;
+        conversionFired = true;
+        gtag('event', 'conversion', {
+            'send_to': 'AW-18041631980/iN5dCO6stpwcEOzp9ZpD',
+            'value': detectedValue || 2500.0,
+            'currency': 'MXN',
+            'transaction_id': 'cx_intent_' + Date.now()
+        });
+    }
+
+    function trackSearchIntent() {
+        if (searchFired) return;
+        if (typeof gtag !== 'function') return;
+        searchFired = true;
+        // Reusa "Inicio tramitacion" como senal de busqueda con fechas (valor bajo)
+        gtag('event', 'conversion', {
+            'send_to': 'AW-18041631980/iN5dCO6stpwcEOzp9ZpD',
+            'value': 50.0,
+            'currency': 'MXN',
+            'transaction_id': 'cx_search_' + Date.now()
+        });
+    }
+
+    function attachListeners() {
+        var sr = el.shadowRoot;
+        if (!sr) return;
+
+        // Click dentro del shadow DOM del widget
+        sr.addEventListener('click', function(ev) {
+            var target = ev.target;
+            if (!target) return;
+
+            // 1) Click en boton "Buscar" del searchbar
+            var searchBtn = target.closest && target.closest('button.search-btn');
+            if (searchBtn) {
+                trackSearchIntent();
+                return;
+            }
+
+            // 2) Click en una propiedad/habitacion (lleva al checkout)
+            var propertyCard = target.closest && target.closest('a.property, .property a, .property');
+            if (propertyCard) {
+                // Intentar extraer precio visible si lo hay
+                var priceEl = propertyCard.querySelector && propertyCard.querySelector('.price, [class*="price"]');
+                var price = 2500;
+                if (priceEl) {
+                    var m = priceEl.textContent.replace(/[^\d.]/g, '');
+                    if (m && parseFloat(m) > 100) price = parseFloat(m);
+                }
+                trackBookingIntent(price);
+            }
+        }, true);
+    }
+
+    var attempts = 0;
+    var wait = setInterval(function() {
+        if (el.shadowRoot) {
+            clearInterval(wait);
+            attachListeners();
+        } else if (++attempts > 100) {
+            clearInterval(wait);
+        }
+    }, 300);
+})();
+</script>

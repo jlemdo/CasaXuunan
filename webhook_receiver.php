@@ -9,6 +9,7 @@ require_once 'whatsapp_config_secure.php';
 require_once 'whatsapp_sender.php';
 require_once 'message_templates.php';
 require_once __DIR__ . '/config/rate_limiter.php';
+require_once __DIR__ . '/includes/google_ads_tracker.php';
 
 // Configurar headers para JSON
 header('Content-Type: application/json');
@@ -173,14 +174,29 @@ function processNewReservation($data) {
     
     // Generar mensaje
     $message = generateNewReservationMessage($reservation);
-    
+
     // Enviar a contactos configurados
     $contacts = getContactsForEvent('reservation.created');
     foreach ($contacts as $contact) {
         sendWhatsAppMessage($contact['phone'], $message, 'reservation.created', $reservation['id']);
     }
-    
+
     logDebug("Nueva reserva procesada", $reservation);
+
+    // Registrar conversion en Google Ads (server-side)
+    try {
+        $tracker = new GoogleAdsTracker();
+        $tracker->trackConversion('reserva_confirmada', [
+            'value' => $reservation['total'] > 0 ? $reservation['total'] : 2500,
+            'transaction_id' => $reservation['id'],
+            'gclid' => $data['gclid'] ?? ($data['custom_fields']['gclid'] ?? null),
+            'email' => $data['guest']['email'] ?? null,
+            'phone' => $data['guest']['phone'] ?? null,
+            'timestamp' => $data['created_at'] ?? date('c'),
+        ]);
+    } catch (Exception $e) {
+        logDebug("Error registrando conversion Google Ads: " . $e->getMessage(), null, 'WARNING');
+    }
 }
 
 function processCancelledReservation($data) {

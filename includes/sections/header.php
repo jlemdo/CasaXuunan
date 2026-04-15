@@ -104,6 +104,20 @@ if (isset($_seo_blog_post_found)) {
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'AW-18041631980');
+
+        // Captura GCLID de Google Ads y lo guarda en cookie 90 dias
+        // Necesario para atribuir reservas server-side via webhook
+        (function(){
+            var params = new URLSearchParams(window.location.search);
+            var gclid = params.get('gclid');
+            if (gclid) {
+                var d = new Date();
+                d.setTime(d.getTime() + (90*24*60*60*1000));
+                document.cookie = 'cx_gclid=' + encodeURIComponent(gclid) +
+                    ';expires=' + d.toUTCString() +
+                    ';path=/;SameSite=Lax';
+            }
+        })();
     </script>
     <title><?php echo $_seo_title; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
