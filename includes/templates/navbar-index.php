@@ -2,7 +2,7 @@
 
     <div id="wrapper">
         <!-- header begin -->
-        <header class="header-fullwidth menu-expand transparent">
+        <header class="header-fullwidth transparent">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
@@ -97,6 +97,15 @@
                                 </ul>
 
                                 <!-- mainmenu close -->
+
+                                <!-- Social + WhatsApp -->
+                                <div class="mo-footer">
+                                    <div class="mo-social">
+                                        <a href="https://www.facebook.com/people/Casa-Xuunan/61578964945156/" target="_blank"><i class="fa fa-facebook"></i></a>
+                                        <a href="https://www.instagram.com/casa_xuunan/" target="_blank"><i class="fa fa-instagram"></i></a>
+                                        <a href="https://api.whatsapp.com/send?phone=5219852580599" target="_blank"><i class="fa fa-whatsapp"></i></a>
+                                    </div>
+                                </div>
 
                             </div>
                         </div>
