@@ -331,10 +331,10 @@ async function fetchPrice(propertyId) {
         if (!response.ok) throw new Error();
         const data = await response.json();
         const days = data?.data?.days || [];
-        // Buscar primer día con precio
+        // Buscar primer día con precio (Hospitable envía en centavos → dividir /100)
         for (const day of days) {
             const p = day?.price?.amount ?? day?.rate ?? null;
-            if (p && Number(p) > 0) return Number(p);
+            if (p && Number(p) > 0) return Number(p) / 100;
         }
         return null;
     } catch (error) {
