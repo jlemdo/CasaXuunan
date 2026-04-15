@@ -645,3 +645,29 @@
         font-size: 12px;
     }
 }
+
+/* ============================================
+   Fix: prevenir scroll horizontal global en room.php
+   ============================================ */
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+#content-absolute,
+#section-main,
+.de-content-overlay {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+.de-content-overlay {
+    width: 100%;
+    box-sizing: border-box;
+}
+.de-content-overlay > * {
+    max-width: 100%;
+}
+/* Asegurar que imagenes e iframes nunca desborden */
+.de-content-overlay img,
+.de-content-overlay iframe {
+    max-width: 100%;
+}

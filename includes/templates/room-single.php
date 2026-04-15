@@ -8,7 +8,7 @@ if (!isset($_GET['id'])) {
 $propertyId = $_GET['id'];
 ?>
 <!-- <div id="background" data-bgimage="url(images/room-single/bg.jpg) fixed"></div> -->
-<div id="background" fixed"></div>
+<div id="background"></div>
 <div id="content-absolute">
 
     <!-- Subheader -->
@@ -17,6 +17,7 @@ $propertyId = $_GET['id'];
             <div class="row">
                 <div id="room-name" class="col-md-12 text-center"></div>
             </div>
+        </div>
     </section>
 
     <!-- Main Content Section -->
