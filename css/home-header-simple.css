@@ -13,13 +13,20 @@
     position: relative;
 }
 
+/* Ambos lados con el mismo ancho fijo para que el logo quede REAL centrado */
 .home-header-left,
 .home-header-right {
-    flex: 0 0 auto;
+    flex: 0 0 70px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    min-width: 60px;
+    min-width: 70px;
+    max-width: 70px;
+}
+.home-header-left {
+    justify-content: flex-start;
+}
+.home-header-right {
+    justify-content: flex-end;
 }
 .home-header-center {
     flex: 1 1 auto;
@@ -28,17 +35,11 @@
     justify-content: center;
 }
 
-/* Logo */
+/* Logo — NO tocamos tamano, respeta el default del sitio */
 .home-header-center #logo {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: auto;
-}
-.home-header-center #logo img.logo {
-    max-height: 60px;
-    width: auto;
-    display: block;
 }
 
 /* Hamburguesa override para que aparezca limpia */
@@ -54,33 +55,33 @@
     cursor: pointer;
 }
 
-/* Boton idioma sencillo */
+/* Boton idioma compacto */
 .home-lang-btn {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 8px 14px;
-    border: 1px solid rgba(255, 255, 255, 0.45);
-    border-radius: 6px;
+    gap: 4px;
+    padding: 5px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 4px;
     color: #ffffff !important;
     font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
+    font-size: 11px;
     font-weight: 600;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
     text-decoration: none !important;
     line-height: 1;
-    background: rgba(0, 0, 0, 0.15);
+    background: transparent;
     transition: all 0.25s ease;
     white-space: nowrap;
 }
 .home-lang-btn:hover {
-    background: rgba(255, 255, 255, 0.12);
-    border-color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.65);
     color: #ffffff !important;
     text-decoration: none !important;
 }
 .home-lang-flag {
-    font-size: 15px;
+    font-size: 12px;
     line-height: 1;
     display: inline-block;
 }
@@ -90,36 +91,23 @@ body.no-flag-emoji .home-lang-flag {
     display: none;
 }
 
-/* Mobile ajustes */
+/* Mobile ajustes (no se toca el tamano del logo) */
 @media (max-width: 767px) {
     .home-header-simple {
-        height: 70px;
         padding: 0 4px;
         gap: 8px;
     }
-    .home-header-center #logo img.logo {
-        max-height: 48px;
-    }
     .home-lang-btn {
-        padding: 7px 10px;
-        font-size: 12px;
-        gap: 4px;
+        padding: 5px 8px;
+        font-size: 10px;
     }
     .home-lang-flag {
-        font-size: 13px;
+        font-size: 11px;
     }
     .home-header-left,
     .home-header-right {
-        min-width: 44px;
-    }
-}
-
-@media (max-width: 400px) {
-    .home-header-simple {
-        gap: 4px;
-    }
-    .home-lang-btn {
-        padding: 6px 8px;
-        font-size: 11px;
+        flex: 0 0 60px;
+        min-width: 60px;
+        max-width: 60px;
     }
 }
