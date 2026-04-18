@@ -320,33 +320,61 @@
     color: #a8d5b5;
 }
 
-/* Modal footer */
+/* Modal footer con 2 CTAs */
 .dbb-modal-footer {
     padding: 18px 24px 24px;
     text-align: center;
 }
+.dbb-modal-ctas {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
 .dbb-modal-cta {
-    display: inline-block;
-    background: #ea8f71;
-    color: #ffffff;
-    padding: 13px 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 13px 24px;
     border-radius: 8px;
     font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    letter-spacing: 0.5px;
     font-size: 13px;
     text-decoration: none;
     transition: all 0.25s ease;
-    box-shadow: 0 4px 14px rgba(234, 143, 113, 0.35);
     border: none;
     cursor: pointer;
+    min-width: 170px;
 }
-.dbb-modal-cta:hover {
+.dbb-cta-primary {
+    background: #ea8f71;
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(234, 143, 113, 0.35);
+    text-transform: uppercase;
+}
+.dbb-cta-primary:hover {
     background: #d9775c;
     color: #ffffff;
     box-shadow: 0 6px 20px rgba(234, 143, 113, 0.55);
     text-decoration: none;
     transform: translateY(-1px);
+}
+.dbb-cta-whatsapp {
+    background: #25d366;
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+}
+.dbb-cta-whatsapp:hover {
+    background: #1fbd5a;
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+.dbb-cta-whatsapp i {
+    font-size: 16px;
 }
 .dbb-modal-footer-note {
     margin-top: 12px;
@@ -381,10 +409,15 @@
         font-size: 13px;
         padding: 12px 6px;
     }
+    .dbb-modal-ctas {
+        flex-direction: column;
+        gap: 8px;
+    }
     .dbb-modal-cta {
-        padding: 12px 22px;
+        padding: 12px 20px;
         font-size: 12px;
         width: 100%;
+        min-width: 0;
     }
     .dbb-modal-footer { padding: 14px 14px 20px; }
 }

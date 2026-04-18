@@ -31,23 +31,20 @@
             colDirect: 'Reserva Aquí',
             colOta: 'Booking / OTAs',
             rowPrice: 'Precio total',
-            rowCancel: 'Cancelación',
-            rowBreakfast: 'Desayuno casero',
+            rowCancel: 'Cancelación gratuita',
             rowWelcome: 'Jugo de bienvenida',
-            rowSupport: 'Atención directa',
-            rowCommission: 'Comisión intermediarios',
-            valCancelDirect: '✓ Gratuita',
+            rowBestPrice: 'Mejor precio garantizado',
+            rowWhatsapp: 'Asistencia por WhatsApp',
+            valYes: '✓ Sí',
             valCancelOta: '✗ No reembolsable',
-            valYes: '✓ Incluido',
             valNo: '✗ No disponible',
-            valDirect: '✓ Sí, con Doña Susi',
-            valOta: 'Solo vía portal',
-            valNoCommission: '✓ 0%',
-            valOtaCommission: '15-18% extra',
-            footerNote: 'Precio estimado en Booking calculado con promedio de tarifas + comisión.',
-            ctaExplore: 'Ver habitaciones',
+            valVaries: '✗ Varía',
+            valOtaChat: '✗ Solo vía portal',
+            footerNote: 'Precio estimado en Booking calculado con promedio de tarifas + fees.',
+            ctaBook: 'Reservar ahora',
+            ctaWhatsapp: 'Pregunta por WhatsApp',
+            whatsappMsg: '¡Hola! Me interesa reservar en Casa Xu\'unan. ¿Pueden ayudarme?',
             ctaClose: 'Cerrar',
-            savesPrefix: 'Ahorras',
             mxn: 'MXN'
         },
         en: {
@@ -61,23 +58,20 @@
             colDirect: 'Book Here',
             colOta: 'Booking / OTAs',
             rowPrice: 'Total price',
-            rowCancel: 'Cancellation',
-            rowBreakfast: 'Homemade breakfast',
+            rowCancel: 'Free cancellation',
             rowWelcome: 'Welcome juice',
-            rowSupport: 'Direct support',
-            rowCommission: 'Middleman fees',
-            valCancelDirect: '✓ Free',
+            rowBestPrice: 'Best price guaranteed',
+            rowWhatsapp: 'WhatsApp support',
+            valYes: '✓ Yes',
             valCancelOta: '✗ Non-refundable',
-            valYes: '✓ Included',
             valNo: '✗ Not available',
-            valDirect: '✓ Yes, with Doña Susi',
-            valOta: 'Only via portal',
-            valNoCommission: '✓ 0%',
-            valOtaCommission: '15-18% extra',
-            footerNote: 'Booking estimated price calculated from average rates + commission.',
-            ctaExplore: 'View rooms',
+            valVaries: '✗ Varies',
+            valOtaChat: '✗ Portal chat only',
+            footerNote: 'Booking estimated price calculated from average rates + fees.',
+            ctaBook: 'Book now',
+            ctaWhatsapp: 'Ask via WhatsApp',
+            whatsappMsg: 'Hi! I\'m interested in booking Casa Xu\'unan. Can you help?',
             ctaClose: 'Close',
-            savesPrefix: 'Saves',
             mxn: 'MXN'
         }
     };
@@ -210,10 +204,14 @@
             priceRow =
                 '<div class="dbb-compare-row dbb-compare-price">' +
                     '<span class="dbb-compare-cell dbb-compare-cell-label">' + S.rowPrice + '</span>' +
-                    '<span class="dbb-compare-cell dbb-compare-cell-direct">' + S.valNoCommission + '</span>' +
-                    '<span class="dbb-compare-cell dbb-compare-cell-ota">' + S.valOtaCommission + '</span>' +
+                    '<span class="dbb-compare-cell dbb-compare-cell-direct">' + S.valYes + '</span>' +
+                    '<span class="dbb-compare-cell dbb-compare-cell-ota">' + S.valVaries + '</span>' +
                 '</div>';
         }
+
+        // Link WhatsApp con mensaje + evento Google Ads
+        var waHref = 'https://api.whatsapp.com/send?phone=5219852580599&text=' + encodeURIComponent(S.whatsappMsg);
+        var waOnclick = "if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-18041631980/6AUyCN_D3pMcEOzp9ZpD','value':1400,'currency':'MXN'});}";
 
         return '' +
             '<div class="dbb-modal" role="dialog" aria-modal="true" aria-labelledby="dbb-modal-title">' +
@@ -232,13 +230,8 @@
                         priceRow +
                         '<div class="dbb-compare-row">' +
                             '<span class="dbb-compare-cell dbb-compare-cell-label">' + S.rowCancel + '</span>' +
-                            '<span class="dbb-compare-cell dbb-compare-cell-direct">' + S.valCancelDirect + '</span>' +
-                            '<span class="dbb-compare-cell dbb-compare-cell-ota">' + S.valCancelOta + '</span>' +
-                        '</div>' +
-                        '<div class="dbb-compare-row">' +
-                            '<span class="dbb-compare-cell dbb-compare-cell-label">' + S.rowBreakfast + '</span>' +
                             '<span class="dbb-compare-cell dbb-compare-cell-direct">' + S.valYes + '</span>' +
-                            '<span class="dbb-compare-cell dbb-compare-cell-ota">' + S.valYes + '</span>' +
+                            '<span class="dbb-compare-cell dbb-compare-cell-ota">' + S.valCancelOta + '</span>' +
                         '</div>' +
                         '<div class="dbb-compare-row">' +
                             '<span class="dbb-compare-cell dbb-compare-cell-label">' + S.rowWelcome + '</span>' +
@@ -246,19 +239,22 @@
                             '<span class="dbb-compare-cell dbb-compare-cell-ota">' + S.valNo + '</span>' +
                         '</div>' +
                         '<div class="dbb-compare-row">' +
-                            '<span class="dbb-compare-cell dbb-compare-cell-label">' + S.rowSupport + '</span>' +
-                            '<span class="dbb-compare-cell dbb-compare-cell-direct">' + S.valDirect + '</span>' +
-                            '<span class="dbb-compare-cell dbb-compare-cell-ota">' + S.valOta + '</span>' +
+                            '<span class="dbb-compare-cell dbb-compare-cell-label">' + S.rowBestPrice + '</span>' +
+                            '<span class="dbb-compare-cell dbb-compare-cell-direct">' + S.valYes + '</span>' +
+                            '<span class="dbb-compare-cell dbb-compare-cell-ota">' + S.valVaries + '</span>' +
                         '</div>' +
                         '<div class="dbb-compare-row">' +
-                            '<span class="dbb-compare-cell dbb-compare-cell-label">' + S.rowCommission + '</span>' +
-                            '<span class="dbb-compare-cell dbb-compare-cell-direct">' + S.valNoCommission + '</span>' +
-                            '<span class="dbb-compare-cell dbb-compare-cell-ota">' + S.valOtaCommission + '</span>' +
+                            '<span class="dbb-compare-cell dbb-compare-cell-label">' + S.rowWhatsapp + '</span>' +
+                            '<span class="dbb-compare-cell dbb-compare-cell-direct">' + S.valYes + '</span>' +
+                            '<span class="dbb-compare-cell dbb-compare-cell-ota">' + S.valOtaChat + '</span>' +
                         '</div>' +
                     '</div>' +
                 '</div>' +
                 '<div class="dbb-modal-footer">' +
-                    '<a href="rooms.php" class="dbb-modal-cta">' + S.ctaExplore + '</a>' +
+                    '<div class="dbb-modal-ctas">' +
+                        '<a href="search.php" class="dbb-modal-cta dbb-cta-primary">📅 ' + S.ctaBook + '</a>' +
+                        '<a href="' + waHref + '" target="_blank" rel="noopener noreferrer" class="dbb-modal-cta dbb-cta-whatsapp" onclick="' + waOnclick + '"><i class="fa fa-whatsapp"></i> ' + S.ctaWhatsapp + '</a>' +
+                    '</div>' +
                     '<p class="dbb-modal-footer-note">' + S.footerNote + '</p>' +
                 '</div>' +
             '</div>';
