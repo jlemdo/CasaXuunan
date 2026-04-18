@@ -50,6 +50,10 @@ document.addEventListener('DOMContentLoaded', function() {
         overlay.style.transition = 'top 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
         overlay.style.top = '0';
 
+        // Cambiar icono hamburguesa a X (clases que usa el CSS existente)
+        newMenuBtn.classList.remove('unclick');
+        newMenuBtn.classList.add('clicked');
+
         setTimeout(function() { isAnimating = false; }, 450);
     }
 
@@ -59,6 +63,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         overlay.style.transition = 'top 0.35s cubic-bezier(0.5, 0, 0.75, 0)';
         overlay.style.top = '-100%';
+
+        // Cambiar icono X a hamburguesa
+        newMenuBtn.classList.remove('clicked');
+        newMenuBtn.classList.add('unclick');
 
         setTimeout(function() {
             overlay.classList.add('slideDown');
