@@ -150,10 +150,12 @@
             if (s) targets.push({ el: s, pos: 'prepend' });
         }
         // Room page: near price
-        if (page === 'room.php') {
-            var r = document.querySelector('.booking-column');
-            if (r) targets.push({ el: r, pos: 'prepend' });
-        }
+        // Comentado: el link inline se muestra via banner superior, no hace
+        // falta replicarlo aqui dentro de la columna de booking.
+        // if (page === 'room.php') {
+        //     var r = document.querySelector('.booking-column');
+        //     if (r) targets.push({ el: r, pos: 'prepend' });
+        // }
 
         targets.forEach(function (t) {
             if (t.el.querySelector('.dbb-inline-link')) return; // avoid dupes

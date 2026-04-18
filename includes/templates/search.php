@@ -138,6 +138,11 @@ window.addEventListener('load', function() {
 (function() {
     var el = document.querySelector('.search-widget-fullwidth hospitable-direct-mps');
     if (!el) return;
+
+    // Texto segun idioma actual
+    var lang = (window.PHP_LANG || document.documentElement.lang || 'es').toLowerCase();
+    var priceHelperText = (lang === 'en') ? 'total + tax' : 'total + imp.';
+
     var attempts = 0;
     var interval = setInterval(function() {
         if (!el.shadowRoot) { if (++attempts > 100) clearInterval(interval); return; }
@@ -158,7 +163,7 @@ window.addEventListener('load', function() {
             'button.search-btn:hover{background:#d9775c!important}',
             'svg{fill:#ea8f71!important}',
             '.search-bar{border:none!important;background:transparent!important;box-shadow:none!important}',
-            '.price-helper{font-size:0!important}.price-helper::after{content:"/ noche + imp.";font-size:12px!important;color:#888!important}'
+            '.price-helper{font-size:0!important}.price-helper::after{content:"' + priceHelperText + '";font-size:12px!important;color:#888!important}'
         ].join('');
         el.shadowRoot.appendChild(s);
         clearInterval(interval);
