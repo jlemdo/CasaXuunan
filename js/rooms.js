@@ -334,7 +334,10 @@ async function fetchPrice(propertyId) {
         // Buscar primer día con precio (Hospitable envía en centavos → dividir /100)
         for (const day of days) {
             const p = day?.price?.amount ?? day?.rate ?? null;
-            if (p && Number(p) > 0) return Number(p) / 100;
+            if (p && Number(p) > 0) {
+                console.log('[ROOMS-PRICE-DBG] propertyId:', propertyId, 'date:', day.date, 'amount:', p, 'price/100:', Number(p)/100, 'full price obj:', JSON.stringify(day.price));
+                return Number(p) / 100;
+            }
         }
         return null;
     } catch (error) {

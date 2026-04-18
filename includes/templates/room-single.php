@@ -221,11 +221,18 @@ $propertyId = $_GET['id'];
                 // Extraer precio oficial (con fallback a tags)
                 let nightlyPrice = property.tags[0] || '---';
                 if (calendarData.data && calendarData.data.days && calendarData.data.days.length > 0) {
-                    // Buscar el día exacto del checkin
                     const targetDay = calendarData.data.days.find(d => d.date === priceDate) || calendarData.data.days[0];
+                    console.log('[PRICE-DBG] priceDate:', priceDate);
+                    console.log('[PRICE-DBG] targetDay:', JSON.stringify(targetDay));
+                    console.log('[PRICE-DBG] property.tags:', JSON.stringify(property.tags));
+                    if (targetDay.price) {
+                        console.log('[PRICE-DBG] price object:', JSON.stringify(targetDay.price));
+                        console.log('[PRICE-DBG] amount:', targetDay.price.amount, 'currency:', targetDay.price.currency);
+                    }
                     if (targetDay.price && targetDay.price.amount) {
                         nightlyPrice = (targetDay.price.amount / 100).toFixed(0);
                     }
+                    console.log('[PRICE-DBG] final nightlyPrice:', nightlyPrice);
                 }
 
                 // Intentar obtener nombre traducido, si no existe usar el de la API
