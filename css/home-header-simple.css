@@ -64,17 +64,25 @@
     vertical-align: middle;
 }
 
-/* Hamburguesa override para que aparezca limpia */
+/* Hamburguesa override — alineada al centro del flex padre */
 .home-header-left #menu-btn {
-    display: block !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     position: static !important;
     float: none !important;
     margin: 0 !important;
+    padding: 0 !important;
     width: 40px;
     height: 40px;
-    line-height: 40px;
-    text-align: center;
+    line-height: 1 !important;
     cursor: pointer;
+}
+/* El icono FontAwesome del hamburguesa se centra con el flex padre */
+.home-header-left #menu-btn::before {
+    display: inline-block;
+    line-height: 1;
+    vertical-align: middle;
 }
 
 /* Boton idioma compacto */
