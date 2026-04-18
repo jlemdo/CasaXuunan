@@ -284,7 +284,9 @@ $propertyId = $_GET['id'];
                         const json = await resp.json();
                         const days = json?.data?.days || [];
                         if (days.length === 0) return;
-                        const available = days.every(d => d.status && d.status.available);
+                        // Exclude checkout day — guest leaves that day, room doesn't need to be available
+                        const stayDays = hasDates && days.length > 1 ? days.slice(0, -1) : days;
+                        const available = stayDays.every(d => d.status && d.status.available);
                         const badge = document.getElementById('room-availability-badge');
                         if (!badge) return;
 
