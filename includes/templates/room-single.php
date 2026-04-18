@@ -360,7 +360,7 @@ $propertyId = $_GET['id'];
                                     <span class="pf_caption">${image.caption || (typeof NeuroCaptions !== 'undefined' ? NeuroCaptions.getRandomWord() : '')}</span>
                                 </span>
                             </a>
-                            <img src="${image.url}" alt="${image.caption || 'Image'}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+                            <img src="${image.url}" alt="${image.caption || 'Image'}" loading="lazy" class="carousel-room-img">
                         </div>
                     </div>
 
