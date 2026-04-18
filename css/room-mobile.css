@@ -11,9 +11,12 @@
 }
 .carousel-room-img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    display: block;
+    max-height: 500px;
+    object-fit: contain;
     object-position: center;
+    background: #1a1714;
 }
 
 /* --- OWL CAROUSEL DOTS: COMPLETELY HIDE ON MOBILE --- */
@@ -52,9 +55,9 @@
         display: none !important;
     }
 
-    /* Carousel images: taller on mobile so vertical images show more */
+    /* Carousel images: auto height, adapts to each image */
     .d-carousel .picframe {
-        height: 350px !important;
+        height: auto !important;
     }
 
     /* Arrows: centered vertically, compact on mobile */
@@ -98,7 +101,7 @@
     }
 
     .d-carousel .picframe {
-        height: 280px !important;
+        height: auto !important;
     }
 }
 

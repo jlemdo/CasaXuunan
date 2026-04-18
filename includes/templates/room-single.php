@@ -356,7 +356,7 @@ $propertyId = $_GET['id'];
                 // Insertar imágenes en la galería
                 const imageGallery = images.map(image => `
                     <div class="item">
-                        <div class="picframe" style="position: relative; overflow: hidden; width: 100%;">
+                        <div class="picframe" style="position: relative; overflow: hidden; width: 100%; border-radius: 12px;">
                             <a class="popup-gallery-item" href="${image.url}">
                                 <span class="overlay">
                                     <span class="pf_title"><i class="icon_search"></i></span>
@@ -403,7 +403,7 @@ $propertyId = $_GET['id'];
                     nav: false,
                     touchDrag: true,
                     mouseDrag: true,
-                    autoHeight: false,
+                    autoHeight: true,
                     responsive: {
                         0: {
                             items: 1,
