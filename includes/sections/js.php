@@ -16,9 +16,9 @@ document.querySelectorAll('.lang-switcher').forEach(function(b){
 
 <!-- JS aquí -->
 <!-- Archivos Javascript Comunes -->
-<script src="<?php echo BASE_URL; ?>/js/plugins.js" defer></script>
-<script src="<?php echo BASE_URL; ?>/js/designesia.js" defer></script>
-<script src="<?php echo BASE_URL; ?>/js/custom-mobile-menu.js" defer></script>
+<script src="<?php echo BASE_URL; ?>/js/plugins.js"></script>
+<script src="<?php echo BASE_URL; ?>/js/designesia.js"></script>
+<script src="<?php echo BASE_URL; ?>/js/custom-mobile-menu.js"></script>
 <script src="<?php echo BASE_URL; ?>/js/neuro-caption-words.js" defer></script>
 
 <!-- Supersized (solo para la página index) -->
