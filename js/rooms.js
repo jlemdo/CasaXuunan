@@ -311,8 +311,12 @@ async function checkAvailability(propertyId) {
         const data = await response.json();
         const days = data?.data?.days || [];
         if (days.length === 0) return { available: false };
-        // Todas las noches deben estar disponibles
-        const allAvailable = days.every(d => d.status && d.status.available);
+        // Filter only days within requested range (API may return extra days)
+        const stayDays = hasSearchDates
+            ? days.filter(d => d.date >= startDate && d.date < endDate)
+            : days.filter(d => d.date === startDate);
+        if (stayDays.length === 0) return { available: false };
+        const allAvailable = stayDays.every(d => d.status && d.status.available);
         return { available: allAvailable };
     } catch (error) {
         return { available: false };
