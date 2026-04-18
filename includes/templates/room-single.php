@@ -56,7 +56,7 @@ $propertyId = $_GET['id'];
                                 <div class="room-trust-bar">
                                     <span class="room-trust-item"><i class="fa fa-bolt"></i> <?php echo t('rooms_instant_confirm'); ?></span>
                                     <span class="room-trust-item"><i class="fa fa-check-circle"></i> <?php echo t('rooms_no_prepay'); ?></span>
-                                    <span class="room-trust-item"><i class="fa fa-check-circle"></i> <?php echo t('rooms_free_cancel'); ?></span>
+                                    <span class="room-trust-item"><i class="fa fa-cutlery"></i> <?php echo t('search_trust_breakfast'); ?></span>
                                 </div>
                             </div>
                         </div>
