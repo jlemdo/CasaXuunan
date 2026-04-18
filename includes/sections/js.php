@@ -23,6 +23,9 @@ document.querySelectorAll('.lang-switcher').forEach(function(b){
 <script src="<?php echo BASE_URL; ?>/js/neuro-caption-words.js" defer></script>
 <script src="<?php echo BASE_URL; ?>/js/direct-booking-banner.js" defer></script>
 <script src="<?php echo BASE_URL; ?>/js/scroll-header.js" defer></script>
+<?php if (basename($_SERVER['SCRIPT_NAME']) === 'index.php'): ?>
+<script src="<?php echo BASE_URL; ?>/js/flag-emoji-detect.js" defer></script>
+<?php endif; ?>
 
 <!-- Supersized (solo para la página index) -->
 <?php

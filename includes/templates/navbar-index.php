@@ -7,55 +7,35 @@
                 <div class="row">
                     <div class="col-md-12">
 
-                        <div class="de-flex de-flex-mobile-vertical">
-                            <div class="de-flex-col">
-                                <!-- logo begin -->
+                        <?php
+                        $current_page = basename($_SERVER['REQUEST_URI']);
+                        $current_lang = getCurrentLanguage();
+                        ?>
+                        <!-- Header HOME simplificado: hamburguesa + logo + idioma -->
+                        <div class="home-header-simple">
+                            <!-- 1. Hamburguesa a la izquierda -->
+                            <div class="home-header-left">
+                                <div id="menu-btn" class="menu-btn-mobile-overlay"></div>
+                            </div>
+
+                            <!-- 2. Logo centrado -->
+                            <div class="home-header-center">
                                 <div id="logo">
                                     <a href="index.php">
                                         <img class="logo" src="images/logo/blanco.png" alt="Casa Xuunan">
                                     </a>
                                 </div>
-                                <!-- logo close -->
                             </div>
 
-                            <div class="de-flex-col">
-                                <ul id="mainmenu">
-                                    <?php
-                                    // Obtiene la ruta actual (sin dominio)
-                                    $current_page = basename($_SERVER['REQUEST_URI']);
-                                    ?>
-                                    <li>
-                                        <a href="/index.php" class="<?= $current_page === 'index.php' ? 'active-menu' : '' ?>"><?php echo t('nav_home'); ?></a>
-                                    </li>
-                                    <li>
-                                        <a href="rooms.php" class="<?= $current_page === 'rooms.php' ? 'active-menu' : '' ?>"><?php echo t('nav_rooms'); ?></a>
-                                    </li>
-                                    <li>
-                                        <a href="services.php" class="<?= $current_page === 'services.php' ? 'active-menu' : '' ?>"><?php echo t('nav_services'); ?></a>
-                                    </li>
-                                    <li>
-                                        <a href="gallery.php" class="<?= $current_page === 'gallery.php' ? 'active-menu' : '' ?>"><?php echo t('nav_gallery'); ?></a>
-                                    </li>
-                                    <li>
-                                        <a href="contact.php" class="<?= $current_page === 'contact.php' ? 'active-menu' : '' ?>"><?php echo t('nav_contact'); ?></a>
-                                    </li>
-                                </ul>
+                            <!-- 3. Boton idioma sencillo con fallback -->
+                            <div class="home-header-right">
+                                <a href="?lang=<?php echo switchLanguage(); ?>"
+                                   class="lang-switcher home-lang-btn"
+                                   aria-label="<?php echo $current_lang === 'es' ? 'Switch to English' : 'Cambiar a Español'; ?>">
+                                    <span class="home-lang-flag" aria-hidden="true"><?php echo $current_lang === 'es' ? '🇺🇸' : '🇲🇽'; ?></span>
+                                    <span class="home-lang-code"><?php echo $current_lang === 'es' ? 'EN' : 'ES'; ?></span>
+                                </a>
                             </div>
-
-                            <div class="de-flex-col de-flex-col-mobile">
-                                <div class="d-extra">
-                                    <!-- Language Switcher -->
-                                    <?php $current_lang = getCurrentLanguage(); ?>
-                                    <a href="?lang=<?php echo switchLanguage(); ?>"
-                                       class="lang-switcher"
-                                       data-tooltip="<?php echo $current_lang === 'es' ? 'View site in English' : 'Ver sitio en Español'; ?>">
-                                        <?php echo $current_lang === 'es' ? 'EN' : 'ES'; ?>
-                                    </a>
-                                    <a class="btn-main btn-mobile-reservas" href="/rooms.php"><?php echo t('btn_book'); ?></a>
-                                </div>
-                                <div id="menu-btn" class="menu-btn-mobile-overlay"></div>
-                            </div>
-
                         </div>
 
                     </div>

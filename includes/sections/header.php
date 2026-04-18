@@ -213,6 +213,11 @@ if (isset($_seo_blog_post_found)) {
     <link rel="stylesheet" href="css/scroll-header.css" type="text/css">
 
     <?php if (basename($_SERVER['SCRIPT_NAME']) === 'index.php'): ?>
+    <!-- Home header simplificado (solo home) -->
+    <link rel="stylesheet" href="css/home-header-simple.css" type="text/css">
+    <?php endif; ?>
+
+    <?php if (basename($_SERVER['SCRIPT_NAME']) === 'index.php'): ?>
     <!-- Reviews Section Styles (solo para index) -->
     <link rel="stylesheet" href="css/reviews-section.css" type="text/css">
     <!-- Homepage Conversion Sections -->
