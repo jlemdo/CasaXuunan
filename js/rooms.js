@@ -336,7 +336,8 @@ async function fetchPrice(propertyId) {
         for (const day of days) {
             const p = day?.price?.amount ?? day?.rate ?? null;
             if (p && Number(p) > 0) {
-                return Number(p) / 100;
+                var markup = window.HOSPITABLE_MARKUP || 1.10;
+                return Math.round((Number(p) / 100) * markup);
             }
         }
         return null;

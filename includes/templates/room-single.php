@@ -223,7 +223,8 @@ $propertyId = $_GET['id'];
                 if (calendarData.data && calendarData.data.days && calendarData.data.days.length > 0) {
                     const targetDay = calendarData.data.days.find(d => d.date === priceDate) || calendarData.data.days[0];
                     if (targetDay.price && targetDay.price.amount) {
-                        nightlyPrice = (targetDay.price.amount / 100).toFixed(0);
+                        var markup = window.HOSPITABLE_MARKUP || 1.10;
+                        nightlyPrice = Math.round((targetDay.price.amount / 100) * markup).toString();
                     }
                 }
 

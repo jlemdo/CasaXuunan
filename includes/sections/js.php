@@ -3,6 +3,7 @@
 <!-- Idioma actual desde PHP para sincronizar con JavaScript -->
 <script>
     window.PHP_LANG = '<?php echo getCurrentLanguage(); ?>';
+    window.HOSPITABLE_MARKUP = <?php echo defined('HOSPITABLE_DIRECT_MARKUP') ? HOSPITABLE_DIRECT_MARKUP : 1.10; ?>;
 </script>
 
 <!-- Lang switcher: replace text with flags (all pages) -->

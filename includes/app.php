@@ -18,3 +18,7 @@ $base_path = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
 // Construir la URL base dinámica
 define('BASE_URL', $protocol . '://' . $host . $base_path . '/');
 
+// Hospitable direct booking markup (set in Hospitable > Pricing > Listing markups > Direct)
+// Change this if you update the markup in Hospitable dashboard
+define('HOSPITABLE_DIRECT_MARKUP', 1.10); // 10% = 1.10
+
