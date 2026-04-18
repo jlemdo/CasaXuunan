@@ -335,8 +335,8 @@ async function fetchPrice(propertyId) {
         for (const day of days) {
             const p = day?.price?.amount ?? day?.rate ?? null;
             if (p && Number(p) > 0) {
-                console.log('[ROOMS-PRICE-DBG] propertyId:', propertyId, 'date:', day.date, 'amount:', p, 'price/100:', Number(p)/100, 'full price obj:', JSON.stringify(day.price));
-                return Number(p) / 100;
+                // Apply 10% direct booking markup to match Hospitable widget price
+                return Math.round((Number(p) / 100) * 1.10);
             }
         }
         return null;
