@@ -283,10 +283,13 @@ $propertyId = $_GET['id'];
                         if (!resp.ok) return;
                         const json = await resp.json();
                         const days = json?.data?.days || [];
+                        console.log('[AVAIL-DBG] dates:', startDate, 'to', endDate, 'days:', days.length);
+                        days.forEach(function(d,i){ console.log('[AVAIL-DBG] day['+i+']:', d.date, 'available:', d.status?.available, 'status:', JSON.stringify(d.status)); });
                         if (days.length === 0) return;
                         // Exclude checkout day — guest leaves that day, room doesn't need to be available
                         const stayDays = hasDates && days.length > 1 ? days.slice(0, -1) : days;
                         const available = stayDays.every(d => d.status && d.status.available);
+                        console.log('[AVAIL-DBG] stayDays:', stayDays.length, 'available:', available);
                         const badge = document.getElementById('room-availability-badge');
                         if (!badge) return;
 
