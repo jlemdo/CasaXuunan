@@ -14,19 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!overlay || !menuBtn) return;
     if (mainMenu) mainMenu.style.display = 'none';
 
-    // ===== DEBUG: log de clases del header en cada interaccion =====
-    function logHeader(label) {
-        var h = document.querySelector('header');
-        if (!h) return;
-        console.log('[DEBUG ' + label + '] header.className =', h.className);
-        console.log('[DEBUG ' + label + '] header computed background =',
-            window.getComputedStyle(h).backgroundColor);
-        console.log('[DEBUG ' + label + '] overlay.className =', overlay.className);
-        console.log('[DEBUG ' + label + '] body.style.overflow =', document.body.style.overflow);
-        console.log('---');
-    }
-    logHeader('INICIAL');
-
     // Clone buttons to remove ALL existing event listeners
     var newMenuBtn = menuBtn.cloneNode(true);
     menuBtn.parentNode.replaceChild(newMenuBtn, menuBtn);
@@ -55,8 +42,6 @@ document.addEventListener('DOMContentLoaded', function() {
         isAnimating = true;
         isOpen = true;
 
-        logHeader('ANTES DE ABRIR');
-
         document.body.style.overflow = 'hidden';
         overlay.classList.remove('slideDown');
         overlay.style.transition = 'none';
@@ -69,17 +54,12 @@ document.addEventListener('DOMContentLoaded', function() {
         newMenuBtn.classList.remove('unclick');
         newMenuBtn.classList.add('clicked');
 
-        setTimeout(function() {
-            isAnimating = false;
-            logHeader('DESPUES DE ABRIR');
-        }, 450);
+        setTimeout(function() { isAnimating = false; }, 450);
     }
 
     function closeMenu() {
         if (!isOpen || isAnimating) return;
         isAnimating = true;
-
-        logHeader('ANTES DE CERRAR');
 
         overlay.style.transition = 'top 0.35s cubic-bezier(0.5, 0, 0.75, 0)';
         overlay.style.top = '-100%';
@@ -95,7 +75,6 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = '';
             isOpen = false;
             isAnimating = false;
-            logHeader('DESPUES DE CERRAR');
         }, 380);
     }
 

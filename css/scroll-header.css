@@ -17,6 +17,15 @@ header:has(.dbb-sticky.dbb-visible) {
     min-height: 125px;
 }
 
+/* Fix: designesia.js agrega "height-auto" al header cuando se interactua
+   con el menu mobile, que le pone fondo oscuro. En mobile lo forzamos
+   transparente para que no aparezca la barra negra residual. */
+@media (max-width: 767px) {
+    header.height-auto {
+        background: transparent !important;
+    }
+}
+
 header.header-scrolled {
     background: rgba(26, 23, 20, 0.72) !important;
     backdrop-filter: blur(18px) saturate(1.4);
