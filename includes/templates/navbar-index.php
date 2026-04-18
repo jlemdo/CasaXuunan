@@ -30,7 +30,7 @@
                             <!-- 3. Boton idioma sencillo con fallback -->
                             <div class="home-header-right">
                                 <a href="?lang=<?php echo switchLanguage(); ?>"
-                                   class="lang-switcher home-lang-btn"
+                                   class="home-lang-btn"
                                    aria-label="<?php echo $current_lang === 'es' ? 'Switch to English' : 'Cambiar a Español'; ?>">
                                     <span class="home-lang-flag" aria-hidden="true"><?php echo $current_lang === 'es' ? '🇺🇸' : '🇲🇽'; ?></span>
                                     <span class="home-lang-code"><?php echo $current_lang === 'es' ? 'EN' : 'ES'; ?></span>

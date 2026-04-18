@@ -3,12 +3,6 @@
    Casa Xu'unan
    ============================================= */
 
-/* Asegurar espacio debajo del banner verde */
-body.has-menu-bar header.header-fullwidth {
-    padding-top: 12px !important;
-    padding-bottom: 12px !important;
-}
-
 .home-header-simple {
     display: flex !important;
     align-items: center !important;
