@@ -97,17 +97,39 @@
 
 </div>
 
-<!-- Auto-scroll to trust bar (just above results) on page load -->
+<!-- Auto-scroll conditional:
+     - Link limpio (sin fechas): baja a beneficios directos
+     - Link con fechas (checkin/checkout) o hash forzado: baja a trust bar (como siempre)
+-->
 <script>
 window.addEventListener('load', function() {
-    var trust = document.querySelector('.search-trust-bar');
     var scrollContainer = document.querySelector('#content-absolute');
-    if (trust && scrollContainer) {
-        setTimeout(function() {
-            var trustTop = trust.offsetTop - 10;
-            scrollContainer.scrollTo({ top: trustTop, behavior: 'smooth' });
-        }, 400);
-    }
+    if (!scrollContainer) return;
+
+    var params = new URLSearchParams(window.location.search);
+    var hasSearchParams = params.has('checkin') || params.has('checkout') || params.has('adults');
+    var hash = window.location.hash;
+
+    setTimeout(function() {
+        var target = null;
+
+        if (!hasSearchParams) {
+            // Link limpio → el elemento "Reserva segura y directa" queda debajo del header
+            target = document.querySelector('.de-content-overlay.search-results-overlay');
+        } else {
+            // Link con fechas → el widget de busqueda queda debajo del header
+            target = document.querySelector('.search-widget-fullwidth');
+        }
+
+        if (target) {
+            // Restar la altura del header para que el target quede JUSTO debajo
+            var headerEl = document.querySelector('header');
+            var headerH  = headerEl ? headerEl.offsetHeight : 0;
+            var top = target.offsetTop - headerH - 10;
+            if (top < 0) top = 0;
+            scrollContainer.scrollTo({ top: top, behavior: 'smooth' });
+        }
+    }, 400);
 });
 </script>
 

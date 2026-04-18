@@ -206,6 +206,12 @@ if (isset($_seo_blog_post_found)) {
     <!-- WhatsApp Floating Button (todas las paginas) -->
     <link rel="stylesheet" href="css/whatsapp-float.css" type="text/css">
 
+    <!-- Direct Booking Banner + Comparison Modal (todas las paginas) -->
+    <link rel="stylesheet" href="css/direct-booking-banner.css" type="text/css">
+
+    <!-- Header overlay on scroll (todas las paginas excepto home) -->
+    <link rel="stylesheet" href="css/scroll-header.css" type="text/css">
+
     <?php if (basename($_SERVER['SCRIPT_NAME']) === 'index.php'): ?>
     <!-- Reviews Section Styles (solo para index) -->
     <link rel="stylesheet" href="css/reviews-section.css" type="text/css">

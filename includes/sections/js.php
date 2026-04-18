@@ -21,6 +21,8 @@ document.querySelectorAll('.lang-switcher').forEach(function(b){
 <script src="<?php echo BASE_URL; ?>/js/designesia.js"></script>
 <script src="<?php echo BASE_URL; ?>/js/custom-mobile-menu.js"></script>
 <script src="<?php echo BASE_URL; ?>/js/neuro-caption-words.js" defer></script>
+<script src="<?php echo BASE_URL; ?>/js/direct-booking-banner.js" defer></script>
+<script src="<?php echo BASE_URL; ?>/js/scroll-header.js" defer></script>
 
 <!-- Supersized (solo para la página index) -->
 <?php
