@@ -98,7 +98,7 @@
 /* Desktop carousel height */
 @media (min-width: 992px) {
     .d-carousel .picframe {
-        height: 300px !important;
+        height: 400px !important;
     }
 }
 

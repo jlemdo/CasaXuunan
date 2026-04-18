@@ -354,15 +354,13 @@ $propertyId = $_GET['id'];
                 const imageGallery = images.map(image => `
                     <div class="item">
                         <div class="picframe" style="position: relative; overflow: hidden; width: 100%;">
-                            <!-- Enlace con la URL de la imagen -->
                             <a class="popup-gallery-item" href="${image.url}">
                                 <span class="overlay">
                                     <span class="pf_title"><i class="icon_search"></i></span>
                                     <span class="pf_caption">${image.caption || (typeof NeuroCaptions !== 'undefined' ? NeuroCaptions.getRandomWord() : '')}</span>
                                 </span>
                             </a>
-                            <!-- Imagen de previsualización -->
-                            <img src="${image.url}" alt="${image.caption || 'Image'}" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="${image.url}" alt="${image.caption || 'Image'}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
                         </div>
                     </div>
 
