@@ -135,7 +135,8 @@ window.addEventListener('load', function() {
             'button.search-btn{background:#ea8f71!important;height:auto!important}',
             'button.search-btn:hover{background:#d9775c!important}',
             'svg{fill:#ea8f71!important}',
-            '.search-bar{border:none!important;background:transparent!important;box-shadow:none!important}'
+            '.search-bar{border:none!important;background:transparent!important;box-shadow:none!important}',
+            '.price-helper{font-size:0!important}.price-helper::after{content:"/ noche + imp.";font-size:12px!important;color:#888!important}'
         ].join('');
         el.shadowRoot.appendChild(s);
         clearInterval(interval);
