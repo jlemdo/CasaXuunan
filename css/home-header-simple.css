@@ -8,16 +8,17 @@
     align-items: center !important;
     justify-content: space-between !important;
     width: 100%;
-    min-height: 80px;
+    min-height: 100px;
+    padding-top: 14px;
     gap: 16px;
     position: relative;
     flex-wrap: nowrap;
 }
-/* Cada item del header centrado verticalmente */
+/* Cada item del header centrado verticalmente en el mismo eje */
 .home-header-simple > * {
-    display: flex;
-    align-items: center;
-    height: 100%;
+    display: flex !important;
+    align-items: center !important;
+    align-self: center !important;
 }
 
 /* Ambos lados con el mismo ancho fijo para que el logo quede REAL centrado */
@@ -42,17 +43,25 @@
     justify-content: center;
 }
 
-/* Logo — NO tocamos el tamano, solo override display para centrado real */
+/* Logo — override display:table+height:80px del CSS original para que
+   se alinee al flex del padre sin empujar a los otros items */
 .home-header-center #logo {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     height: auto !important;
+    line-height: 1 !important;
 }
 .home-header-center #logo a {
-    display: block !important;
+    display: inline-flex !important;
+    align-items: center !important;
     vertical-align: initial !important;
-    line-height: 1;
+    line-height: 1 !important;
+    height: auto !important;
+}
+.home-header-center #logo img.logo {
+    display: block;
+    vertical-align: middle;
 }
 
 /* Hamburguesa override para que aparezca limpia */
