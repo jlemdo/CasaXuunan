@@ -253,6 +253,7 @@ function createRoomContent(property, images, availability, price) {
             <span class="d-price-amount">$${Number(price).toLocaleString(currentLang === 'es' ? 'es-MX' : 'en-US')}</span>
             <span class="d-price-currency">MXN</span>
             <span class="d-price-night">${t('rooms_night')}</span>
+            <span class="d-price-taxes">${t('rooms_plus_taxes')}</span>
         `;
         textDiv.appendChild(priceBlock);
     }
@@ -335,8 +336,7 @@ async function fetchPrice(propertyId) {
         for (const day of days) {
             const p = day?.price?.amount ?? day?.rate ?? null;
             if (p && Number(p) > 0) {
-                // Apply 10% direct booking markup to match Hospitable widget price
-                return Math.round((Number(p) / 100) * 1.10);
+                return Number(p) / 100;
             }
         }
         return null;

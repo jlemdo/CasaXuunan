@@ -223,9 +223,7 @@ $propertyId = $_GET['id'];
                 if (calendarData.data && calendarData.data.days && calendarData.data.days.length > 0) {
                     const targetDay = calendarData.data.days.find(d => d.date === priceDate) || calendarData.data.days[0];
                     if (targetDay.price && targetDay.price.amount) {
-                        // Apply 10% direct booking markup to match Hospitable widget price
-                        const basePrice = targetDay.price.amount / 100;
-                        nightlyPrice = Math.round(basePrice * 1.10).toString();
+                        nightlyPrice = (targetDay.price.amount / 100).toFixed(0);
                     }
                 }
 
