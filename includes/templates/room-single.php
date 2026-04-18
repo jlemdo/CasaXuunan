@@ -210,18 +210,21 @@ $propertyId = $_GET['id'];
                 const propertyData = await propertyResponse.json();
                 const property = propertyData.data;
 
-                // Obtener precio del calendario
+                // Obtener precio del calendario — usar fechas seleccionadas si existen
+                const urlParams = new URLSearchParams(window.location.search);
+                const checkinParam = urlParams.get('checkin');
                 const today = new Date().toISOString().split('T')[0];
-                const calendarResponse = await fetch(`api_proxy_secure.php?endpoint=properties/${propertyId}/calendar?start_date=${today}&end_date=${today}`);
+                const priceDate = checkinParam || today;
+                const calendarResponse = await fetch(`api_proxy_secure.php?endpoint=properties/${propertyId}/calendar?start_date=${priceDate}&end_date=${priceDate}`);
                 const calendarData = await calendarResponse.json();
 
                 // Extraer precio oficial (con fallback a tags)
                 let nightlyPrice = property.tags[0] || '---';
                 if (calendarData.data && calendarData.data.days && calendarData.data.days.length > 0) {
-                    const todayData = calendarData.data.days[0];
-                    if (todayData.price && todayData.price.amount) {
-                        // Convertir de centavos a pesos (dividir entre 100)
-                        nightlyPrice = (todayData.price.amount / 100).toFixed(0);
+                    // Buscar el día exacto del checkin
+                    const targetDay = calendarData.data.days.find(d => d.date === priceDate) || calendarData.data.days[0];
+                    if (targetDay.price && targetDay.price.amount) {
+                        nightlyPrice = (targetDay.price.amount / 100).toFixed(0);
                     }
                 }
 
