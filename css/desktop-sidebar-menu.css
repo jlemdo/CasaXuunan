@@ -127,12 +127,11 @@
         width: 34px !important;
         height: 34px !important;
         cursor: pointer;
-        opacity: 0.8;
-        transition: opacity 0.25s ease, transform 0.3s ease;
+        opacity: 0.75;
+        transition: opacity 0.25s ease;
     }
     #menu-overlay #mo-button-close:hover {
         opacity: 1;
-        transform: rotate(90deg);
     }
 
     /* Footer social al fondo */
