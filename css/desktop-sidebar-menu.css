@@ -76,6 +76,9 @@
     #menu-overlay .mo-nav > a:first-child img.logo {
         max-height: 70px;
         width: auto;
+        /* Override de style.css:11070 que forza Color-Vertical.png
+           via content: url(). En el sidebar desktop queremos blanco.png */
+        content: url(../images/logo/blanco.png) !important;
     }
     #menu-overlay .spacer-single {
         height: 16px !important;
