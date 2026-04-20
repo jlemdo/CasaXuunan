@@ -1,0 +1,161 @@
+/* =============================================
+   Desktop Sidebar Menu (home)
+   Casa Xu'unan — menu lateral izquierdo con overlay oscuro
+   Solo en desktop (min-width 768px)
+   En mobile el menu sigue siendo fullscreen (no se toca)
+   ============================================= */
+
+@media (min-width: 768px) {
+
+    /* Overlay oscuro sobre TODA la pantalla cuando el menu esta abierto
+       Se pinta como backdrop del body via pseudo-elemento en html */
+    body:has(#menu-overlay:not(.slideDown))::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.55);
+        z-index: 9999;
+        animation: dsm-overlay-in 0.3s ease forwards;
+        cursor: pointer;
+    }
+    @keyframes dsm-overlay-in {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+
+    /* Menu overlay: convertir de fullscreen a sidebar izquierda */
+    #menu-overlay {
+        top: 0 !important;
+        left: 0 !important;
+        width: 30% !important;
+        min-width: 360px !important;
+        max-width: 440px !important;
+        height: 100vh !important;
+        background: rgba(20, 17, 14, 0.97) !important;
+        backdrop-filter: blur(24px) !important;
+        -webkit-backdrop-filter: blur(24px) !important;
+        box-shadow: 4px 0 30px rgba(0, 0, 0, 0.4);
+        transform: translateX(-100%);
+        transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        will-change: transform;
+    }
+    #menu-overlay:not(.slideDown) {
+        transform: translateX(0);
+    }
+    /* Cuando tiene .slideDown esta cerrado (fuera de pantalla a la izquierda) */
+    #menu-overlay.slideDown {
+        top: 0 !important;
+        transform: translateX(-100%);
+    }
+
+    /* Contenido del sidebar: alineado a la izquierda, top-down */
+    #menu-overlay .container-fluid {
+        padding: 40px 36px !important;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    #menu-overlay .pt80 {
+        padding-top: 20px !important;
+        padding-bottom: 0 !important;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    #menu-overlay .mo-nav {
+        text-align: left !important;
+    }
+    #menu-overlay .mo-nav > a:first-child {
+        display: inline-block;
+        margin-bottom: 24px;
+    }
+    #menu-overlay .mo-nav > a:first-child img.logo {
+        max-height: 70px;
+        width: auto;
+    }
+    #menu-overlay .spacer-single {
+        height: 16px !important;
+    }
+
+    /* Menu items: estilo sidebar */
+    #menu-overlay #mo-menu {
+        padding: 0 !important;
+        margin: 0 !important;
+        list-style: none !important;
+        text-align: left !important;
+    }
+    #menu-overlay #mo-menu li {
+        margin: 0 !important;
+        padding: 0 !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    #menu-overlay #mo-menu li:last-child {
+        border-bottom: none;
+    }
+    #menu-overlay #mo-menu li a {
+        display: block !important;
+        padding: 14px 0 !important;
+        font-family: 'Montserrat', sans-serif !important;
+        font-size: 18px !important;
+        font-weight: 600 !important;
+        letter-spacing: 1px !important;
+        text-transform: uppercase !important;
+        color: rgba(255, 255, 255, 0.92) !important;
+        text-decoration: none !important;
+        transition: color 0.25s ease, padding-left 0.25s ease !important;
+    }
+    #menu-overlay #mo-menu li a:hover {
+        color: #7baf89 !important;
+        padding-left: 6px !important;
+    }
+    #menu-overlay #mo-menu li a.active-menu {
+        color: #7baf89 !important;
+    }
+
+    /* Boton cerrar: en esquina superior derecha del sidebar */
+    #menu-overlay #mo-button-close {
+        position: absolute !important;
+        top: 22px !important;
+        right: 22px !important;
+        width: 34px !important;
+        height: 34px !important;
+        cursor: pointer;
+        opacity: 0.8;
+        transition: opacity 0.25s ease, transform 0.3s ease;
+    }
+    #menu-overlay #mo-button-close:hover {
+        opacity: 1;
+        transform: rotate(90deg);
+    }
+
+    /* Footer social al fondo */
+    #menu-overlay .mo-footer {
+        margin-top: auto;
+        padding-top: 24px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    #menu-overlay .mo-social {
+        display: flex;
+        gap: 14px;
+        justify-content: flex-start;
+    }
+    #menu-overlay .mo-social a {
+        color: rgba(255, 255, 255, 0.7) !important;
+        font-size: 18px;
+        transition: color 0.25s ease;
+    }
+    #menu-overlay .mo-social a:hover {
+        color: #7baf89 !important;
+    }
+}
+
+/* Ocultar dsm-overlay si no hay menu abierto */
+@media (min-width: 768px) {
+    body:has(#menu-overlay.slideDown)::before {
+        content: none;
+    }
+}

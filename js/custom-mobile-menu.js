@@ -5,14 +5,18 @@
 document.addEventListener('DOMContentLoaded', function() {
     'use strict';
 
-    if (window.innerWidth >= 993) return;
+    // NOTE: antes este script hacia return en desktop (>= 993) porque el
+    // menu hamburguesa solo era mobile. Ahora tambien se usa en home desktop
+    // (sidebar lateral), por lo que dejamos que corra en cualquier ancho.
+    // Si el #menu-btn esta oculto por CSS en otras paginas desktop, el JS
+    // no causa conflicto porque el boton simplemente no es clickeable.
 
     var overlay = document.getElementById('menu-overlay');
     var menuBtn = document.getElementById('menu-btn');
     var mainMenu = document.getElementById('mainmenu');
 
     if (!overlay || !menuBtn) return;
-    if (mainMenu) mainMenu.style.display = 'none';
+    if (mainMenu && window.innerWidth < 993) mainMenu.style.display = 'none';
 
     // Clone buttons to remove ALL existing event listeners
     var newMenuBtn = menuBtn.cloneNode(true);
