@@ -34,6 +34,23 @@
         top: 50px;
         height: calc(100% - 50px);
     }
+
+    /* FIX BUG 2 (CRITICO): #slidecaption con position:fixed + height:100%
+       ocupa todo el viewport y bloquea clicks en los botones del header.
+       Solucion: el contenedor no captura clics, pero los hijos (boton
+       "Nuestras instalaciones", texto clickeable) si los reciben. */
+    body:has(header .dbb-sticky.dbb-visible) #slidecaption,
+    body.cx-banner-active #slidecaption {
+        pointer-events: none;
+    }
+    body:has(header .dbb-sticky.dbb-visible) #slidecaption a,
+    body:has(header .dbb-sticky.dbb-visible) #slidecaption button,
+    body:has(header .dbb-sticky.dbb-visible) #slidecaption .btn-line,
+    body.cx-banner-active #slidecaption a,
+    body.cx-banner-active #slidecaption button,
+    body.cx-banner-active #slidecaption .btn-line {
+        pointer-events: auto;
+    }
 }
 
 /* Mobile: el banner es un poco mas delgado (~45px) */
