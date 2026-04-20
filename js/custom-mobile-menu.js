@@ -104,26 +104,36 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!isOpen || isAnimating) return;
         isAnimating = true;
 
-        if (!isDesktop()) {
-            overlay.style.transition = 'top 0.35s cubic-bezier(0.5, 0, 0.75, 0)';
-            overlay.style.top = '-100%';
-        }
-
-        // Ocultar backdrop
+        // Ocultar backdrop (animado via CSS opacity)
         hideBackdrop();
 
         // Cambiar icono X a hamburguesa
         newMenuBtn.classList.remove('clicked');
         newMenuBtn.classList.add('unclick');
 
-        setTimeout(function() {
+        if (isDesktop()) {
+            // Desktop: agregar slideDown INMEDIATAMENTE para que la
+            // transition CSS anime el transform translateX de 0 a -100%
             overlay.classList.add('slideDown');
-            overlay.style.transition = 'none';
-            overlay.style.top = '';
-            document.body.style.overflow = '';
-            isOpen = false;
-            isAnimating = false;
-        }, 460);
+            setTimeout(function () {
+                document.body.style.overflow = '';
+                isOpen = false;
+                isAnimating = false;
+            }, 460);
+        } else {
+            // Mobile: animar con "top" y agregar slideDown despues
+            overlay.style.transition = 'top 0.35s cubic-bezier(0.5, 0, 0.75, 0)';
+            overlay.style.top = '-100%';
+
+            setTimeout(function () {
+                overlay.classList.add('slideDown');
+                overlay.style.transition = 'none';
+                overlay.style.top = '';
+                document.body.style.overflow = '';
+                isOpen = false;
+                isAnimating = false;
+            }, 380);
+        }
     }
 
     // Attach handlers to cloned elements (no old listeners)
