@@ -1,26 +1,84 @@
+name: 🚀 Deploy Casa Xu'unan
+
 on:
-  
   push:
-
     branches:
-
       - main
+    paths-ignore:
+      - '**.md'
+      - '**.pdf'
+      - 'docs/**'
+      - 'examples/**'
+      - '.gitignore'
+      - 'LICENSE'
+  workflow_dispatch:           # permite ejecutar manualmente desde GitHub UI
 
-name: 🚀 Deploy website on push
+concurrency:                   # evita deploys paralelos en push consecutivos
+  group: deploy-production
+  cancel-in-progress: false    # no cancela el anterior (FTP se corrompe si se corta)
+
 jobs:
-  web-deploy:
-    name: 🎉 Deploy
+  deploy:
+    name: 🎉 Deploy to casaxuunan.com
     runs-on: ubuntu-latest
+    timeout-minutes: 20
+
     steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v2
-    
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.2.0
-      with:
-        server: ${{ secrets.ftp_host }} 
-        port: ${{ secrets.ftp_port }}
-        username: ${{ secrets.ftp_username }}
-        password: ${{ secrets.ftp_password }}
-        server-dir: /
-        
+      - name: 🚚 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 📦 Show commit info
+        run: |
+          echo "### 📋 Deploy Info" >> $GITHUB_STEP_SUMMARY
+          echo "| Field | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "| --- | --- |" >> $GITHUB_STEP_SUMMARY
+          echo "| 🌿 Branch | \`${{ github.ref_name }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| 👤 Author | ${{ github.actor }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| 💬 Commit | ${{ github.event.head_commit.message }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| 🔗 SHA | \`${{ github.sha }}\` |" >> $GITHUB_STEP_SUMMARY
+
+      - name: 📂 Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.ftp_host }}
+          port: ${{ secrets.ftp_port }}
+          username: ${{ secrets.ftp_username }}
+          password: ${{ secrets.ftp_password }}
+          server-dir: /
+          protocol: ftp
+          log-level: standard
+          timeout: 60000
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            **/node_modules/**
+            **/logs/**
+            **/*.md
+            **/*.pdf
+            **/cache/**
+            **/.vscode/**
+            **/.idea/**
+            **/.DS_Store
+            **/Thumbs.db
+            **/*.log
+            **/docs/**
+            **/examples/**
+            **/get-property-ids.html
+            **/test-*.html
+            **/test_*.php
+            **/cotizacion*.html
+            **/Cobro*.pdf
+
+      - name: ✅ Deploy summary
+        if: success()
+        run: |
+          echo "### ✅ Deploy completado" >> $GITHUB_STEP_SUMMARY
+          echo "🌐 Sitio: https://casaxuunan.com" >> $GITHUB_STEP_SUMMARY
+          echo "⏱️ Terminado: $(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+
+      - name: ❌ Deploy failed
+        if: failure()
+        run: |
+          echo "### ❌ Deploy fallido" >> $GITHUB_STEP_SUMMARY
+          echo "Revisar logs del step anterior para detalles." >> $GITHUB_STEP_SUMMARY
