@@ -217,6 +217,8 @@ if (isset($_seo_blog_post_found)) {
     <link rel="stylesheet" href="css/home-header-simple.css" type="text/css">
     <!-- Desktop sidebar menu (solo home desktop) -->
     <link rel="stylesheet" href="css/desktop-sidebar-menu.css" type="text/css">
+    <!-- Home hero fit: ajusta altura cuando banner verde esta visible -->
+    <link rel="stylesheet" href="css/home-hero-fit.css" type="text/css">
     <?php endif; ?>
 
     <?php if (basename($_SERVER['SCRIPT_NAME']) === 'index.php'): ?>

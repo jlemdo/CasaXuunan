@@ -41,6 +41,37 @@ document.addEventListener('DOMContentLoaded', function() {
     // Ensure starts closed
     overlay.classList.add('slideDown');
 
+    // Backdrop para desktop (clickeable para cerrar)
+    var backdrop = null;
+    function isDesktop() { return window.innerWidth >= 768; }
+
+    function ensureBackdrop() {
+        if (backdrop) return backdrop;
+        backdrop = document.createElement('div');
+        backdrop.className = 'dsm-backdrop';
+        backdrop.addEventListener('click', closeMenu);
+        document.body.appendChild(backdrop);
+        return backdrop;
+    }
+
+    function showBackdrop() {
+        if (!isDesktop()) return;
+        ensureBackdrop();
+        backdrop.style.display = 'block';
+        // forzar reflow antes de la transicion
+        backdrop.offsetHeight;
+        backdrop.classList.add('dsm-visible');
+    }
+    function hideBackdrop() {
+        if (!backdrop) return;
+        backdrop.classList.remove('dsm-visible');
+        setTimeout(function () {
+            if (backdrop && !backdrop.classList.contains('dsm-visible')) {
+                backdrop.style.display = 'none';
+            }
+        }, 460);
+    }
+
     function openMenu() {
         if (isOpen || isAnimating) return;
         isAnimating = true;
@@ -48,11 +79,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
         document.body.style.overflow = 'hidden';
         overlay.classList.remove('slideDown');
-        overlay.style.transition = 'none';
-        overlay.style.top = '-100%';
-        overlay.offsetHeight;
-        overlay.style.transition = 'top 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
-        overlay.style.top = '0';
+
+        // Mobile: animar con "top" (como antes)
+        // Desktop: el CSS usa transform, solo tocamos la clase slideDown
+        if (!isDesktop()) {
+            overlay.style.transition = 'none';
+            overlay.style.top = '-100%';
+            overlay.offsetHeight;
+            overlay.style.transition = 'top 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+            overlay.style.top = '0';
+        }
+
+        // Backdrop desktop
+        showBackdrop();
 
         // Cambiar icono hamburguesa a X (clases que usa el CSS existente)
         newMenuBtn.classList.remove('unclick');
@@ -65,8 +104,13 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!isOpen || isAnimating) return;
         isAnimating = true;
 
-        overlay.style.transition = 'top 0.35s cubic-bezier(0.5, 0, 0.75, 0)';
-        overlay.style.top = '-100%';
+        if (!isDesktop()) {
+            overlay.style.transition = 'top 0.35s cubic-bezier(0.5, 0, 0.75, 0)';
+            overlay.style.top = '-100%';
+        }
+
+        // Ocultar backdrop
+        hideBackdrop();
 
         // Cambiar icono X a hamburguesa
         newMenuBtn.classList.remove('clicked');
@@ -79,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = '';
             isOpen = false;
             isAnimating = false;
-        }, 380);
+        }, 460);
     }
 
     // Attach handlers to cloned elements (no old listeners)

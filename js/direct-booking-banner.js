@@ -107,6 +107,8 @@
         // Animate in
         requestAnimationFrame(function () {
             banner.classList.add('dbb-visible');
+            // Marcar body para que el CSS del hero ajuste altura (fallback :has)
+            document.body.classList.add('cx-banner-active');
         });
 
         // Rotate messages
@@ -121,6 +123,7 @@
         // Close handler
         banner.querySelector('.dbb-close').addEventListener('click', function () {
             banner.classList.remove('dbb-visible');
+            document.body.classList.remove('cx-banner-active');
             sessionStorage.setItem(STORAGE_KEY, '1');
             setTimeout(function () {
                 if (banner.parentNode) banner.parentNode.removeChild(banner);

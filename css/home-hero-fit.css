@@ -1,0 +1,46 @@
+/* =============================================
+   Home Hero — respeta altura del banner verde
+   Casa Xu'unan
+   =============================================
+
+   Problema:
+   #slidecaption en desktop usa display:table + height:100% sobre
+   position:fixed → ocupa todo el viewport. Cuando el banner verde
+   aparece arriba (~45px), el contenido centrado queda empujado hacia
+   abajo y choca con .home-search-section (barra de busqueda fixed bottom).
+   En screenshot reportado: "RELÁJATE" se ve a la mitad y el boton queda
+   tapado por el banner inferior.
+
+   Solucion:
+   Cuando el banner verde (.dbb-sticky.dbb-visible) esta presente dentro
+   del header, reducimos la altura efectiva de #slidecaption usando
+   top:<altura-banner> para que el contenido centrado respete ese
+   espacio superior. Si el banner se cierra (usuario da clic en X),
+   #slidecaption vuelve a 100vh automaticamente.
+*/
+
+/* Solo desktop + tablet (mobile ya tiene su propio padding-top/bottom) */
+@media (min-width: 768px) {
+
+    /* Cuando el banner esta dentro del header y visible */
+    body:has(header .dbb-sticky.dbb-visible) #slidecaption {
+        top: 50px; /* altura aprox del banner desktop */
+        height: calc(100% - 50px);
+    }
+
+    /* Fallback si :has no esta soportado: usamos JS para agregar
+       clase .cx-banner-active al body → misma regla */
+    body.cx-banner-active #slidecaption {
+        top: 50px;
+        height: calc(100% - 50px);
+    }
+}
+
+/* Mobile: el banner es un poco mas delgado (~45px) */
+@media (max-width: 767px) and (min-width: 568px) {
+    body:has(header .dbb-sticky.dbb-visible) #slidecaption,
+    body.cx-banner-active #slidecaption {
+        top: 45px;
+        height: calc(100% - 45px);
+    }
+}

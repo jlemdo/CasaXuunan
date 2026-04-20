@@ -7,10 +7,9 @@
 
 @media (min-width: 768px) {
 
-    /* Overlay oscuro sobre TODA la pantalla cuando el menu esta abierto
-       Se pinta como backdrop del body via pseudo-elemento en html */
-    body:has(#menu-overlay:not(.slideDown))::before {
-        content: '';
+    /* Backdrop oscuro clickeable (elemento real del DOM, no pseudo)
+       Animacion sincronizada con la del sidebar (0.45s cubic-bezier smooth) */
+    .dsm-backdrop {
         position: fixed;
         top: 0;
         left: 0;
@@ -18,12 +17,13 @@
         bottom: 0;
         background: rgba(0, 0, 0, 0.55);
         z-index: 9999;
-        animation: dsm-overlay-in 0.3s ease forwards;
+        opacity: 0;
+        transition: opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1);
         cursor: pointer;
+        will-change: opacity;
     }
-    @keyframes dsm-overlay-in {
-        from { opacity: 0; }
-        to   { opacity: 1; }
+    .dsm-backdrop.dsm-visible {
+        opacity: 1;
     }
 
     /* Menu overlay: convertir de fullscreen a sidebar izquierda */
@@ -39,7 +39,7 @@
         -webkit-backdrop-filter: blur(24px) !important;
         box-shadow: 4px 0 30px rgba(0, 0, 0, 0.4);
         transform: translateX(-100%);
-        transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
         will-change: transform;
     }
     #menu-overlay:not(.slideDown) {
@@ -153,9 +153,3 @@
     }
 }
 
-/* Ocultar dsm-overlay si no hay menu abierto */
-@media (min-width: 768px) {
-    body:has(#menu-overlay.slideDown)::before {
-        content: none;
-    }
-}
