@@ -37,12 +37,18 @@ header.header-scrolled {
 }
 
 /* FIX: designesia.js agrega clases .clone y .smaller al hacer scroll
-   y aplica inline "opacity:0; pointer-events:none;" (ve designesia.js:486
-   jQuery.addClass con easeOutBounce). Eso bloquea los clics en los botones
-   del header cuando hay scroll. Forzamos que header siempre sea interactivo. */
+   y aplica inline "display:none; opacity:0; pointer-events:none;"
+   (jQuery UI addClass con easeOutBounce pone display:none al terminar
+   la animacion de fade). Resultado: el header DESAPARECE al scrollear.
+   Forzamos visibilidad e interactividad completa siempre. */
 header.clone,
 header.smaller,
-header.header-scrolled {
+header.header-scrolled,
+header.clone.smaller,
+header.scrollOn,
+header.scrollOff {
+    display: block !important;
+    visibility: visible !important;
     opacity: 1 !important;
     pointer-events: auto !important;
 }
