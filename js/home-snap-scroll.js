@@ -46,6 +46,33 @@
         var COOLDOWN_MS = 900; // tiempo antes de permitir otro salto
         var MIN_DELTA = 5;     // ignora scrolls ultra-pequenos
 
+        // Detectar si el usuario esta interactuando con el widget Hospitable
+        // (click en check-in, calendario, guests). Si es asi, NO activar snap.
+        function isInteractingWithWidget(target) {
+            if (!target) return false;
+            // Elemento es o esta dentro del widget Hospitable
+            if (target.closest && target.closest('hospitable-direct-mps')) return true;
+            if (target.closest && target.closest('.home-search-section')) return true;
+            if (target.closest && target.closest('.home-search-wrapper')) return true;
+            if (target.closest && target.closest('.search-widget-container')) return true;
+            // Hospitable usa shadow DOM; si el target es el custom element, esta interactuando
+            if (target.tagName && target.tagName.toLowerCase() === 'hospitable-direct-mps') return true;
+            return false;
+        }
+
+        // Timestamp de ultima interaccion con widget — ignoramos scroll 1s despues
+        var lastWidgetInteraction = 0;
+        document.addEventListener('click', function (e) {
+            if (isInteractingWithWidget(e.target)) {
+                lastWidgetInteraction = Date.now();
+            }
+        }, true);
+        document.addEventListener('focusin', function (e) {
+            if (isInteractingWithWidget(e.target)) {
+                lastWidgetInteraction = Date.now();
+            }
+        }, true);
+
         function smoothScrollTo(targetY) {
             isAnimating = true;
             lastAction = Date.now();
@@ -72,6 +99,20 @@
             if (isAnimating) return;
             if (Date.now() - lastAction < COOLDOWN_MS) return;
             if (Math.abs(e.deltaY) < MIN_DELTA) return;
+
+            // No actuar si el usuario esta interactuando con el widget
+            if (Date.now() - lastWidgetInteraction < 1500) return;
+            if (isInteractingWithWidget(e.target)) return;
+
+            // No actuar si el widget esta expandido (calendario/guests abierto)
+            // El index.php agrega style transform al .home-search-section cuando expande
+            var searchSection = document.querySelector('.home-search-section');
+            if (searchSection && searchSection.style.transform &&
+                searchSection.style.transform.indexOf('translateY(-') !== -1 &&
+                searchSection.style.transform !== 'translateY(0)' &&
+                searchSection.style.transform !== 'translateY(0px)') {
+                return;
+            }
 
             var scrollY = window.pageYOffset;
             var heroH = getHeroHeight();
@@ -108,6 +149,10 @@
         window.addEventListener('touchend', function (e) {
             if (isAnimating) return;
             if (Date.now() - lastAction < COOLDOWN_MS) return;
+
+            // No actuar si hay interaccion reciente con el widget
+            if (Date.now() - lastWidgetInteraction < 1500) return;
+            if (isInteractingWithWidget(e.target)) return;
 
             var touchEndY = e.changedTouches[0].clientY;
             var deltaY = touchStartY - touchEndY;

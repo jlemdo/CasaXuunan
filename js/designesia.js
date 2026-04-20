@@ -12,7 +12,13 @@ jQuery(document).ready(function () {
     var de_color_style = 1; // 1 - default, 2 - light style
     var de_font_style = 1; // 1 - default, 2 - alternate font style
     var de_force_mobile_menu = 0; // 1 - yes, 0 - no
-    var show_preloader = 1; // 1 - show, 0 - hide
+    var show_preloader = 0; // 1 - show, 0 - hide (desactivado: muestra la velocidad real del sitio)
+
+    // Sin preloader: el body tiene display:none por default (style.css:64),
+    // asi que lo mostramos inmediatamente en cuanto el DOM este listo.
+    if (show_preloader == 0) {
+        jQuery('body').css({ 'display': 'block', 'opacity': '1' });
+    }
 
     var mobile_menu_show = 0;
     var grid_size = 10;

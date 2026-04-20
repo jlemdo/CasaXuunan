@@ -97,6 +97,9 @@ if (isset($_seo_blog_post_found)) {
 <head>
     <meta charset="utf-8">
 
+    <!-- Force body visible from the start (no preloader delay, shows real speed) -->
+    <style>body { display: block !important; opacity: 1 !important; }</style>
+
     <!-- Google Ads Conversion Tracking -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18041631980"></script>
     <script>
