@@ -1,0 +1,28 @@
+{
+  "name": "beta",
+  "version": "1.0.0",
+  "description": "",
+  "main": "form.js",
+  "directories": {
+    "doc": "docs",
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jlemdo/CasaXuunan.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jlemdo/CasaXuunan/issues"
+  },
+  "homepage": "https://github.com/jlemdo/CasaXuunan#readme",
+  "devDependencies": {
+    "sharp": "^0.34.5"
+  }
+}

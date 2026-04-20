@@ -84,3 +84,9 @@ node_modules/
 
 # Vendor de Composer (si usas Composer)
 vendor/
+
+# Backup de imagenes (solo local, no subir a git)
+images_backup/
+
+# Package lock (se regenera automaticamente)
+package-lock.json
