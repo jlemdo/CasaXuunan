@@ -39,8 +39,13 @@
         -webkit-backdrop-filter: blur(6px);
     }
 
-    /* Sidebar: entra con slide + fade-in simultaneos */
+    /* Sidebar: entra con slide + fade-in simultaneos
+       IMPORTANTE: forzamos display:block !important para anular el
+       #menu-overlay { display:none } de style.css:861 que rompe las
+       transiciones. Usamos visibility para ocultar/mostrar sin romper
+       la animacion de transform (display no es animable). */
     #menu-overlay {
+        display: block !important;
         top: 0 !important;
         left: 0 !important;
         width: 30% !important;
@@ -53,23 +58,32 @@
         box-shadow: 6px 0 40px rgba(0, 0, 0, 0.5);
         transform: translateX(-100%);
         opacity: 0;
+        visibility: hidden;
         transition:
             transform 0.55s cubic-bezier(0.32, 0.72, 0, 1),
-            opacity 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+            opacity 0.4s cubic-bezier(0.32, 0.72, 0, 1),
+            visibility 0s linear 0.55s;
         will-change: transform, opacity;
     }
     #menu-overlay:not(.slideDown) {
         transform: translateX(0);
         opacity: 1;
+        visibility: visible;
+        transition:
+            transform 0.55s cubic-bezier(0.32, 0.72, 0, 1),
+            opacity 0.4s cubic-bezier(0.32, 0.72, 0, 1),
+            visibility 0s linear 0s;
     }
     /* Cierre mas rapido con ease-in */
     #menu-overlay.slideDown {
         top: 0 !important;
         transform: translateX(-100%);
         opacity: 0;
+        visibility: hidden;
         transition:
             transform 0.4s cubic-bezier(0.4, 0, 0.72, 0.24),
-            opacity 0.3s cubic-bezier(0.4, 0, 0.72, 0.24);
+            opacity 0.3s cubic-bezier(0.4, 0, 0.72, 0.24),
+            visibility 0s linear 0.4s;
     }
 
     /* =========================================================
