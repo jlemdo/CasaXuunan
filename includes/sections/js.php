@@ -25,7 +25,7 @@ document.querySelectorAll('.lang-switcher').forEach(function(b){
 <script src="<?php echo BASE_URL; ?>/js/scroll-header.js" defer></script>
 <?php if (basename($_SERVER['SCRIPT_NAME']) === 'index.php'): ?>
 <script src="<?php echo BASE_URL; ?>/js/flag-emoji-detect.js" defer></script>
-<script src="<?php echo BASE_URL; ?>/js/home-snap-scroll.js" defer></script>
+<!-- home-snap-scroll.js desactivado: scroll libre natural -->
 <?php endif; ?>
 
 <!-- Supersized (solo para la página index) -->
