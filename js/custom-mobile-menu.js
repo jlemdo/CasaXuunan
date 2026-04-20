@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (backdrop && !backdrop.classList.contains('dsm-visible')) {
                 backdrop.style.display = 'none';
             }
-        }, 460);
+        }, 560);
     }
 
     function openMenu() {
@@ -112,14 +112,14 @@ document.addEventListener('DOMContentLoaded', function() {
         newMenuBtn.classList.add('unclick');
 
         if (isDesktop()) {
-            // Desktop: agregar slideDown INMEDIATAMENTE para que la
-            // transition CSS anime el transform translateX de 0 a -100%
+            // Desktop: agregar slideDown INMEDIATAMENTE.
+            // CSS anima transform 0.4s + opacity 0.3s con ease-in rapido.
             overlay.classList.add('slideDown');
             setTimeout(function () {
                 document.body.style.overflow = '';
                 isOpen = false;
                 isAnimating = false;
-            }, 460);
+            }, 420);
         } else {
             // Mobile: animar con "top" y agregar slideDown despues
             overlay.style.transition = 'top 0.35s cubic-bezier(0.5, 0, 0.75, 0)';

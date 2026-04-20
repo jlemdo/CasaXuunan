@@ -7,8 +7,14 @@
 
 @media (min-width: 768px) {
 
-    /* Backdrop oscuro clickeable (elemento real del DOM, no pseudo)
-       Animacion sincronizada con la del sidebar (0.45s cubic-bezier smooth) */
+    /* =========================================================
+       Premium animation 2026 — tipo Apple/iOS spring curve
+       Curvas:
+         - Apertura: cubic-bezier(0.32, 0.72, 0, 1) [iOS spring smooth]
+         - Cierre:   cubic-bezier(0.4, 0, 0.72, 0.24) [ease-in acelerado]
+       ========================================================= */
+
+    /* Backdrop con fade + blur progresivo en el fondo */
     .dsm-backdrop {
         position: fixed;
         top: 0;
@@ -16,17 +22,24 @@
         right: 0;
         bottom: 0;
         background: rgba(0, 0, 0, 0.55);
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
         z-index: 9999;
         opacity: 0;
-        transition: opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+        transition:
+            opacity 0.55s cubic-bezier(0.32, 0.72, 0, 1),
+            backdrop-filter 0.55s cubic-bezier(0.32, 0.72, 0, 1),
+            -webkit-backdrop-filter 0.55s cubic-bezier(0.32, 0.72, 0, 1);
         cursor: pointer;
-        will-change: opacity;
+        will-change: opacity, backdrop-filter;
     }
     .dsm-backdrop.dsm-visible {
         opacity: 1;
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
     }
 
-    /* Menu overlay: convertir de fullscreen a sidebar izquierda */
+    /* Sidebar: entra con slide + fade-in simultaneos */
     #menu-overlay {
         top: 0 !important;
         left: 0 !important;
@@ -37,18 +50,84 @@
         background: rgba(20, 17, 14, 0.97) !important;
         backdrop-filter: blur(24px) !important;
         -webkit-backdrop-filter: blur(24px) !important;
-        box-shadow: 4px 0 30px rgba(0, 0, 0, 0.4);
+        box-shadow: 6px 0 40px rgba(0, 0, 0, 0.5);
         transform: translateX(-100%);
-        transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-        will-change: transform;
+        opacity: 0;
+        transition:
+            transform 0.55s cubic-bezier(0.32, 0.72, 0, 1),
+            opacity 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+        will-change: transform, opacity;
     }
     #menu-overlay:not(.slideDown) {
         transform: translateX(0);
+        opacity: 1;
     }
-    /* Cuando tiene .slideDown esta cerrado (fuera de pantalla a la izquierda) */
+    /* Cierre mas rapido con ease-in */
     #menu-overlay.slideDown {
         top: 0 !important;
         transform: translateX(-100%);
+        opacity: 0;
+        transition:
+            transform 0.4s cubic-bezier(0.4, 0, 0.72, 0.24),
+            opacity 0.3s cubic-bezier(0.4, 0, 0.72, 0.24);
+    }
+
+    /* =========================================================
+       Staggered animation para los items del menu
+       Cada li aparece con delay escalonado (tipo Apple/Airbnb)
+       ========================================================= */
+    #menu-overlay #mo-menu li {
+        opacity: 0;
+        transform: translateX(-12px);
+        transition: opacity 0.4s cubic-bezier(0.32, 0.72, 0, 1),
+                    transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+    }
+    #menu-overlay:not(.slideDown) #mo-menu li {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    #menu-overlay:not(.slideDown) #mo-menu li:nth-child(1) { transition-delay: 0.18s; }
+    #menu-overlay:not(.slideDown) #mo-menu li:nth-child(2) { transition-delay: 0.22s; }
+    #menu-overlay:not(.slideDown) #mo-menu li:nth-child(3) { transition-delay: 0.26s; }
+    #menu-overlay:not(.slideDown) #mo-menu li:nth-child(4) { transition-delay: 0.30s; }
+    #menu-overlay:not(.slideDown) #mo-menu li:nth-child(5) { transition-delay: 0.34s; }
+    #menu-overlay:not(.slideDown) #mo-menu li:nth-child(6) { transition-delay: 0.38s; }
+    #menu-overlay:not(.slideDown) #mo-menu li:nth-child(7) { transition-delay: 0.42s; }
+    #menu-overlay:not(.slideDown) #mo-menu li:nth-child(8) { transition-delay: 0.46s; }
+
+    /* Logo + footer tambien con delay sutil */
+    #menu-overlay .mo-nav > a:first-child,
+    #menu-overlay .mo-footer {
+        opacity: 0;
+        transform: translateY(-8px);
+        transition: opacity 0.5s cubic-bezier(0.32, 0.72, 0, 1),
+                    transform 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+    }
+    #menu-overlay .mo-footer {
+        transform: translateY(8px);
+    }
+    #menu-overlay:not(.slideDown) .mo-nav > a:first-child {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.1s;
+    }
+    #menu-overlay:not(.slideDown) .mo-footer {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.5s;
+    }
+
+    /* Respeta preferencia de reducir animaciones (accesibilidad) */
+    @media (prefers-reduced-motion: reduce) {
+        #menu-overlay,
+        #menu-overlay.slideDown,
+        #menu-overlay #mo-menu li,
+        #menu-overlay .mo-nav > a:first-child,
+        #menu-overlay .mo-footer,
+        .dsm-backdrop {
+            transition: opacity 0.15s linear !important;
+            transform: none !important;
+        }
     }
 
     /* Contenido del sidebar: alineado a la izquierda, top-down */
