@@ -36,6 +36,17 @@ header.header-scrolled {
                 backdrop-filter 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* FIX: designesia.js agrega clases .clone y .smaller al hacer scroll
+   y aplica inline "opacity:0; pointer-events:none;" (ve designesia.js:486
+   jQuery.addClass con easeOutBounce). Eso bloquea los clics en los botones
+   del header cuando hay scroll. Forzamos que header siempre sea interactivo. */
+header.clone,
+header.smaller,
+header.header-scrolled {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
 /* Transicion suave tambien al volver a arriba */
 header {
     transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1),
