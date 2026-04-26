@@ -100,13 +100,18 @@ if (isset($_seo_blog_post_found)) {
     <!-- Force body visible from the start (no preloader delay, shows real speed) -->
     <style>body { display: block !important; opacity: 1 !important; }</style>
 
-    <!-- Google Ads Conversion Tracking -->
+    <!-- Google Tag Manager: Ads Conversion + GA4 Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18041631980"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
+
+        // Google Ads (conversiones, gclid)
         gtag('config', 'AW-18041631980');
+
+        // Google Analytics 4 (medicion de comportamiento, embudos, audiencia)
+        gtag('config', 'G-YT5HKBEXMW');
 
         // Captura GCLID de Google Ads y lo guarda en cookie 90 dias
         // Necesario para atribuir reservas server-side via webhook
