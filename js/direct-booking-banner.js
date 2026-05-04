@@ -22,9 +22,9 @@
     // ===== TRANSLATIONS =====
     var t = {
         es: {
-            msg1: '🎁 Código DIRECTO10 · Ahorra hasta $283 MXN por noche',
-            msg2: '🍳 Desayuno casero yucateco INCLUIDO en todas las habitaciones',
-            msg3: '✓ Reserva directo · Hasta 13% menos que Booking',
+            msg1: '🎁 Código DIRECTO10 · Ahorra hasta $283/noche',
+            msg2: '🍳 Desayuno casero yucateco incluido',
+            msg3: '✓ Hasta 13% menos que Booking',
             msg4: '💬 WhatsApp directo · Sin intermediarios',
             inline: '¿Por qué reservar aquí y no en Booking? 👀',
             modalTitle: 'Reserva directo en Casa Xu\'unan',
@@ -61,9 +61,9 @@
             mxn: 'MXN'
         },
         en: {
-            msg1: '🎁 Code DIRECTO10 · Save up to $283 MXN per night',
-            msg2: '🍳 Yucatecan homemade breakfast INCLUDED in all rooms',
-            msg3: '✓ Book direct · Up to 13% less than Booking',
+            msg1: '🎁 Code DIRECTO10 · Save up to $283/night',
+            msg2: '🍳 Yucatecan homemade breakfast included',
+            msg3: '✓ Up to 13% less than Booking',
             msg4: '💬 Direct WhatsApp · No middlemen',
             inline: 'Why book here instead of Booking? 👀',
             modalTitle: 'Book Direct at Casa Xu\'unan',
@@ -103,8 +103,14 @@
     var S = t[LANG];
 
     // ===== BANNER (integrated into header) =====
+    // Solo en HOME (index.php) — en el resto de paginas no aparece
     function createBanner() {
         if (sessionStorage.getItem(STORAGE_KEY) === '1') return;
+
+        // Detectar si estamos en home
+        var page = (location.pathname.split('/').pop() || 'index.php').toLowerCase();
+        var isHome = (page === '' || page === '/' || page === 'index.php' || page === 'index-full-page.php');
+        if (!isHome) return;
 
         var header = document.querySelector('header');
         if (!header) return;
