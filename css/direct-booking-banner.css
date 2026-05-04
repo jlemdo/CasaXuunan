@@ -246,6 +246,110 @@
     padding: 20px 24px 24px;
 }
 
+/* ===== PROMO CODE BLOCK ===== */
+.dbb-promo-block {
+    background: linear-gradient(135deg,
+        rgba(123, 175, 137, 0.18) 0%,
+        rgba(234, 143, 113, 0.12) 100%);
+    border: 1.5px solid rgba(123, 175, 137, 0.35);
+    border-radius: 12px;
+    padding: 20px 16px;
+    margin-bottom: 22px;
+    text-align: center;
+}
+.dbb-promo-icon {
+    font-size: 26px;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+.dbb-promo-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #c8e6d0;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+.dbb-promo-code-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1.5px dashed rgba(255, 255, 255, 0.35);
+    border-radius: 10px;
+    padding: 10px 16px;
+    margin-bottom: 12px;
+}
+.dbb-promo-code {
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+    font-size: 22px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 2px;
+    user-select: all;
+}
+.dbb-promo-copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+.dbb-promo-copy-btn:hover {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.45);
+}
+.dbb-promo-copy-btn.dbb-promo-copied {
+    background: rgba(123, 175, 137, 0.3);
+    border-color: rgba(123, 175, 137, 0.6);
+    color: #c8e6d0;
+}
+.dbb-promo-copy-btn svg {
+    flex-shrink: 0;
+}
+.dbb-promo-subtitle {
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 500;
+}
+
+@media (max-width: 600px) {
+    .dbb-promo-block {
+        padding: 18px 12px;
+        margin-bottom: 18px;
+    }
+    .dbb-promo-code {
+        font-size: 18px;
+        letter-spacing: 1.5px;
+    }
+    .dbb-promo-code-wrap {
+        padding: 8px 12px;
+        gap: 8px;
+    }
+    .dbb-promo-copy-btn {
+        padding: 5px 10px;
+        font-size: 11px;
+    }
+}
+
+/* ===== Fila destacada de savings ===== */
+.dbb-compare-row.dbb-compare-savings .dbb-compare-cell {
+    background: rgba(234, 143, 113, 0.18) !important;
+    font-weight: 700 !important;
+}
+.dbb-compare-row.dbb-compare-savings .dbb-compare-cell-direct {
+    color: #f5b89e !important;
+    font-size: 14px;
+}
+
 /* Comparison table */
 .dbb-compare {
     display: grid;

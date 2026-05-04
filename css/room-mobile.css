@@ -681,3 +681,68 @@ html, body {
 .de-content-overlay iframe {
     max-width: 100%;
 }
+
+/* ============================================
+   Mini banner DIRECTO10 (entre precio e iframe)
+   ============================================ */
+.room-promo-banner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    background: linear-gradient(135deg,
+        rgba(123, 175, 137, 0.18) 0%,
+        rgba(234, 143, 113, 0.12) 100%);
+    border: 1px solid rgba(123, 175, 137, 0.35);
+    border-radius: 10px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: left;
+}
+.room-promo-banner:hover {
+    background: linear-gradient(135deg,
+        rgba(123, 175, 137, 0.28) 0%,
+        rgba(234, 143, 113, 0.18) 100%);
+    border-color: rgba(123, 175, 137, 0.55);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+.room-promo-banner:focus {
+    outline: 2px solid rgba(123, 175, 137, 0.6);
+    outline-offset: 2px;
+}
+.room-promo-icon {
+    font-size: 22px;
+    line-height: 1;
+    flex-shrink: 0;
+}
+.room-promo-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+}
+.room-promo-text strong {
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+.room-promo-text span {
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 11.5px;
+    line-height: 1.4;
+}
+
+@media (max-width: 600px) {
+    .room-promo-banner {
+        padding: 10px 12px;
+        gap: 10px;
+    }
+    .room-promo-icon { font-size: 20px; }
+    .room-promo-text strong { font-size: 12px; }
+    .room-promo-text span { font-size: 11px; }
+}

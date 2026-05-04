@@ -77,6 +77,24 @@ $propertyId = $_GET['id'];
                                     </div>
                                     <span class="room-price-tax"><?php echo t('room_plus_tax'); ?></span>
                                 </div>
+
+                                <!-- Mini banner DIRECTO10 (refuerzo final antes del widget) -->
+                                <div class="room-promo-banner" data-dbb-open="1" role="button" tabindex="0">
+                                    <div class="room-promo-icon">🎁</div>
+                                    <div class="room-promo-text">
+                                        <strong>
+                                            <?php echo getCurrentLanguage() === 'es'
+                                                ? 'Aplica DIRECTO10 al reservar'
+                                                : 'Apply DIRECTO10 at checkout'; ?>
+                                        </strong>
+                                        <span>
+                                            <?php echo getCurrentLanguage() === 'es'
+                                                ? 'Ahorra hasta $283 MXN/noche · 🍳 Desayuno casero incluido'
+                                                : 'Save up to $283 MXN/night · 🍳 Homemade breakfast included'; ?>
+                                        </span>
+                                    </div>
+                                </div>
+
                                 <h3 class="text-center mb-3" id="booking-title"><?php echo t('room_book_now'); ?></h3>
                                 <div class="booking-iframe-wrapper">
                                     <iframe id="booking-iframe" sandbox="allow-top-navigation allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox" src="" allowfullscreen loading="lazy" class="booking-iframe-responsive">
