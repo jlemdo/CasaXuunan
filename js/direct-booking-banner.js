@@ -24,8 +24,8 @@
         es: {
             msg1: '🎁 Código DIRECTO10 · Ahorra hasta $283/noche',
             msg2: '🍳 Desayuno casero yucateco incluido',
-            msg3: '✓ Hasta 13% menos que Booking',
-            msg4: '💬 WhatsApp directo · Sin intermediarios',
+            msg3: '✓ Hasta 13% más beneficios reservando directo',
+            msg4: '💬 WhatsApp directo con nuestro equipo',
             inline: '¿Por qué reservar aquí y no en Booking? 👀',
             modalTitle: 'Reserva directo en Casa Xu\'unan',
             modalSubtitle: 'Ahorra hasta 13% vs Booking · Trato directo',
@@ -63,8 +63,8 @@
         en: {
             msg1: '🎁 Code DIRECTO10 · Save up to $283/night',
             msg2: '🍳 Yucatecan homemade breakfast included',
-            msg3: '✓ Up to 13% less than Booking',
-            msg4: '💬 Direct WhatsApp · No middlemen',
+            msg3: '✓ Up to 13% more benefits booking direct',
+            msg4: '💬 Direct WhatsApp with our team',
             inline: 'Why book here instead of Booking? 👀',
             modalTitle: 'Book Direct at Casa Xu\'unan',
             modalSubtitle: 'Save up to 13% vs Booking · Direct service',
