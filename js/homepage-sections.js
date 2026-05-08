@@ -126,6 +126,58 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
+    // ========== HOSPITABLE WIDGET SHIELD ==========
+    // Cuando el usuario interactua con el widget (click en Check-in, 2 adults,
+    // calendar, etc), el navegador hace focus-scroll automatico al input dentro
+    // del Shadow DOM. Este micro-scroll dispara goToSections() falsamente y
+    // baja la pagina hasta "EL LUJO DE LO AUTENTICO".
+    //
+    // Solucion: detectar cuando el widget esta activo y BLOQUEAR el auto-scroll
+    // detection durante esa interaccion. El usuario sigue pudiendo scrollear
+    // manualmente, pero el widget no dispara cambios de seccion accidentales.
+    function isHospitableWidgetActive() {
+        var widget = document.querySelector('.home-search-wrapper hospitable-direct-mps');
+        if (!widget) return false;
+
+        // 1. Si el wrapper tiene background oscuro = expandido (calendario o huespedes abierto)
+        var wrapper = document.querySelector('.home-search-wrapper');
+        if (wrapper && wrapper.style.background && wrapper.style.background.indexOf('rgba') > -1) {
+            return true;
+        }
+
+        // 2. Si hay un input/elemento del widget tiene focus actualmente
+        if (document.activeElement === widget) return true;
+        if (widget.shadowRoot && widget.shadowRoot.activeElement) return true;
+
+        // 3. Si hay un dropdown abierto dentro del shadowRoot (calendario/guests)
+        if (widget.shadowRoot) {
+            var dpc = widget.shadowRoot.querySelector('.date-picker-container');
+            if (dpc && dpc.offsetHeight > 0) return true;
+            var guests = widget.shadowRoot.querySelector('.guests-expanded');
+            if (guests && guests.offsetHeight > 0) return true;
+        }
+
+        return false;
+    }
+
+    // Lock extendido cuando se hace click DENTRO del widget (cubre el delay
+    // de focus-scroll del navegador que tarda hasta ~300ms en dispararse)
+    var searchWrapperEl = document.querySelector('.home-search-wrapper');
+    if (searchWrapperEl) {
+        searchWrapperEl.addEventListener('click', function() {
+            if (state === 'hero') {
+                lock(800); // bloquea detection ~800ms (cubre focus-scroll nativo)
+            }
+        }, true);
+
+        // Mismo para mousedown (algunos browsers disparan focus en mousedown)
+        searchWrapperEl.addEventListener('mousedown', function() {
+            if (state === 'hero') {
+                lock(800);
+            }
+        }, true);
+    }
+
     // ========== SCROLL DETECTION ==========
     // Simple approach: detect scroll direction + position
     var lastY = 0;
@@ -133,6 +185,10 @@
 
     window.addEventListener('scroll', function() {
         if (locked) return;
+
+        // ESCUDO: si el widget de Hospitable esta activo, ignorar scroll
+        // detection (evita que focus-scroll del navegador dispare goToSections)
+        if (isHospitableWidgetActive()) return;
 
         var y = window.pageYOffset || 0;
         var vh = window.innerHeight;
