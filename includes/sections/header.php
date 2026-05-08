@@ -225,8 +225,8 @@ if (isset($_seo_blog_post_found)) {
     <link rel="stylesheet" href="css/scroll-header.css" type="text/css">
 
     <?php if (basename($_SERVER['SCRIPT_NAME']) === 'index.php'): ?>
-    <!-- Home header simplificado (solo home) -->
-    <link rel="stylesheet" href="css/home-header-simple.css" type="text/css">
+    <!-- Home header simplificado (solo home) - cache buster con filemtime -->
+    <link rel="stylesheet" href="css/home-header-simple.css?v=<?php echo @filemtime(__DIR__ . '/../../css/home-header-simple.css') ?: time(); ?>" type="text/css">
     <!-- Desktop sidebar menu (solo home desktop) -->
     <link rel="stylesheet" href="css/desktop-sidebar-menu.css" type="text/css">
     <!-- Home hero fit: ajusta altura cuando banner verde esta visible -->
