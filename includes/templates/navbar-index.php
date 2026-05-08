@@ -10,6 +10,14 @@
                         <?php
                         $current_page = basename($_SERVER['REQUEST_URI']);
                         $current_lang = getCurrentLanguage();
+                        $alternates = getAlternateLanguages();
+
+                        // Banderas por idioma (nativas, no inventadas)
+                        $flags = [
+                            'es' => '🇲🇽', // Mexico (no Espana, porque somos un B&B en Mexico)
+                            'en' => '🇺🇸', // USA (mercado angloparlante principal)
+                            'fr' => '🇫🇷', // Francia
+                        ];
                         ?>
                         <!-- Header HOME simplificado: hamburguesa + logo + idioma -->
                         <div class="home-header-simple">
@@ -27,14 +35,34 @@
                                 </div>
                             </div>
 
-                            <!-- 3. Boton idioma sencillo con fallback -->
+                            <!-- 3. Selector de idioma (3 idiomas con dropdown) -->
                             <div class="home-header-right">
-                                <a href="?lang=<?php echo switchLanguage(); ?>"
-                                   class="home-lang-btn"
-                                   aria-label="<?php echo $current_lang === 'es' ? 'Switch to English' : 'Cambiar a Español'; ?>">
-                                    <span class="home-lang-flag" aria-hidden="true"><?php echo $current_lang === 'es' ? '🇺🇸' : '🇲🇽'; ?></span>
-                                    <span class="home-lang-code"><?php echo $current_lang === 'es' ? 'EN' : 'ES'; ?></span>
-                                </a>
+                                <div class="home-lang-wrapper">
+                                    <button type="button"
+                                            class="home-lang-btn home-lang-toggle"
+                                            aria-haspopup="true"
+                                            aria-expanded="false"
+                                            aria-label="<?php echo getLanguageNativeName($current_lang); ?>"
+                                            onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'));">
+                                        <span class="home-lang-flag" aria-hidden="true"><?php echo $flags[$current_lang] ?? '🌐'; ?></span>
+                                        <span class="home-lang-code"><?php echo getLanguageCode($current_lang); ?></span>
+                                        <span class="home-lang-arrow" aria-hidden="true">▾</span>
+                                    </button>
+                                    <ul class="home-lang-menu" role="menu">
+                                        <?php foreach ($alternates as $alt_lang): ?>
+                                        <li role="none">
+                                            <a href="?lang=<?php echo $alt_lang; ?>"
+                                               role="menuitem"
+                                               hreflang="<?php echo $alt_lang; ?>"
+                                               class="home-lang-option">
+                                                <span class="home-lang-option-flag" aria-hidden="true"><?php echo $flags[$alt_lang] ?? '🌐'; ?></span>
+                                                <span class="home-lang-option-name"><?php echo getLanguageNativeName($alt_lang); ?></span>
+                                                <span class="home-lang-option-code"><?php echo getLanguageCode($alt_lang); ?></span>
+                                            </a>
+                                        </li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
 
@@ -73,7 +101,9 @@
                                     <li><a href="services.php" class="<?= $current_page === 'services.php' ? 'active-menu' : '' ?>"><?php echo t('nav_services'); ?></a></li>
                                     <li><a href="gallery.php" class="<?= $current_page === 'gallery.php' ? 'active-menu' : '' ?>"><?php echo t('nav_gallery'); ?></a></li>
                                     <li><a href="contact.php" class="<?= $current_page === 'contact.php' ? 'active-menu' : '' ?>"><?php echo t('nav_contact'); ?></a></li>
-                                    <li><a href="?lang=<?php echo switchLanguage(); ?>" class="lang-switcher-mobile"><?php echo $current_lang === 'es' ? 'English' : 'Español'; ?></a></li>
+                                    <?php foreach ($alternates as $alt_lang): ?>
+                                    <li><a href="?lang=<?php echo $alt_lang; ?>" class="lang-switcher-mobile" hreflang="<?php echo $alt_lang; ?>"><?php echo $flags[$alt_lang] ?? '🌐'; ?> <?php echo getLanguageNativeName($alt_lang); ?></a></li>
+                                    <?php endforeach; ?>
                                 </ul>
 
                                 <!-- mainmenu close -->
@@ -95,3 +125,27 @@
         </div>
         <!-- menu overlay close -->
     </div>
+
+    <!-- Lang switcher home: cerrar dropdown al hacer click fuera o presionar Escape -->
+    <script>
+    (function() {
+        var wrapper = document.querySelector('.home-lang-wrapper');
+        if (!wrapper) return;
+        var toggle = wrapper.querySelector('.home-lang-toggle');
+
+        document.addEventListener('click', function(e) {
+            if (!wrapper.contains(e.target) && wrapper.classList.contains('open')) {
+                wrapper.classList.remove('open');
+                if (toggle) toggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && wrapper.classList.contains('open')) {
+                wrapper.classList.remove('open');
+                if (toggle) toggle.setAttribute('aria-expanded', 'false');
+                if (toggle) toggle.focus();
+            }
+        });
+    })();
+    </script>

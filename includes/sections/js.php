@@ -6,14 +6,9 @@
     window.HOSPITABLE_MARKUP = <?php echo defined('HOSPITABLE_DIRECT_MARKUP') ? HOSPITABLE_DIRECT_MARKUP : 1.10; ?>;
 </script>
 
-<!-- Lang switcher: replace text with flags (all pages) -->
-<script>
-document.querySelectorAll('.lang-switcher').forEach(function(b){
-    var t=b.textContent.trim();
-    if(t==='EN')b.textContent='\uD83C\uDDFA\uD83C\uDDF8 EN';
-    else if(t==='ES')b.textContent='\uD83C\uDDF2\uD83C\uDDFD ES';
-});
-</script>
+<!-- Lang switcher legacy: ya no se usa.
+     El selector de idioma actual es un dropdown de 3 idiomas (ES/EN/FR)
+     manejado en navbar.php y navbar-index.php con su propio JS. -->
 
 <!-- JS aquí -->
 <!-- Archivos Javascript Comunes -->

@@ -170,11 +170,23 @@
     z-index: 1003;
 }
 
-/* Menu visible cuando wrapper tiene clase .open */
+/* Menu visible cuando wrapper tiene clase .open (click - mobile) */
 .lang-switcher-wrapper.open .lang-switcher-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+}
+
+/* En desktop con hover, abrir tambien al pasar el mouse (UX mas fluida) */
+@media (hover: hover) and (min-width: 768px) {
+    .lang-switcher-wrapper:hover .lang-switcher-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    .lang-switcher-wrapper:hover .lang-arrow {
+        transform: rotate(180deg);
+    }
 }
 
 /* Cada opcion de idioma en el dropdown */
