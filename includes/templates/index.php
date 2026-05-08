@@ -1,4 +1,25 @@
  <!-- content begin -->
+ <!-- ============================================================
+      FIX: SmoothScroll vs Hospitable Widget
+      ============================================================
+      designesia.js carga una libreria SmoothScroll (linea ~215) que
+      intercepta TODOS los eventos 'wheel' del navegador para animar
+      el scroll. Esto rompe el scroll interno del widget de Hospitable
+      (calendario, lista de huespedes, etc).
+
+      Solucion: configuramos window.SmoothScrollOptions ANTES de que
+      designesia.js inicialice la libreria, indicandole que excluya
+      el widget. Esto hace que el scroll nativo del navegador funcione
+      correctamente dentro del calendario de Hospitable.
+
+      Funciona en desktop. Mobile no usa SmoothScroll (esta desactivado
+      por user-agent), pero agregamos stopPropagation por seguridad.
+ ============================================================ -->
+ <script>
+ window.SmoothScrollOptions = {
+     excluded: '.home-search-wrapper, .home-search-section, .search-widget-fullwidth, hospitable-direct-mps'
+ };
+ </script>
  <div id="content" class="no-bottom no-top">
 
 <!-- float text begin -->
@@ -49,6 +70,18 @@
             style.textContent = '.search-bar-container { margin-bottom: 0px !important; }';
             widget.shadowRoot.appendChild(style);
         }
+
+        // FIX SCROLL: Detener propagacion de wheel/touchmove dentro del widget
+        // para que SmoothScroll (designesia.js) no se robe los eventos del calendario.
+        // Defensa secundaria: aunque ya excluimos via SmoothScrollOptions, esto
+        // garantiza el scroll nativo dentro del shadowRoot.
+        function stopWheelPropagation(e) {
+            e.stopPropagation();
+        }
+        widget.shadowRoot.addEventListener('wheel', stopWheelPropagation, { passive: true, capture: true });
+        widget.shadowRoot.addEventListener('touchmove', stopWheelPropagation, { passive: true, capture: true });
+        widget.addEventListener('wheel', stopWheelPropagation, { passive: true, capture: true });
+        widget.addEventListener('touchmove', stopWheelPropagation, { passive: true, capture: true });
 
         var section = document.querySelector('.home-search-section');
         var wrapper = document.querySelector('.home-search-wrapper');

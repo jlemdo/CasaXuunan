@@ -316,82 +316,28 @@ window.addEventListener('load', function() {
 })();
 </script>
 
-<!-- Google Ads: Track conversion when user clicks "Reservar" inside Hospitable widget -->
-<script>
-(function() {
-    var el = document.querySelector('.search-widget-fullwidth hospitable-direct-mps');
-    if (!el) return;
+<!-- ============================================================
+     TRACKING DE CONVERSIONES — Configuracion limpia
+     ============================================================
+     Hospitable Direct envia eventos automaticamente a nuestro GA4
+     (configurado con G-YT5HKBEXMW en panel Marketing de Hospitable).
 
-    var conversionFired = false; // prevenir disparos duplicados en la misma sesion
-    var searchFired = false;
+     Eventos automaticos enviados por Hospitable desde booking.hospitable.com:
+       - view_item        (al ver detalle de habitacion)
+       - begin_checkout   (al iniciar formulario de reserva)
+       - add_payment_info (al ingresar datos de tarjeta)
+       - purchase         (cuando el pago se completa) <- conversion REAL
 
-    function trackBookingIntent(detectedValue) {
-        if (conversionFired) return;
-        if (typeof gtag !== 'function') return;
-        conversionFired = true;
-        gtag('event', 'conversion', {
-            'send_to': 'AW-18041631980/iN5dCO6stpwcEOzp9ZpD',
-            'value': detectedValue || 2500.0,
-            'currency': 'MXN',
-            'transaction_id': 'cx_intent_' + Date.now(),
-            'transport_type': 'beacon'
-        });
-        try { sessionStorage.setItem('cx_intent_fired', '1'); } catch(e){}
-    }
+     La conversion "Reserva Confirmada" en Google Ads se alimenta de:
+       1. Evento purchase de GA4 (cross-domain con booking.hospitable.com)
+       2. Webhook server-side (webhook_receiver.php) con Enhanced Conversions
 
-    function trackSearchIntent() {
-        if (searchFired) return;
-        if (typeof gtag !== 'function') return;
-        searchFired = true;
-        // Reusa "Inicio tramitacion" como senal de busqueda con fechas (valor bajo)
-        gtag('event', 'conversion', {
-            'send_to': 'AW-18041631980/iN5dCO6stpwcEOzp9ZpD',
-            'value': 50.0,
-            'currency': 'MXN',
-            'transaction_id': 'cx_search_' + Date.now(),
-            'transport_type': 'beacon'
-        });
-    }
+     IMPORTANTE: NO disparamos eventos de conversion desde aqui porque:
+       - Click en "Buscar" o en una propiedad NO es una reserva pagada
+       - Disparar aqui generaba FALSOS POSITIVOS (reportaba reservas que no existian)
+       - Contaminaba el aprendizaje de Smart Bidding y costo-por-conversion real
 
-    function attachListeners() {
-        var sr = el.shadowRoot;
-        if (!sr) return;
+     Si en el futuro queremos medir "intencion de reserva" (no conversion),
+     usar un evento de GA4 personalizado distinto a "conversion" de Google Ads.
+============================================================ -->
 
-        // Click dentro del shadow DOM del widget
-        sr.addEventListener('click', function(ev) {
-            var target = ev.target;
-            if (!target) return;
-
-            // 1) Click en boton "Buscar" del searchbar
-            var searchBtn = target.closest && target.closest('button.search-btn');
-            if (searchBtn) {
-                trackSearchIntent();
-                return;
-            }
-
-            // 2) Click en una propiedad/habitacion (lleva al checkout)
-            var propertyCard = target.closest && target.closest('a.property, .property a, .property');
-            if (propertyCard) {
-                // Intentar extraer precio visible si lo hay
-                var priceEl = propertyCard.querySelector && propertyCard.querySelector('.price, [class*="price"]');
-                var price = 2500;
-                if (priceEl) {
-                    var m = priceEl.textContent.replace(/[^\d.]/g, '');
-                    if (m && parseFloat(m) > 100) price = parseFloat(m);
-                }
-                trackBookingIntent(price);
-            }
-        }, true);
-    }
-
-    var attempts = 0;
-    var wait = setInterval(function() {
-        if (el.shadowRoot) {
-            clearInterval(wait);
-            attachListeners();
-        } else if (++attempts > 100) {
-            clearInterval(wait);
-        }
-    }, 300);
-})();
-</script>
