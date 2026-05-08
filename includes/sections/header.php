@@ -135,14 +135,18 @@ if (isset($_seo_blog_post_found)) {
     <meta name="keywords" content="<?php echo $_seo_keywords; ?>">
     <meta name="author" content="Casa Xu'unan">
 
-    <!-- Hreflang: per-page language alternates -->
+    <!-- Hreflang: per-page language alternates (ES / EN / FR) -->
     <?php if (isset($_seo_hreflang_es)): ?>
     <link rel="alternate" hreflang="es" href="<?php echo $_seo_hreflang_es; ?>">
     <link rel="alternate" hreflang="en" href="<?php echo $_seo_hreflang_en; ?>">
+    <?php if (isset($_seo_hreflang_fr)): ?>
+    <link rel="alternate" hreflang="fr" href="<?php echo $_seo_hreflang_fr; ?>">
+    <?php endif; ?>
     <link rel="alternate" hreflang="x-default" href="<?php echo $_seo_hreflang_default; ?>">
     <?php else: ?>
     <link rel="alternate" hreflang="es" href="<?php echo $_seo_hreflang_base . $_seo_hreflang_sep; ?>lang=es">
     <link rel="alternate" hreflang="en" href="<?php echo $_seo_hreflang_base . $_seo_hreflang_sep; ?>lang=en">
+    <link rel="alternate" hreflang="fr" href="<?php echo $_seo_hreflang_base . $_seo_hreflang_sep; ?>lang=fr">
     <link rel="alternate" hreflang="x-default" href="<?php echo $_seo_hreflang_base; ?>">
     <?php endif; ?>
     <link rel="icon" href="images/logo/logo.ico" type="image/x-icon" sizes="16x16">

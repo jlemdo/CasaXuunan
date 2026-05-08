@@ -68,13 +68,35 @@
 
                             <div class="de-flex-col de-flex-col-mobile">
                                 <div class="d-extra">
-                                    <!-- Language Switcher -->
-                                    <?php $current_lang = getCurrentLanguage(); ?>
-                                    <a href="?lang=<?php echo switchLanguage(); ?>"
-                                       class="lang-switcher"
-                                       data-tooltip="<?php echo $current_lang === 'es' ? 'View site in English' : 'Ver sitio en Español'; ?>">
-                                        <?php echo $current_lang === 'es' ? 'EN' : 'ES'; ?>
-                                    </a>
+                                    <!-- Language Switcher (3 idiomas: ES / EN / FR) -->
+                                    <?php
+                                    $current_lang = getCurrentLanguage();
+                                    $alternates = getAlternateLanguages();
+                                    ?>
+                                    <div class="lang-switcher-wrapper">
+                                        <button type="button"
+                                                class="lang-switcher lang-switcher-toggle"
+                                                aria-haspopup="true"
+                                                aria-expanded="false"
+                                                aria-label="<?php echo getLanguageNativeName($current_lang); ?>"
+                                                onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'));">
+                                            <?php echo getLanguageCode($current_lang); ?>
+                                            <span class="lang-arrow" aria-hidden="true">▾</span>
+                                        </button>
+                                        <ul class="lang-switcher-menu" role="menu">
+                                            <?php foreach ($alternates as $alt_lang): ?>
+                                            <li role="none">
+                                                <a href="?lang=<?php echo $alt_lang; ?>"
+                                                   role="menuitem"
+                                                   hreflang="<?php echo $alt_lang; ?>"
+                                                   class="lang-option lang-option-<?php echo $alt_lang; ?>">
+                                                    <span class="lang-option-code"><?php echo getLanguageCode($alt_lang); ?></span>
+                                                    <span class="lang-option-name"><?php echo getLanguageNativeName($alt_lang); ?></span>
+                                                </a>
+                                            </li>
+                                            <?php endforeach; ?>
+                                        </ul>
+                                    </div>
                                     <a class="btn-main btn-mobile-reservas" href="/search.php"><?php echo t('btn_bookings'); ?></a>
                                 </div>
                                 <div id="menu-btn" class="menu-btn-mobile-overlay"></div>
@@ -121,7 +143,9 @@
                                     <!--<li><a href="garden.php" class="<?= $current_page === 'garden.php' || $current_page === 'plant.php' ? 'active-menu' : '' ?>"><?php echo t('nav_garden'); ?></a></li>-->
                                     <li><a href="blog.php" class="<?= strpos($current_page, 'blog') !== false ? 'active-menu' : '' ?>"><?php echo t('nav_blog'); ?></a></li>
                                     <li><a href="contact.php" class="<?= $current_page === 'contact.php' ? 'active-menu' : '' ?>"><?php echo t('nav_contact'); ?></a></li>
-                                    <li><a href="?lang=<?php echo switchLanguage(); ?>" class="lang-switcher-mobile"><?php echo $current_lang === 'es' ? 'English' : 'Español'; ?></a></li>
+                                    <?php foreach (getAlternateLanguages() as $alt_lang): ?>
+                                    <li><a href="?lang=<?php echo $alt_lang; ?>" class="lang-switcher-mobile" hreflang="<?php echo $alt_lang; ?>"><?php echo getLanguageNativeName($alt_lang); ?></a></li>
+                                    <?php endforeach; ?>
                                 </ul>
 
                                 <!-- mainmenu close -->
@@ -143,3 +167,27 @@
         </div>
     </div>
     <!-- menu overlay close -->
+
+    <!-- Lang switcher: cerrar dropdown al hacer click fuera o presionar Escape -->
+    <script>
+    (function() {
+        var wrapper = document.querySelector('.lang-switcher-wrapper');
+        if (!wrapper) return;
+        var toggle = wrapper.querySelector('.lang-switcher-toggle');
+
+        document.addEventListener('click', function(e) {
+            if (!wrapper.contains(e.target) && wrapper.classList.contains('open')) {
+                wrapper.classList.remove('open');
+                if (toggle) toggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && wrapper.classList.contains('open')) {
+                wrapper.classList.remove('open');
+                if (toggle) toggle.setAttribute('aria-expanded', 'false');
+                if (toggle) toggle.focus();
+            }
+        });
+    })();
+    </script>

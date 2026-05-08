@@ -1,54 +1,71 @@
 <?php
 /**
- * Sistema de Traducción - Casa Xuunan
- * Manejo de idiomas ES/EN para SEO
+ * Sistema de Traduccion - Casa Xuunan
+ * Manejo de idiomas ES / EN / FR para SEO
+ *
+ * Idiomas soportados:
+ *   - es: Espanol (mercado domestico Mexico)
+ *   - en: English (USA, UK, Canada)
+ *   - fr: Francais (Francia, Belgica, Suiza, Quebec)
  */
 
-// Iniciar sesión si no está iniciada
+// Iniciar sesion si no esta iniciada
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-// Función para obtener el idioma actual
+// Idiomas soportados (cambiar aqui si se agregan mas)
+const CX_SUPPORTED_LANGS = ['es', 'en', 'fr'];
+
+// Funcion para obtener el idioma actual
 function getCurrentLanguage() {
-    // 1. Si hay ?lang= en la URL, el usuario eligió idioma explícitamente
-    //    Guardar en cookie (dura 30 días) para recordar su elección
+    // 1. Si hay ?lang= en la URL, el usuario eligio idioma explicitamente
+    //    Guardar en cookie (dura 30 dias) para recordar su eleccion
     if (isset($_GET['lang'])) {
         $lang = $_GET['lang'];
-        if ($lang === 'en' || $lang === 'es') {
+        if (in_array($lang, CX_SUPPORTED_LANGS, true)) {
             setcookie('cx_lang', $lang, time() + 86400 * 30, '/', '', true, true);
             $_SESSION['lang'] = $lang;
             return $lang;
         }
     }
 
-    // 2. Si el usuario eligió idioma manualmente antes (cookie), respetar esa elección
+    // 2. Si el usuario eligio idioma manualmente antes (cookie), respetar esa eleccion
     if (isset($_COOKIE['cx_lang'])) {
         $lang = $_COOKIE['cx_lang'];
-        if ($lang === 'en' || $lang === 'es') {
+        if (in_array($lang, CX_SUPPORTED_LANGS, true)) {
             $_SESSION['lang'] = $lang;
             return $lang;
         }
     }
 
-    // 3. Auto-detectar idioma del navegador
-    //    Buscar 'es' en cualquier posición del Accept-Language (ej: "en-US,en;q=0.9,es;q=0.8")
+    // 3. Auto-detectar idioma del navegador (modo agresivo)
+    //    Lee Accept-Language y matchea cualquier variante regional:
+    //    - fr-FR, fr-CA, fr-BE, fr-CH, fr -> fr
+    //    - en-US, en-GB, en-CA, en-AU, en -> en
+    //    - es-MX, es-ES, es-AR, es -> es
     $accept = $_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? '';
-    $primary_lang = substr($accept, 0, 2);
+    $primary_lang = strtolower(substr($accept, 0, 2));
 
-    // Si el idioma principal del navegador es inglés, mostrar inglés
+    // Frances: cubre Francia, Belgica, Suiza, Quebec, Luxemburgo
+    if ($primary_lang === 'fr') {
+        $_SESSION['lang'] = 'fr';
+        return 'fr';
+    }
+
+    // Ingles: cubre USA, UK, Canada (anglo), Australia, Irlanda
     if ($primary_lang === 'en') {
         $_SESSION['lang'] = 'en';
         return 'en';
     }
 
-    // 4. Para cualquier otro idioma (o sin header), default español
-    //    Casa Xu'unan es un B&B en México — español es el idioma natural
+    // 4. Para cualquier otro idioma (o sin header), default espanol
+    //    Casa Xu'unan es un B&B en Mexico - espanol es el idioma natural
     $_SESSION['lang'] = 'es';
     return 'es';
 }
 
-// Función para obtener traducción
+// Funcion para obtener traduccion
 function t($key) {
     global $translations;
     $lang = getCurrentLanguage();
@@ -57,19 +74,59 @@ function t($key) {
         return $translations[$lang][$key];
     }
 
-    // Si no encuentra la traducción, devolver la key
+    // Fallback: si no hay traduccion en idioma actual, intentar ingles
+    // (mejor mostrar ingles que la key cruda al usuario)
+    if ($lang !== 'en' && isset($translations['en'][$key])) {
+        return $translations['en'][$key];
+    }
+
+    // Fallback final: espanol (idioma base del sitio)
+    if ($lang !== 'es' && isset($translations['es'][$key])) {
+        return $translations['es'][$key];
+    }
+
+    // Si no encuentra nada, devolver la key
     return $key;
 }
 
-// Función para cambiar idioma
+// Funcion para cambiar idioma (ciclo: es -> en -> fr -> es)
+// Mantenemos retrocompatibilidad: si alguna parte vieja del codigo
+// llama switchLanguage() esperando ES<->EN, ahora cicla 3 idiomas.
 function switchLanguage() {
     $current = getCurrentLanguage();
-    return $current === 'es' ? 'en' : 'es';
+    if ($current === 'es') return 'en';
+    if ($current === 'en') return 'fr';
+    return 'es'; // fr -> es
+}
+
+// Helper: obtener lista de idiomas alternativos al actual
+// Para usar en el navbar dropdown (ej: si estoy en ES, mostrar EN y FR)
+function getAlternateLanguages() {
+    $current = getCurrentLanguage();
+    return array_values(array_filter(CX_SUPPORTED_LANGS, function($l) use ($current) {
+        return $l !== $current;
+    }));
+}
+
+// Helper: nombre nativo del idioma (para mostrar en selector)
+function getLanguageNativeName($lang) {
+    $names = [
+        'es' => 'Espanol',
+        'en' => 'English',
+        'fr' => 'Francais',
+    ];
+    return $names[$lang] ?? strtoupper($lang);
+}
+
+// Helper: codigo ISO 639-1 mayusculas (para mostrar bandera/abreviacion)
+function getLanguageCode($lang) {
+    return strtoupper($lang);
 }
 
 // Establecer el idioma actual
 $current_lang = getCurrentLanguage();
 
-// Cargar traducciones
+// Cargar traducciones (orden: es/en primero, luego fr lo extiende)
 include_once __DIR__ . '/translations.php';
+include_once __DIR__ . '/translations-fr.php';
 ?>

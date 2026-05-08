@@ -113,6 +113,128 @@
 }
 
 /* ================================================== */
+/* DROPDOWN MULTI-IDIOMA (ES / EN / FR)                 */
+/* ================================================== */
+
+/* Wrapper que contiene el boton + el menu dropdown */
+.lang-switcher-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+/* Cuando es boton (no <a>), heredar todos los estilos del .lang-switcher
+   y ademas darle apariencia clickeable */
+.lang-switcher-toggle {
+    cursor: pointer;
+    background: transparent !important;
+    margin-right: 0 !important; /* el wrapper ya tiene margin */
+    appearance: none;
+    -webkit-appearance: none;
+    font-family: inherit;
+}
+
+/* Flecha indicadora del dropdown */
+.lang-switcher .lang-arrow,
+.lang-switcher-toggle .lang-arrow {
+    margin-left: 6px;
+    font-size: 10px;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.lang-switcher-wrapper.open .lang-arrow {
+    transform: rotate(180deg);
+}
+
+/* Menu dropdown - oculto por defecto */
+.lang-switcher-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 160px;
+    margin: 0;
+    padding: 6px 0;
+    list-style: none;
+    background: rgba(20, 20, 20, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+    z-index: 1003;
+}
+
+/* Menu visible cuando wrapper tiene clase .open */
+.lang-switcher-wrapper.open .lang-switcher-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Cada opcion de idioma en el dropdown */
+.lang-option {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-family: "Montserrat", sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.5px !important;
+    text-transform: none !important;
+    text-decoration: none !important;
+    border: none !important;
+    transition: background 0.2s ease, color 0.2s ease !important;
+}
+
+.lang-option:hover {
+    background: rgba(123, 175, 137, 0.15) !important;
+    color: #7baf89 !important;
+    border: none !important;
+}
+
+.lang-option-code {
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-right: 12px;
+    font-size: 11px;
+}
+
+.lang-option:hover .lang-option-code {
+    color: #7baf89;
+}
+
+.lang-option-name {
+    flex: 1;
+    text-align: right;
+}
+
+/* Mobile: el dropdown se mantiene compacto pero accesible */
+@media (max-width: 991px) {
+    .lang-switcher-wrapper {
+        margin-right: 10px;
+    }
+    .lang-switcher-menu {
+        min-width: 140px;
+        right: 0;
+    }
+    .lang-option {
+        padding: 8px 12px !important;
+        font-size: 11px !important;
+    }
+}
+
+/* Cerrar el menu cuando se hace click fuera (manejado por JS, ver navbar.php) */
+
+/* ================================================== */
 /* SCROLLBAR FIX                                       */
 /* ================================================== */
 
