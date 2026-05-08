@@ -178,6 +178,93 @@
         }, true);
     }
 
+    // ========== PREVENIR AUTO-SCROLL DEL NAVEGADOR Y ANGULAR ==========
+    // Hospitable usa la directiva Angular `appautoscroll` (ver HTML del widget:
+    // <div appautoscroll class="date-picker-container"> y guests-expanded).
+    // Esta directiva llama scrollIntoView() automaticamente cuando se abren
+    // los dropdowns, lo que sube/baja la pagina aunque el widget ya este visible.
+    //
+    // Adicionalmente el navegador tambien hace focus-scroll nativo a inputs.
+    //
+    // Solucion: SCROLL ANCHOR. Mientras el widget este activo, "anclamos" la
+    // posicion del scroll a la posicion que tenia ANTES de la interaccion.
+    // Cualquier intento de scroll (de Angular, browser, lo que sea) se revierte.
+    var widgetEl = document.querySelector('.home-search-wrapper hospitable-direct-mps');
+    if (widgetEl) {
+        // Posicion ancla guardada al abrir el widget
+        var anchorScrollY = null;
+        var scrollGuardActive = false;
+        var scrollGuardTimeout = null;
+
+        // Funcion que mantiene el scroll en la posicion ancla
+        function scrollAnchorGuard() {
+            if (scrollGuardActive && anchorScrollY !== null) {
+                if (Math.abs((window.pageYOffset || 0) - anchorScrollY) > 1) {
+                    window.scrollTo({ top: anchorScrollY, left: 0, behavior: 'instant' });
+                }
+            }
+        }
+
+        // Activar el guard por X ms
+        function activateScrollGuard(durationMs) {
+            if (state !== 'hero') return;
+            anchorScrollY = window.pageYOffset || 0;
+            scrollGuardActive = true;
+
+            // Listener pasivo (no bloquea, solo revierte)
+            window.addEventListener('scroll', scrollAnchorGuard, { passive: true });
+
+            // Tambien correrlo en cada animation frame por si Angular usa scrollIntoView
+            // (que no siempre dispara evento scroll si el padre maneja overflow)
+            var rafCount = 0;
+            var rafGuard = function() {
+                if (!scrollGuardActive) return;
+                scrollAnchorGuard();
+                if (rafCount++ < 60) { // ~1 segundo a 60fps
+                    requestAnimationFrame(rafGuard);
+                }
+            };
+            requestAnimationFrame(rafGuard);
+
+            // Apagar el guard despues
+            clearTimeout(scrollGuardTimeout);
+            scrollGuardTimeout = setTimeout(function() {
+                scrollGuardActive = false;
+                window.removeEventListener('scroll', scrollAnchorGuard);
+            }, durationMs || 1200);
+        }
+
+        // Activar al hacer click/mousedown en el widget
+        if (searchWrapperEl) {
+            ['mousedown', 'click', 'touchstart'].forEach(function(ev) {
+                searchWrapperEl.addEventListener(ev, function() {
+                    activateScrollGuard(1500);
+                }, true);
+            });
+        }
+
+        // Tambien activar al detectar focusin en el widget (caso de focus por teclado)
+        document.addEventListener('focusin', function(e) {
+            if (state !== 'hero') return;
+
+            var target = e.target;
+            var path = e.composedPath ? e.composedPath() : [];
+
+            var isInWidget = target === widgetEl ||
+                            (widgetEl.contains && widgetEl.contains(target)) ||
+                            path.indexOf(widgetEl) > -1 ||
+                            (path.some && path.some(function(el) {
+                                return el && el.classList &&
+                                       (el.classList.contains('home-search-wrapper') ||
+                                        (el.tagName && el.tagName.toUpperCase() === 'HOSPITABLE-DIRECT-MPS'));
+                            }));
+
+            if (isInWidget) {
+                activateScrollGuard(1500);
+            }
+        }, true);
+    }
+
     // ========== SCROLL DETECTION ==========
     // Simple approach: detect scroll direction + position
     var lastY = 0;
