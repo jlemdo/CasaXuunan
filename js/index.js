@@ -5,10 +5,7 @@ jQuery(function($){
     var urlParams = new URLSearchParams(window.location.search);
     var currentLang = urlParams.get('lang') || window.PHP_LANG || 'es';
 
-    console.log('Current language detected:', currentLang);
-    console.log('URL params:', window.location.search);
-
-    // Slides en español
+    // Slides en espanol
     var slidesES = [
         {
             image: 'images/slider/1.jpg',
@@ -30,7 +27,7 @@ jQuery(function($){
         }
     ];
 
-    // Slides en inglés
+    // Slides en ingles
     var slidesEN = [
         {
             image: 'images/slider/1.jpg',
@@ -52,14 +49,37 @@ jQuery(function($){
         }
     ];
 
-    // Elegir slides según idioma
-    var slides = (currentLang === 'en') ? slidesEN : slidesES;
+    // Slides en frances (traduccion nativa profesional)
+    var slidesFR = [
+        {
+            image: 'images/slider/1.jpg',
+            title: "<div class='slider-text'><h2 class='wow fadeInUp'>Détendez-vous</h2><p class='hp-slide-hook wow fadeInUp' data-wow-delay='.2s'>Votre échappée du bruit commence ici</p><a class='btn-line wow fadeInUp' data-wow-delay='.4s' href='about.php'><span>Nos Installations</span></a></div>",
+            thumb: '',
+            url: ''
+        },
+        {
+            image: 'images/slider/2.jpg',
+            title: "<div class='slider-text'><h2 class='wow fadeInUp'>Confort</h2><p class='hp-slide-hook wow fadeInUp' data-wow-delay='.2s'>Sans luxe artificiel, sans froideur corporative</p><a class='btn-line wow fadeInUp' data-wow-delay='.4s' href='rooms.php'><span>Choisir une Chambre</span></a></div>",
+            thumb: '',
+            url: ''
+        },
+        {
+            image: 'images/slider/3.jpg',
+            title: "<div class='slider-text'><h2 class='wow fadeInUp'>Sérénité</h2><p class='hp-slide-hook wow fadeInUp' data-wow-delay='.2s'>Où le temps s'arrête pour vous</p><a class='btn-line wow fadeInUp' data-wow-delay='.4s' href='about.php'><span>Nos Installations</span></a></div>",
+            thumb: '',
+            url: ''
+        }
+    ];
 
-    console.log('Selected slides array:', slides);
-    console.log('Number of slides:', slides.length);
-    console.log('First slide image:', slides[0].image);
-    console.log('jQuery version:', $.fn.jquery);
-    console.log('Supersized exists:', typeof $.supersized);
+    // Elegir slides segun idioma (3 idiomas: es / en / fr)
+    var slides;
+    if (currentLang === 'en') {
+        slides = slidesEN;
+    } else if (currentLang === 'fr') {
+        slides = slidesFR;
+    } else {
+        slides = slidesES;
+    }
 
     if (typeof $.supersized !== 'function') {
         console.error('ERROR: supersized plugin not loaded!');

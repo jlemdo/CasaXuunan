@@ -13,19 +13,21 @@ const searchPets = searchParams.get('pets');
 const hasSearchDates = !!(searchCheckin && searchCheckout);
 
 function getCurrentLanguage() {
+    // 3 idiomas soportados: es / en / fr
+    var validLangs = ['es', 'en', 'fr'];
     const urlParams = new URLSearchParams(window.location.search);
     const langParam = urlParams.get('lang');
-    if (langParam && (langParam === 'es' || langParam === 'en')) {
+    if (langParam && validLangs.indexOf(langParam) !== -1) {
         localStorage.setItem('language', langParam);
         return langParam;
     }
-    if (window.PHP_LANG && (window.PHP_LANG === 'es' || window.PHP_LANG === 'en')) {
+    if (window.PHP_LANG && validLangs.indexOf(window.PHP_LANG) !== -1) {
         localStorage.setItem('language', window.PHP_LANG);
         return window.PHP_LANG;
     }
     const savedLang = localStorage.getItem('language');
-    if (savedLang) return savedLang;
-    return 'en';
+    if (savedLang && validLangs.indexOf(savedLang) !== -1) return savedLang;
+    return 'es'; // default mexicano
 }
 
 async function loadTranslations() {

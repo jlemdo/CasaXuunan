@@ -19,8 +19,8 @@ if (isset($blog_posts) && is_array($blog_posts)) {
 // If post not found, show error instead of redirect (headers already sent)
 if (!$current_post) {
     echo '<div class="container" style="padding:100px 0;text-align:center;">';
-    echo '<h2>' . (getCurrentLanguage() === 'es' ? 'Artículo no encontrado' : 'Article not found') . '</h2>';
-    echo '<p><a href="blog.php" class="btn-line"><span>' . (getCurrentLanguage() === 'es' ? 'Volver al Blog' : 'Back to Blog') . '</span></a></p>';
+    echo '<h2>' . tx(['es' => 'Artículo no encontrado', 'en' => 'Article not found', 'fr' => 'Article introuvable']) . '</h2>';
+    echo '<p><a href="blog.php" class="btn-line"><span>' . tx(['es' => 'Volver al Blog', 'en' => 'Back to Blog', 'fr' => 'Retour au Blog']) . '</span></a></p>';
     echo '</div>';
     return;
 }

@@ -123,6 +123,30 @@ function getLanguageCode($lang) {
     return strtoupper($lang);
 }
 
+// Helper: traduccion inline para textos que no estan en translations.php
+// Util cuando se necesita un texto especifico en una pagina sin contaminar
+// el archivo global de traducciones.
+//
+// Uso:
+//   echo tx([
+//       'es' => 'Hola',
+//       'en' => 'Hello',
+//       'fr' => 'Bonjour',
+//   ]);
+//
+// Si falta la traduccion en el idioma actual, hace fallback inteligente:
+// idioma actual -> ingles -> espanol -> primera disponible
+function tx($translations) {
+    if (!is_array($translations)) {
+        return is_string($translations) ? $translations : '';
+    }
+    $lang = getCurrentLanguage();
+    if (isset($translations[$lang])) return $translations[$lang];
+    if (isset($translations['en'])) return $translations['en'];
+    if (isset($translations['es'])) return $translations['es'];
+    return reset($translations) ?: '';
+}
+
 // Establecer el idioma actual
 $current_lang = getCurrentLanguage();
 

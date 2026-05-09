@@ -22,7 +22,11 @@
 
                                     <!-- WhatsApp CTA Principal -->
                                     <div class="contact-whatsapp-cta">
-                                        <a href="https://api.whatsapp.com/send?phone=5219852580599&text=<?php echo urlencode(getCurrentLanguage() === 'es' ? '¡Hola! Me gustaría obtener información sobre Casa Xu\'unan' : 'Hi! I would like to get information about Casa Xu\'unan'); ?>"
+                                        <a href="https://api.whatsapp.com/send?phone=5219852580599&text=<?php echo urlencode(tx([
+                                               'es' => '¡Hola! Me gustaría obtener información sobre Casa Xu\'unan',
+                                               'en' => 'Hi! I would like to get information about Casa Xu\'unan',
+                                               'fr' => 'Bonjour ! J\'aimerais obtenir des informations sur Casa Xu\'unan',
+                                           ])); ?>"
                                            class="contact-whatsapp-btn"
                                            target="_blank"
                                            rel="noopener noreferrer"
@@ -64,7 +68,11 @@
 
                                     <!-- Divider -->
                                     <div class="contact-form-divider">
-                                        <?php echo getCurrentLanguage() === 'es' ? 'o env&iacute;anos un mensaje' : 'or send us a message'; ?>
+                                        <?php echo tx([
+                                            'es' => 'o env&iacute;anos un mensaje',
+                                            'en' => 'or send us a message',
+                                            'fr' => 'ou envoyez-nous un message',
+                                        ]); ?>
                                     </div>
 
                                     <div class="row">

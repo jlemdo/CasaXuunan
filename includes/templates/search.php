@@ -80,7 +80,11 @@
                                 <strong><?php echo t('search_help_title'); ?></strong>
                                 <p><?php echo t('search_help_desc'); ?></p>
                             </div>
-                            <a href="https://api.whatsapp.com/send?phone=5219852580599&text=<?php echo urlencode(getCurrentLanguage() === 'es' ? '¡Hola! Necesito ayuda para encontrar la habitación ideal en Casa Xu\'unan' : 'Hi! I need help finding the perfect room at Casa Xu\'unan'); ?>"
+                            <a href="https://api.whatsapp.com/send?phone=5219852580599&text=<?php echo urlencode(tx([
+                               'es' => '¡Hola! Necesito ayuda para encontrar la habitación ideal en Casa Xu\'unan',
+                               'en' => 'Hi! I need help finding the perfect room at Casa Xu\'unan',
+                               'fr' => 'Bonjour ! J\'ai besoin d\'aide pour trouver la chambre idéale à Casa Xu\'unan',
+                           ])); ?>"
                                class="search-help-btn"
                                target="_blank"
                                rel="noopener noreferrer"

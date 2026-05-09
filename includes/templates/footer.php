@@ -1,13 +1,21 @@
             <!-- WhatsApp Floating Button -->
             <div class="whatsapp-float">
-                <a href="https://api.whatsapp.com/send?phone=5219852580599&text=<?php echo urlencode(getCurrentLanguage() === 'es' ? '¡Hola! Me gustaría obtener información sobre Casa Xu\'unan' : 'Hi! I would like to get information about Casa Xu\'unan'); ?>"
+                <a href="https://api.whatsapp.com/send?phone=5219852580599&text=<?php echo urlencode(tx([
+                       'es' => '¡Hola! Me gustaría obtener información sobre Casa Xu\'unan',
+                       'en' => 'Hi! I would like to get information about Casa Xu\'unan',
+                       'fr' => 'Bonjour ! J\'aimerais obtenir des informations sur Casa Xu\'unan',
+                   ])); ?>"
                    class="whatsapp-float-btn"
                    target="_blank"
                    rel="noopener noreferrer"
                    aria-label="WhatsApp">
                     <i class="fa fa-whatsapp"></i>
                 </a>
-                <span class="whatsapp-float-tooltip"><?php echo getCurrentLanguage() === 'es' ? '¿Necesitas ayuda?' : 'Need help?'; ?></span>
+                <span class="whatsapp-float-tooltip"><?php echo tx([
+                    'es' => '¿Necesitas ayuda?',
+                    'en' => 'Need help?',
+                    'fr' => 'Besoin d\'aide ?',
+                ]); ?></span>
             </div>
 
             <!-- footer begin -->

@@ -183,20 +183,21 @@ body.no-flag-emoji .home-lang-flag {
 /* Menu dropdown - OCULTO POR DEFECTO con maxima especificidad */
 .home-header-right .home-lang-wrapper .home-lang-menu {
     position: absolute !important;
-    top: calc(100% + 6px) !important;
+    top: 100% !important; /* Sin gap - el padding-top hace de bridge para hover */
     right: 0 !important;
     left: auto !important;
     min-width: 180px !important;
     width: auto !important;
     margin: 0 !important;
-    padding: 6px 0 !important;
+    /* padding-top: 8px crea zona invisible que mantiene el hover activo
+       cuando el mouse pasa del boton al menu (evita que se cierre) */
+    padding: 8px 0 6px 0 !important;
     list-style: none !important;
-    background: rgba(20, 20, 20, 0.96) !important;
-    backdrop-filter: blur(12px) !important;
-    -webkit-backdrop-filter: blur(12px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.18) !important;
-    border-radius: 8px !important;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5) !important;
+    background: transparent !important; /* el fondo va en ::before para no afectar el bridge */
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
     opacity: 0 !important;
     visibility: hidden !important;
     pointer-events: none !important;
@@ -204,6 +205,24 @@ body.no-flag-emoji .home-lang-flag {
     transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease !important;
     z-index: 9999 !important;
     display: block !important;
+}
+
+/* Pseudo-elemento que es el "card" visual del menu (no toca el bridge) */
+.home-header-right .home-lang-wrapper .home-lang-menu::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 8px !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background: rgba(20, 20, 20, 0.96) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5) !important;
+    z-index: -1 !important;
+    pointer-events: none !important;
 }
 
 /* Reset de los <li> dentro del menu (sin estilos globales) */

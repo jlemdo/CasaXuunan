@@ -13,7 +13,10 @@
     'use strict';
 
     // ===== CONFIG =====
-    var LANG = (window.PHP_LANG === 'en') ? 'en' : 'es';
+    // 3 idiomas soportados: es / en / fr (default es para mercado domestico)
+    var LANG = 'es';
+    if (window.PHP_LANG === 'en') LANG = 'en';
+    else if (window.PHP_LANG === 'fr') LANG = 'fr';
     var ROTATION_MS = 5000;
     var STORAGE_KEY = 'cx_dbb_closed';
     var PROMO_CODE = 'DIRECTO10';
@@ -98,9 +101,48 @@
             whatsappMsg: 'Hi! I\'d like to book Casa Xu\'unan with code DIRECTO10. Can you help?',
             ctaClose: 'Close',
             mxn: 'MXN'
+        },
+        fr: {
+            msg1: '🎁 Code DIRECTO10 · Économisez jusqu\'à 283$/nuit',
+            msg2: '🍳 Petit-déjeuner yucatèque maison inclus',
+            msg3: '✓ Jusqu\'à 13 % d\'avantages en plus en réservant direct',
+            msg4: '💬 WhatsApp direct avec notre équipe',
+            inline: 'Pourquoi réserver ici plutôt que sur Booking ? 👀',
+            modalTitle: 'Réservez directement à Casa Xu\'unan',
+            modalSubtitle: 'Économisez jusqu\'à 13 % vs Booking · Service direct',
+            promoTitle: 'CODE EXCLUSIF RÉSERVATION DIRECTE',
+            promoCode: 'DIRECTO10',
+            promoCopy: 'Copier',
+            promoCopied: '✓ Copié',
+            promoSubtitle: 'Appliquez à la réservation et obtenez 10 % de remise',
+            colBenefit: 'Avantage',
+            colDirect: 'Réservez Ici',
+            colOta: 'Booking / OTA',
+            rowPrice: 'Prix',
+            rowBreakfast: 'Petit-déjeuner yucatèque maison',
+            rowTaxes: 'Taxes / frais',
+            rowSavings: 'Économies totales du client',
+            rowWhatsapp: 'WhatsApp direct',
+            rowCommissions: 'Commissions intermédiaires',
+            valDiscount: '-10 % avec DIRECTO10',
+            valStandard: 'Tarif standard',
+            valYes: '✓ Inclus',
+            valTaxesDirect: '16 % TVA standard',
+            valTaxesBooking: '20,5 % (frais inclus)',
+            valSavings: 'Jusqu\'à 283 MXN/nuit',
+            valWhatsapp: '✓ Avant & après',
+            valOtaChat: '✗ Chat portail seulement',
+            valNoCommission: '✓ 0 %',
+            valBookingCommission: '15-18 %',
+            footerNote: '* Code DIRECTO10 applicable uniquement sur ce site · Économies calculées vs tarif public Booking · Même petit-déjeuner maison · Annulation gratuite · Mêmes chambres',
+            ctaBook: 'Réserver',
+            ctaWhatsapp: 'Demander par WhatsApp',
+            whatsappMsg: 'Bonjour ! J\'aimerais réserver à Casa Xu\'unan avec le code DIRECTO10. Pouvez-vous m\'aider ?',
+            ctaClose: 'Fermer',
+            mxn: 'MXN'
         }
     };
-    var S = t[LANG];
+    var S = t[LANG] || t.es; // fallback a espanol si LANG no esta en t
 
     // ===== BANNER (integrated into header) =====
     // Solo en HOME (index.php) — en el resto de paginas no aparece

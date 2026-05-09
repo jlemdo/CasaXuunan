@@ -116,7 +116,11 @@
                     cursor: pointer;
                     transition: all 0.3s ease;
                 ">
-                    <?php echo getCurrentLanguage() === 'es' ? 'Ver Más Fotos' : 'Load More Photos'; ?>
+                    <?php echo tx([
+                        'es' => 'Ver Más Fotos',
+                        'en' => 'Load More Photos',
+                        'fr' => 'Voir Plus de Photos',
+                    ]); ?>
                     <i class="fa fa-arrow-down"></i>
                 </button>
             </div>

@@ -151,23 +151,50 @@
 /* Menu dropdown - oculto por defecto */
 .lang-switcher-menu {
     position: absolute;
-    top: calc(100% + 8px);
+    top: 100%; /* Sin gap - el padding-top hace de bridge para hover */
     right: 0;
     min-width: 160px;
     margin: 0;
-    padding: 6px 0;
+    /* padding-top: 10px crea zona invisible que mantiene el hover activo
+       cuando el mouse pasa del boton al menu (evita que se cierre) */
+    padding: 10px 0 6px 0;
     list-style: none;
+    background: transparent; /* el fondo va en ::before */
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+    z-index: 1003;
+    display: block;
+}
+
+/* Pseudo-elemento card visual (no toca el bridge invisible) */
+.lang-switcher-menu::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: rgba(20, 20, 20, 0.95);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 6px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
-    z-index: 1003;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Cuando el menu esta abierto, los items SI deben ser clickeables */
+.lang-switcher-wrapper.open .lang-switcher-menu,
+.lang-switcher-wrapper:hover .lang-switcher-menu {
+    pointer-events: auto;
 }
 
 /* Menu visible cuando wrapper tiene clase .open (click - mobile) */

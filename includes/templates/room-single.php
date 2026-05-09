@@ -29,7 +29,11 @@ $propertyId = $_GET['id'];
                         <!-- Social proof sobre el carrusel -->
                         <div class="room-hero-trust">
                             <span class="room-hero-stars">★★★★★</span>
-                            <span class="room-hero-rating"><?php echo getCurrentLanguage() === 'es' ? '4.8/5 · Más de 50 reseñas verificadas' : '4.8/5 · 50+ verified reviews'; ?></span>
+                            <span class="room-hero-rating"><?php echo tx([
+                                'es' => '4.8/5 · Más de 50 reseñas verificadas',
+                                'en' => '4.8/5 · 50+ verified reviews',
+                                'fr' => '4.8/5 · Plus de 50 avis vérifiés',
+                            ]); ?></span>
                         </div>
 
                         <!-- Carrusel de Imágenes -->
@@ -79,19 +83,30 @@ $propertyId = $_GET['id'];
                                 </div>
 
                                 <!-- Mini banner DIRECTO10 (refuerzo final antes del widget) -->
+                                <?php
+                                // Textos del banner promo en 3 idiomas
+                                $_promo_lang = getCurrentLanguage();
+                                $_promo_strings = [
+                                    'es' => [
+                                        'title' => 'Aplica DIRECTO10 al reservar',
+                                        'sub'   => 'Ahorra hasta $283 MXN/noche · 🍳 Desayuno casero incluido',
+                                    ],
+                                    'en' => [
+                                        'title' => 'Apply DIRECTO10 at checkout',
+                                        'sub'   => 'Save up to $283 MXN/night · 🍳 Homemade breakfast included',
+                                    ],
+                                    'fr' => [
+                                        'title' => 'Appliquez DIRECTO10 à la réservation',
+                                        'sub'   => 'Économisez jusqu\'à 283 MXN/nuit · 🍳 Petit-déjeuner maison inclus',
+                                    ],
+                                ];
+                                $_promo = $_promo_strings[$_promo_lang] ?? $_promo_strings['es'];
+                                ?>
                                 <div class="room-promo-banner" data-dbb-open="1" role="button" tabindex="0">
                                     <div class="room-promo-icon">🎁</div>
                                     <div class="room-promo-text">
-                                        <strong>
-                                            <?php echo getCurrentLanguage() === 'es'
-                                                ? 'Aplica DIRECTO10 al reservar'
-                                                : 'Apply DIRECTO10 at checkout'; ?>
-                                        </strong>
-                                        <span>
-                                            <?php echo getCurrentLanguage() === 'es'
-                                                ? 'Ahorra hasta $283 MXN/noche · 🍳 Desayuno casero incluido'
-                                                : 'Save up to $283 MXN/night · 🍳 Homemade breakfast included'; ?>
-                                        </span>
+                                        <strong><?php echo $_promo['title']; ?></strong>
+                                        <span><?php echo $_promo['sub']; ?></span>
                                     </div>
                                 </div>
 
@@ -103,18 +118,34 @@ $propertyId = $_GET['id'];
 
                                 <!-- Neuromarketing: WhatsApp CTA -->
                                 <div class="room-whatsapp-cta">
-                                    <a href="https://api.whatsapp.com/send?phone=5219852580599&text=<?php echo urlencode(getCurrentLanguage() === 'es' ? '¡Hola! Me interesa reservar una habitación en Casa Xu\'unan' : 'Hi! I\'m interested in booking a room at Casa Xu\'unan'); ?>"
+                                    <a href="https://api.whatsapp.com/send?phone=5219852580599&text=<?php echo urlencode(tx([
+                                           'es' => '¡Hola! Me interesa reservar una habitación en Casa Xu\'unan',
+                                           'en' => 'Hi! I\'m interested in booking a room at Casa Xu\'unan',
+                                           'fr' => 'Bonjour ! J\'aimerais réserver une chambre à Casa Xu\'unan',
+                                       ])); ?>"
                                        target="_blank" rel="noopener noreferrer"
                                        onclick="if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-18041631980/6AUyCN_D3pMcEOzp9ZpD','value':1400,'currency':'MXN'});}">
                                         <i class="fa fa-whatsapp"></i>
-                                        <?php echo getCurrentLanguage() === 'es' ? '¿Dudas? Escríbenos' : 'Questions? Message us'; ?>
+                                        <?php echo tx([
+                                            'es' => '¿Dudas? Escríbenos',
+                                            'en' => 'Questions? Message us',
+                                            'fr' => 'Des questions ? Écrivez-nous',
+                                        ]); ?>
                                     </a>
-                                    <span class="cta-subtitle"><?php echo getCurrentLanguage() === 'es' ? 'Respuesta rápida por WhatsApp' : 'Quick reply via WhatsApp'; ?></span>
+                                    <span class="cta-subtitle"><?php echo tx([
+                                        'es' => 'Respuesta rápida por WhatsApp',
+                                        'en' => 'Quick reply via WhatsApp',
+                                        'fr' => 'Réponse rapide par WhatsApp',
+                                    ]); ?></span>
                                 </div>
 
                                 <!-- Neuromarketing: Social Proof -->
                                 <div class="room-social-proof">
-                                    <span><span class="stars">★★★★★</span> <?php echo getCurrentLanguage() === 'es' ? '4.8/5 · Más de 50 reseñas' : '4.8/5 · 50+ reviews'; ?></span>
+                                    <span><span class="stars">★★★★★</span> <?php echo tx([
+                                        'es' => '4.8/5 · Más de 50 reseñas',
+                                        'en' => '4.8/5 · 50+ reviews',
+                                        'fr' => '4.8/5 · Plus de 50 avis',
+                                    ]); ?></span>
                                 </div>
                             </div>
 
@@ -136,7 +167,11 @@ $propertyId = $_GET['id'];
                                     </ul>
                                     <div class="amenities-toggle">
                                         <button class="amenities-toggle-btn" onclick="toggleAmenities(this)">
-                                            <?php echo getCurrentLanguage() === 'es' ? 'Ver todas' : 'See all'; ?> <i class="fa fa-chevron-down"></i>
+                                            <?php echo tx([
+                                                'es' => 'Ver todas',
+                                                'en' => 'See all',
+                                                'fr' => 'Voir toutes',
+                                            ]); ?> <i class="fa fa-chevron-down"></i>
                                         </button>
                                     </div>
                                 </div>
@@ -553,11 +588,11 @@ $propertyId = $_GET['id'];
             if (isCollapsed) {
                 list.classList.remove('collapsed');
                 btn.classList.add('expanded');
-                btn.innerHTML = '<?php echo getCurrentLanguage() === "es" ? "Ver menos" : "See less"; ?> <i class="fa fa-chevron-up"></i>';
+                btn.innerHTML = '<?php echo tx(["es" => "Ver menos", "en" => "See less", "fr" => "Voir moins"]); ?> <i class="fa fa-chevron-up"></i>';
             } else {
                 list.classList.add('collapsed');
                 btn.classList.remove('expanded');
-                btn.innerHTML = '<?php echo getCurrentLanguage() === "es" ? "Ver todas" : "See all"; ?> <i class="fa fa-chevron-down"></i>';
+                btn.innerHTML = '<?php echo tx(["es" => "Ver todas", "en" => "See all", "fr" => "Voir toutes"]); ?> <i class="fa fa-chevron-down"></i>';
                 // Scroll back to amenities section
                 document.getElementById('facilities-title').scrollIntoView({ behavior: 'smooth', block: 'start' });
             }

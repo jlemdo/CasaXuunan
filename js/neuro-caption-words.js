@@ -67,16 +67,55 @@ window.NeuroCaptions = (function () {
             'Vanilla', 'Cinnamon', 'Maize', 'Fruity', 'Harvest', 'Savor', 'Elixir',
             'Nectar', 'Garden', 'Recipe', 'Fusion', 'Delight', 'Grain', 'Spice',
             'Infusion', 'Brunch', 'Feast'
+        ],
+        fr: [
+            // Foyer / Confort
+            'Refuge', 'Sérénité', 'Chaleur', 'Repos', 'Paix', 'Havre', 'Nid', 'Calme',
+            'Quiétude', 'Harmonie', 'Tranquille', 'Confort', 'Abri', 'Douceur', 'Tendresse', 'Bien-être',
+            'Silence', 'Bonheur', 'Accueil', 'Rêve', 'Foyer', 'Retraite', 'Recoin', 'Réconfort',
+            'Pause',
+            // Nature / Yucatan
+            'Cenote', 'Aurore', 'Brise', 'Jade', 'Jungle', 'Tropique', 'Lagune', 'Verdoyant',
+            'Racine', 'Fleur', 'Lune', 'Terre', 'Palme', 'Corail', 'Sable', 'Oasis',
+            'Mangrove', 'Rosée', 'Feuillage', 'Calcaire', 'Crépuscule', 'Marée', 'Ciel', 'Coquille',
+            'Papillon',
+            // Emotion / Appartenance
+            'Étreinte', 'Joie', 'Nostalgie', 'Souvenir', 'Famille', 'Racines', 'Lien',
+            'Rencontre', 'Parenté', 'Gratitude', 'Affection', 'Complicité', 'Présence', 'Instant',
+            'Origine', 'Essence', 'Battement', 'Empreinte', 'Appartenance', 'Unité', 'Tradition',
+            'Héritage', 'Communauté', 'Identité', 'Célébration',
+            // Sensoriel
+            'Arôme', 'Silence', 'Lumière', 'Fragrance', 'Murmure', 'Texture', 'Éclat', 'Écho',
+            'Couleur', 'Ombre', 'Murmure', 'Reflet', 'Toucher', 'Vibrance', 'Nuance', 'Tons',
+            'Rayonnement', 'Mélodie', 'Bruissement', 'Scintillement', 'Étincelle', 'Crépuscule', 'Clarté',
+            'Frais', 'Contraste',
+            // Évasion / Aspiration
+            'Évasion', 'Destinée', 'Découvrir', 'Aventure', 'Liberté', 'Horizon', 'Chemin',
+            'Voyage', 'Explorer', 'Émerveillement', 'Mystère', 'Éveil', 'Envol', 'Renouveau',
+            'Immensité', 'Infini', 'Sentier', 'Frontière', 'Périple', 'Cap', 'Impact',
+            'Transformer', 'Révélation', 'Possibilité', 'Élan',
+            // Gastronomie / Matin
+            'Saveur', 'Miel', 'Café', 'Frais', 'Pain', 'Cuisine', 'Doux', 'Cacao',
+            'Vanille', 'Cannelle', 'Maïs', 'Fruité', 'Récolte', 'Savourer', 'Élixir',
+            'Nectar', 'Jardin', 'Recette', 'Fusion', 'Délice', 'Grain', 'Épice',
+            'Infusion', 'Brunch', 'Festin'
         ]
     };
 
     function getLang() {
-        if (window.PHP_LANG) return window.PHP_LANG === 'en' ? 'en' : 'es';
-        var htmlLang = document.documentElement.lang || '';
+        // 3 idiomas soportados: es / en / fr
+        if (window.PHP_LANG) {
+            if (window.PHP_LANG === 'en') return 'en';
+            if (window.PHP_LANG === 'fr') return 'fr';
+            return 'es';
+        }
+        var htmlLang = (document.documentElement.lang || '').toLowerCase();
         if (htmlLang.indexOf('en') === 0) return 'en';
+        if (htmlLang.indexOf('fr') === 0) return 'fr';
         var params = new URLSearchParams(window.location.search);
         var urlLang = params.get('lang');
         if (urlLang === 'en') return 'en';
+        if (urlLang === 'fr') return 'fr';
         return 'es';
     }
 
