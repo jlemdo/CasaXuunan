@@ -50,10 +50,13 @@ jQuery(function($){
     ];
 
     // Slides en frances (traduccion nativa profesional)
+    // Nota: Las palabras hero deben ser CORTAS (7-9 letras) para
+    // mantener consistencia visual con ES (Relajate) y EN (Relax)
+    // y para que no rompan el layout en mobile/desktop
     var slidesFR = [
         {
             image: 'images/slider/1.jpg',
-            title: "<div class='slider-text'><h2 class='wow fadeInUp'>Détendez-vous</h2><p class='hp-slide-hook wow fadeInUp' data-wow-delay='.2s'>Votre échappée du bruit commence ici</p><a class='btn-line wow fadeInUp' data-wow-delay='.4s' href='about.php'><span>Nos Installations</span></a></div>",
+            title: "<div class='slider-text'><h2 class='wow fadeInUp'>Détente</h2><p class='hp-slide-hook wow fadeInUp' data-wow-delay='.2s'>Votre échappée du bruit commence ici</p><a class='btn-line wow fadeInUp' data-wow-delay='.4s' href='about.php'><span>Nos Installations</span></a></div>",
             thumb: '',
             url: ''
         },

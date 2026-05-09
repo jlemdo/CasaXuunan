@@ -39,11 +39,12 @@ $translations['fr'] = [
     'index_reviews_button' => 'Reservez Votre Chambre',
 
     // Slider
-    'slider_1_title' => 'Detendez-vous',
+    // Palabras hero CORTAS (consistencia con ES/EN y para no romper layout mobile)
+    'slider_1_title' => 'Détente',
     'slider_1_button' => 'Nos Installations',
     'slider_2_title' => 'Confort',
     'slider_2_button' => 'Choisir une Chambre',
-    'slider_3_title' => 'Serenite',
+    'slider_3_title' => 'Sérénité',
     'slider_3_button' => 'Nos Installations',
 
     // Rooms
