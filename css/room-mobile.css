@@ -3,18 +3,30 @@
    Casa Xu'unan B&B Familiar
    ============================================= */
 
-/* --- Carousel Images: Full width, proper height --- */
+/* --- Carousel Images: aspect ratio consistente para evitar espacios negros --- */
+/* Estrategia profesional para fotos de habitaciones de hotel/B&B:
+   - aspect-ratio: 4/3 (estandar fotografia hotelera, mismo ratio en todas)
+   - object-fit: cover (llena el contenedor, sin espacios negros)
+   - object-position: center (lo importante de la foto queda visible)
+   - height responsive con clamp() (crece con la pantalla, sin extremos)
+*/
 .d-carousel .picframe {
     border-radius: 12px;
     overflow: hidden;
     background: #1a1714;
+    /* aspect-ratio garantiza que TODAS las fotos del carrusel tengan
+       exactamente el mismo tamano visible, sin importar su tamano original */
+    aspect-ratio: 4 / 3;
+    width: 100%;
+    position: relative;
 }
 .carousel-room-img {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
-    max-height: 500px;
-    object-fit: contain;
+    /* cover: llena todo el contenedor sin distorsionar
+       (puede recortar partes pero NUNCA deja espacios negros) */
+    object-fit: cover;
     object-position: center;
     background: #1a1714;
 }
@@ -55,10 +67,8 @@
         display: none !important;
     }
 
-    /* Carousel images: auto height, adapts to each image */
-    .d-carousel .picframe {
-        height: auto !important;
-    }
+    /* Mobile: aspect-ratio mantiene proporcion 4:3, no hace falta height fijo */
+    /* (la regla base ya define aspect-ratio: 4/3, solo redondear bordes) */
 
     /* Arrows: centered vertically, compact on mobile */
     .d-carousel .d-arrow-left,
@@ -99,18 +109,12 @@
     .owl-carousel .owl-dot:nth-child(n+6) {
         display: none !important;
     }
-
-    .d-carousel .picframe {
-        height: auto !important;
-    }
+    /* aspect-ratio 4/3 ya mantiene proporcion uniforme, sin height fijo */
 }
 
-/* Desktop carousel height */
-@media (min-width: 992px) {
-    .d-carousel .picframe {
-        height: 400px !important;
-    }
-}
+/* Desktop: aspect-ratio 4/3 hace que cada slide tenga la misma altura
+   automaticamente segun el ancho de la columna (3 items lado a lado).
+   No necesitamos height fijo - se adapta a cualquier ancho de pantalla. */
 
 /* --- Image Counter Badge (replaces dots on mobile) --- */
 .carousel-counter {

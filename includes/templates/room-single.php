@@ -406,10 +406,12 @@ $propertyId = $_GET['id'];
                 const imagesData = await imagesResponse.json();
                 const images = imagesData.data;
 
-                // Insertar imágenes en la galería
+                // Insertar imagenes en la galeria
+                // Nota: dejamos los estilos a CSS (.picframe + .carousel-room-img)
+                // para mantener aspect-ratio 4:3 uniforme y evitar conflictos.
                 const imageGallery = images.map(image => `
                     <div class="item">
-                        <div class="picframe" style="position: relative; overflow: hidden; width: 100%; border-radius: 12px;">
+                        <div class="picframe">
                             <a class="popup-gallery-item" href="${image.url}">
                                 <span class="overlay">
                                     <span class="pf_title"><i class="icon_search"></i></span>
@@ -419,9 +421,7 @@ $propertyId = $_GET['id'];
                             <img src="${image.url}" alt="${image.caption || 'Image'}" loading="lazy" class="carousel-room-img">
                         </div>
                     </div>
-
-
-        `).join('');
+                `).join('');
                 carouselRoomsElement.innerHTML = imageGallery;
 
                 // Establecer la imagen de fondo del div
@@ -456,7 +456,9 @@ $propertyId = $_GET['id'];
                     nav: false,
                     touchDrag: true,
                     mouseDrag: true,
-                    autoHeight: true,
+                    // autoHeight: false - usamos aspect-ratio CSS para alturas uniformes
+                    // (autoHeight pelea con aspect-ratio y causa altura inconsistente)
+                    autoHeight: false,
                     responsive: {
                         0: {
                             items: 1,
