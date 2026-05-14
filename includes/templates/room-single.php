@@ -286,8 +286,15 @@ $propertyId = $_GET['id'];
                 const translatedName = t(translationKey);
                 const displayName = translatedName !== translationKey ? translatedName : property.name;
 
-                // Dividir el nombre en "nombre" y "código"
-                const [name, code] = displayName.split(':').map(part => part.trim());
+                // Dividir el nombre en "nombre" y "codigo"
+                // Nota: algunos nombres de Hospitable traen doble espacio
+                // (ej: 'Casa Xu'unan:  J "B"') -> normalizamos espacios antes
+                // de partir y limpiamos cada parte. Sin esto el codigo de
+                // habitacion salia con espacios sobrantes o vacio.
+                const cleanName = displayName.replace(/\s+/g, ' ').trim();
+                const colonIdx = cleanName.indexOf(':');
+                const name = colonIdx > -1 ? cleanName.slice(0, colonIdx).trim() : cleanName;
+                const code = colonIdx > -1 ? cleanName.slice(colonIdx + 1).trim() : '';
 
                 // Subtitulo descriptivo: capacidad + bedrooms (datos REALES de Hospitable, sin inventar)
                 const guestsLabel = property.capacity.max == 1 ? t('room_guest_singular') : t('room_guests');
@@ -512,8 +519,19 @@ $propertyId = $_GET['id'];
                 }
 
 
-                // **Asignar el src del iframe dinámicamente usando ID de propiedad**
-                // Mapeo directo de ID de Hospitable → URL del iframe de booking
+                // **Asignar el src del iframe dinamicamente usando ID de propiedad**
+                // Mapeo: UUID de Hospitable -> listing ID numerico del widget de reserva
+                //
+                // IMPORTANTE: el listing ID numerico debe coincidir con el folder
+                // de imagenes que devuelve la API (.../property_images/<ID>/...).
+                // Verificado via API el 2026-05-08:
+                //   PB"B"=1376728  PB"A"=1376730  PB"C"=1376732  PB"D"=1718966
+                //   PA"A"=1376734  PA"B"=1376736  PA"C"=1376738
+                //   J"B"=1376742   J"A"=1376744
+                //
+                // FIX 2026-05-08: J"B" y J"A" tenian widget IDs corridos (1376740
+                // y 1376742). El widget 1376740 no corresponde a ninguna habitacion
+                // -> por eso J"B" no cargaba fechas/precios/codigo en el iframe.
                 const bookingIframesByID = {
                     '33c1edc0-e09a-408b-9a57-5f3203e2f3de': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376728', // Casa Xu'unan: PB "B"
                     'b6687699-08bb-4508-b052-d1623c291d1a': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376730', // Casa Xu'unan: PB "A"
@@ -522,8 +540,8 @@ $propertyId = $_GET['id'];
                     '8d72e6cf-34e6-40e5-8955-3a425971dce1': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376734', // Casa Xu'unan: PA "A"
                     'd0daae70-0f5f-476f-a6d1-1d8e5746c9a6': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376736', // Casa Xu'unan: PA "B"
                     'c64b251c-745e-4f77-b961-c22e9d1f0150': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376738', // Casa Xu'unan: PA "C"
-                    '50655096-21a7-4386-995c-ecb5e8594afa': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376740', // Casa Xu'unan: J "B"
-                    '8825b949-7c57-4ac5-ba7b-4ba7eb6c0e9d': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376742'  // Casa Xu'unan: J "A"
+                    '50655096-21a7-4386-995c-ecb5e8594afa': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376742', // Casa Xu'unan: J "B" (FIX: era 1376740)
+                    '8825b949-7c57-4ac5-ba7b-4ba7eb6c0e9d': 'https://booking.hospitable.com/widget/9d53ac64-203e-4623-bb00-0c90b835aaf6/1376744'  // Casa Xu'unan: J "A" (FIX: era 1376742)
                 };
 
                 // Usar el propertyId directamente (mismo ID usado para calendario y precio)

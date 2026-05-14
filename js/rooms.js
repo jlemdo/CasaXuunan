@@ -233,7 +233,10 @@ function createRoomContent(property, images, availability, price) {
     const title = document.createElement('h3');
     const translationKey = `property_${property.id}_name`;
     const translatedName = t(translationKey);
-    title.textContent = translatedName !== translationKey ? translatedName : property.name;
+    var rawName = translatedName !== translationKey ? translatedName : property.name;
+    // Normalizar espacios: algunos nombres de Hospitable traen doble espacio
+    // (ej: 'Casa Xu'unan:  J "B"'). Lo limpiamos para que se vea consistente.
+    title.textContent = (rawName || '').replace(/\s+/g, ' ').trim();
     textDiv.appendChild(title);
 
     const description = document.createElement('p');
