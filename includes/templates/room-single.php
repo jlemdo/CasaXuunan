@@ -82,21 +82,21 @@ $propertyId = $_GET['id'];
                                     <span class="room-price-tax"><?php echo t('room_plus_tax'); ?></span>
                                 </div>
 
-                                <!-- Mini banner DIRECTO10 (refuerzo final antes del widget) -->
+                                <!-- Mini banner CASA10 (refuerzo final antes del widget) -->
                                 <?php
                                 // Textos del banner promo en 3 idiomas
                                 $_promo_lang = getCurrentLanguage();
                                 $_promo_strings = [
                                     'es' => [
-                                        'title' => 'Aplica DIRECTO10 al reservar',
+                                        'title' => 'Aplica CASA10 al reservar',
                                         'sub'   => 'Ahorra hasta $283 MXN/noche · 🍳 Desayuno casero incluido',
                                     ],
                                     'en' => [
-                                        'title' => 'Apply DIRECTO10 at checkout',
+                                        'title' => 'Apply CASA10 at checkout',
                                         'sub'   => 'Save up to $283 MXN/night · 🍳 Homemade breakfast included',
                                     ],
                                     'fr' => [
-                                        'title' => 'Appliquez DIRECTO10 à la réservation',
+                                        'title' => 'Appliquez CASA10 à la réservation',
                                         'sub'   => 'Économisez jusqu\'à 283 MXN/nuit · 🍳 Petit-déjeuner maison inclus',
                                     ],
                                 ];

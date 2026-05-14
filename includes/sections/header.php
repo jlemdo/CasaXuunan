@@ -218,7 +218,7 @@ if (isset($_seo_blog_post_found)) {
     <!-- WhatsApp Floating Button (todas las paginas) -->
     <link rel="stylesheet" href="css/whatsapp-float.css" type="text/css">
 
-    <!-- Direct Booking Banner + Comparison Modal (todas las paginas) -->
+    <!-- Banner Reserva Directa + Modal Comparativo (todas las paginas) -->
     <link rel="stylesheet" href="css/direct-booking-banner.css" type="text/css">
 
     <!-- Header overlay on scroll (todas las paginas excepto home) -->

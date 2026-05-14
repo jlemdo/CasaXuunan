@@ -1,12 +1,17 @@
 /**
- * Direct Booking Banner + Comparison Modal
+ * Banner Reserva Directa + Modal Comparativo
  * Casa Xu'unan
  *
  * - Sticky top banner with rotating messages (closable via X)
  * - sessionStorage: if user closes, doesn't show again in same session
- * - Inline link "¿Por qué reservar aquí?" → opens modal
- * - Modal with Booking vs Direct comparison table
- * - Dynamic savings calculation: precioDirecto * 1.0387 ≈ precio Booking
+ * - Inline link "Por que reservar aqui?" -> opens modal
+ * - Modal with comparison table (reserva directa vs plataformas externas)
+ * - Dynamic savings calculation: precioDirecto * 1.0387 = precio plataforma
+ *
+ * Codigo promocional: CASA10
+ * Nota: NO se nombra a competidores especificos. Se usa el termino
+ * generico "otras plataformas" / "plataformas de reserva" para mantener
+ * neutralidad y evitar mencionar marcas de terceros.
  */
 
 (function () {
@@ -19,34 +24,34 @@
     else if (window.PHP_LANG === 'fr') LANG = 'fr';
     var ROTATION_MS = 5000;
     var STORAGE_KEY = 'cx_dbb_closed';
-    var PROMO_CODE = 'DIRECTO10';
+    var PROMO_CODE = 'CASA10';
     var DISCOUNT_PCT = 10;
 
     // ===== TRANSLATIONS =====
     var t = {
         es: {
-            msg1: '🎁 Código DIRECTO10 · Ahorra hasta $283/noche',
+            msg1: '🎁 Código CASA10 · Ahorra hasta $283/noche',
             msg2: '🍳 Desayuno casero yucateco incluido',
             msg3: '✓ Hasta 13% más beneficios reservando directo',
             msg4: '💬 WhatsApp directo con nuestro equipo',
-            inline: '¿Por qué reservar aquí y no en Booking? 👀',
+            inline: '¿Por qué reservar aquí y no en otras plataformas? 👀',
             modalTitle: 'Reserva directo en Casa Xu\'unan',
-            modalSubtitle: 'Ahorra hasta 13% vs Booking · Trato directo',
+            modalSubtitle: 'Ahorra hasta 13% · Trato directo y personalizado',
             promoTitle: 'CÓDIGO EXCLUSIVO RESERVA DIRECTA',
-            promoCode: 'DIRECTO10',
+            promoCode: 'CASA10',
             promoCopy: 'Copiar',
             promoCopied: '✓ Copiado',
             promoSubtitle: 'Aplica al reservar y obtén 10% de descuento',
             colBenefit: 'Beneficio',
             colDirect: 'Reserva Aquí',
-            colOta: 'Booking / OTAs',
+            colOta: 'Otras plataformas',
             rowPrice: 'Precio',
             rowBreakfast: 'Desayuno casero yucateco',
             rowTaxes: 'Impuestos / fees',
             rowSavings: 'Ahorro total cliente',
             rowWhatsapp: 'WhatsApp directo',
             rowCommissions: 'Comisiones intermediarias',
-            valDiscount: '-10% con DIRECTO10',
+            valDiscount: '-10% con CASA10',
             valStandard: 'Tarifa estándar',
             valYes: '✓ Incluido',
             valTaxesDirect: '16% IVA estándar',
@@ -56,36 +61,36 @@
             valOtaChat: '✗ Solo chat portal',
             valNoCommission: '✓ 0%',
             valBookingCommission: '15-18%',
-            footerNote: '* Código DIRECTO10 aplicable solo en este sitio web · Ahorro calculado vs tarifa pública verificada en Booking · Mismo desayuno casero · Cancelación gratis · Mismas habitaciones',
+            footerNote: '* Código CASA10 aplicable solo en este sitio web · Ahorro calculado vs tarifa pública de plataformas externas · Mismo desayuno casero · Cancelación gratis · Mismas habitaciones',
             ctaBook: 'Reservar ahora',
             ctaWhatsapp: 'Pregunta por WhatsApp',
-            whatsappMsg: '¡Hola! Me interesa reservar en Casa Xu\'unan con el código DIRECTO10. ¿Pueden ayudarme?',
+            whatsappMsg: '¡Hola! Me interesa reservar en Casa Xu\'unan con el código CASA10. ¿Pueden ayudarme?',
             ctaClose: 'Cerrar',
             mxn: 'MXN'
         },
         en: {
-            msg1: '🎁 Code DIRECTO10 · Save up to $283/night',
+            msg1: '🎁 Code CASA10 · Save up to $283/night',
             msg2: '🍳 Yucatecan homemade breakfast included',
             msg3: '✓ Up to 13% more benefits booking direct',
             msg4: '💬 Direct WhatsApp with our team',
-            inline: 'Why book here instead of Booking? 👀',
+            inline: 'Why book here instead of other platforms? 👀',
             modalTitle: 'Book Direct at Casa Xu\'unan',
-            modalSubtitle: 'Save up to 13% vs Booking · Direct service',
+            modalSubtitle: 'Save up to 13% · Direct, personal service',
             promoTitle: 'EXCLUSIVE DIRECT BOOKING CODE',
-            promoCode: 'DIRECTO10',
+            promoCode: 'CASA10',
             promoCopy: 'Copy',
             promoCopied: '✓ Copied',
             promoSubtitle: 'Apply at checkout and get 10% off',
             colBenefit: 'Benefit',
             colDirect: 'Book Here',
-            colOta: 'Booking / OTAs',
+            colOta: 'Other platforms',
             rowPrice: 'Price',
             rowBreakfast: 'Yucatecan homemade breakfast',
             rowTaxes: 'Taxes / fees',
             rowSavings: 'Total customer savings',
             rowWhatsapp: 'Direct WhatsApp',
             rowCommissions: 'Middleman commissions',
-            valDiscount: '-10% with DIRECTO10',
+            valDiscount: '-10% with CASA10',
             valStandard: 'Standard rate',
             valYes: '✓ Included',
             valTaxesDirect: '16% standard VAT',
@@ -95,36 +100,36 @@
             valOtaChat: '✗ Portal chat only',
             valNoCommission: '✓ 0%',
             valBookingCommission: '15-18%',
-            footerNote: '* DIRECTO10 code applicable only on this website · Savings calculated vs Booking public rate · Same homemade breakfast · Free cancellation · Same rooms',
+            footerNote: '* CASA10 code applicable only on this website · Savings calculated vs public rate on external platforms · Same homemade breakfast · Free cancellation · Same rooms',
             ctaBook: 'Book now',
             ctaWhatsapp: 'Ask via WhatsApp',
-            whatsappMsg: 'Hi! I\'d like to book Casa Xu\'unan with code DIRECTO10. Can you help?',
+            whatsappMsg: 'Hi! I\'d like to book Casa Xu\'unan with code CASA10. Can you help?',
             ctaClose: 'Close',
             mxn: 'MXN'
         },
         fr: {
-            msg1: '🎁 Code DIRECTO10 · Économisez jusqu\'à 283$/nuit',
+            msg1: '🎁 Code CASA10 · Économisez jusqu\'à 283$/nuit',
             msg2: '🍳 Petit-déjeuner yucatèque maison inclus',
             msg3: '✓ Jusqu\'à 13 % d\'avantages en plus en réservant direct',
             msg4: '💬 WhatsApp direct avec notre équipe',
-            inline: 'Pourquoi réserver ici plutôt que sur Booking ? 👀',
+            inline: 'Pourquoi réserver ici plutôt que sur d\'autres plateformes ? 👀',
             modalTitle: 'Réservez directement à Casa Xu\'unan',
-            modalSubtitle: 'Économisez jusqu\'à 13 % vs Booking · Service direct',
+            modalSubtitle: 'Économisez jusqu\'à 13 % · Service direct et personnalisé',
             promoTitle: 'CODE EXCLUSIF RÉSERVATION DIRECTE',
-            promoCode: 'DIRECTO10',
+            promoCode: 'CASA10',
             promoCopy: 'Copier',
             promoCopied: '✓ Copié',
             promoSubtitle: 'Appliquez à la réservation et obtenez 10 % de remise',
             colBenefit: 'Avantage',
             colDirect: 'Réservez Ici',
-            colOta: 'Booking / OTA',
+            colOta: 'Autres plateformes',
             rowPrice: 'Prix',
             rowBreakfast: 'Petit-déjeuner yucatèque maison',
             rowTaxes: 'Taxes / frais',
             rowSavings: 'Économies totales du client',
             rowWhatsapp: 'WhatsApp direct',
             rowCommissions: 'Commissions intermédiaires',
-            valDiscount: '-10 % avec DIRECTO10',
+            valDiscount: '-10 % avec CASA10',
             valStandard: 'Tarif standard',
             valYes: '✓ Inclus',
             valTaxesDirect: '16 % TVA standard',
@@ -134,10 +139,10 @@
             valOtaChat: '✗ Chat portail seulement',
             valNoCommission: '✓ 0 %',
             valBookingCommission: '15-18 %',
-            footerNote: '* Code DIRECTO10 applicable uniquement sur ce site · Économies calculées vs tarif public Booking · Même petit-déjeuner maison · Annulation gratuite · Mêmes chambres',
+            footerNote: '* Code CASA10 applicable uniquement sur ce site · Économies calculées vs tarif public des plateformes externes · Même petit-déjeuner maison · Annulation gratuite · Mêmes chambres',
             ctaBook: 'Réserver',
             ctaWhatsapp: 'Demander par WhatsApp',
-            whatsappMsg: 'Bonjour ! J\'aimerais réserver à Casa Xu\'unan avec le code DIRECTO10. Pouvez-vous m\'aider ?',
+            whatsappMsg: 'Bonjour ! J\'aimerais réserver à Casa Xu\'unan avec le code CASA10. Pouvez-vous m\'aider ?',
             ctaClose: 'Fermer',
             mxn: 'MXN'
         }
@@ -226,13 +231,8 @@
             var s = document.querySelector('#section-main .container');
             if (s) targets.push({ el: s, pos: 'prepend' });
         }
-        // Room page: near price
-        // Comentado: el link inline se muestra via banner superior, no hace
-        // falta replicarlo aqui dentro de la columna de booking.
-        // if (page === 'room.php') {
-        //     var r = document.querySelector('.booking-column');
-        //     if (r) targets.push({ el: r, pos: 'prepend' });
-        // }
+        // Room page: el link inline se muestra via banner superior, no hace
+        // falta replicarlo aqui dentro de la columna de reserva.
 
         targets.forEach(function (t) {
             if (t.el.querySelector('.dbb-inline-link')) return; // avoid dupes

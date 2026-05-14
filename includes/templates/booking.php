@@ -6,7 +6,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <h1>Booking</h1>
+                            <h1><?php echo t('btn_bookings'); ?></h1>
                         </div>
                     </div>
                 </div>
