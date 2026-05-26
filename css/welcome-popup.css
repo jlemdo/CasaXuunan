@@ -1,0 +1,388 @@
+/* =============================================
+   WELCOME POPUP - CASA XU'UNAN
+   Estilo profesional inspirado en Klaviyo (Shopify)
+   Solo HOME, una vez por sesion, mobile + desktop
+   ============================================= */
+
+/* Overlay oscuro de fondo */
+.cx-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 12, 8, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    pointer-events: none;
+}
+
+.cx-popup-overlay.cx-popup-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Container principal del popup */
+.cx-popup {
+    background: #ffffff;
+    border-radius: 16px;
+    max-width: 880px;
+    width: 100%;
+    max-height: 92vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+    transform: translateY(30px) scale(0.96);
+    opacity: 0;
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
+    position: relative;
+}
+
+.cx-popup-overlay.cx-popup-open .cx-popup {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+/* Botón cerrar (X) */
+.cx-popup-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.92);
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    color: #312b24;
+    font-size: 22px;
+    line-height: 1;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 300;
+}
+
+.cx-popup-close:hover {
+    background: #312b24;
+    color: #ffffff;
+    transform: rotate(90deg);
+}
+
+/* Lado izquierdo: imagen */
+.cx-popup-image {
+    flex: 1 1 50%;
+    min-height: 420px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+/* Overlay sutil sobre la imagen para dar profundidad */
+.cx-popup-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.15) 100%);
+}
+
+/* Lado derecho: contenido */
+.cx-popup-content {
+    flex: 1 1 50%;
+    padding: 48px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #ffffff;
+    text-align: center;
+}
+
+/* Badge de bienvenida (eyebrow) */
+.cx-popup-badge {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #7baf89;
+    margin-bottom: 18px;
+    padding: 6px 14px;
+    background: rgba(123, 175, 137, 0.12);
+    border-radius: 30px;
+    align-self: center;
+}
+
+/* Titulo principal */
+.cx-popup-title {
+    font-family: 'Heebo', 'Montserrat', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: #312b24;
+    line-height: 1.15;
+    margin: 0 0 12px;
+    letter-spacing: -0.5px;
+}
+
+.cx-popup-title strong {
+    color: #ea8f71;
+    font-weight: 800;
+}
+
+/* Subtitulo descriptivo */
+.cx-popup-subtitle {
+    font-family: 'Heebo', sans-serif;
+    font-size: 15px;
+    color: #6b6157;
+    line-height: 1.5;
+    margin: 0 0 26px;
+}
+
+/* Bloque del codigo promocional */
+.cx-popup-code-block {
+    background: linear-gradient(135deg, #fef9f5 0%, #fdf2eb 100%);
+    border: 2px dashed #ea8f71;
+    border-radius: 12px;
+    padding: 18px 16px;
+    margin-bottom: 22px;
+    position: relative;
+}
+
+.cx-popup-code-label {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #6b6157;
+    margin-bottom: 8px;
+}
+
+.cx-popup-code-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.cx-popup-code {
+    font-family: 'Montserrat', monospace;
+    font-size: 28px;
+    font-weight: 800;
+    color: #ea8f71;
+    letter-spacing: 4px;
+    user-select: all;
+    -webkit-user-select: all;
+}
+
+.cx-popup-copy-btn {
+    background: #312b24;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.cx-popup-copy-btn:hover {
+    background: #ea8f71;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(234, 143, 113, 0.35);
+}
+
+.cx-popup-copy-btn.cx-popup-copied {
+    background: #7baf89;
+}
+
+/* CTA principal */
+.cx-popup-cta {
+    display: inline-block;
+    background: #ea8f71;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 16px 28px;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(234, 143, 113, 0.35);
+    margin-bottom: 16px;
+}
+
+.cx-popup-cta:hover {
+    background: #d9775c;
+    color: #ffffff;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(234, 143, 113, 0.5);
+}
+
+/* Microcopia inferior (trust signals) */
+.cx-popup-trust {
+    font-family: 'Heebo', sans-serif;
+    font-size: 12px;
+    color: #9b9189;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.cx-popup-trust span {
+    color: #7baf89;
+    font-weight: 600;
+}
+
+/* ========================================
+   RESPONSIVE — MOBILE (max 767px)
+   En mobile el popup es vertical (imagen arriba, contenido abajo)
+   ======================================== */
+@media (max-width: 767px) {
+    .cx-popup-overlay {
+        padding: 12px;
+        align-items: flex-end; /* mejor en mobile: aparece desde abajo */
+    }
+
+    .cx-popup {
+        flex-direction: column;
+        max-height: 95vh;
+        max-width: 100%;
+        border-radius: 18px;
+    }
+
+    .cx-popup-image {
+        flex: 0 0 180px;
+        min-height: 180px;
+        max-height: 180px;
+    }
+
+    .cx-popup-content {
+        padding: 28px 22px 24px;
+    }
+
+    .cx-popup-badge {
+        font-size: 10px;
+        margin-bottom: 12px;
+        padding: 5px 12px;
+    }
+
+    .cx-popup-title {
+        font-size: 22px;
+        margin-bottom: 8px;
+    }
+
+    .cx-popup-subtitle {
+        font-size: 13px;
+        margin-bottom: 18px;
+    }
+
+    .cx-popup-code-block {
+        padding: 14px 12px;
+        margin-bottom: 16px;
+    }
+
+    .cx-popup-code {
+        font-size: 22px;
+        letter-spacing: 3px;
+    }
+
+    .cx-popup-copy-btn {
+        padding: 7px 11px;
+        font-size: 10px;
+    }
+
+    .cx-popup-cta {
+        padding: 14px 22px;
+        font-size: 12px;
+        letter-spacing: 1.5px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .cx-popup-trust {
+        font-size: 11px;
+    }
+
+    .cx-popup-close {
+        top: 10px;
+        right: 10px;
+        width: 32px;
+        height: 32px;
+        font-size: 20px;
+    }
+}
+
+/* ========================================
+   TABLET (768px - 991px)
+   ======================================== */
+@media (min-width: 768px) and (max-width: 991px) {
+    .cx-popup {
+        max-width: 760px;
+    }
+
+    .cx-popup-image {
+        min-height: 380px;
+    }
+
+    .cx-popup-content {
+        padding: 38px 32px;
+    }
+
+    .cx-popup-title {
+        font-size: 26px;
+    }
+}
+
+/* ========================================
+   DESKTOP grande (1200px+)
+   ======================================== */
+@media (min-width: 1200px) {
+    .cx-popup {
+        max-width: 920px;
+    }
+
+    .cx-popup-image {
+        min-height: 460px;
+    }
+}
+
+/* Animacion del badge cuando aparece */
+@keyframes cxPopupBadgePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.cx-popup-overlay.cx-popup-open .cx-popup-badge {
+    animation: cxPopupBadgePulse 2s ease-in-out 0.6s infinite;
+}
+
+/* Prevenir scroll del body cuando popup esta abierto */
+body.cx-popup-no-scroll {
+    overflow: hidden;
+}

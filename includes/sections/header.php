@@ -231,6 +231,8 @@ if (isset($_seo_blog_post_found)) {
     <link rel="stylesheet" href="css/desktop-sidebar-menu.css" type="text/css">
     <!-- Home hero fit: ajusta altura cuando banner verde esta visible -->
     <link rel="stylesheet" href="css/home-hero-fit.css" type="text/css">
+    <!-- Welcome Popup CASA10 (solo home, 1 vez por sesion) - cache buster -->
+    <link rel="stylesheet" href="css/welcome-popup.css?v=<?php echo @filemtime(__DIR__ . '/../../css/welcome-popup.css') ?: time(); ?>" type="text/css">
     <?php endif; ?>
 
     <?php if (basename($_SERVER['SCRIPT_NAME']) === 'index.php'): ?>
