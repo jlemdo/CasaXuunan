@@ -82,33 +82,110 @@ $propertyId = $_GET['id'];
                                     <span class="room-price-tax"><?php echo t('room_plus_tax'); ?></span>
                                 </div>
 
-                                <!-- Mini banner CASA10 (refuerzo final antes del widget) -->
+                                <!-- Mini banner CASA10 (click = copia codigo + toast sutil)
+                                     - NO abre modal (cambio CRO 2026: menos friccion)
+                                     - Click copia "CASA10" al clipboard
+                                     - Muestra toast de confirmacion sutil
+                                     - El usuario solo pega en el widget Hospitable de abajo
+                                -->
                                 <?php
-                                // Textos del banner promo en 3 idiomas
+                                // Textos del banner promo + toast en 3 idiomas
                                 $_promo_lang = getCurrentLanguage();
                                 $_promo_strings = [
                                     'es' => [
                                         'title' => 'Aplica CASA10 al reservar',
                                         'sub'   => 'Ahorra hasta $283 MXN/noche · 🍳 Desayuno casero incluido',
+                                        'hint'  => 'Toca para copiar el código',
+                                        'toast' => '✓ Código CASA10 copiado',
                                     ],
                                     'en' => [
                                         'title' => 'Apply CASA10 at checkout',
                                         'sub'   => 'Save up to $283 MXN/night · 🍳 Homemade breakfast included',
+                                        'hint'  => 'Tap to copy the code',
+                                        'toast' => '✓ Code CASA10 copied',
                                     ],
                                     'fr' => [
                                         'title' => 'Appliquez CASA10 à la réservation',
                                         'sub'   => 'Économisez jusqu\'à 283 MXN/nuit · 🍳 Petit-déjeuner maison inclus',
+                                        'hint'  => 'Cliquez pour copier le code',
+                                        'toast' => '✓ Code CASA10 copié',
                                     ],
                                 ];
                                 $_promo = $_promo_strings[$_promo_lang] ?? $_promo_strings['es'];
                                 ?>
-                                <div class="room-promo-banner" data-dbb-open="1" role="button" tabindex="0">
+                                <div class="room-promo-banner"
+                                     data-copy-code="CASA10"
+                                     data-toast-message="<?php echo htmlspecialchars($_promo['toast'], ENT_QUOTES); ?>"
+                                     role="button"
+                                     tabindex="0"
+                                     aria-label="<?php echo htmlspecialchars($_promo['hint'], ENT_QUOTES); ?>">
                                     <div class="room-promo-icon">🎁</div>
                                     <div class="room-promo-text">
                                         <strong><?php echo $_promo['title']; ?></strong>
                                         <span><?php echo $_promo['sub']; ?></span>
                                     </div>
+                                    <div class="room-promo-copy-icon" aria-hidden="true">📋</div>
                                 </div>
+
+                                <!-- Toast sutil para feedback de "copiado" -->
+                                <div id="cx-copy-toast" class="cx-copy-toast" role="status" aria-live="polite"></div>
+
+                                <script>
+                                (function () {
+                                    'use strict';
+                                    var banner = document.querySelector('.room-promo-banner[data-copy-code]');
+                                    var toast = document.getElementById('cx-copy-toast');
+                                    if (!banner || !toast) return;
+
+                                    var hideTimer = null;
+
+                                    function showToast(msg) {
+                                        toast.textContent = msg;
+                                        toast.classList.add('cx-copy-toast-show');
+                                        clearTimeout(hideTimer);
+                                        hideTimer = setTimeout(function () {
+                                            toast.classList.remove('cx-copy-toast-show');
+                                        }, 2400);
+                                    }
+
+                                    function copyText(text, onDone) {
+                                        if (navigator.clipboard && navigator.clipboard.writeText) {
+                                            navigator.clipboard.writeText(text).then(onDone, function () {
+                                                fallback(text, onDone);
+                                            });
+                                        } else {
+                                            fallback(text, onDone);
+                                        }
+                                    }
+
+                                    function fallback(text, onDone) {
+                                        var ta = document.createElement('textarea');
+                                        ta.value = text;
+                                        ta.style.position = 'fixed';
+                                        ta.style.opacity = '0';
+                                        ta.style.pointerEvents = 'none';
+                                        document.body.appendChild(ta);
+                                        ta.focus();
+                                        ta.select();
+                                        try { document.execCommand('copy'); onDone(); } catch (e) {}
+                                        document.body.removeChild(ta);
+                                    }
+
+                                    function handleCopy() {
+                                        var code = banner.getAttribute('data-copy-code') || 'CASA10';
+                                        var msg = banner.getAttribute('data-toast-message') || '✓ Copiado';
+                                        copyText(code, function () { showToast(msg); });
+                                    }
+
+                                    banner.addEventListener('click', handleCopy);
+                                    banner.addEventListener('keydown', function (e) {
+                                        if (e.key === 'Enter' || e.key === ' ' || e.keyCode === 13 || e.keyCode === 32) {
+                                            e.preventDefault();
+                                            handleCopy();
+                                        }
+                                    });
+                                })();
+                                </script>
 
                                 <h3 class="text-center mb-3" id="booking-title"><?php echo t('room_book_now'); ?></h3>
                                 <div class="booking-iframe-wrapper">

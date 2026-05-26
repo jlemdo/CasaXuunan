@@ -750,3 +750,65 @@ html, body {
     .room-promo-text strong { font-size: 12px; }
     .room-promo-text span { font-size: 11px; }
 }
+
+/* Icono de "copiar" a la derecha del banner (hint visual)
+   se atenua un poco para no competir con el texto principal */
+.room-promo-copy-icon {
+    font-size: 16px;
+    line-height: 1;
+    flex-shrink: 0;
+    opacity: 0.55;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.room-promo-banner:hover .room-promo-copy-icon {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* ============================================
+   Toast sutil "Codigo CASA10 copiado"
+   Aparece al hacer click en el mini banner
+   ============================================ */
+.cx-copy-toast {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: rgba(49, 43, 36, 0.95);
+    color: #ffffff;
+    padding: 12px 22px;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(123, 175, 137, 0.4);
+    z-index: 99998;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+                visibility 0.3s ease;
+    white-space: nowrap;
+    max-width: 90vw;
+}
+
+.cx-copy-toast-show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+@media (max-width: 600px) {
+    .cx-copy-toast {
+        bottom: 80px; /* arriba del whatsapp float button */
+        padding: 11px 18px;
+        font-size: 12px;
+    }
+    .room-promo-copy-icon {
+        font-size: 14px;
+    }
+}

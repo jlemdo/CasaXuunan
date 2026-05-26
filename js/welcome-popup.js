@@ -14,6 +14,12 @@
  * - Mobile + desktop responsive
  * - NO pide email (solicitud del cliente)
  * - Bloquea scroll del body cuando esta abierto
+ *
+ * CTA: lleva a search.php (buscador con widget Hospitable)
+ * - Reduce el funnel de 7 pasos a 5 pasos (menos friccion)
+ * - Coincide con UX de Booking/Airbnb/Hilton (familiar)
+ * - Textos: "Buscar Disponibilidad" / "Check Availability" /
+ *           "Vérifier Disponibilité"
  */
 
 (function () {
@@ -31,6 +37,11 @@
     else if (window.PHP_LANG === 'fr') LANG = 'fr';
 
     // ===== TRADUCCIONES =====
+    // CTA: "Buscar Disponibilidad" es lo que hacen Booking/Airbnb/Hilton
+    // - Implica accion inmediata
+    // - Sugiere fechas (urgencia)
+    // - Familiar para el usuario hotelero
+    // - Lleva al buscador directamente (menos friccion)
     var t = {
         es: {
             badge: '🎁 Bienvenida exclusiva',
@@ -39,7 +50,7 @@
             codeLabel: 'Tu código promocional',
             copyBtn: 'Copiar',
             copiedBtn: '✓ Copiado',
-            cta: 'Ver Habitaciones',
+            cta: 'Buscar Disponibilidad',
             trust: '✓ Sin compromiso · ✓ Cancelación gratis · ✓ <span>Mejor precio garantizado</span>',
             close: 'Cerrar'
         },
@@ -50,7 +61,7 @@
             codeLabel: 'Your promo code',
             copyBtn: 'Copy',
             copiedBtn: '✓ Copied',
-            cta: 'View Rooms',
+            cta: 'Check Availability',
             trust: '✓ No commitment · ✓ Free cancellation · ✓ <span>Best price guaranteed</span>',
             close: 'Close'
         },
@@ -61,7 +72,7 @@
             codeLabel: 'Votre code promo',
             copyBtn: 'Copier',
             copiedBtn: '✓ Copié',
-            cta: 'Voir les Chambres',
+            cta: 'Vérifier Disponibilité',
             trust: '✓ Sans engagement · ✓ Annulation gratuite · ✓ <span>Meilleur prix garanti</span>',
             close: 'Fermer'
         }
@@ -99,9 +110,12 @@
         }
     }
 
-    // URL de reserva segun el idioma actual
+    // URL de reserva: llevar al BUSCADOR de disponibilidad
+    // (search.php tiene el widget integrado de Hospitable)
+    // Esto es lo que hacen Booking/Airbnb/Hilton (familiar para el usuario)
+    // y reduce el funnel de 7 pasos a 5 pasos.
     function getRoomsUrl() {
-        return 'rooms.php';
+        return 'search.php';
     }
 
     // ===== CONSTRUCCION DEL POPUP =====
