@@ -999,3 +999,419 @@ body.hp-has-sections #back-to-top {
         gap: 10px;
     }
 }
+
+/* ============================================
+   REDISEÑO 2026 - Anti-AI visual
+   Mobile-first, denso, visual
+   ============================================ */
+
+/* ===== SECCIÓN 2 & 4: Comparativa Sí / No (2 cols desktop, apilada mobile) ===== */
+.hp-yesno-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-width: 920px;
+    margin: 35px auto 30px;
+}
+@media (min-width: 768px) {
+    .hp-yesno-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        margin: 50px auto 40px;
+    }
+}
+.hp-yesno-col {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 24px 22px;
+    text-align: left;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+@media (min-width: 768px) {
+    .hp-yesno-col {
+        padding: 32px 28px;
+    }
+}
+.hp-yesno-col:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+/* Variantes verdes (SÍ) y rojizas (NO) sobre fondo warm */
+.hp-section-warm .hp-yesno-yes,
+.hp-section-light .hp-yesno-yes {
+    background: linear-gradient(180deg, rgba(123, 175, 137, 0.10), rgba(123, 175, 137, 0.04));
+    border-color: rgba(123, 175, 137, 0.35);
+}
+.hp-section-warm .hp-yesno-no,
+.hp-section-light .hp-yesno-no {
+    background: linear-gradient(180deg, rgba(180, 100, 90, 0.07), rgba(180, 100, 90, 0.03));
+    border-color: rgba(180, 100, 90, 0.30);
+}
+/* Header con tag */
+.hp-yesno-header {
+    margin-bottom: 16px;
+    text-align: center;
+}
+.hp-yesno-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    font-family: 'Heebo', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 20px;
+}
+.hp-yesno-yes .hp-yesno-tag {
+    background: #7baf89;
+    color: #fff;
+}
+.hp-yesno-no .hp-yesno-tag {
+    background: rgba(180, 100, 90, 0.9);
+    color: #fff;
+}
+/* Lista */
+.hp-yesno-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.hp-yesno-list li {
+    font-family: 'Heebo', sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    color: #3a3a3a;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+.hp-yesno-list li:last-child {
+    border-bottom: 0;
+}
+@media (min-width: 768px) {
+    .hp-yesno-list li {
+        font-size: 16px;
+        padding: 12px 0;
+    }
+}
+/* En fondos oscuros */
+.hp-section-dark .hp-yesno-list li {
+    color: rgba(255, 255, 255, 0.88);
+    border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+/* ===== SECCIÓN 3: Jardín ===== */
+.hp-section-jardin {
+    padding: 0 !important;
+    background: #f9f6f0;
+}
+.hp-jardin-wrap {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+@media (min-width: 992px) {
+    .hp-jardin-wrap {
+        flex-direction: row;
+        min-height: 560px;
+    }
+}
+.hp-jardin-image {
+    width: 100%;
+    min-height: 280px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+@media (min-width: 992px) {
+    .hp-jardin-image {
+        width: 50%;
+        min-height: 560px;
+    }
+}
+.hp-jardin-text-wrap {
+    width: 100%;
+    padding: 50px 0;
+    display: flex;
+    align-items: center;
+}
+@media (min-width: 992px) {
+    .hp-jardin-text-wrap {
+        width: 50%;
+        padding: 70px 0;
+    }
+}
+.hp-jardin-content {
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 0 22px;
+    text-align: left;
+}
+.hp-jardin-content .hp-subtitle {
+    color: #7baf89;
+    margin-bottom: 14px;
+}
+.hp-jardin-content .hp-title {
+    color: #2a2a2a;
+    font-size: 30px;
+    line-height: 1.2;
+    margin-bottom: 18px;
+}
+@media (min-width: 768px) {
+    .hp-jardin-content .hp-title {
+        font-size: 36px;
+    }
+}
+.hp-jardin-content .hp-text {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 0 0 22px;
+}
+/* Tags de plantas */
+.hp-jardin-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 24px 0;
+}
+.hp-jardin-chip {
+    display: inline-flex;
+    align-items: center;
+    background: #fff;
+    border: 1px solid rgba(123, 175, 137, 0.35);
+    color: #5a8a6a;
+    padding: 8px 16px;
+    border-radius: 24px;
+    font-family: 'Heebo', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+.hp-jardin-punchline {
+    margin-top: 24px;
+    padding: 16px 18px;
+    background: rgba(123, 175, 137, 0.08);
+    border-left: 3px solid #7baf89;
+    color: #3a3a3a;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.55;
+    border-radius: 4px;
+}
+
+/* ===== SECCIÓN 6: Locations (carrusel mobile, grid desktop) ===== */
+.hp-locations-scroll {
+    margin: 40px -15px 25px;
+    padding: 4px 15px 24px;
+    /* Mobile-first: scroll horizontal */
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(123, 175, 137, 0.4) transparent;
+}
+.hp-locations-scroll::-webkit-scrollbar {
+    height: 6px;
+}
+.hp-locations-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+.hp-locations-scroll::-webkit-scrollbar-thumb {
+    background: rgba(123, 175, 137, 0.4);
+    border-radius: 3px;
+}
+.hp-location-card {
+    flex: 0 0 78%;
+    min-height: 240px;
+    border-radius: 14px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+    scroll-snap-align: start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10);
+    display: flex;
+    align-items: flex-end;
+}
+.hp-location-card:hover {
+    color: #fff;
+    text-decoration: none;
+    transform: translateY(-4px);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.15);
+}
+.hp-location-card:focus {
+    color: #fff;
+    text-decoration: none;
+}
+.hp-location-overlay {
+    width: 100%;
+    padding: 22px 20px;
+    text-align: left;
+}
+.hp-location-time {
+    display: inline-block;
+    background: rgba(123, 175, 137, 0.95);
+    color: #fff;
+    font-family: 'Heebo', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+.hp-location-name {
+    color: #fff;
+    font-family: 'Marcellus', serif;
+    font-size: 22px;
+    font-weight: 400;
+    margin: 0 0 6px;
+    line-height: 1.2;
+}
+.hp-location-desc {
+    color: rgba(255, 255, 255, 0.92);
+    font-family: 'Heebo', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    margin: 0;
+    line-height: 1.4;
+}
+/* Desktop: grid de 5 cards (3 + 2 o ajuste auto-fit) */
+@media (min-width: 992px) {
+    .hp-locations-scroll {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        overflow: visible;
+        margin: 50px 0 30px;
+        padding: 4px 0 4px;
+    }
+    .hp-location-card {
+        flex: none;
+        min-height: 280px;
+    }
+    /* Las últimas 2 cards ocupan 50/50 en su propia fila */
+    .hp-location-card:nth-child(4),
+    .hp-location-card:nth-child(5) {
+        grid-column: span 1;
+    }
+    /* Layout asimétrico: primera ocupa 2 columnas, resto auto */
+    .hp-location-card:nth-child(1) {
+        grid-column: span 2;
+        grid-row: span 2;
+        min-height: 580px;
+    }
+    .hp-location-card:nth-child(1) .hp-location-name {
+        font-size: 32px;
+    }
+    .hp-location-card:nth-child(1) .hp-location-desc {
+        font-size: 16px;
+    }
+}
+
+/* ===== SECCIÓN 7: CTA Final con CASA10 promo box ===== */
+.hp-promo-box {
+    display: inline-block;
+    margin: 24px auto;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.18), rgba(123, 175, 137, 0.18));
+    border: 1px dashed rgba(212, 175, 55, 0.55);
+    border-radius: 10px;
+    color: #3a3a3a;
+    font-family: 'Heebo', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    max-width: 460px;
+}
+.hp-promo-box strong {
+    color: #b48a2a;
+    font-weight: 700;
+    letter-spacing: 2px;
+    background: rgba(212, 175, 55, 0.15);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+@media (max-width: 767px) {
+    .hp-promo-box {
+        font-size: 15px;
+        padding: 12px 18px;
+        margin: 20px 12px;
+        display: block;
+    }
+}
+
+/* ===== Filtro bottom: armoniza con nuevo estilo ===== */
+.hp-section-light .hp-filtro-bottom {
+    margin-top: 30px;
+    text-align: center;
+    font-family: 'Marcellus', serif;
+    font-size: 19px;
+    color: #2a2a2a;
+    font-style: italic;
+    line-height: 1.4;
+}
+@media (min-width: 768px) {
+    .hp-section-light .hp-filtro-bottom {
+        font-size: 22px;
+    }
+}
+
+/* Ajuste títulos del filtro nuevo (sin imagen de fondo) */
+#hp-filtro.hp-section-light {
+    background: #f9f6f0;
+    padding: 60px 0;
+}
+#hp-filtro .hp-title {
+    color: #2a2a2a;
+}
+#hp-filtro .hp-subtitle {
+    color: #7baf89;
+}
+@media (min-width: 768px) {
+    #hp-filtro.hp-section-light {
+        padding: 90px 0;
+    }
+}
+
+/* Filtro: lista con checkmarks/cruces personalizadas */
+.hp-yesno-check li {
+    position: relative;
+    padding-left: 28px !important;
+}
+.hp-yesno-check li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    color: #7baf89;
+    font-weight: 700;
+    font-size: 16px;
+}
+.hp-yesno-cross li {
+    position: relative;
+    padding-left: 28px !important;
+}
+.hp-yesno-cross li::before {
+    content: '✗';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    color: rgba(180, 100, 90, 0.85);
+    font-weight: 700;
+    font-size: 16px;
+}
+@media (min-width: 768px) {
+    .hp-yesno-check li::before,
+    .hp-yesno-cross li::before {
+        top: 12px;
+    }
+}

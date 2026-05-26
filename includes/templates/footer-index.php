@@ -1,6 +1,7 @@
 <!-- ============================================
-     HOMEPAGE CONVERSION SECTIONS
-     Casa Xu'unan - El Lujo de lo Auténtico
+     HOMEPAGE CONVERSION SECTIONS (REDISEÑO 2026)
+     Casa Xu'unan - Anti-AI, denso, visual
+     7 secciones mobile-first + desktop genial
      ============================================ -->
 
 <!-- Enable scrolling: override #wrapper overflow:hidden immediately -->
@@ -11,7 +12,7 @@
 
 <div class="hp-sections-wrapper">
 
-    <!-- ========== SECTION 1: El Lujo de lo Auténtico ========== -->
+    <!-- ========== SECCIÓN 1: Aquí nadie es un número de habitación ========== -->
     <section id="hp-lujo" class="hp-section hp-section-dark">
         <div class="container text-center">
             <div class="wow fadeInUp" data-wow-delay="0.1s">
@@ -29,100 +30,134 @@
         </div>
     </section>
 
-    <!-- ========== SECTION 2: El Ecosistema de Pertenencia ========== -->
+    <!-- ========== SECCIÓN 2: Lo que sí tenemos. Lo que no. ========== -->
     <section id="hp-ecosistema" class="hp-section hp-section-warm">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-10" style="float:none;margin:0 auto;">
-                    <div class="text-center">
-                        <div class="wow fadeInUp" data-wow-delay="0.1s">
-                            <h2 class="hp-title"><?php echo t('hp_eco_title'); ?></h2>
-                        </div>
-                        <div class="wow fadeInUp" data-wow-delay="0.2s">
-                            <div class="hp-quote-text"><?php echo t('hp_eco_quote'); ?></div>
-                        </div>
-                        <div class="wow fadeInUp" data-wow-delay="0.3s">
-                            <p class="hp-philosophy-text" style="margin-left:auto;margin-right:auto;"><?php echo t('hp_eco_philosophy'); ?></p>
-                        </div>
-                    </div>
+            <div class="text-center">
+                <div class="wow fadeInUp" data-wow-delay="0.1s">
+                    <h2 class="hp-title"><?php echo t('hp_eco_title'); ?></h2>
+                </div>
+                <div class="wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="hp-quote-text"><?php echo t('hp_eco_quote'); ?></div>
+                </div>
+                <div class="wow fadeInUp" data-wow-delay="0.3s">
+                    <p class="hp-philosophy-text"><?php echo t('hp_eco_philosophy'); ?></p>
+                </div>
+            </div>
 
-                    <!-- 3 Pillar Cards -->
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="hp-pillar-card wow fadeInUp" data-wow-delay="0.2s">
-                                <h4><?php echo t('hp_eco_pillar1_title'); ?></h4>
-                                <p><?php echo t('hp_eco_pillar1_desc'); ?></p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="hp-pillar-card wow fadeInUp" data-wow-delay="0.3s">
-                                <h4><?php echo t('hp_eco_pillar2_title'); ?></h4>
-                                <p><?php echo t('hp_eco_pillar2_desc'); ?></p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="hp-pillar-card wow fadeInUp" data-wow-delay="0.4s">
-                                <h4><?php echo t('hp_eco_pillar3_title'); ?></h4>
-                                <p><?php echo t('hp_eco_pillar3_desc'); ?></p>
-                            </div>
-                        </div>
+            <!-- Comparativa Sí / No (2 cols desktop, apilada mobile) -->
+            <div class="hp-yesno-grid wow fadeInUp" data-wow-delay="0.3s">
+                <!-- LO QUE SÍ -->
+                <div class="hp-yesno-col hp-yesno-yes">
+                    <div class="hp-yesno-header">
+                        <span class="hp-yesno-tag"><?php echo t('hp_eco_yes_title'); ?></span>
                     </div>
+                    <ul class="hp-yesno-list">
+                        <li><?php echo t('hp_eco_yes_1'); ?></li>
+                        <li><?php echo t('hp_eco_yes_2'); ?></li>
+                        <li><?php echo t('hp_eco_yes_3'); ?></li>
+                        <li><?php echo t('hp_eco_yes_4'); ?></li>
+                        <li><?php echo t('hp_eco_yes_5'); ?></li>
+                        <li><?php echo t('hp_eco_yes_6'); ?></li>
+                    </ul>
+                </div>
 
-                    <!-- Breakfast Hero Card -->
-                    <div class="hp-breakfast-card wow fadeInUp" data-wow-delay="0.3s">
-                        <p><?php echo t('hp_eco_breakfast_text'); ?></p>
-                        <span class="hp-badge hp-badge-gold"><?php echo t('hp_eco_breakfast_badge'); ?></span>
+                <!-- LO QUE NO -->
+                <div class="hp-yesno-col hp-yesno-no">
+                    <div class="hp-yesno-header">
+                        <span class="hp-yesno-tag"><?php echo t('hp_eco_no_title'); ?></span>
                     </div>
+                    <ul class="hp-yesno-list">
+                        <li><?php echo t('hp_eco_no_1'); ?></li>
+                        <li><?php echo t('hp_eco_no_2'); ?></li>
+                        <li><?php echo t('hp_eco_no_3'); ?></li>
+                        <li><?php echo t('hp_eco_no_4'); ?></li>
+                        <li><?php echo t('hp_eco_no_5'); ?></li>
+                        <li><?php echo t('hp_eco_no_6'); ?></li>
+                    </ul>
+                </div>
+            </div>
 
-                    <!-- Extras Row -->
-                    <div class="hp-extras-row wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="hp-extra-item"><i class="fa fa-wifi"></i> <?php echo t('hp_eco_extra_wifi'); ?></div>
-                        <div class="hp-extra-item"><i class="fa fa-car"></i> <?php echo t('hp_eco_extra_parking'); ?></div>
-                        <div class="hp-extra-item"><i class="fa fa-tint"></i> <?php echo t('hp_eco_extra_pool'); ?></div>
-                        <div class="hp-extra-item"><i class="fa fa-leaf"></i> <?php echo t('hp_eco_extra_garden'); ?></div>
-                    </div>
+            <!-- Anchor + CTA -->
+            <div class="text-center wow fadeInUp" data-wow-delay="0.5s">
+                <p class="hp-anchor-text"><?php echo t('hp_eco_anchor'); ?></p>
+                <a href="search.php" class="hp-cta-btn"><?php echo t('hp_eco_cta'); ?></a>
+            </div>
+        </div>
+    </section>
 
-                    <!-- Anchor Text -->
-                    <div class="text-center wow fadeInUp" data-wow-delay="0.5s">
-                        <p class="hp-anchor-text"><?php echo t('hp_eco_anchor'); ?></p>
-                        <a href="#" class="hp-cta-btn hp-scroll-to-hero"><?php echo t('hp_eco_cta'); ?></a>
+    <!-- ========== SECCIÓN 3 (NUEVA): Jardín con +50 plantas ========== -->
+    <section id="hp-jardin" class="hp-section hp-section-jardin">
+        <div class="hp-jardin-wrap">
+            <div class="hp-jardin-image wow fadeIn" data-wow-delay="0.1s"
+                 style="background-image: url('<?php echo BASE_URL; ?>/images/slider/1.jpg');"
+                 role="img" aria-label="Jardín tropical de Casa Xu'unan"></div>
+            <div class="hp-jardin-text-wrap">
+                <div class="container">
+                    <div class="hp-jardin-content wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="hp-subtitle"><?php echo t('hp_jardin_subtitle'); ?></div>
+                        <h2 class="hp-title"><?php echo t('hp_jardin_title'); ?></h2>
+                        <p class="hp-text"><?php echo t('hp_jardin_text'); ?></p>
+
+                        <!-- Tags de plantas -->
+                        <div class="hp-jardin-tags">
+                            <span class="hp-jardin-chip"><?php echo t('hp_jardin_tag_tomate'); ?></span>
+                            <span class="hp-jardin-chip"><?php echo t('hp_jardin_tag_limon'); ?></span>
+                            <span class="hp-jardin-chip"><?php echo t('hp_jardin_tag_chile'); ?></span>
+                            <span class="hp-jardin-chip"><?php echo t('hp_jardin_tag_papaya'); ?></span>
+                        </div>
+
+                        <p class="hp-jardin-punchline"><?php echo t('hp_jardin_punchline'); ?></p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== SECTION 3: El Filtro de Autenticidad ========== -->
+    <!-- ========== SECCIÓN 4: ¿Es Casa Xu'unan para ti? ========== -->
     <section id="hp-filtro" class="hp-section hp-section-light">
-        <div class="hp-filtro-image"></div>
-        <div class="hp-filtro-content">
-            <div class="container">
-                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h2 class="hp-title"><?php echo t('hp_filtro_title'); ?></h2>
-                </div>
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <div class="hp-subtitle"><?php echo t('hp_filtro_subtitle'); ?></div>
+                <h2 class="hp-title"><?php echo t('hp_filtro_title'); ?></h2>
+            </div>
 
-                <div class="row">
-                    <div class="col-lg-8" style="float:none;margin:0 auto;">
-                        <div class="hp-filtro-columns wow fadeInUp" data-wow-delay="0.2s">
-                            <div class="hp-filtro-col hp-filtro-col-left">
-                                <p><?php echo t('hp_filtro_left'); ?></p>
-                            </div>
-                            <div class="hp-filtro-divider"></div>
-                            <div class="hp-filtro-col hp-filtro-col-right">
-                                <p><?php echo t('hp_filtro_right'); ?></p>
-                            </div>
-                        </div>
-
-                        <div class="hp-filtro-bottom wow fadeInUp" data-wow-delay="0.4s">
-                            <?php echo t('hp_filtro_bottom'); ?>
-                        </div>
+            <!-- Filtro Sí / No (2 cols desktop, apilada mobile) -->
+            <div class="hp-yesno-grid wow fadeInUp" data-wow-delay="0.2s">
+                <!-- SÍ, si... -->
+                <div class="hp-yesno-col hp-yesno-yes hp-filtro-col">
+                    <div class="hp-yesno-header">
+                        <span class="hp-yesno-tag"><?php echo t('hp_filtro_yes_title'); ?></span>
                     </div>
+                    <ul class="hp-yesno-list hp-yesno-check">
+                        <li><?php echo t('hp_filtro_yes_1'); ?></li>
+                        <li><?php echo t('hp_filtro_yes_2'); ?></li>
+                        <li><?php echo t('hp_filtro_yes_3'); ?></li>
+                        <li><?php echo t('hp_filtro_yes_4'); ?></li>
+                    </ul>
                 </div>
+
+                <!-- NO, si... -->
+                <div class="hp-yesno-col hp-yesno-no hp-filtro-col">
+                    <div class="hp-yesno-header">
+                        <span class="hp-yesno-tag"><?php echo t('hp_filtro_no_title'); ?></span>
+                    </div>
+                    <ul class="hp-yesno-list hp-yesno-cross">
+                        <li><?php echo t('hp_filtro_no_1'); ?></li>
+                        <li><?php echo t('hp_filtro_no_2'); ?></li>
+                        <li><?php echo t('hp_filtro_no_3'); ?></li>
+                        <li><?php echo t('hp_filtro_no_4'); ?></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="hp-filtro-bottom wow fadeInUp" data-wow-delay="0.4s">
+                <?php echo t('hp_filtro_bottom'); ?>
             </div>
         </div>
     </section>
 
-    <!-- ========== SECTION 4: Experiencias Reales (Social Proof) ========== -->
+    <!-- ========== SECCIÓN 5: Reseñas (Social Proof) ========== -->
     <section id="hp-social-proof" class="hp-section hp-section-dark">
         <div class="container text-center">
             <div class="wow fadeInUp" data-wow-delay="0.1s">
@@ -168,12 +203,13 @@
             <!-- CTAs -->
             <div class="hp-social-ctas wow fadeInUp" data-wow-delay="0.4s">
                 <a href="#" id="hp-see-all-reviews" class="hp-cta-btn-outline"><?php echo t('hp_social_see_all'); ?></a>
-                <a href="#" class="hp-cta-btn hp-scroll-to-hero"><?php echo t('hp_social_cta'); ?></a>
+                <a href="search.php" class="hp-cta-btn"><?php echo t('hp_social_cta'); ?></a>
             </div>
         </div>
     </section>
 
-    <!-- ========== SECTION 5: Tu Base en Yucatán (Ubicación) ========== -->
+    <!-- ========== SECCIÓN 6: Ubicación (locations con imágenes) ========== -->
+    <!-- Carrusel horizontal scroll en mobile, grid 5 cards desktop -->
     <section id="hp-ubicacion" class="hp-section hp-section-warm">
         <div class="container text-center">
             <div class="wow fadeInUp" data-wow-delay="0.1s">
@@ -181,47 +217,56 @@
                 <h2 class="hp-title"><?php echo t('hp_location_title'); ?></h2>
             </div>
 
-            <div class="hp-distance-grid wow fadeInUp" data-wow-delay="0.2s">
-                <div class="hp-distance-card">
-                    <div class="hp-distance-icon"><i class="fa fa-building"></i></div>
-                    <div class="hp-distance-info">
-                        <div class="hp-distance-time"><?php echo t('hp_location_chichen_time'); ?></div>
-                        <div class="hp-distance-name"><?php echo t('hp_location_chichen_name'); ?></div>
-                        <div class="hp-distance-desc"><?php echo t('hp_location_chichen_desc'); ?></div>
+            <div class="hp-locations-scroll wow fadeInUp" data-wow-delay="0.2s">
+                <!-- Chichén Itzá -->
+                <a href="search.php" class="hp-location-card"
+                   style="background-image: linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&fit=crop&w=800&q=80');">
+                    <div class="hp-location-overlay">
+                        <span class="hp-location-time"><?php echo t('hp_location_chichen_time'); ?></span>
+                        <h3 class="hp-location-name"><?php echo t('hp_location_chichen_name'); ?></h3>
+                        <p class="hp-location-desc"><?php echo t('hp_location_chichen_desc'); ?></p>
                     </div>
-                </div>
-                <div class="hp-distance-card">
-                    <div class="hp-distance-icon"><i class="fa fa-tint"></i></div>
-                    <div class="hp-distance-info">
-                        <div class="hp-distance-time"><?php echo t('hp_location_cenotes_time'); ?></div>
-                        <div class="hp-distance-name"><?php echo t('hp_location_cenotes_name'); ?></div>
-                        <div class="hp-distance-desc"><?php echo t('hp_location_cenotes_desc'); ?></div>
+                </a>
+
+                <!-- Cenote Suytun -->
+                <a href="search.php" class="hp-location-card"
+                   style="background-image: linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1583149577289-8989a37e9ea0?auto=format&fit=crop&w=800&q=80');">
+                    <div class="hp-location-overlay">
+                        <span class="hp-location-time"><?php echo t('hp_location_cenotes_time'); ?></span>
+                        <h3 class="hp-location-name"><?php echo t('hp_location_cenotes_name'); ?></h3>
+                        <p class="hp-location-desc"><?php echo t('hp_location_cenotes_desc'); ?></p>
                     </div>
-                </div>
-                <div class="hp-distance-card">
-                    <div class="hp-distance-icon"><i class="fa fa-compass"></i></div>
-                    <div class="hp-distance-info">
-                        <div class="hp-distance-time"><?php echo t('hp_location_ekbalam_time'); ?></div>
-                        <div class="hp-distance-name"><?php echo t('hp_location_ekbalam_name'); ?></div>
-                        <div class="hp-distance-desc"><?php echo t('hp_location_ekbalam_desc'); ?></div>
+                </a>
+
+                <!-- Ek Balam -->
+                <a href="search.php" class="hp-location-card"
+                   style="background-image: linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1605216663980-b7ca6e9f2451?auto=format&fit=crop&w=800&q=80');">
+                    <div class="hp-location-overlay">
+                        <span class="hp-location-time"><?php echo t('hp_location_ekbalam_time'); ?></span>
+                        <h3 class="hp-location-name"><?php echo t('hp_location_ekbalam_name'); ?></h3>
+                        <p class="hp-location-desc"><?php echo t('hp_location_ekbalam_desc'); ?></p>
                     </div>
-                </div>
-                <div class="hp-distance-card">
-                    <div class="hp-distance-icon"><i class="fa fa-map-marker"></i></div>
-                    <div class="hp-distance-info">
-                        <div class="hp-distance-time"><?php echo t('hp_location_calzada_time'); ?></div>
-                        <div class="hp-distance-name"><?php echo t('hp_location_calzada_name'); ?></div>
-                        <div class="hp-distance-desc"><?php echo t('hp_location_calzada_desc'); ?></div>
+                </a>
+
+                <!-- Calzada de los Frailes -->
+                <a href="search.php" class="hp-location-card"
+                   style="background-image: linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1610552050890-fe99536c2615?auto=format&fit=crop&w=800&q=80');">
+                    <div class="hp-location-overlay">
+                        <span class="hp-location-time"><?php echo t('hp_location_calzada_time'); ?></span>
+                        <h3 class="hp-location-name"><?php echo t('hp_location_calzada_name'); ?></h3>
+                        <p class="hp-location-desc"><?php echo t('hp_location_calzada_desc'); ?></p>
                     </div>
-                </div>
-                <div class="hp-distance-card">
-                    <div class="hp-distance-icon"><i class="fa fa-camera"></i></div>
-                    <div class="hp-distance-info">
-                        <div class="hp-distance-time"><?php echo t('hp_location_coloradas_time'); ?></div>
-                        <div class="hp-distance-name"><?php echo t('hp_location_coloradas_name'); ?></div>
-                        <div class="hp-distance-desc"><?php echo t('hp_location_coloradas_desc'); ?></div>
+                </a>
+
+                <!-- Las Coloradas -->
+                <a href="search.php" class="hp-location-card"
+                   style="background-image: linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=800&q=80');">
+                    <div class="hp-location-overlay">
+                        <span class="hp-location-time"><?php echo t('hp_location_coloradas_time'); ?></span>
+                        <h3 class="hp-location-name"><?php echo t('hp_location_coloradas_name'); ?></h3>
+                        <p class="hp-location-desc"><?php echo t('hp_location_coloradas_desc'); ?></p>
                     </div>
-                </div>
+                </a>
             </div>
 
             <div class="wow fadeInUp" data-wow-delay="0.4s">
@@ -230,15 +275,21 @@
         </div>
     </section>
 
-    <!-- ========== SECTION 6: CTA Final ========== -->
+    <!-- ========== SECCIÓN 7: CTA Final con CASA10 ========== -->
     <section id="hp-final-cta" class="hp-section">
         <div class="container text-center">
             <div class="wow fadeInUp" data-wow-delay="0.1s">
                 <h2 class="hp-title"><?php echo t('hp_final_title'); ?></h2>
                 <p class="hp-text"><?php echo t('hp_final_subtext'); ?></p>
             </div>
+
+            <!-- Promo box CASA10 -->
+            <div class="hp-promo-box wow fadeInUp" data-wow-delay="0.2s">
+                <?php echo t('hp_final_promo'); ?>
+            </div>
+
             <div class="wow fadeInUp" data-wow-delay="0.3s">
-                <a href="#" class="hp-cta-glow hp-scroll-to-hero"><?php echo t('hp_final_cta'); ?></a>
+                <a href="search.php" class="hp-cta-glow"><?php echo t('hp_final_cta'); ?> →</a>
             </div>
             <div class="hp-trust-row wow fadeInUp" data-wow-delay="0.4s">
                 <div class="hp-trust-item"><i class="fa fa-check-circle"></i> <?php echo t('hp_final_trust1'); ?></div>
