@@ -88,5 +88,17 @@ vendor/
 # Backup de imagenes (solo local, no subir a git)
 images_backup/
 
+# Originales respaldados por script de optimizacion (no van a produccion)
+**/_originals/
+
+# Briefs de imagenes (documentacion de trabajo, no produccion)
+images/_briefs/
+
+# Documentos sueltos en raiz (PDFs, cotizaciones, guias)
+*.pdf
+*.html
+GUIA-*.md
+cotizacion-*.html
+
 # Package lock (se regenera automaticamente)
 package-lock.json

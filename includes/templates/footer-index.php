@@ -86,12 +86,27 @@
         </div>
     </section>
 
-    <!-- ========== SECCIÓN 3 (NUEVA): Jardín con +50 plantas ========== -->
+    <!-- ========== SECCIÓN 3 (NUEVA): Jardín con +50 plantas ==========
+         MODO TESTING: 2 imagenes alternan cada 5 seg con CSS animation
+         para que el usuario decida cual deja final.
+         Una vez decidido, dejar solo 1 background-image.
+    -->
     <section id="hp-jardin" class="hp-section hp-section-jardin">
         <div class="hp-jardin-wrap">
-            <div class="hp-jardin-image wow fadeIn" data-wow-delay="0.1s"
-                 style="background-image: url('<?php echo BASE_URL; ?>/images/slider/1.jpg');"
-                 role="img" aria-label="Jardín tropical de Casa Xu'unan"></div>
+            <div class="hp-jardin-image hp-jardin-image-testing wow fadeIn" data-wow-delay="0.1s"
+                 role="img" aria-label="Jardín tropical de Casa Xu'unan">
+                <!-- Capa 1: jardin-amplio -->
+                <div class="hp-jardin-bg-layer hp-jardin-bg-1"
+                     style="background-image: url('<?php echo BASE_URL; ?>/images/slider/section-jardin-test-1-amplio.webp');"></div>
+                <!-- Capa 2: jardin-detalles-pasillo -->
+                <div class="hp-jardin-bg-layer hp-jardin-bg-2"
+                     style="background-image: url('<?php echo BASE_URL; ?>/images/slider/section-jardin-test-2-pasillo.webp');"></div>
+                <!-- Etiqueta para identificar cual se ve -->
+                <div class="hp-jardin-test-label">
+                    <span class="hp-jardin-test-1-label">[1] Jardín Amplio</span>
+                    <span class="hp-jardin-test-2-label">[2] Jardín Pasillo</span>
+                </div>
+            </div>
             <div class="hp-jardin-text-wrap">
                 <div class="container">
                     <div class="hp-jardin-content wow fadeInUp" data-wow-delay="0.2s">
@@ -157,51 +172,197 @@
         </div>
     </section>
 
-    <!-- ========== SECCIÓN 5: Reseñas (Social Proof) ========== -->
+    <!-- ========== SECCIÓN 5: Reseñas Reales (Verified Social Proof) ==========
+         Estructura:
+         1) Badges grandes con ratings reales (Google 4.8 / Booking 9.1 / TripAdvisor 4.7)
+         2) Carrusel de screenshots reales de cada plataforma (zero edicion = max confianza)
+         3) CTA "Ver todas las reseñas" + "Reservar"
+    -->
     <section id="hp-social-proof" class="hp-section hp-section-dark">
         <div class="container text-center">
+            <!-- Header -->
             <div class="wow fadeInUp" data-wow-delay="0.1s">
                 <div class="hp-subtitle"><?php echo t('hp_social_subtitle'); ?></div>
                 <h2 class="hp-title"><?php echo t('hp_social_title'); ?></h2>
                 <p class="hp-text"><?php echo t('hp_social_subtext'); ?></p>
             </div>
 
-            <!-- Review Cards -->
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="hp-review-card wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="hp-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                        <p class="hp-review-quote"><?php echo t('hp_social_review1_text'); ?></p>
-                        <div class="hp-review-author"><?php echo t('hp_social_review1_name'); ?></div>
-                        <span class="hp-review-badge">Google Review</span>
+            <!-- Badges de ratings reales (3 cards) -->
+            <div class="hp-ratings-grid wow fadeInUp" data-wow-delay="0.2s">
+                <!-- Google -->
+                <div class="hp-rating-card">
+                    <div class="hp-rating-number">4.8</div>
+                    <div class="hp-rating-stars">★ ★ ★ ★ ★</div>
+                    <div class="hp-rating-logo-wrap">
+                        <img src="<?php echo BASE_URL; ?>/images/reviews/social-logo-google.webp"
+                             alt="Google Reviews"
+                             class="hp-rating-logo"
+                             loading="lazy">
                     </div>
+                    <div class="hp-rating-count">141 opiniones</div>
                 </div>
-                <div class="col-md-4">
-                    <div class="hp-review-card wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="hp-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                        <p class="hp-review-quote"><?php echo t('hp_social_review2_text'); ?></p>
-                        <div class="hp-review-author"><?php echo t('hp_social_review2_name'); ?></div>
-                        <span class="hp-review-badge">Google Review</span>
+
+                <!-- Booking -->
+                <div class="hp-rating-card">
+                    <div class="hp-rating-number">9.1</div>
+                    <div class="hp-rating-badge-text">Wonderful</div>
+                    <div class="hp-rating-logo-wrap">
+                        <img src="<?php echo BASE_URL; ?>/images/reviews/social-logo-booking.webp"
+                             alt="Booking.com Reviews"
+                             class="hp-rating-logo"
+                             loading="lazy">
                     </div>
+                    <div class="hp-rating-count">502 reviews</div>
                 </div>
-                <div class="col-md-4">
-                    <div class="hp-review-card wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="hp-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                        <p class="hp-review-quote"><?php echo t('hp_social_review3_text'); ?></p>
-                        <div class="hp-review-author"><?php echo t('hp_social_review3_name'); ?></div>
-                        <span class="hp-review-badge">Google Review</span>
+
+                <!-- TripAdvisor -->
+                <div class="hp-rating-card">
+                    <div class="hp-rating-number">4.7</div>
+                    <div class="hp-rating-stars">● ● ● ● ◐</div>
+                    <div class="hp-rating-logo-wrap">
+                        <img src="<?php echo BASE_URL; ?>/images/reviews/social-logo-tripadvisor.webp"
+                             alt="TripAdvisor Reviews"
+                             class="hp-rating-logo"
+                             loading="lazy">
                     </div>
+                    <div class="hp-rating-count">16 opiniones</div>
                 </div>
             </div>
 
-            <!-- Counter -->
-            <div class="hp-counter-row wow fadeInUp" data-wow-delay="0.3s">
-                <div class="hp-counter-number" data-count="500">0+</div>
+            <!-- Separador -->
+            <div class="hp-reviews-divider wow fadeInUp" data-wow-delay="0.3s">
+                <span><?php echo tx([
+                    'es' => 'Capturas reales · Sin filtros · Sin edición',
+                    'en' => 'Real screenshots · No filters · No edits',
+                    'fr' => 'Captures réelles · Sans filtres · Sans retouches'
+                ]); ?></span>
+            </div>
+
+            <!-- Carrusel de screenshots reales (9 imagenes) -->
+            <div class="hp-reviews-carousel wow fadeInUp" data-wow-delay="0.4s">
+                <!-- Google reviews -->
+                <div class="hp-review-slide" data-platform="google">
+                    <div class="hp-review-platform-badge">
+                        <div class="hp-review-platform-badge-logo">
+                            <img src="<?php echo BASE_URL; ?>/images/reviews/social-logo-google.webp" alt="Google" loading="lazy">
+                        </div>
+                        <span>Verified</span>
+                    </div>
+                    <img src="<?php echo BASE_URL; ?>/images/reviews/reviews-reales-google-1.webp"
+                         alt="Google review screenshot - Paul, Johannes, Stefanie"
+                         class="hp-review-screenshot"
+                         loading="lazy">
+                </div>
+                <div class="hp-review-slide" data-platform="google">
+                    <div class="hp-review-platform-badge">
+                        <div class="hp-review-platform-badge-logo">
+                            <img src="<?php echo BASE_URL; ?>/images/reviews/social-logo-google.webp" alt="Google" loading="lazy">
+                        </div>
+                        <span>Verified</span>
+                    </div>
+                    <img src="<?php echo BASE_URL; ?>/images/reviews/reviews-reales-google-2.webp"
+                         alt="Google review screenshot - Margarita, Chase"
+                         class="hp-review-screenshot"
+                         loading="lazy">
+                </div>
+                <div class="hp-review-slide" data-platform="google">
+                    <div class="hp-review-platform-badge">
+                        <div class="hp-review-platform-badge-logo">
+                            <img src="<?php echo BASE_URL; ?>/images/reviews/social-logo-google.webp" alt="Google" loading="lazy">
+                        </div>
+                        <span>Verified</span>
+                    </div>
+                    <img src="<?php echo BASE_URL; ?>/images/reviews/reviews-reales-google-3.webp"
+                         alt="Google review screenshot - Jess, Joan, John"
+                         class="hp-review-screenshot"
+                         loading="lazy">
+                </div>
+
+                <!-- Booking reviews -->
+                <div class="hp-review-slide" data-platform="booking">
+                    <div class="hp-review-platform-badge">
+                        <div class="hp-review-platform-badge-logo">
+                            <img src="<?php echo BASE_URL; ?>/images/reviews/social-logo-booking.webp" alt="Booking" loading="lazy">
+                        </div>
+                        <span>Verified</span>
+                    </div>
+                    <img src="<?php echo BASE_URL; ?>/images/reviews/reviews-reales-booking-1.webp"
+                         alt="Booking review screenshot - Susan, Ziga, Magali"
+                         class="hp-review-screenshot"
+                         loading="lazy">
+                </div>
+                <div class="hp-review-slide" data-platform="booking">
+                    <div class="hp-review-platform-badge">
+                        <div class="hp-review-platform-badge-logo">
+                            <img src="<?php echo BASE_URL; ?>/images/reviews/social-logo-booking.webp" alt="Booking" loading="lazy">
+                        </div>
+                        <span>Verified</span>
+                    </div>
+                    <img src="<?php echo BASE_URL; ?>/images/reviews/reviews-reales-booking-2.webp"
+                         alt="Booking review screenshot - Theresa, Zan, Ria"
+                         class="hp-review-screenshot"
+                         loading="lazy">
+                </div>
+                <div class="hp-review-slide" data-platform="booking">
+                    <div class="hp-review-platform-badge">
+                        <div class="hp-review-platform-badge-logo">
+                            <img src="<?php echo BASE_URL; ?>/images/reviews/social-logo-booking.webp" alt="Booking" loading="lazy">
+                        </div>
+                        <span>Verified</span>
+                    </div>
+                    <img src="<?php echo BASE_URL; ?>/images/reviews/reviews-reales-booking-3.webp"
+                         alt="Booking review screenshot - Fabiano, Bernhard, Caroline"
+                         class="hp-review-screenshot"
+                         loading="lazy">
+                </div>
+
+                <!-- TripAdvisor reviews -->
+                <div class="hp-review-slide" data-platform="tripadvisor">
+                    <div class="hp-review-platform-badge">
+                        <div class="hp-review-platform-badge-logo">
+                            <img src="<?php echo BASE_URL; ?>/images/reviews/social-logo-tripadvisor.webp" alt="TripAdvisor" loading="lazy">
+                        </div>
+                        <span>Verified</span>
+                    </div>
+                    <img src="<?php echo BASE_URL; ?>/images/reviews/reviews-reales-trip-1.webp"
+                         alt="TripAdvisor review screenshot - Sherpa, domingo, celinoc"
+                         class="hp-review-screenshot"
+                         loading="lazy">
+                </div>
+                <div class="hp-review-slide" data-platform="tripadvisor">
+                    <div class="hp-review-platform-badge">
+                        <div class="hp-review-platform-badge-logo">
+                            <img src="<?php echo BASE_URL; ?>/images/reviews/social-logo-tripadvisor.webp" alt="TripAdvisor" loading="lazy">
+                        </div>
+                        <span>Verified</span>
+                    </div>
+                    <img src="<?php echo BASE_URL; ?>/images/reviews/reviews-reales-trip-2.webp"
+                         alt="TripAdvisor review screenshot - GTmaria, 549olaff, andreanG"
+                         class="hp-review-screenshot"
+                         loading="lazy">
+                </div>
+                <div class="hp-review-slide" data-platform="tripadvisor">
+                    <div class="hp-review-platform-badge">
+                        <div class="hp-review-platform-badge-logo">
+                            <img src="<?php echo BASE_URL; ?>/images/reviews/social-logo-tripadvisor.webp" alt="TripAdvisor" loading="lazy">
+                        </div>
+                        <span>Verified</span>
+                    </div>
+                    <img src="<?php echo BASE_URL; ?>/images/reviews/reviews-reales-trip-3.webp"
+                         alt="TripAdvisor review screenshot - viajandop, 391claudiag, P3877"
+                         class="hp-review-screenshot"
+                         loading="lazy">
+                </div>
+            </div>
+
+            <!-- Counter total huéspedes -->
+            <div class="hp-counter-row wow fadeInUp" data-wow-delay="0.5s">
+                <div class="hp-counter-number" data-count="659">0+</div>
                 <div class="hp-counter-label"><?php echo t('hp_social_counter_label'); ?></div>
             </div>
 
             <!-- CTAs -->
-            <div class="hp-social-ctas wow fadeInUp" data-wow-delay="0.4s">
+            <div class="hp-social-ctas wow fadeInUp" data-wow-delay="0.6s">
                 <a href="#" id="hp-see-all-reviews" class="hp-cta-btn-outline"><?php echo t('hp_social_see_all'); ?></a>
                 <a href="search.php" class="hp-cta-btn"><?php echo t('hp_social_cta'); ?></a>
             </div>
@@ -218,9 +379,9 @@
             </div>
 
             <div class="hp-locations-scroll wow fadeInUp" data-wow-delay="0.2s">
-                <!-- Chichén Itzá -->
+                <!-- Chichén Itzá (primer card = gigante en desktop) -->
                 <a href="search.php" class="hp-location-card"
-                   style="background-image: linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&fit=crop&w=800&q=80');">
+                   style="background-image: linear-gradient(rgba(0,0,0,0.40),rgba(0,0,0,0.70)), url('<?php echo BASE_URL; ?>/images/locations/location-chichen-itza.webp');">
                     <div class="hp-location-overlay">
                         <span class="hp-location-time"><?php echo t('hp_location_chichen_time'); ?></span>
                         <h3 class="hp-location-name"><?php echo t('hp_location_chichen_name'); ?></h3>
@@ -230,7 +391,7 @@
 
                 <!-- Cenote Suytun -->
                 <a href="search.php" class="hp-location-card"
-                   style="background-image: linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1583149577289-8989a37e9ea0?auto=format&fit=crop&w=800&q=80');">
+                   style="background-image: linear-gradient(rgba(0,0,0,0.40),rgba(0,0,0,0.70)), url('<?php echo BASE_URL; ?>/images/locations/location-cenote-suytun.webp');">
                     <div class="hp-location-overlay">
                         <span class="hp-location-time"><?php echo t('hp_location_cenotes_time'); ?></span>
                         <h3 class="hp-location-name"><?php echo t('hp_location_cenotes_name'); ?></h3>
@@ -240,7 +401,7 @@
 
                 <!-- Ek Balam -->
                 <a href="search.php" class="hp-location-card"
-                   style="background-image: linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1605216663980-b7ca6e9f2451?auto=format&fit=crop&w=800&q=80');">
+                   style="background-image: linear-gradient(rgba(0,0,0,0.40),rgba(0,0,0,0.70)), url('<?php echo BASE_URL; ?>/images/locations/location-ek-balam.webp');">
                     <div class="hp-location-overlay">
                         <span class="hp-location-time"><?php echo t('hp_location_ekbalam_time'); ?></span>
                         <h3 class="hp-location-name"><?php echo t('hp_location_ekbalam_name'); ?></h3>
@@ -250,7 +411,7 @@
 
                 <!-- Calzada de los Frailes -->
                 <a href="search.php" class="hp-location-card"
-                   style="background-image: linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1610552050890-fe99536c2615?auto=format&fit=crop&w=800&q=80');">
+                   style="background-image: linear-gradient(rgba(0,0,0,0.40),rgba(0,0,0,0.70)), url('<?php echo BASE_URL; ?>/images/locations/location-calzada-frailes.webp');">
                     <div class="hp-location-overlay">
                         <span class="hp-location-time"><?php echo t('hp_location_calzada_time'); ?></span>
                         <h3 class="hp-location-name"><?php echo t('hp_location_calzada_name'); ?></h3>
@@ -260,7 +421,7 @@
 
                 <!-- Las Coloradas -->
                 <a href="search.php" class="hp-location-card"
-                   style="background-image: linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=800&q=80');">
+                   style="background-image: linear-gradient(rgba(0,0,0,0.40),rgba(0,0,0,0.70)), url('<?php echo BASE_URL; ?>/images/locations/location-las-coloradas.webp');">
                     <div class="hp-location-overlay">
                         <span class="hp-location-time"><?php echo t('hp_location_coloradas_time'); ?></span>
                         <h3 class="hp-location-name"><?php echo t('hp_location_coloradas_name'); ?></h3>

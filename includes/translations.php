@@ -769,7 +769,7 @@ $translations = [
         // Section 5: Reviews (mas claro, menos generico)
         'hp_social_subtitle' => 'Reseñas reales',
         'hp_social_title' => 'Lo que dicen quienes ya durmieron aquí.',
-        'hp_social_subtext' => '4.8 ⭐ Google · 4.7 ⭐ Booking · 4.8 ⭐ Airbnb · más de 50 reseñas',
+        'hp_social_subtext' => 'Google · Booking · TripAdvisor · más de 659 huéspedes verificados',
         'hp_social_review1_text' => 'El desayuno fue increíble, cada mañana algo diferente. El jardín tropical es un sueño, despertamos con el canto de los pájaros. Sin duda el mejor lugar para hospedarse en Valladolid.',
         'hp_social_review1_name' => 'María & Carlos — México',
         'hp_social_review2_text' => 'Nos recibieron como si fuéramos familia. Nos recomendaron cenotes que no aparecen en ninguna guía. Nuestros hijos no querían irse. Una experiencia que no encontrarás en ningún hotel.',
@@ -1576,7 +1576,7 @@ $translations = [
         // Section 5: Reviews
         'hp_social_subtitle' => 'Real reviews',
         'hp_social_title' => 'What guests who already slept here say.',
-        'hp_social_subtext' => '4.8 ⭐ Google · 4.7 ⭐ Booking · 4.8 ⭐ Airbnb · 50+ reviews',
+        'hp_social_subtext' => 'Google · Booking · TripAdvisor · 659+ verified guests',
         'hp_social_review1_text' => 'The breakfast was incredible, something different every morning. The tropical garden is a dream, we woke up to birdsong. Without a doubt the best place to stay in Valladolid.',
         'hp_social_review1_name' => 'María & Carlos — Mexico',
         'hp_social_review2_text' => 'They welcomed us as if we were family. They recommended cenotes that don\'t appear in any guidebook. Our kids didn\'t want to leave. An experience you won\'t find at any hotel.',

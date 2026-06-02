@@ -782,7 +782,7 @@ $translations['fr'] = [
     // Section 5: Avis
     'hp_social_subtitle' => 'Avis reels',
     'hp_social_title' => 'Ce que disent ceux qui ont deja dormi ici.',
-    'hp_social_subtext' => '4.8 ⭐ Google · 4.7 ⭐ Booking · 4.8 ⭐ Airbnb · +50 avis',
+    'hp_social_subtext' => 'Google · Booking · TripAdvisor · 659+ voyageurs vérifiés',
     'hp_social_review1_text' => 'Le petit-dejeuner etait incroyable, chaque matin quelque chose de different. Le jardin tropical est un reve, nous nous reveillions avec le chant des oiseaux. Sans aucun doute le meilleur endroit ou sejourner a Valladolid.',
     'hp_social_review1_name' => 'Maria et Carlos — Mexique',
     'hp_social_review2_text' => 'Ils nous ont recus comme si nous etions de la famille. Ils nous ont recommande des cenotes qui n\'apparaissent dans aucun guide. Nos enfants ne voulaient pas partir. Une experience que vous ne trouverez dans aucun hotel.',
