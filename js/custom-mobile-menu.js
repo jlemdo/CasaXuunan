@@ -78,17 +78,16 @@ document.addEventListener('DOMContentLoaded', function() {
         isOpen = true;
 
         document.body.style.overflow = 'hidden';
-        overlay.classList.remove('slideDown');
 
-        // Mobile: animar con "top" (como antes)
-        // Desktop: el CSS usa transform, solo tocamos la clase slideDown
-        if (!isDesktop()) {
-            overlay.style.transition = 'none';
-            overlay.style.top = '-100%';
-            overlay.offsetHeight;
-            overlay.style.transition = 'top 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
-            overlay.style.top = '0';
-        }
+        // Limpiar cualquier estilo inline residual (top, transition) de
+        // animaciones previas para que el CSS pueda controlar smooth.
+        overlay.style.top = '';
+        overlay.style.transition = '';
+
+        // Mismo approach mobile y desktop: el CSS controla la animacion
+        // (mobile via mobile-menu-as-desktop.css con translateX,
+        //  desktop via desktop-sidebar-menu.css con translateX).
+        overlay.classList.remove('slideDown');
 
         // Backdrop desktop
         showBackdrop();
@@ -111,29 +110,15 @@ document.addEventListener('DOMContentLoaded', function() {
         newMenuBtn.classList.remove('clicked');
         newMenuBtn.classList.add('unclick');
 
-        if (isDesktop()) {
-            // Desktop: agregar slideDown INMEDIATAMENTE.
-            // CSS anima transform 0.4s + opacity 0.3s con ease-in rapido.
-            overlay.classList.add('slideDown');
-            setTimeout(function () {
-                document.body.style.overflow = '';
-                isOpen = false;
-                isAnimating = false;
-            }, 420);
-        } else {
-            // Mobile: animar con "top" y agregar slideDown despues
-            overlay.style.transition = 'top 0.35s cubic-bezier(0.5, 0, 0.75, 0)';
-            overlay.style.top = '-100%';
+        // Mismo approach mobile y desktop: CSS controla la animacion
+        // de cierre con translateX(-100%) cuando slideDown esta presente.
+        overlay.classList.add('slideDown');
 
-            setTimeout(function () {
-                overlay.classList.add('slideDown');
-                overlay.style.transition = 'none';
-                overlay.style.top = '';
-                document.body.style.overflow = '';
-                isOpen = false;
-                isAnimating = false;
-            }, 380);
-        }
+        setTimeout(function () {
+            document.body.style.overflow = '';
+            isOpen = false;
+            isAnimating = false;
+        }, 420);
     }
 
     // Attach handlers to cloned elements (no old listeners)
