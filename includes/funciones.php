@@ -81,4 +81,44 @@ function incluirSection(string $nombre)
         echo "<!-- Sección $nombre.php no encontrada -->";
     }
 }
+
+/**
+ * Genera URL a search.php con fechas pre-llenadas (CRO).
+ *
+ * Default: check-in hoy, check-out en +N noches, 2 adultos.
+ * El widget Hospitable lee estos params automaticamente y pre-llena el formulario.
+ *
+ * @param int $nights Numero de noches default (default 2)
+ * @param int $adults Numero de adultos default (default 2)
+ * @param int $children Numero de ninos default (default 0)
+ * @return string URL completa lista para usar en href
+ *
+ * Uso en templates:
+ *     <a href="<?php echo searchUrl(); ?>">Reservar</a>
+ *     <a href="<?php echo searchUrl(3); ?>">Reservar 3 noches</a>
+ *     <a href="<?php echo searchUrl(2, 4, 1); ?>">Familia (4 adultos + 1 nino)</a>
+ *
+ * NOTA: La fecha se calcula con la zona horaria de Mexico (America/Mexico_City)
+ * para que coincida con la del huesped que esta viendo el sitio.
+ */
+function searchUrl(int $nights = 2, int $adults = 2, int $children = 0): string
+{
+    // Calcular fechas en zona horaria de Mexico (Valladolid, Yucatan)
+    $tz = new DateTimeZone('America/Mexico_City');
+    $checkin = new DateTime('today', $tz);
+    $checkout = (clone $checkin)->modify("+{$nights} days");
+
+    // Construir query string con params estandar Hospitable
+    $params = [
+        'checkin'  => $checkin->format('Y-m-d'),
+        'checkout' => $checkout->format('Y-m-d'),
+        'adults'   => $adults,
+    ];
+
+    if ($children > 0) {
+        $params['children'] = $children;
+    }
+
+    return 'search.php?' . http_build_query($params);
+}
 ?>

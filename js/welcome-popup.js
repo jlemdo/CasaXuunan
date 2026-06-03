@@ -110,12 +110,26 @@
         }
     }
 
-    // URL de reserva: llevar al BUSCADOR de disponibilidad
+    // URL de reserva: llevar al BUSCADOR con fechas PRE-LLENADAS
     // (search.php tiene el widget integrado de Hospitable)
-    // Esto es lo que hacen Booking/Airbnb/Hilton (familiar para el usuario)
-    // y reduce el funnel de 7 pasos a 5 pasos.
+    // Default: hoy + 2 noches, 2 adultos. El widget Hospitable lee estos params
+    // automaticamente y pre-llena el formulario - cero friccion en la pagina destino.
+    // Reduce funnel 7 pasos -> 5 pasos (familiar como Booking/Airbnb).
     function getRoomsUrl() {
-        return 'search.php';
+        var today = new Date();
+        var checkout = new Date();
+        checkout.setDate(today.getDate() + 2);
+
+        function fmt(d) {
+            var y = d.getFullYear();
+            var m = String(d.getMonth() + 1).padStart(2, '0');
+            var day = String(d.getDate()).padStart(2, '0');
+            return y + '-' + m + '-' + day;
+        }
+
+        return 'search.php?checkin=' + fmt(today) +
+               '&checkout=' + fmt(checkout) +
+               '&adults=2';
     }
 
     // ===== CONSTRUCCION DEL POPUP =====

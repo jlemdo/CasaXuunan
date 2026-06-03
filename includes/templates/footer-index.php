@@ -81,7 +81,7 @@
             <!-- Anchor + CTA -->
             <div class="text-center wow fadeInUp" data-wow-delay="0.5s">
                 <p class="hp-anchor-text"><?php echo t('hp_eco_anchor'); ?></p>
-                <a href="search.php" class="hp-cta-btn"><?php echo t('hp_eco_cta'); ?></a>
+                <a href="<?php echo searchUrl(); ?>" class="hp-cta-btn"><?php echo t('hp_eco_cta'); ?></a>
             </div>
         </div>
     </section>
@@ -364,7 +364,7 @@
             <!-- CTAs -->
             <div class="hp-social-ctas wow fadeInUp" data-wow-delay="0.6s">
                 <a href="#" id="hp-see-all-reviews" class="hp-cta-btn-outline"><?php echo t('hp_social_see_all'); ?></a>
-                <a href="search.php" class="hp-cta-btn"><?php echo t('hp_social_cta'); ?></a>
+                <a href="<?php echo searchUrl(); ?>" class="hp-cta-btn"><?php echo t('hp_social_cta'); ?></a>
             </div>
         </div>
     </section>
@@ -380,7 +380,7 @@
 
             <div class="hp-locations-scroll wow fadeInUp" data-wow-delay="0.2s">
                 <!-- Chichén Itzá (primer card = gigante en desktop) -->
-                <a href="search.php" class="hp-location-card"
+                <a href="<?php echo searchUrl(); ?>" class="hp-location-card"
                    style="background-image: linear-gradient(rgba(0,0,0,0.40),rgba(0,0,0,0.70)), url('<?php echo BASE_URL; ?>/images/locations/location-chichen-itza.webp');">
                     <div class="hp-location-overlay">
                         <span class="hp-location-time"><?php echo t('hp_location_chichen_time'); ?></span>
@@ -390,7 +390,7 @@
                 </a>
 
                 <!-- Cenote Suytun -->
-                <a href="search.php" class="hp-location-card"
+                <a href="<?php echo searchUrl(); ?>" class="hp-location-card"
                    style="background-image: linear-gradient(rgba(0,0,0,0.40),rgba(0,0,0,0.70)), url('<?php echo BASE_URL; ?>/images/locations/location-cenote-suytun.webp');">
                     <div class="hp-location-overlay">
                         <span class="hp-location-time"><?php echo t('hp_location_cenotes_time'); ?></span>
@@ -400,7 +400,7 @@
                 </a>
 
                 <!-- Ek Balam -->
-                <a href="search.php" class="hp-location-card"
+                <a href="<?php echo searchUrl(); ?>" class="hp-location-card"
                    style="background-image: linear-gradient(rgba(0,0,0,0.40),rgba(0,0,0,0.70)), url('<?php echo BASE_URL; ?>/images/locations/location-ek-balam.webp');">
                     <div class="hp-location-overlay">
                         <span class="hp-location-time"><?php echo t('hp_location_ekbalam_time'); ?></span>
@@ -410,7 +410,7 @@
                 </a>
 
                 <!-- Calzada de los Frailes -->
-                <a href="search.php" class="hp-location-card"
+                <a href="<?php echo searchUrl(); ?>" class="hp-location-card"
                    style="background-image: linear-gradient(rgba(0,0,0,0.40),rgba(0,0,0,0.70)), url('<?php echo BASE_URL; ?>/images/locations/location-calzada-frailes.webp');">
                     <div class="hp-location-overlay">
                         <span class="hp-location-time"><?php echo t('hp_location_calzada_time'); ?></span>
@@ -420,7 +420,7 @@
                 </a>
 
                 <!-- Las Coloradas -->
-                <a href="search.php" class="hp-location-card"
+                <a href="<?php echo searchUrl(); ?>" class="hp-location-card"
                    style="background-image: linear-gradient(rgba(0,0,0,0.40),rgba(0,0,0,0.70)), url('<?php echo BASE_URL; ?>/images/locations/location-las-coloradas.webp');">
                     <div class="hp-location-overlay">
                         <span class="hp-location-time"><?php echo t('hp_location_coloradas_time'); ?></span>
@@ -450,7 +450,7 @@
             </div>
 
             <div class="wow fadeInUp" data-wow-delay="0.3s">
-                <a href="search.php" class="hp-cta-glow"><?php echo t('hp_final_cta'); ?> →</a>
+                <a href="<?php echo searchUrl(); ?>" class="hp-cta-glow"><?php echo t('hp_final_cta'); ?> →</a>
             </div>
             <div class="hp-trust-row wow fadeInUp" data-wow-delay="0.4s">
                 <div class="hp-trust-item"><i class="fa fa-check-circle"></i> <?php echo t('hp_final_trust1'); ?></div>

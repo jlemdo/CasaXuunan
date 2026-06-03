@@ -97,7 +97,7 @@
                                             <?php endforeach; ?>
                                         </ul>
                                     </div>
-                                    <a class="btn-main btn-mobile-reservas" href="/search.php"><?php echo t('btn_bookings'); ?></a>
+                                    <a class="btn-main btn-mobile-reservas" href="<?php echo searchUrl(); ?>"><?php echo t('btn_bookings'); ?></a>
                                 </div>
                                 <div id="menu-btn" class="menu-btn-mobile-overlay"></div>
                             </div>

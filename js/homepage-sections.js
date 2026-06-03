@@ -1,356 +1,121 @@
 /**
  * Homepage Sections - Casa Xu'unan
- * Clean rewrite: scroll snap, hero visibility, counter, CTAs
- * Compatible: Chrome, Safari, Firefox, mobile + desktop
+ * Scroll natural libre (modelo 2026 estandar)
+ *
+ * REFACTOR: Eliminado modelo de 2 estados (hero/sections) que causaba bugs:
+ *   - Trigger automatico muy sensible (6% del viewport)
+ *   - Lock 1200ms bloqueaba scroll mobile
+ *   - Contador acumulado disparaba goToHero accidental
+ *   - Estado y=0 causaba flashes visuales
+ *
+ * NUEVO COMPORTAMIENTO:
+ *   - El usuario scrollea libremente como en Booking/Airbnb/Hilton
+ *   - El hero ocupa la primera vista (100vh)
+ *   - Las secciones aparecen abajo naturalmente
+ *   - El boton scroll up/down sirve para ir arriba/abajo manualmente
+ *
+ * Mantiene:
+ *   - Counter animado al entrar en viewport (IntersectionObserver)
+ *   - Boton "Ver todas reviews" abre overlay
+ *   - Header "Book Now" lleva a search.php
+ *   - Boton scroll fijo bottom-right (icono cambia segun scroll position)
  */
 (function() {
     'use strict';
 
-    // ========== STATE ==========
-    var state = 'hero'; // 'hero' or 'sections'
-    var locked = false;
-
-    function lock(ms) {
-        locked = true;
-        setTimeout(function() { locked = false; }, ms || 1000);
-    }
-
-    // ========== HERO ELEMENTS ==========
-    // Gather all hero fixed/absolute elements that must hide when in sections
-    var heroSelectors = [
-        'header',
-        '.float-text',
-        '#slidecaption',
-        '.reviews-scroll-btn-wrapper',
-        '.home-search-section',
-        '#controls-wrapper',
-        '#progress-back',
-        '#prevslide',
-        '#nextslide'
-    ];
-
-    // Store original display values so we can restore them
-    var heroOriginals = [];
-    var heroReady = false;
-
-    function initHeroEls() {
-        if (heroReady) return;
-        heroSelectors.forEach(function(sel) {
-            var el = document.querySelector(sel);
-            if (el) {
-                heroOriginals.push({
-                    el: el,
-                    display: getComputedStyle(el).display,
-                    visibility: getComputedStyle(el).visibility
-                });
-            }
-        });
-        heroReady = true;
-    }
-
-    function hideHero() {
-        initHeroEls();
-        heroOriginals.forEach(function(item) {
-            item.el.style.transition = 'opacity 0.4s ease';
-            item.el.style.opacity = '0';
-        });
-        // After fade, fully remove from layout
-        setTimeout(function() {
-            if (state !== 'sections') return;
-            heroOriginals.forEach(function(item) {
-                item.el.style.display = 'none';
-                item.el.style.pointerEvents = 'none';
-            });
-        }, 400);
-    }
-
-    function showHero() {
-        initHeroEls();
-        // First restore display and visibility
-        heroOriginals.forEach(function(item) {
-            item.el.style.display = item.display;
-            item.el.style.visibility = 'visible';
-            item.el.style.pointerEvents = '';
-            item.el.style.opacity = '0';
-        });
-        // Then fade in on next frame
-        requestAnimationFrame(function() {
-            heroOriginals.forEach(function(item) {
-                item.el.style.transition = 'opacity 0.4s ease';
-                item.el.style.opacity = '1';
-            });
-            // Clean up inline styles after animation
-            setTimeout(function() {
-                if (state !== 'hero') return;
-                heroOriginals.forEach(function(item) {
-                    item.el.style.transition = '';
-                    item.el.style.opacity = '';
-                });
-            }, 450);
-        });
-    }
-
-    // ========== SCROLL BUTTON ==========
+    // ========== SCROLL BUTTON (fijo bottom-right) ==========
     var scrollBtn = document.getElementById('hp-scroll-btn');
 
     function updateScrollBtn() {
         if (!scrollBtn) return;
         var icon = scrollBtn.querySelector('i');
         if (!icon) return;
-        if (state === 'sections') {
-            icon.className = 'fa fa-angle-up';
-            scrollBtn.classList.remove('hp-scroll-btn-bounce');
-        } else {
-            icon.className = 'fa fa-angle-down';
-            scrollBtn.classList.add('hp-scroll-btn-bounce');
-        }
-    }
-
-    // ========== NAVIGATION ==========
-    function goToSections() {
-        if (locked || state === 'sections') return;
-        state = 'sections';
-        lock(1200);
-        hideHero();
-        updateScrollBtn();
-        var target = document.getElementById('hp-lujo');
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
-    }
-
-    function goToHero() {
-        if (locked || state === 'hero') return;
-        state = 'hero';
-        lock(1200);
-        showHero();
-        updateScrollBtn();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // ========== HOSPITABLE WIDGET SHIELD ==========
-    // Cuando el usuario interactua con el widget (click en Check-in, 2 adults,
-    // calendar, etc), el navegador hace focus-scroll automatico al input dentro
-    // del Shadow DOM. Este micro-scroll dispara goToSections() falsamente y
-    // baja la pagina hasta "EL LUJO DE LO AUTENTICO".
-    //
-    // Solucion: detectar cuando el widget esta activo y BLOQUEAR el auto-scroll
-    // detection durante esa interaccion. El usuario sigue pudiendo scrollear
-    // manualmente, pero el widget no dispara cambios de seccion accidentales.
-    function isHospitableWidgetActive() {
-        var widget = document.querySelector('.home-search-wrapper hospitable-direct-mps');
-        if (!widget) return false;
-
-        // 1. Si el wrapper tiene background oscuro = expandido (calendario o huespedes abierto)
-        var wrapper = document.querySelector('.home-search-wrapper');
-        if (wrapper && wrapper.style.background && wrapper.style.background.indexOf('rgba') > -1) {
-            return true;
-        }
-
-        // 2. Si hay un input/elemento del widget tiene focus actualmente
-        if (document.activeElement === widget) return true;
-        if (widget.shadowRoot && widget.shadowRoot.activeElement) return true;
-
-        // 3. Si hay un dropdown abierto dentro del shadowRoot (calendario/guests)
-        if (widget.shadowRoot) {
-            var dpc = widget.shadowRoot.querySelector('.date-picker-container');
-            if (dpc && dpc.offsetHeight > 0) return true;
-            var guests = widget.shadowRoot.querySelector('.guests-expanded');
-            if (guests && guests.offsetHeight > 0) return true;
-        }
-
-        return false;
-    }
-
-    // Lock extendido cuando se hace click DENTRO del widget (cubre el delay
-    // de focus-scroll del navegador que tarda hasta ~300ms en dispararse)
-    var searchWrapperEl = document.querySelector('.home-search-wrapper');
-    if (searchWrapperEl) {
-        searchWrapperEl.addEventListener('click', function() {
-            if (state === 'hero') {
-                lock(800); // bloquea detection ~800ms (cubre focus-scroll nativo)
-            }
-        }, true);
-
-        // Mismo para mousedown (algunos browsers disparan focus en mousedown)
-        searchWrapperEl.addEventListener('mousedown', function() {
-            if (state === 'hero') {
-                lock(800);
-            }
-        }, true);
-    }
-
-    // ========== PREVENIR AUTO-SCROLL DEL NAVEGADOR Y ANGULAR ==========
-    // Hospitable usa la directiva Angular `appautoscroll` (ver HTML del widget:
-    // <div appautoscroll class="date-picker-container"> y guests-expanded).
-    // Esta directiva llama scrollIntoView() automaticamente cuando se abren
-    // los dropdowns, lo que sube/baja la pagina aunque el widget ya este visible.
-    //
-    // Adicionalmente el navegador tambien hace focus-scroll nativo a inputs.
-    //
-    // Solucion: SCROLL ANCHOR. Mientras el widget este activo, "anclamos" la
-    // posicion del scroll a la posicion que tenia ANTES de la interaccion.
-    // Cualquier intento de scroll (de Angular, browser, lo que sea) se revierte.
-    var widgetEl = document.querySelector('.home-search-wrapper hospitable-direct-mps');
-    if (widgetEl) {
-        // Posicion ancla guardada al abrir el widget
-        var anchorScrollY = null;
-        var scrollGuardActive = false;
-        var scrollGuardTimeout = null;
-
-        // Funcion que mantiene el scroll en la posicion ancla
-        function scrollAnchorGuard() {
-            if (scrollGuardActive && anchorScrollY !== null) {
-                if (Math.abs((window.pageYOffset || 0) - anchorScrollY) > 1) {
-                    window.scrollTo({ top: anchorScrollY, left: 0, behavior: 'instant' });
-                }
-            }
-        }
-
-        // Activar el guard por X ms
-        function activateScrollGuard(durationMs) {
-            if (state !== 'hero') return;
-            anchorScrollY = window.pageYOffset || 0;
-            scrollGuardActive = true;
-
-            // Listener pasivo (no bloquea, solo revierte)
-            window.addEventListener('scroll', scrollAnchorGuard, { passive: true });
-
-            // Tambien correrlo en cada animation frame por si Angular usa scrollIntoView
-            // (que no siempre dispara evento scroll si el padre maneja overflow)
-            var rafCount = 0;
-            var rafGuard = function() {
-                if (!scrollGuardActive) return;
-                scrollAnchorGuard();
-                if (rafCount++ < 60) { // ~1 segundo a 60fps
-                    requestAnimationFrame(rafGuard);
-                }
-            };
-            requestAnimationFrame(rafGuard);
-
-            // Apagar el guard despues
-            clearTimeout(scrollGuardTimeout);
-            scrollGuardTimeout = setTimeout(function() {
-                scrollGuardActive = false;
-                window.removeEventListener('scroll', scrollAnchorGuard);
-            }, durationMs || 1200);
-        }
-
-        // Activar al hacer click/mousedown en el widget
-        if (searchWrapperEl) {
-            ['mousedown', 'click', 'touchstart'].forEach(function(ev) {
-                searchWrapperEl.addEventListener(ev, function() {
-                    activateScrollGuard(1500);
-                }, true);
-            });
-        }
-
-        // Tambien activar al detectar focusin en el widget (caso de focus por teclado)
-        document.addEventListener('focusin', function(e) {
-            if (state !== 'hero') return;
-
-            var target = e.target;
-            var path = e.composedPath ? e.composedPath() : [];
-
-            var isInWidget = target === widgetEl ||
-                            (widgetEl.contains && widgetEl.contains(target)) ||
-                            path.indexOf(widgetEl) > -1 ||
-                            (path.some && path.some(function(el) {
-                                return el && el.classList &&
-                                       (el.classList.contains('home-search-wrapper') ||
-                                        (el.tagName && el.tagName.toUpperCase() === 'HOSPITABLE-DIRECT-MPS'));
-                            }));
-
-            if (isInWidget) {
-                activateScrollGuard(1500);
-            }
-        }, true);
-    }
-
-    // ========== SCROLL DETECTION ==========
-    // Simple approach: detect scroll direction + position
-    var lastY = 0;
-    var scrollCount = 0; // counts consecutive same-direction scrolls
-
-    window.addEventListener('scroll', function() {
-        if (locked) return;
-
-        // ESCUDO: si el widget de Hospitable esta activo, ignorar scroll
-        // detection (evita que focus-scroll del navegador dispare goToSections)
-        if (isHospitableWidgetActive()) return;
 
         var y = window.pageYOffset || 0;
         var vh = window.innerHeight;
 
-        if (state === 'hero' && y > vh * 0.06) {
-            // User scrolled down past 6% of viewport — go to sections
-            goToSections();
-        } else if (state === 'sections' && y < vh * 0.4 && y < lastY) {
-            // User is scrolling UP and is in the top 40% — go to hero
-            scrollCount++;
-            if (scrollCount >= 2) { // require 2 consecutive up-scrolls to avoid accidental triggers
-                goToHero();
-                scrollCount = 0;
-            }
-        } else if (y >= lastY) {
-            scrollCount = 0; // reset if scrolling down
+        // Si esta en el primer viewport (cerca del hero) -> apunta hacia abajo
+        // Si esta debajo del hero -> apunta hacia arriba
+        if (y < vh * 0.5) {
+            icon.className = 'fa fa-angle-down';
+            scrollBtn.classList.add('hp-scroll-btn-bounce');
+        } else {
+            icon.className = 'fa fa-angle-up';
+            scrollBtn.classList.remove('hp-scroll-btn-bounce');
         }
-
-        // Edge case: somehow at 0 but state is sections
-        if (y === 0 && state === 'sections' && !locked) {
-            state = 'hero';
-            showHero();
-            updateScrollBtn();
-        }
-
-        lastY = y;
-    }, { passive: true });
-
-    // ========== SEARCH WIDGET TOUCH PROTECTION ==========
-    // Prevent touch-scroll when user interacts with the search widget in hero
-    var searchWrapper = document.querySelector('.home-search-wrapper');
-    if (searchWrapper) {
-        searchWrapper.addEventListener('touchmove', function(e) {
-            if (state === 'hero') {
-                e.preventDefault();
-                window.scrollTo(0, 0);
-            }
-        }, { passive: false });
-
-        searchWrapper.addEventListener('touchstart', function() {
-            if (state === 'hero') {
-                lock(2000);
-                window.scrollTo(0, 0);
-            }
-        }, { passive: true });
     }
+
+    // Update icon on scroll (passive para performance)
+    var scrollTimer = null;
+    window.addEventListener('scroll', function() {
+        if (scrollTimer) return;
+        scrollTimer = requestAnimationFrame(function() {
+            updateScrollBtn();
+            scrollTimer = null;
+        });
+    }, { passive: true });
 
     // ========== SCROLL BUTTON CLICK ==========
     if (scrollBtn) {
         scrollBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            if (state === 'sections') goToHero();
-            else goToSections();
+            var y = window.pageYOffset || 0;
+            var vh = window.innerHeight;
+
+            if (y < vh * 0.5) {
+                // Estoy arriba -> bajar a primera seccion
+                var firstSection = document.getElementById('hp-lujo');
+                if (firstSection) {
+                    firstSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            } else {
+                // Estoy abajo -> subir al top (hero)
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
         });
     }
 
-    // ========== HEADER BOOK NOW → search.php ==========
+    // ========== HELPER: URL de search con fechas pre-llenadas ==========
+    // Genera URL con checkin=hoy, checkout=hoy+2, adults=2
+    // El widget Hospitable lee estos params y pre-llena el formulario.
+    function getSearchUrl() {
+        var today = new Date();
+        var checkout = new Date();
+        checkout.setDate(today.getDate() + 2);
+
+        function fmt(d) {
+            var y = d.getFullYear();
+            var m = String(d.getMonth() + 1).padStart(2, '0');
+            var day = String(d.getDate()).padStart(2, '0');
+            return y + '-' + m + '-' + day;
+        }
+
+        return '/search.php?checkin=' + fmt(today) +
+               '&checkout=' + fmt(checkout) +
+               '&adults=2';
+    }
+
+    // ========== HEADER BOOK NOW -> search.php con fechas ==========
     document.addEventListener('click', function(e) {
         var btn = e.target.closest('.btn-main.btn-mobile-reservas, .btn-main.btn-reservas');
         if (btn && btn.closest('header')) {
             e.preventDefault();
-            window.location.href = '/search.php';
+            window.location.href = getSearchUrl();
         }
     });
 
-    // ========== CTA BUTTONS → scroll to hero ==========
+    // ========== CTA "Volver al hero" buttons -> search.php con fechas ==========
+    // Los botones con clase hp-scroll-to-hero antes scrolleaban arriba.
+    // Ahora redirigen directamente al buscador pre-llenado (menos friccion = mas conversion).
     document.addEventListener('click', function(e) {
         var btn = e.target.closest('.hp-scroll-to-hero');
         if (btn) {
             e.preventDefault();
-            goToHero();
+            window.location.href = getSearchUrl();
         }
     });
 
-    // ========== VER TODAS REVIEWS → open overlay ==========
+    // ========== VER TODAS REVIEWS -> abre overlay ==========
     document.addEventListener('click', function(e) {
         var btn = e.target.closest('#hp-see-all-reviews');
         if (btn) {
@@ -360,7 +125,7 @@
         }
     });
 
-    // ========== ANIMATED COUNTER ==========
+    // ========== ANIMATED COUNTER (al entrar al viewport) ==========
     var counterEl = document.querySelector('.hp-counter-number[data-count]');
     if (counterEl && 'IntersectionObserver' in window) {
         var obs = new IntersectionObserver(function(entries) {

@@ -96,9 +96,12 @@ body.hp-has-sections .reviews-scroll-btn-wrapper {
     }
 }
 
-/* --- Hero spacer --- */
+/* --- Hero spacer ---
+   100dvh = dynamic viewport height (soluciona problema notch iPhone + barra mobile)
+   100vh es fallback para navegadores viejos sin soporte dvh */
 .hp-hero-spacer {
     height: 100vh;
+    height: 100dvh;
     pointer-events: none;
 }
 
