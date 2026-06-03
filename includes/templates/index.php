@@ -57,11 +57,92 @@
     </div>
 </div>
 
+<!-- iOS 26 Safari fix: detectar y aplicar workaround para bug position:fixed -->
+<script>
+(function() {
+    // Detectar iOS 26+ Safari (donde existe el bug del modal accidental)
+    // Referencia: https://x.com/devongovett/status/1968384768703349198
+    var ua = navigator.userAgent;
+    var isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+    var iOSVersionMatch = ua.match(/OS (\d+)_/);
+    var iOSVersion = iOSVersionMatch ? parseInt(iOSVersionMatch[1], 10) : 0;
+    var isAffectedIOS = isIOS && iOSVersion >= 17;  // iOS 17+ tambien afectado
+
+    if (isAffectedIOS) {
+        // Agregar clase al body para que CSS pueda hacer overrides especificos
+        document.documentElement.classList.add('ios-safari-fix');
+        document.body.classList.add('ios-safari-fix');
+
+        // CSS inyectado especifico para forzar widget Shadow DOM modals
+        // a NO mostrarse hasta interaccion explicita del usuario
+        var iosFix = document.createElement('style');
+        iosFix.id = 'ios-26-widget-fix';
+        iosFix.textContent = [
+            // Cuando el widget esta colapsado (estado normal), NO permitir que
+            // ningun overlay/modal interno se renderice por accidente
+            'hospitable-direct-mps:not([data-user-active]) .modal-overlay,',
+            'hospitable-direct-mps:not([data-user-active]) .date-picker-popup,',
+            'hospitable-direct-mps:not([data-user-active]) .guests-popup {',
+            '  visibility: hidden !important;',
+            '  opacity: 0 !important;',
+            '  pointer-events: none !important;',
+            '  transform: translateY(100%) !important;',
+            '}',
+            // Solo cuando el usuario interactua (click en input), permitir mostrar
+            'hospitable-direct-mps[data-user-active] .modal-overlay,',
+            'hospitable-direct-mps[data-user-active] .date-picker-popup,',
+            'hospitable-direct-mps[data-user-active] .guests-popup {',
+            '  visibility: visible !important;',
+            '  opacity: 1 !important;',
+            '  pointer-events: auto !important;',
+            '  transform: translateY(0) !important;',
+            '}'
+        ].join('\n');
+        document.head.appendChild(iosFix);
+    }
+})();
+</script>
+
 <!-- Hospitable widget: smooth slide-up when calendar/guests open -->
 <script>
 (function() {
     function initWidget(widget) {
         if (!widget || !widget.shadowRoot) return;
+
+        // FIX iOS 26: el widget Hospitable puede mostrar su modal sin que el
+        // usuario haga click por el bug de position:fixed en iOS 26 Safari.
+        // Solucion: solo marcar widget como "user-active" cuando hay click real.
+        var ua = navigator.userAgent;
+        var isAffectedIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream &&
+                            parseInt((ua.match(/OS (\d+)_/) || [0, 0])[1], 10) >= 17;
+
+        if (isAffectedIOS) {
+            // El widget Shadow DOM necesita marcarse explicitamente cuando hay
+            // interaccion real. Antes de eso, los modales internos permanecen
+            // ocultos por el CSS aplicado arriba.
+            widget.shadowRoot.addEventListener('click', function(e) {
+                var target = e.target;
+                var tag = target.tagName;
+                var cls = target.className || '';
+
+                // Marcar widget como activo solo cuando hay click EXPLICITO en
+                // inputs (check-in, check-out) o controles del widget
+                if (tag === 'INPUT' || tag === 'SELECT' ||
+                    cls.indexOf('check') > -1 || cls.indexOf('guest') > -1 ||
+                    cls.indexOf('date') > -1 || cls.indexOf('button') > -1) {
+                    widget.setAttribute('data-user-active', '');
+                }
+            }, true);
+
+            // Si el usuario hace click FUERA del widget, remover el flag
+            document.addEventListener('click', function(e) {
+                if (!widget.contains(e.target)) {
+                    setTimeout(function() {
+                        widget.removeAttribute('data-user-active');
+                    }, 300);
+                }
+            }, true);
+        }
 
         // Compact spacing inside widget
         if (!widget.shadowRoot.querySelector('#home-widget-fix')) {

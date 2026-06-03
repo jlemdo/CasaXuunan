@@ -105,6 +105,63 @@ body.hp-has-sections .reviews-scroll-btn-wrapper {
     pointer-events: none;
 }
 
+/* --- Hero overlay extendido ---
+   FIX BUG: Se ve una franja delgada entre el final del overlay del slider
+   y el inicio de la primera seccion. Causa: en mobile la barra de URL
+   aparece/desaparece y cambia el viewport height dinamicamente, dejando
+   una junta visible.
+   Solucion: extender el slider-overlay con un height extra del 10% mediante
+   un pseudo-elemento que extiende el gradient hacia abajo. Asi nunca se ve
+   la junta sin importar como cambie el viewport. */
+body.hp-has-sections .slider-overlay {
+    /* Aumentar height para cubrir el cambio dinamico del viewport mobile */
+    height: 110% !important;
+    /* Garantizar que el gradient termine en el color oscuro de Seccion 1
+       (#1a1714 = hp-section-dark) para fundirse perfectamente con ella */
+    background: linear-gradient(
+        0deg,
+        #1a1714 0%,
+        rgba(20, 20, 20, 0.65) 15%,
+        rgba(107, 87, 64, 0.5) 100%
+    ) !important;
+}
+
+/* --- Hero elements hidden state (set via JS data-hero-hidden attr) ---
+   Cuando JS oculta un elemento del hero al hacer scroll, agrega el atributo
+   data-hero-hidden. Este CSS FUERZA pointer-events:none en TODOS los hijos
+   y descendientes, incluyendo:
+   - widget Hospitable y su Shadow DOM
+   - cualquier elemento hijo con z-index alto
+   - inputs, botones, links dentro de hero elements
+   Razon: opacity 0 + visibility hidden NO siempre bloquea clicks de hijos
+   con position:absolute/fixed o Shadow DOM con event handlers internos. */
+[data-hero-hidden],
+[data-hero-hidden] *,
+[data-hero-hidden] hospitable-direct-mps {
+    pointer-events: none !important;
+}
+
+/* --- iOS 26 Safari fix: position:fixed bug del widget Hospitable ---
+   Bug confirmado: iOS 26 Safari renderiza incorrectamente position:fixed,
+   causando que modales del widget aparezcan accidentalmente.
+   Referencia: https://x.com/devongovett/status/1968384768703349198
+
+   Estrategia (defensa profunda):
+   1) En iOS afectado, el body recibe clase .ios-safari-fix
+   2) El widget Hospitable solo permite mostrar sus modales internos
+      cuando tiene atributo data-user-active (set por JS en click real)
+   3) Sin click explicito, los modales internos quedan invisibles */
+.ios-safari-fix hospitable-direct-mps:not([data-user-active]) {
+    /* Forzar contenedor a tamano fijo (no permitir crecer por modales fantasma) */
+    max-height: 60px;
+    overflow: visible;
+}
+
+/* En iOS, el widget cuando NO esta activo NO debe permitir modales fijos */
+.ios-safari-fix .home-search-section hospitable-direct-mps:not([data-user-active]) > * {
+    position: relative !important;
+}
+
 /* --- Override #wrapper overflow & body backgrounds for index --- */
 body.hp-has-sections,
 body.hp-has-sections html {

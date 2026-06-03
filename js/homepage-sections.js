@@ -52,10 +52,45 @@
     var heroEls = [];
     var lastOpacity = -1;        // cache para evitar repaint innecesario
     var rafScheduled = false;
+    var widgetActive = false;    // true cuando widget Hospitable esta abierto
 
     // Puntos clave del fade (% del primer viewport)
     var FADE_START = 0.15;  // antes de 15% scroll, full visible
     var FADE_END = 0.45;    // despues de 45% scroll, full invisible
+
+    // ========== DETECTAR cuando widget Hospitable esta activo ==========
+    // Cuando el usuario abre el calendario/huespedes, expandSearch() agrega
+    // un transform al .home-search-section y un overlay oscuro al body.
+    // En este estado, NO queremos que el fade reduzca opacity del hero,
+    // porque el usuario esta interactuando con la barra de busqueda.
+    //
+    // Usamos MutationObserver para detectar el cambio de transform de
+    // .home-search-section (que solo sucede cuando expandSearch corre).
+    function initWidgetActiveDetector() {
+        var section = document.querySelector('.home-search-section');
+        if (!section || !('MutationObserver' in window)) return;
+
+        var observer = new MutationObserver(function() {
+            // Si el section tiene transform: translateY(-N px) = widget activo
+            var transform = section.style.transform || '';
+            var newState = transform.indexOf('translateY(-') > -1 &&
+                           transform.indexOf('-0px') === -1;
+
+            if (newState !== widgetActive) {
+                widgetActive = newState;
+                // Forzar update del fade (resetear cache para que se reaplique)
+                lastOpacity = -1;
+                if (rafScheduled) return;
+                rafScheduled = true;
+                requestAnimationFrame(updateHeroOpacity);
+            }
+        });
+
+        observer.observe(section, {
+            attributes: true,
+            attributeFilter: ['style']
+        });
+    }
 
     function initHeroEls() {
         heroSelectors.forEach(function(sel) {
@@ -68,22 +103,38 @@
         });
     }
 
+    // Umbral de interactividad: cuando opacity baja de este valor,
+    // se desactivan TODOS los clicks aunque visualmente aun se vea algo.
+    // Razon: 0.15 = elemento ya casi invisible al ojo (15% opacity)
+    // pero el bug era que con opacity 0.01 los clicks seguian llegando.
+    var INTERACTIVE_THRESHOLD = 0.15;
+
     function updateHeroOpacity() {
         rafScheduled = false;
 
-        var y = window.pageYOffset || 0;
-        var vh = window.innerHeight;
-        var progress = y / vh;  // 0 = top, 1 = scrolleado 1 viewport
-
-        // Calcular opacity con curva lineal entre FADE_START y FADE_END
         var opacity;
-        if (progress <= FADE_START) {
+
+        // FIX BUG: cuando el widget Hospitable esta activo (calendario o
+        // huespedes abiertos), expandSearch() sube el search bar con un
+        // transform. El navegador tambien hace focus-scroll auto al input.
+        // En ese momento NO debemos reducir opacity del search bar - el
+        // usuario esta interactuando con el. Forzamos opacity 1.
+        if (widgetActive) {
             opacity = 1;
-        } else if (progress >= FADE_END) {
-            opacity = 0;
         } else {
-            var range = FADE_END - FADE_START;
-            opacity = 1 - ((progress - FADE_START) / range);
+            var y = window.pageYOffset || 0;
+            var vh = window.innerHeight;
+            var progress = y / vh;  // 0 = top, 1 = scrolleado 1 viewport
+
+            // Calcular opacity con curva lineal entre FADE_START y FADE_END
+            if (progress <= FADE_START) {
+                opacity = 1;
+            } else if (progress >= FADE_END) {
+                opacity = 0;
+            } else {
+                var range = FADE_END - FADE_START;
+                opacity = 1 - ((progress - FADE_START) / range);
+            }
         }
 
         // Redondear a 2 decimales para evitar repaints innecesarios
@@ -92,16 +143,30 @@
         if (opacity === lastOpacity) return;
         lastOpacity = opacity;
 
-        // Aplicar a todos los elementos del hero
+        // Determinar si los elementos deben ser interactivos.
+        // FIX: antes solo desactivabamos clicks con opacity === 0 (exacto).
+        // Ahora desactivamos cuando opacity < umbral (15%) para evitar la
+        // "zona fantasma" donde el elemento es visualmente invisible pero
+        // aun captura clicks. Tambien fuerza pointer-events: none en el
+        // Shadow DOM del widget Hospitable.
+        var interactive = opacity > INTERACTIVE_THRESHOLD;
+
         heroEls.forEach(function(el) {
             el.style.opacity = opacity;
-            // Cuando ya es invisible, quitarlo del flujo de interaccion
-            if (opacity === 0) {
-                el.style.visibility = 'hidden';
-                el.style.pointerEvents = 'none';
-            } else {
+
+            if (interactive) {
                 el.style.visibility = 'visible';
                 el.style.pointerEvents = '';
+                el.removeAttribute('data-hero-hidden');
+            } else {
+                // Cuando NO interactivo: usar 'hidden' + pointer-events none
+                // + atributo data-hero-hidden para que CSS pueda forzar
+                // pointer-events:none con !important en TODOS los hijos
+                // (cubre Shadow DOM y children con z-index alto que pudieran
+                // capturar clicks "fantasma").
+                el.style.visibility = 'hidden';
+                el.style.pointerEvents = 'none';
+                el.setAttribute('data-hero-hidden', '');
             }
         });
     }
@@ -124,6 +189,9 @@
 
         // Tambien actualizar al resize (cambia vh)
         window.addEventListener('resize', onScrollHero, { passive: true });
+
+        // Detectar cuando widget Hospitable esta activo para pausar fade
+        initWidgetActiveDetector();
     }
 
     if (document.readyState === 'loading') {
