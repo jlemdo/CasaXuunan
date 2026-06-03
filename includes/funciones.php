@@ -15,18 +15,8 @@ function incluirTemplate(string $nombre, bool $customHeaderFooter = false)
     // Incluir la sección del header (puede contener meta tags o scripts necesarios)
     incluirSection('header');
 
-    // SPECIAL CASE: el HOME (index.php) llama con $customHeaderFooter = false
-    // porque su footer es footer-index.php (las 7 secciones del redisenio).
-    // PERO el navbar viejo (navbar-index.php con home-header-simple + hamburguesa)
-    // queremos reemplazarlo por el navbar.php estandar (menu horizontal completo).
-    //
-    // Estrategia: para index.php usamos navbar.php (true) PERO footer-index.php (false).
-    // Esto se detecta por el nombre del template.
-    $useStandardNavbar = $customHeaderFooter || $nombre === 'index';
-
-    // Incluir el header (navbar): standard navbar.php para todas las paginas
-    // (incluyendo home), salvo casos especiales que aun necesiten navbar-index.
-    incluirHeader($useStandardNavbar);
+    // Incluir el header con variaciones basadas en $customHeaderFooter
+    incluirHeader($customHeaderFooter);
 
     // Ruta completa al template
     $templatePath = TEMPLATES_URL . "/$nombre.php";
@@ -36,8 +26,7 @@ function incluirTemplate(string $nombre, bool $customHeaderFooter = false)
         echo "<!-- Template $nombre.php no encontrado -->";
     }
 
-    // Incluir el footer: SOLO usar footer.php standard si $customHeaderFooter true.
-    // El home mantiene footer-index.php (con las 7 secciones del redisenio).
+    // Incluir el footer con variaciones basadas en $customHeaderFooter
     incluirFooter($customHeaderFooter);
 
     // Incluir la sección de scripts JS al final, justo antes de cerrar el body
