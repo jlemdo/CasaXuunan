@@ -164,7 +164,6 @@
         if (!section) return;
 
         var isExpanded = false;
-        var savedScrollY = 0;  // posicion del scroll antes de abrir widget
 
         // Create dark overlay for focus effect
         var overlay = document.createElement('div');
@@ -175,12 +174,14 @@
         // Cuando el widget esta abierto, bloquear el scroll de la pagina para
         // que ningun focus-scroll del browser, ningun touch accidental, ni el
         // teclado virtual mobile puedan mover la pagina.
-        // Usamos position:fixed + top negativo para preservar posicion visual
-        // y luego restaurar al cerrar.
+        // Pattern simple: al abrir widget, scroll al top y bloquear body.
+        // Al cerrar, mantener Y=0 (hero completo visible) en lugar de
+        // restaurar la posicion anterior.
+        // Razon: el widget de busqueda solo es usable cuando estas cerca
+        // del hero (fade lo oculta abajo). Asi que despues de cerrar, lo
+        // mas natural es quedarse arriba.
         function lockBodyScroll() {
-            savedScrollY = window.pageYOffset || window.scrollY || 0;
-
-            // Forzar scroll al top primero (asi el hero se ve completo)
+            // Scroll al top primero (asi el hero se ve completo)
             window.scrollTo(0, 0);
 
             // Bloquear scroll del body con position:fixed
@@ -201,8 +202,9 @@
             document.body.style.width = '';
             document.body.style.overflow = '';
 
-            // Restaurar la posicion del scroll donde estaba antes
-            window.scrollTo(0, savedScrollY);
+            // Asegurar que queda en Y=0 (top, hero completo visible)
+            // Esto evita cualquier "scroll fantasma" residual del browser
+            window.scrollTo(0, 0);
         }
 
         function collapseSearch() {

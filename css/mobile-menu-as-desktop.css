@@ -1,143 +1,297 @@
 /* ============================================
-   MOBILE MENU = DESKTOP MENU
+   MOBILE MENU = SIDEBAR DESKTOP STYLE
    ============================================
-   Reemplaza el hamburger + sidebar overlay mobile
-   por el mismo menu horizontal del desktop.
+   En mobile, mantenemos la hamburguesa pero al abrir
+   muestra el MISMO estilo del sidebar desktop del home
+   (panel oscuro premium con blur, items con stagger
+   animation, hover verde Casa Xu'unan).
 
-   Razon: el sidebar overlay tenia mucho codigo legacy
-   con bugs. El menu desktop es mas simple y predecible.
+   Anula los estilos legacy del overlay fullscreen verde maya
+   y aplica las mismas reglas que desktop-sidebar-menu.css
+   (que solo aplica en min-width: 768px).
 
-   Strategy: override de las reglas mobile de style.css
-   sin tocar el vendor. Este archivo se carga DESPUES de
-   style.css para que tenga prioridad.
-
-   Breakpoint: max-width 992px (mobile + tablet portrait)
+   Breakpoint: max-width 767px (solo mobile/phone)
 ============================================ */
 
-@media (max-width: 992px) {
+@media (max-width: 767px) {
 
-    /* 1) OCULTAR el hamburger button */
-    #menu-btn,
-    .menu-btn-mobile-overlay {
-        display: none !important;
-    }
-
-    /* 2) OCULTAR el overlay/sidebar mobile (legacy) */
-    #menu-overlay {
-        display: none !important;
-    }
-
-    /* 3) MOSTRAR el mainmenu (estaba display:none en mobile) */
-    #mainmenu {
-        display: flex !important;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        gap: 0;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        width: 100%;
-    }
-
-    #mainmenu > li {
-        display: inline-block;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        position: relative;
-    }
-
-    #mainmenu > li > a {
-        display: block;
-        padding: 8px 10px;
-        font-family: 'Heebo', sans-serif;
-        font-size: 12px;
-        font-weight: 500;
-        letter-spacing: 0.5px;
-        text-transform: uppercase;
-        color: #ffffff;
-        text-decoration: none;
-        transition: color 0.2s ease;
-        white-space: nowrap;
-    }
-
-    #mainmenu > li > a:hover,
-    #mainmenu > li > a.active-menu {
-        color: #7baf89;
-    }
-
-    /* 4) LAYOUT del header: logo + menu + extras */
-    header .de-flex,
-    header .de-flex.de-flex-mobile-vertical {
-        display: flex !important;
-        flex-direction: row !important;
-        flex-wrap: wrap !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        gap: 8px;
-        padding: 10px 0;
-    }
-
-    /* Logo */
-    header .de-flex > .de-flex-col:first-child {
-        flex: 0 0 auto;
-        order: 1;
-    }
-
-    /* Menu central */
-    header .de-flex > .de-flex-col:nth-child(2) {
-        flex: 1 1 100%;
-        order: 3;
-        justify-content: center;
-    }
-
-    /* Extras (lang + reserva) lado derecho */
-    header .de-flex > .de-flex-col:nth-child(3),
-    header .de-flex > .de-flex-col-mobile {
-        flex: 0 0 auto;
-        order: 2;
-    }
-
-    /* 5) Sub-menus (dropdowns) - mantener funcionalidad pero adaptar */
-    #mainmenu li ul {
-        position: absolute;
-        top: 100%;
+    /* =========================================================
+       Backdrop con blur progresivo
+       ========================================================= */
+    .dsm-backdrop {
+        position: fixed;
+        top: 0;
         left: 0;
-        background: rgba(26, 23, 20, 0.95);
-        backdrop-filter: blur(10px);
-        min-width: 180px;
-        padding: 8px 0;
-        list-style: none;
-        display: none;
-        z-index: 1000;
-        border-radius: 8px;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.55);
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+        z-index: 9999;
+        opacity: 0;
+        transition:
+            opacity 0.45s cubic-bezier(0.32, 0.72, 0, 1),
+            backdrop-filter 0.45s cubic-bezier(0.32, 0.72, 0, 1),
+            -webkit-backdrop-filter 0.45s cubic-bezier(0.32, 0.72, 0, 1);
+        cursor: pointer;
+        will-change: opacity, backdrop-filter;
+    }
+    .dsm-backdrop.dsm-visible {
+        opacity: 1;
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
     }
 
-    #mainmenu li:hover > ul,
-    #mainmenu li:focus-within > ul {
-        display: block;
+    /* =========================================================
+       Sidebar overlay: anula el verde maya viejo, aplica estilo
+       desktop premium (fondo oscuro + blur). En mobile usamos
+       fullscreen (100vw) en lugar de sidebar (30%) porque el
+       espacio es mas reducido.
+       ========================================================= */
+    #menu-overlay {
+        display: block !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        max-width: none !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+        background: rgba(20, 17, 14, 0.98) !important;
+        backdrop-filter: blur(24px) !important;
+        -webkit-backdrop-filter: blur(24px) !important;
+        transform: translateX(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition:
+            transform 0.5s cubic-bezier(0.32, 0.72, 0, 1),
+            opacity 0.35s cubic-bezier(0.32, 0.72, 0, 1),
+            visibility 0s linear 0.5s;
+        will-change: transform, opacity;
+        z-index: 10000;
+    }
+    #menu-overlay:not(.slideDown) {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+        transition:
+            transform 0.5s cubic-bezier(0.32, 0.72, 0, 1),
+            opacity 0.35s cubic-bezier(0.32, 0.72, 0, 1),
+            visibility 0s linear 0s;
+    }
+    #menu-overlay.slideDown {
+        top: 0 !important;
+        transform: translateX(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition:
+            transform 0.35s cubic-bezier(0.4, 0, 0.72, 0.24),
+            opacity 0.25s cubic-bezier(0.4, 0, 0.72, 0.24),
+            visibility 0s linear 0.35s;
     }
 
-    #mainmenu li ul li {
-        display: block;
+    /* =========================================================
+       ANULAR el viejo background verde maya con patron
+       ========================================================= */
+    #menu-overlay,
+    #menu-overlay::before,
+    #menu-overlay::after {
+        background-image: none !important;
+    }
+    #menu-overlay::before,
+    #menu-overlay::after {
+        display: none !important;
+        content: none !important;
     }
 
-    #mainmenu li ul li a {
-        display: block;
-        padding: 8px 16px;
-        color: #fff;
-        font-size: 12px;
-        text-decoration: none;
+    /* =========================================================
+       Layout del contenido del sidebar
+       ========================================================= */
+    #menu-overlay .container-fluid {
+        padding: 50px 32px !important;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        max-width: 100%;
     }
-}
+    #menu-overlay .row-fluid,
+    #menu-overlay .col-md-12 {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+    #menu-overlay .pt80,
+    #menu-overlay .pb80 {
+        padding-top: 30px !important;
+        padding-bottom: 0 !important;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
 
-/* Mobile portrait pequeño: menu mas compacto */
-@media (max-width: 480px) {
-    #mainmenu > li > a {
-        padding: 6px 7px;
-        font-size: 10px;
-        letter-spacing: 0.3px;
+    /* =========================================================
+       Navegacion alineada a la izquierda (estilo desktop)
+       ========================================================= */
+    #menu-overlay .mo-nav {
+        text-align: left !important;
+    }
+
+    /* Logo arriba */
+    #menu-overlay .mo-nav > a:first-child {
+        display: inline-block;
+        margin-bottom: 24px;
+    }
+    #menu-overlay .mo-nav > a:first-child img.logo {
+        max-height: 55px;
+        width: auto;
+        content: url(../images/logo/blanco.png) !important;
+    }
+    #menu-overlay .spacer-single {
+        height: 12px !important;
+    }
+
+    /* =========================================================
+       Items del menu: estilo sidebar
+       ========================================================= */
+    #menu-overlay #mo-menu {
+        padding: 0 !important;
+        margin: 0 !important;
+        list-style: none !important;
+        text-align: left !important;
+    }
+    #menu-overlay #mo-menu li {
+        margin: 0 !important;
+        padding: 0 !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        opacity: 0;
+        transform: translateX(-12px);
+        transition: opacity 0.4s cubic-bezier(0.32, 0.72, 0, 1),
+                    transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+    }
+    #menu-overlay #mo-menu li:last-child {
+        border-bottom: none;
+    }
+    #menu-overlay #mo-menu li a {
+        display: block !important;
+        padding: 16px 0 !important;
+        font-family: 'Montserrat', sans-serif !important;
+        font-size: 18px !important;
+        font-weight: 600 !important;
+        letter-spacing: 1px !important;
+        text-transform: uppercase !important;
+        color: rgba(255, 255, 255, 0.92) !important;
+        text-decoration: none !important;
+        background: transparent !important;
+        transition: color 0.25s ease, padding-left 0.25s ease !important;
+    }
+    #menu-overlay #mo-menu li a:hover,
+    #menu-overlay #mo-menu li a:active {
+        color: #7baf89 !important;
+        padding-left: 6px !important;
+        background: transparent !important;
+    }
+    #menu-overlay #mo-menu li a.active-menu {
+        color: #7baf89 !important;
+    }
+
+    /* Stagger animation: cada item con delay escalonado */
+    #menu-overlay:not(.slideDown) #mo-menu li {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    #menu-overlay:not(.slideDown) #mo-menu li:nth-child(1) { transition-delay: 0.15s; }
+    #menu-overlay:not(.slideDown) #mo-menu li:nth-child(2) { transition-delay: 0.19s; }
+    #menu-overlay:not(.slideDown) #mo-menu li:nth-child(3) { transition-delay: 0.23s; }
+    #menu-overlay:not(.slideDown) #mo-menu li:nth-child(4) { transition-delay: 0.27s; }
+    #menu-overlay:not(.slideDown) #mo-menu li:nth-child(5) { transition-delay: 0.31s; }
+    #menu-overlay:not(.slideDown) #mo-menu li:nth-child(6) { transition-delay: 0.35s; }
+    #menu-overlay:not(.slideDown) #mo-menu li:nth-child(7) { transition-delay: 0.39s; }
+    #menu-overlay:not(.slideDown) #mo-menu li:nth-child(8) { transition-delay: 0.43s; }
+    #menu-overlay:not(.slideDown) #mo-menu li:nth-child(9) { transition-delay: 0.47s; }
+    #menu-overlay:not(.slideDown) #mo-menu li:nth-child(10) { transition-delay: 0.51s; }
+
+    /* Logo + footer tambien con fade-in */
+    #menu-overlay .mo-nav > a:first-child,
+    #menu-overlay .mo-footer {
+        opacity: 0;
+        transform: translateY(-8px);
+        transition: opacity 0.5s cubic-bezier(0.32, 0.72, 0, 1),
+                    transform 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+    }
+    #menu-overlay .mo-footer {
+        transform: translateY(8px);
+    }
+    #menu-overlay:not(.slideDown) .mo-nav > a:first-child {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.08s;
+    }
+    #menu-overlay:not(.slideDown) .mo-footer {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.55s;
+    }
+
+    /* =========================================================
+       Boton cerrar (X) en esquina superior derecha
+       ========================================================= */
+    #menu-overlay #mo-button-close {
+        position: absolute !important;
+        top: 24px !important;
+        right: 24px !important;
+        width: 38px !important;
+        height: 38px !important;
+        cursor: pointer;
+        opacity: 0.85;
+        transition: opacity 0.25s ease, transform 0.25s ease;
+        z-index: 10;
+    }
+    #menu-overlay #mo-button-close:hover,
+    #menu-overlay #mo-button-close:active {
+        opacity: 1;
+        transform: rotate(90deg);
+    }
+
+    /* =========================================================
+       Footer social al fondo
+       ========================================================= */
+    #menu-overlay .mo-footer {
+        margin-top: auto;
+        padding-top: 28px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        text-align: left;
+    }
+    #menu-overlay .mo-social {
+        display: flex;
+        gap: 18px;
+        justify-content: flex-start;
+    }
+    #menu-overlay .mo-social a {
+        color: rgba(255, 255, 255, 0.7) !important;
+        font-size: 20px;
+        transition: color 0.25s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+    }
+    #menu-overlay .mo-social a:hover,
+    #menu-overlay .mo-social a:active {
+        color: #7baf89 !important;
+    }
+
+    /* Respeta preferencia de reducir animaciones (accesibilidad) */
+    @media (prefers-reduced-motion: reduce) {
+        #menu-overlay,
+        #menu-overlay.slideDown,
+        #menu-overlay #mo-menu li,
+        #menu-overlay .mo-nav > a:first-child,
+        #menu-overlay .mo-footer,
+        .dsm-backdrop {
+            transition: opacity 0.15s linear !important;
+            transform: none !important;
+        }
     }
 }

@@ -41,7 +41,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Ensure starts closed
     overlay.classList.add('slideDown');
 
-    // Backdrop para desktop (clickeable para cerrar)
+    // Backdrop para desktop Y mobile (clickeable para cerrar)
+    // En mobile, el backdrop aparece detras del sidebar fullscreen.
+    // Aunque no se vea (el sidebar lo cubre), permite cerrar al tap fuera
+    // si el usuario llegara a ver una porcion (en tablets portrait).
     var backdrop = null;
     function isDesktop() { return window.innerWidth >= 768; }
 
@@ -55,7 +58,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function showBackdrop() {
-        if (!isDesktop()) return;
+        // Mostrar backdrop tanto en desktop como en mobile (el CSS de cada
+        // breakpoint controla si se ve o no, JS solo se asegura de tenerlo)
         ensureBackdrop();
         backdrop.style.display = 'block';
         // forzar reflow antes de la transicion
@@ -78,26 +82,24 @@ document.addEventListener('DOMContentLoaded', function() {
         isOpen = true;
 
         document.body.style.overflow = 'hidden';
+
+        // Limpiar cualquier estilo inline residual de animaciones viejas
+        // (top, transition) que pudieran interferir con el CSS nuevo
+        overlay.style.top = '';
+        overlay.style.transition = '';
+
+        // Quitar slideDown: el CSS detecta :not(.slideDown) y anima
+        // con translateX(0) tanto en desktop como en mobile
         overlay.classList.remove('slideDown');
 
-        // Mobile: animar con "top" (como antes)
-        // Desktop: el CSS usa transform, solo tocamos la clase slideDown
-        if (!isDesktop()) {
-            overlay.style.transition = 'none';
-            overlay.style.top = '-100%';
-            overlay.offsetHeight;
-            overlay.style.transition = 'top 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
-            overlay.style.top = '0';
-        }
-
-        // Backdrop desktop
+        // Backdrop (mobile + desktop)
         showBackdrop();
 
-        // Cambiar icono hamburguesa a X (clases que usa el CSS existente)
+        // Cambiar icono hamburguesa a X
         newMenuBtn.classList.remove('unclick');
         newMenuBtn.classList.add('clicked');
 
-        setTimeout(function() { isAnimating = false; }, 450);
+        setTimeout(function() { isAnimating = false; }, 550);
     }
 
     function closeMenu() {
@@ -111,29 +113,15 @@ document.addEventListener('DOMContentLoaded', function() {
         newMenuBtn.classList.remove('clicked');
         newMenuBtn.classList.add('unclick');
 
-        if (isDesktop()) {
-            // Desktop: agregar slideDown INMEDIATAMENTE.
-            // CSS anima transform 0.4s + opacity 0.3s con ease-in rapido.
-            overlay.classList.add('slideDown');
-            setTimeout(function () {
-                document.body.style.overflow = '';
-                isOpen = false;
-                isAnimating = false;
-            }, 420);
-        } else {
-            // Mobile: animar con "top" y agregar slideDown despues
-            overlay.style.transition = 'top 0.35s cubic-bezier(0.5, 0, 0.75, 0)';
-            overlay.style.top = '-100%';
+        // Mismo approach en desktop y mobile: el CSS controla la animacion
+        // con translateX(-100%) cuando slideDown esta presente
+        overlay.classList.add('slideDown');
 
-            setTimeout(function () {
-                overlay.classList.add('slideDown');
-                overlay.style.transition = 'none';
-                overlay.style.top = '';
-                document.body.style.overflow = '';
-                isOpen = false;
-                isAnimating = false;
-            }, 380);
-        }
+        setTimeout(function () {
+            document.body.style.overflow = '';
+            isOpen = false;
+            isAnimating = false;
+        }, 450);
     }
 
     // Attach handlers to cloned elements (no old listeners)
