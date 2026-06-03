@@ -224,6 +224,9 @@ if (isset($_seo_blog_post_found)) {
     <!-- Header overlay on scroll (todas las paginas excepto home) -->
     <link rel="stylesheet" href="css/scroll-header.css" type="text/css">
 
+    <!-- Mobile menu = mismo que desktop (overrides estilo viejo hamburger) -->
+    <link rel="stylesheet" href="css/mobile-menu-as-desktop.css?v=<?php echo @filemtime(__DIR__ . '/../../css/mobile-menu-as-desktop.css') ?: time(); ?>" type="text/css">
+
     <?php if (basename($_SERVER['SCRIPT_NAME']) === 'index.php'): ?>
     <!-- Home header simplificado (solo home) - cache buster con filemtime -->
     <link rel="stylesheet" href="css/home-header-simple.css?v=<?php echo @filemtime(__DIR__ . '/../../css/home-header-simple.css') ?: time(); ?>" type="text/css">

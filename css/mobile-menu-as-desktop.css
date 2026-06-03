@@ -1,0 +1,143 @@
+/* ============================================
+   MOBILE MENU = DESKTOP MENU
+   ============================================
+   Reemplaza el hamburger + sidebar overlay mobile
+   por el mismo menu horizontal del desktop.
+
+   Razon: el sidebar overlay tenia mucho codigo legacy
+   con bugs. El menu desktop es mas simple y predecible.
+
+   Strategy: override de las reglas mobile de style.css
+   sin tocar el vendor. Este archivo se carga DESPUES de
+   style.css para que tenga prioridad.
+
+   Breakpoint: max-width 992px (mobile + tablet portrait)
+============================================ */
+
+@media (max-width: 992px) {
+
+    /* 1) OCULTAR el hamburger button */
+    #menu-btn,
+    .menu-btn-mobile-overlay {
+        display: none !important;
+    }
+
+    /* 2) OCULTAR el overlay/sidebar mobile (legacy) */
+    #menu-overlay {
+        display: none !important;
+    }
+
+    /* 3) MOSTRAR el mainmenu (estaba display:none en mobile) */
+    #mainmenu {
+        display: flex !important;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 0;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    #mainmenu > li {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        position: relative;
+    }
+
+    #mainmenu > li > a {
+        display: block;
+        padding: 8px 10px;
+        font-family: 'Heebo', sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        color: #ffffff;
+        text-decoration: none;
+        transition: color 0.2s ease;
+        white-space: nowrap;
+    }
+
+    #mainmenu > li > a:hover,
+    #mainmenu > li > a.active-menu {
+        color: #7baf89;
+    }
+
+    /* 4) LAYOUT del header: logo + menu + extras */
+    header .de-flex,
+    header .de-flex.de-flex-mobile-vertical {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        gap: 8px;
+        padding: 10px 0;
+    }
+
+    /* Logo */
+    header .de-flex > .de-flex-col:first-child {
+        flex: 0 0 auto;
+        order: 1;
+    }
+
+    /* Menu central */
+    header .de-flex > .de-flex-col:nth-child(2) {
+        flex: 1 1 100%;
+        order: 3;
+        justify-content: center;
+    }
+
+    /* Extras (lang + reserva) lado derecho */
+    header .de-flex > .de-flex-col:nth-child(3),
+    header .de-flex > .de-flex-col-mobile {
+        flex: 0 0 auto;
+        order: 2;
+    }
+
+    /* 5) Sub-menus (dropdowns) - mantener funcionalidad pero adaptar */
+    #mainmenu li ul {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: rgba(26, 23, 20, 0.95);
+        backdrop-filter: blur(10px);
+        min-width: 180px;
+        padding: 8px 0;
+        list-style: none;
+        display: none;
+        z-index: 1000;
+        border-radius: 8px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    #mainmenu li:hover > ul,
+    #mainmenu li:focus-within > ul {
+        display: block;
+    }
+
+    #mainmenu li ul li {
+        display: block;
+    }
+
+    #mainmenu li ul li a {
+        display: block;
+        padding: 8px 16px;
+        color: #fff;
+        font-size: 12px;
+        text-decoration: none;
+    }
+}
+
+/* Mobile portrait pequeño: menu mas compacto */
+@media (max-width: 480px) {
+    #mainmenu > li > a {
+        padding: 6px 7px;
+        font-size: 10px;
+        letter-spacing: 0.3px;
+    }
+}

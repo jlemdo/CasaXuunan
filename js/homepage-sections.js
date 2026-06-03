@@ -24,83 +24,112 @@
 (function() {
     'use strict';
 
-    // ========== HERO ELEMENTS VISIBILITY ==========
-    // Lista de selectores de elementos del hero que deben ocultarse
-    // cuando el usuario hace scroll fuera del hero (entra a las secciones).
-    // Razon: estos elementos son position:fixed/absolute y se quedarian
-    // flotando sobre las secciones de abajo, tapando contenido.
+    // ========== HERO ELEMENTS - FADE PROGRESIVO CON SCROLL ==========
+    // Estilo Booking/Airbnb 2026: los elementos del hero (search bar, textos,
+    // reviews btn, social icons, slider controls) NO se ocultan ON/OFF, sino
+    // que su opacity baja PROGRESIVAMENTE con el scroll.
+    //
+    // Curva de fade (en % scrolleado del primer viewport):
+    //   0% scroll  -> opacity 1.0 (totalmente visible)
+    //   15% scroll -> opacity 1.0 (sin cambio aun)
+    //   45% scroll -> opacity 0.0 (totalmente invisible)
+    //   >45%       -> opacity 0.0 + visibility:hidden (no captura clicks)
+    //
+    // Esto permite que al llegar a la primera seccion ya este completamente
+    // oculto, sin "pop" brusco. Usa requestAnimationFrame para 60fps fluido.
+
     var heroSelectors = [
         '.float-text',                    // social icons flotantes laterales
         '#slidecaption',                  // textos del slider (Relajate/Confort/Paz)
         '.reviews-scroll-btn-wrapper',    // boton 'Ver Comentarios 4.8'
-        '.home-search-section',           // SEARCH BAR (el del bug que reportaste)
+        '.home-search-section',           // SEARCH BAR
         '#controls-wrapper',              // controles desktop del slider
         '#progress-back',                 // barra progreso slider
         '#prevslide',                     // flecha anterior slider
         '#nextslide'                      // flecha siguiente slider
     ];
 
-    // Cache de elementos para no re-buscar en cada cambio
     var heroEls = [];
+    var lastOpacity = -1;        // cache para evitar repaint innecesario
+    var rafScheduled = false;
+
+    // Puntos clave del fade (% del primer viewport)
+    var FADE_START = 0.15;  // antes de 15% scroll, full visible
+    var FADE_END = 0.45;    // despues de 45% scroll, full invisible
 
     function initHeroEls() {
         heroSelectors.forEach(function(sel) {
             var el = document.querySelector(sel);
             if (el) heroEls.push(el);
         });
-    }
-
-    function hideHeroEls() {
+        // Setear transicion CSS solo para visibility (la opacity la manejamos JS)
         heroEls.forEach(function(el) {
-            el.style.transition = 'opacity 0.3s ease, visibility 0s linear 0.3s';
-            el.style.opacity = '0';
-            el.style.visibility = 'hidden';
-            el.style.pointerEvents = 'none';
+            el.style.willChange = 'opacity';
         });
     }
 
-    function showHeroEls() {
+    function updateHeroOpacity() {
+        rafScheduled = false;
+
+        var y = window.pageYOffset || 0;
+        var vh = window.innerHeight;
+        var progress = y / vh;  // 0 = top, 1 = scrolleado 1 viewport
+
+        // Calcular opacity con curva lineal entre FADE_START y FADE_END
+        var opacity;
+        if (progress <= FADE_START) {
+            opacity = 1;
+        } else if (progress >= FADE_END) {
+            opacity = 0;
+        } else {
+            var range = FADE_END - FADE_START;
+            opacity = 1 - ((progress - FADE_START) / range);
+        }
+
+        // Redondear a 2 decimales para evitar repaints innecesarios
+        opacity = Math.round(opacity * 100) / 100;
+
+        if (opacity === lastOpacity) return;
+        lastOpacity = opacity;
+
+        // Aplicar a todos los elementos del hero
         heroEls.forEach(function(el) {
-            el.style.transition = 'opacity 0.3s ease, visibility 0s';
-            el.style.opacity = '1';
-            el.style.visibility = 'visible';
-            el.style.pointerEvents = '';
+            el.style.opacity = opacity;
+            // Cuando ya es invisible, quitarlo del flujo de interaccion
+            if (opacity === 0) {
+                el.style.visibility = 'hidden';
+                el.style.pointerEvents = 'none';
+            } else {
+                el.style.visibility = 'visible';
+                el.style.pointerEvents = '';
+            }
         });
     }
 
-    // Observer: vigila el hp-hero-spacer (que ocupa 100dvh inicial).
-    // Cuando este sale del viewport = el usuario salio del hero.
-    // Mucho mas eficiente y confiable que scroll listeners.
-    function initHeroObserver() {
-        var spacer = document.querySelector('.hp-hero-spacer');
-        if (!spacer || !('IntersectionObserver' in window)) return;
+    function onScrollHero() {
+        if (rafScheduled) return;
+        rafScheduled = true;
+        requestAnimationFrame(updateHeroOpacity);
+    }
 
+    function initHeroFade() {
         initHeroEls();
+        if (heroEls.length === 0) return;
 
-        var observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                // intersectionRatio nos dice cuanto del spacer esta visible
-                // > 0.05 = al menos 5% del hero visible -> mostrar hero
-                // <= 0.05 = el hero practicamente desaparecio -> ocultarlo
-                if (entry.intersectionRatio > 0.05) {
-                    showHeroEls();
-                } else {
-                    hideHeroEls();
-                }
-            });
-        }, {
-            // threshold multiple para detectar el momento exacto de cruce
-            threshold: [0, 0.05, 0.1]
-        });
+        // Set inicial
+        updateHeroOpacity();
 
-        observer.observe(spacer);
+        // Listen scroll (passive para no bloquear scroll mobile)
+        window.addEventListener('scroll', onScrollHero, { passive: true });
+
+        // Tambien actualizar al resize (cambia vh)
+        window.addEventListener('resize', onScrollHero, { passive: true });
     }
 
-    // Init cuando DOM listo (los elementos del hero deben existir)
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initHeroObserver);
+        document.addEventListener('DOMContentLoaded', initHeroFade);
     } else {
-        initHeroObserver();
+        initHeroFade();
     }
 
     // ========== SCROLL BUTTON (fijo bottom-right) ==========
