@@ -22,16 +22,9 @@
  </script>
  <div id="content" class="no-bottom no-top">
 
-<!-- float text begin -->
-<div class="float-text">
-    <div class="de_social-icons">
-        <a href="https://www.facebook.com/people/Casa-Xuunan/61578964945156/" target="_blank"><i class="fa fa-facebook fa-lg"></i></a>
-        <a href="https://www.instagram.com/casa_xuunan/" target="_blank"><i class="fa fa-instagram fa-lg"></i></a>
-        <a href="https://api.whatsapp.com/send?phone=5219852580599" target="_blank" ><i class="fa fa-whatsapp fa-lg"></i></a>
-    </div>
-    <span><a href="/rooms.php"><?php echo t('btn_book'); ?></a></span>
-</div>
-<!-- float text close -->
+<!-- NOTA: el float-text (social icons laterales) ahora viene del navbar.php
+     standard, no necesitamos duplicarlo aqui. -->
+
 
 <div class='slider-overlay'></div>
 
@@ -171,15 +164,54 @@
         if (!section) return;
 
         var isExpanded = false;
+        var savedScrollY = 0;  // posicion del scroll antes de abrir widget
 
         // Create dark overlay for focus effect
         var overlay = document.createElement('div');
         overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0);z-index:1001;pointer-events:none;transition:background 0.4s ease;';
         document.body.appendChild(overlay);
 
+        // ========== BODY SCROLL LOCK (FIX BUG) ==========
+        // Cuando el widget esta abierto, bloquear el scroll de la pagina para
+        // que ningun focus-scroll del browser, ningun touch accidental, ni el
+        // teclado virtual mobile puedan mover la pagina.
+        // Usamos position:fixed + top negativo para preservar posicion visual
+        // y luego restaurar al cerrar.
+        function lockBodyScroll() {
+            savedScrollY = window.pageYOffset || window.scrollY || 0;
+
+            // Forzar scroll al top primero (asi el hero se ve completo)
+            window.scrollTo(0, 0);
+
+            // Bloquear scroll del body con position:fixed
+            document.body.style.position = 'fixed';
+            document.body.style.top = '0';
+            document.body.style.left = '0';
+            document.body.style.right = '0';
+            document.body.style.width = '100%';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function unlockBodyScroll() {
+            // Restaurar estilos del body
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.left = '';
+            document.body.style.right = '';
+            document.body.style.width = '';
+            document.body.style.overflow = '';
+
+            // Restaurar la posicion del scroll donde estaba antes
+            window.scrollTo(0, savedScrollY);
+        }
+
         function collapseSearch() {
             if (!isExpanded) return;
             isExpanded = false;
+
+            // Desbloquear scroll del body
+            unlockBodyScroll();
+
             section.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
             section.style.transform = 'translateY(0)';
             overlay.style.background = 'rgba(0,0,0,0)';
@@ -202,6 +234,10 @@
         function expandSearch() {
             if (isExpanded) return;
             isExpanded = true;
+
+            // Bloquear scroll del body (esto tambien hace scroll a top primero)
+            lockBodyScroll();
+
             var vh = window.innerHeight;
             var isDesktop = window.innerWidth > 992;
             var moveUp = Math.round(vh * (isDesktop ? 0.30 : 0.22));
