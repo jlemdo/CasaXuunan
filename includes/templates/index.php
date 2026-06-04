@@ -177,51 +177,41 @@
         overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0);z-index:1001;pointer-events:none;transition:background 0.4s ease;';
         document.body.appendChild(overlay);
 
-        // ========== BODY SCROLL LOCK (NO FLASH) ==========
-        // Pattern profesional sin flash visual:
-        //
-        // Al ABRIR el widget:
-        //   1) Guardar la posicion actual de scroll en savedScrollY
-        //   2) Aplicar body.position:fixed CON top:-savedScrollY
-        //      -> el contenido queda visualmente en su sitio (NO salta)
-        //      -> el body queda bloqueado
-        //   3) NO se hace scrollTo() previo. Cero salto.
-        //
-        // Al CERRAR el widget:
-        //   1) Quitar estilos del body
-        //   2) scrollTo(0, savedScrollY) instantaneo para mantener
-        //      el contenido EXACTAMENTE donde el usuario lo dejo
-        //   3) Cero salto, cero flash.
-        //
-        // Esto es lo que hacen Booking, Airbnb, Stripe modal lock.
-
-        var savedScrollY = 0;
-
+        // ========== BODY SCROLL LOCK (FIX BUG) ==========
+        // Cuando el widget esta abierto, bloquear el scroll de la pagina para
+        // que ningun focus-scroll del browser, ningun touch accidental, ni el
+        // teclado virtual mobile puedan mover la pagina.
+        // Pattern simple: al abrir widget, scroll al top y bloquear body.
+        // Al cerrar, mantener Y=0 (hero completo visible) en lugar de
+        // restaurar la posicion anterior.
+        // Razon: el widget de busqueda solo es usable cuando estas cerca
+        // del hero (fade lo oculta abajo). Asi que despues de cerrar, lo
+        // mas natural es quedarse arriba.
         function lockBodyScroll() {
-            // Guardar posicion actual (puede no ser 0 si el usuario scrolleo)
-            savedScrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+            // Scroll al top primero (asi el hero se ve completo)
+            window.scrollTo(0, 0);
 
-            // Aplicar position:fixed con top NEGATIVO igual al scroll actual
-            // -> el contenido se queda visualmente igual (sin salto)
-            // -> el body queda bloqueado, no se puede scrollear mas
+            // Bloquear scroll del body con position:fixed
             document.body.style.position = 'fixed';
-            document.body.style.top = '-' + savedScrollY + 'px';
+            document.body.style.top = '0';
             document.body.style.left = '0';
             document.body.style.right = '0';
             document.body.style.width = '100%';
+            document.body.style.overflow = 'hidden';
         }
 
         function unlockBodyScroll() {
-            // Quitar estilos del body (esto causa un reflow instantaneo)
+            // Restaurar estilos del body
             document.body.style.position = '';
             document.body.style.top = '';
             document.body.style.left = '';
             document.body.style.right = '';
             document.body.style.width = '';
+            document.body.style.overflow = '';
 
-            // Restaurar la posicion original que tenia el usuario
-            // (scrollTo instantaneo, no smooth, para que sea inmediato)
-            window.scrollTo(0, savedScrollY);
+            // Asegurar que queda en Y=0 (top, hero completo visible)
+            // Esto evita cualquier "scroll fantasma" residual del browser
+            window.scrollTo(0, 0);
         }
 
         function collapseSearch() {
