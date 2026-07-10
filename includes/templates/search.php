@@ -49,6 +49,37 @@
             </div>
         </div>
 
+        <!-- Banner CASA10: recordatorio del descuento -10% (neuroventas) -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="search-promo-banner"
+                         data-copy-code="CASA10"
+                         data-toast-message="<?php echo htmlspecialchars(tx([
+                             'es' => '✓ Código CASA10 copiado',
+                             'en' => '✓ CASA10 code copied',
+                             'fr' => '✓ Code CASA10 copié',
+                         ]), ENT_QUOTES); ?>"
+                         role="button"
+                         tabindex="0"
+                         aria-label="<?php echo tx([
+                             'es' => 'Copiar código CASA10',
+                             'en' => 'Copy CASA10 code',
+                             'fr' => 'Copier le code CASA10',
+                         ]); ?>">
+                        <span class="search-promo-gift">🎁</span>
+                        <span class="search-promo-text"><?php echo tx([
+                            'es' => 'Reserva directo y ahorra 10% con el código',
+                            'en' => 'Book direct and save 10% with code',
+                            'fr' => 'Réservez direct et économisez 10% avec le code',
+                        ]); ?></span>
+                        <span class="search-promo-code">CASA10</span>
+                        <span class="search-promo-copy-icon" aria-hidden="true">📋</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Hospitable Search Widget (full-width, no container restriction) -->
         <div class="search-widget-fullwidth">
             <hospitable-direct-mps identifier="acfc5534-2d3d-4f1e-88a0-74360d86804f" type="custom"></hospitable-direct-mps>
@@ -317,6 +348,152 @@ window.addEventListener('load', function() {
         });
         obs.observe(el.shadowRoot, { childList: true, subtree: true });
     }, 300);
+})();
+</script>
+
+<!-- Banner CASA10: estilos + interaccion copy-to-clipboard -->
+<style>
+.search-promo-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-width: 640px;
+    margin: 0 auto 22px;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(123, 175, 137, 0.15));
+    border: 2px dashed rgba(212, 175, 55, 0.6);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    font-family: 'Heebo', 'Montserrat', sans-serif;
+}
+.search-promo-banner:hover,
+.search-promo-banner:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    border-color: rgba(212, 175, 55, 0.9);
+    outline: none;
+}
+.search-promo-gift {
+    font-size: 22px;
+    line-height: 1;
+}
+.search-promo-text {
+    font-size: 15px;
+    font-weight: 500;
+    color: #f5f0eb;
+}
+.search-promo-code {
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #eddd98;
+    background: rgba(212, 175, 55, 0.2);
+    padding: 4px 12px;
+    border-radius: 6px;
+}
+.search-promo-copy-icon {
+    font-size: 16px;
+    opacity: 0.7;
+}
+@media (max-width: 767px) {
+    .search-promo-banner {
+        margin: 0 12px 18px;
+        padding: 12px 16px;
+        gap: 8px;
+    }
+    .search-promo-text {
+        font-size: 13px;
+        flex-basis: 100%;
+        text-align: center;
+    }
+}
+/* Toast de confirmacion al copiar */
+.cx-promo-toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: rgba(26, 23, 20, 0.95);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-family: 'Heebo', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    z-index: 99999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.cx-promo-toast.cx-promo-toast-show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+</style>
+<script>
+(function() {
+    var banner = document.querySelector('.search-promo-banner[data-copy-code]');
+    if (!banner) return;
+
+    var code = banner.getAttribute('data-copy-code');
+    var toastMsg = banner.getAttribute('data-toast-message') || '✓ Copiado';
+
+    function showToast() {
+        var toast = document.createElement('div');
+        toast.className = 'cx-promo-toast';
+        toast.textContent = toastMsg;
+        document.body.appendChild(toast);
+
+        // Forzar reflow y animar
+        requestAnimationFrame(function() {
+            toast.classList.add('cx-promo-toast-show');
+        });
+
+        // Quitar despues de 2.4s
+        setTimeout(function() {
+            toast.classList.remove('cx-promo-toast-show');
+            setTimeout(function() {
+                if (toast.parentNode) toast.parentNode.removeChild(toast);
+            }, 300);
+        }, 2400);
+    }
+
+    function copyCode() {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(code).then(showToast, fallbackCopy);
+        } else {
+            fallbackCopy();
+        }
+    }
+
+    function fallbackCopy() {
+        var ta = document.createElement('textarea');
+        ta.value = code;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        try {
+            document.execCommand('copy');
+            showToast();
+        } catch (e) {}
+        document.body.removeChild(ta);
+    }
+
+    banner.addEventListener('click', copyCode);
+    banner.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            copyCode();
+        }
+    });
 })();
 </script>
 
