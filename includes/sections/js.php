@@ -38,6 +38,15 @@ if (basename($_SERVER['SCRIPT_NAME']) === 'index.php') {
 }
 ?>
 <?php
+// Welcome Popup CASA10 tambien en search.php (landing de los ads).
+// Recuerda el descuento CASA10 al viajero que llega directo desde Google Ads.
+// El popup detecta que esta en search.php y su CTA solo cierra (no redirige).
+if (basename($_SERVER['SCRIPT_NAME']) === 'search.php') {
+    $popup_v = @filemtime(__DIR__ . '/../../js/welcome-popup.js') ?: time();
+    echo '<script src="' . BASE_URL . '/js/welcome-popup.js?v=' . $popup_v . '" defer></script>';
+}
+?>
+<?php
 if (basename($_SERVER['SCRIPT_NAME']) === 'rooms.php') {
     echo '<script src="' . BASE_URL . '/js/rooms.js"></script>';
 }

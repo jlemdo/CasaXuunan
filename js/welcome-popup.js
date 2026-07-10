@@ -82,14 +82,17 @@
 
     // ===== HELPERS =====
 
-    // Solo mostrar en home (no en otras paginas)
+    // Mostrar en home Y en search.php (buscador, landing de los ads)
+    // En search.php el popup recuerda el descuento CASA10 al viajero que
+    // llega directo desde Google Ads antes de reservar.
     function isHome() {
         var page = (location.pathname.split('/').pop() || 'index.php').toLowerCase();
         return (
             page === '' ||
             page === '/' ||
             page === 'index.php' ||
-            page === 'index-full-page.php'
+            page === 'index-full-page.php' ||
+            page === 'search.php'
         );
     }
 
@@ -132,6 +135,12 @@
                '&adults=2';
     }
 
+    // Detectar si estamos EN search.php (para ajustar el CTA)
+    function isSearchPage() {
+        var page = (location.pathname.split('/').pop() || '').toLowerCase();
+        return page === 'search.php';
+    }
+
     // ===== CONSTRUCCION DEL POPUP =====
     function buildPopup() {
         var overlay = document.createElement('div');
@@ -140,6 +149,16 @@
         overlay.setAttribute('role', 'dialog');
         overlay.setAttribute('aria-modal', 'true');
         overlay.setAttribute('aria-labelledby', 'cx-popup-title');
+
+        // CTA: en el HOME lleva a search.php (buscar disponibilidad).
+        // En SEARCH.PHP el usuario YA esta en el buscador -> el CTA solo cierra
+        // el popup para que use el buscador que ya tiene enfrente.
+        var ctaHtml;
+        if (isSearchPage()) {
+            ctaHtml = '<button type="button" class="cx-popup-cta cx-popup-cta-close">' + S.cta + ' →</button>';
+        } else {
+            ctaHtml = '<a href="' + getRoomsUrl() + '" class="cx-popup-cta">' + S.cta + ' →</a>';
+        }
 
         overlay.innerHTML =
             '<div class="cx-popup">' +
@@ -156,7 +175,7 @@
                             '<button type="button" class="cx-popup-copy-btn" aria-label="' + S.copyBtn + '">' + S.copyBtn + '</button>' +
                         '</div>' +
                     '</div>' +
-                    '<a href="' + getRoomsUrl() + '" class="cx-popup-cta">' + S.cta + ' →</a>' +
+                    ctaHtml +
                     '<p class="cx-popup-trust">' + S.trust + '</p>' +
                 '</div>' +
             '</div>';
@@ -194,10 +213,18 @@
         var closeBtn = overlay.querySelector('.cx-popup-close');
         var copyBtn = overlay.querySelector('.cx-popup-copy-btn');
         var codeText = overlay.querySelector('#cx-popup-code-text');
+        var ctaClose = overlay.querySelector('.cx-popup-cta-close');
 
         // Cerrar con X
         if (closeBtn) {
             closeBtn.addEventListener('click', function () {
+                closePopup(overlay);
+            });
+        }
+
+        // CTA en search.php: cierra el popup (el usuario ya esta en el buscador)
+        if (ctaClose) {
+            ctaClose.addEventListener('click', function () {
                 closePopup(overlay);
             });
         }
