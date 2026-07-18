@@ -31,6 +31,10 @@ if (basename($_SERVER['SCRIPT_NAME']) === 'index.php') {
     echo '<script src="' . BASE_URL . '/js/index.js"></script>';
     echo '<script src="' . BASE_URL . '/js/reviews-section.js"></script>';
     echo '<script src="' . BASE_URL . '/js/homepage-sections.js"></script>';
+    // Carrusel de reseñas: auto-scroll + pausa hover + drag mouse/touch
+    // cache buster con filemtime para forzar recarga al actualizar
+    $carousel_v = @filemtime(__DIR__ . '/../../js/reviews-carousel.js') ?: time();
+    echo '<script src="' . BASE_URL . '/js/reviews-carousel.js?v=' . $carousel_v . '" defer></script>';
     // Welcome Popup CASA10 - solo home, 1 vez por sesion, delay 3s
     // cache buster con filemtime para forzar recarga al actualizar
     $popup_v = @filemtime(__DIR__ . '/../../js/welcome-popup.js') ?: time();

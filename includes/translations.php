@@ -704,12 +704,12 @@ $translations = [
 
         // Section 2: Lo que si tenemos. Lo que no.
         'hp_eco_title' => 'Lo que sí tenemos. Lo que no.',
-        'hp_eco_quote' => 'Sin maquillaje. Sin sorpresas.',
-        'hp_eco_philosophy' => 'Mejor te lo decimos de frente. Si esperas algo distinto a esto, mejor revisa Booking. Si lo de abajo te suena bien, vas a estar como en casa.',
+        'hp_eco_quote' => 'Transparentes desde el primer día.',
+        'hp_eco_philosophy' => 'Preferimos ser claros contigo. Aquí encontrarás lo esencial hecho con cariño y dedicación. Si buscas una experiencia auténtica y cercana, te vas a sentir como en casa.',
         // Lista LO QUE SI
         'hp_eco_yes_title' => 'LO QUE SÍ',
         'hp_eco_yes_1' => '🍳 Desayuno hecho aquí cada mañana',
-        'hp_eco_yes_2' => '🏡 9 habitaciones (te conocemos por nombre)',
+        'hp_eco_yes_2' => '🏡 9 habitaciones cómodas y acogedoras',
         'hp_eco_yes_3' => '🌿 Jardín tropical con hamacas',
         'hp_eco_yes_4' => '📡 Wi-Fi Starlink en todo el B&B',
         'hp_eco_yes_5' => '🚗 Estacionamiento privado gratuito',
@@ -718,7 +718,7 @@ $translations = [
         'hp_eco_no_title' => 'LO QUE NO',
         'hp_eco_no_1' => '✗ Buffet impersonal recalentado',
         'hp_eco_no_2' => '✗ Recepción 24/7 con personal rotando',
-        'hp_eco_no_3' => '✗ Lobby con pantallas y música ambiental',
+        'hp_eco_no_3' => '✗ Lobby con pantallas',
         'hp_eco_no_4' => '✗ Tarjetas plastificadas en cada esquina',
         'hp_eco_no_5' => '✗ Cobros sorpresa al check-out',
         'hp_eco_no_6' => '✗ Pulsera de colores tipo resort',
@@ -741,7 +741,7 @@ $translations = [
         // Section 3 (NUEVA): Jardin y plantas
         'hp_jardin_subtitle' => 'Detalles que importan',
         'hp_jardin_title' => 'Más de 50 plantas en el jardín.',
-        'hp_jardin_text' => 'Algunas son medicinales mayas, otras puro adorno tropical. De vez en cuando plantamos nuestros propios tomates, papayas, plátanos o limones.',
+        'hp_jardin_text' => 'Algunas son medicinales mayas, otras únicamente adornos tropicales. De vez en cuando plantamos nuestros propios tomates, papayas, plátanos o limones.',
         'hp_jardin_punchline' => 'No somos huerto orgánico — somos un jardín que se cuida con calma.',
         'hp_jardin_tag_tomate' => '🍅 Tomates',
         'hp_jardin_tag_limon' => '🍋 Limones',
@@ -798,7 +798,7 @@ $translations = [
         'hp_location_coloradas_time' => '2 hrs',
         'hp_location_coloradas_name' => 'Las Coloradas',
         'hp_location_coloradas_desc' => 'Los lagos rosados',
-        'hp_location_address' => 'Frente al Convento de San Bernardino de Siena, en el corazón del Barrio de Sisal.',
+        'hp_location_address' => 'Frente al Ex-Convento de San Bernardino de Siena, en el corazón del Barrio de Sisal.',
 
         // Section 7: CTA Final con urgencia REAL y CASA10 visible
         'hp_final_title' => 'Solo somos 9 habitaciones.',
@@ -1511,12 +1511,12 @@ $translations = [
 
         // Section 2: What we have. What we don't.
         'hp_eco_title' => 'What we have. What we don\'t.',
-        'hp_eco_quote' => 'No makeup. No surprises.',
-        'hp_eco_philosophy' => 'We\'d rather tell you upfront. If you\'re expecting something else, better check Booking. If the list below sounds right, you\'ll feel at home.',
+        'hp_eco_quote' => 'Transparent from day one.',
+        'hp_eco_philosophy' => 'We prefer to be clear with you. Here you\'ll find the essentials made with care and dedication. If you\'re looking for an authentic, welcoming experience, you\'ll feel right at home.',
         // YES list
         'hp_eco_yes_title' => 'WHAT WE DO',
         'hp_eco_yes_1' => '🍳 Breakfast made fresh every morning',
-        'hp_eco_yes_2' => '🏡 9 rooms (we know you by name)',
+        'hp_eco_yes_2' => '🏡 9 comfortable, cozy rooms',
         'hp_eco_yes_3' => '🌿 Tropical garden with hammocks',
         'hp_eco_yes_4' => '📡 Starlink Wi-Fi across the whole B&B',
         'hp_eco_yes_5' => '🚗 Free private parking',
@@ -1525,7 +1525,7 @@ $translations = [
         'hp_eco_no_title' => 'WHAT WE DON\'T',
         'hp_eco_no_1' => '✗ Impersonal reheated buffet',
         'hp_eco_no_2' => '✗ 24/7 reception with rotating staff',
-        'hp_eco_no_3' => '✗ Lobby with TVs and elevator music',
+        'hp_eco_no_3' => '✗ Lobby with TVs',
         'hp_eco_no_4' => '✗ Plastic cards everywhere',
         'hp_eco_no_5' => '✗ Surprise charges at check-out',
         'hp_eco_no_6' => '✗ Color-coded resort wristbands',
@@ -1548,7 +1548,7 @@ $translations = [
         // Section 3 (NEW): Garden and plants
         'hp_jardin_subtitle' => 'Details that matter',
         'hp_jardin_title' => 'More than 50 plants in the garden.',
-        'hp_jardin_text' => 'Some are Mayan medicinal, others pure tropical decor. Once in a while we plant our own tomatoes, papayas, bananas or limes.',
+        'hp_jardin_text' => 'Some are Mayan medicinal, others solely tropical decoration. Once in a while we plant our own tomatoes, papayas, bananas or limes.',
         'hp_jardin_punchline' => 'We\'re not an organic farm — we\'re a garden cared for slowly.',
         'hp_jardin_tag_tomate' => '🍅 Tomatoes',
         'hp_jardin_tag_limon' => '🍋 Limes',
@@ -1605,7 +1605,7 @@ $translations = [
         'hp_location_coloradas_time' => '2 hrs',
         'hp_location_coloradas_name' => 'Las Coloradas',
         'hp_location_coloradas_desc' => 'The pink lakes',
-        'hp_location_address' => 'Facing the San Bernardino de Siena Convent, in the heart of the Sisal neighborhood.',
+        'hp_location_address' => 'Facing the San Bernardino de Siena Ex-Convent, in the heart of the Sisal neighborhood.',
 
         // Section 7: Final CTA with REAL urgency and visible CASA10
         'hp_final_title' => 'We\'re only 9 rooms.',

@@ -129,7 +129,12 @@
         </div>
     </section>
 
-    <!-- ========== SECCIÓN 4: ¿Es Casa Xu'unan para ti? ========== -->
+    <!-- ========== SECCIÓN 4: ¿Es Casa Xu'unan para ti? (REDISEÑO CHECKLIST) ==========
+         Diseño distinto a la Sección 2 (no mas 2 columnas Si/No):
+         - Los "SI" son protagonistas: cards horizontales con check animado
+         - Los "NO" son secundarios: texto inline discreto abajo
+         - Manifiesto final destacado
+    -->
     <section id="hp-filtro" class="hp-section hp-section-light">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
@@ -137,35 +142,46 @@
                 <h2 class="hp-title"><?php echo t('hp_filtro_title'); ?></h2>
             </div>
 
-            <!-- Filtro Sí / No (2 cols desktop, apilada mobile) -->
-            <div class="hp-yesno-grid wow fadeInUp" data-wow-delay="0.2s">
-                <!-- SÍ, si... -->
-                <div class="hp-yesno-col hp-yesno-yes hp-filtro-col">
-                    <div class="hp-yesno-header">
-                        <span class="hp-yesno-tag"><?php echo t('hp_filtro_yes_title'); ?></span>
-                    </div>
-                    <ul class="hp-yesno-list hp-yesno-check">
-                        <li><?php echo t('hp_filtro_yes_1'); ?></li>
-                        <li><?php echo t('hp_filtro_yes_2'); ?></li>
-                        <li><?php echo t('hp_filtro_yes_3'); ?></li>
-                        <li><?php echo t('hp_filtro_yes_4'); ?></li>
-                    </ul>
+            <!-- Checklist de "SI" - cards horizontales con check animado -->
+            <div class="hp-filtro-checklist">
+                <div class="hp-filtro-check-item wow fadeInUp" data-wow-delay="0.15s">
+                    <span class="hp-filtro-check-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="22" height="22"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M4 12.5l5 5L20 6"/></svg>
+                    </span>
+                    <span class="hp-filtro-check-text"><?php echo t('hp_filtro_yes_1'); ?></span>
                 </div>
-
-                <!-- NO, si... -->
-                <div class="hp-yesno-col hp-yesno-no hp-filtro-col">
-                    <div class="hp-yesno-header">
-                        <span class="hp-yesno-tag"><?php echo t('hp_filtro_no_title'); ?></span>
-                    </div>
-                    <ul class="hp-yesno-list hp-yesno-cross">
-                        <li><?php echo t('hp_filtro_no_1'); ?></li>
-                        <li><?php echo t('hp_filtro_no_2'); ?></li>
-                        <li><?php echo t('hp_filtro_no_3'); ?></li>
-                        <li><?php echo t('hp_filtro_no_4'); ?></li>
-                    </ul>
+                <div class="hp-filtro-check-item wow fadeInUp" data-wow-delay="0.25s">
+                    <span class="hp-filtro-check-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="22" height="22"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M4 12.5l5 5L20 6"/></svg>
+                    </span>
+                    <span class="hp-filtro-check-text"><?php echo t('hp_filtro_yes_2'); ?></span>
+                </div>
+                <div class="hp-filtro-check-item wow fadeInUp" data-wow-delay="0.35s">
+                    <span class="hp-filtro-check-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="22" height="22"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M4 12.5l5 5L20 6"/></svg>
+                    </span>
+                    <span class="hp-filtro-check-text"><?php echo t('hp_filtro_yes_3'); ?></span>
+                </div>
+                <div class="hp-filtro-check-item wow fadeInUp" data-wow-delay="0.45s">
+                    <span class="hp-filtro-check-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="22" height="22"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M4 12.5l5 5L20 6"/></svg>
+                    </span>
+                    <span class="hp-filtro-check-text"><?php echo t('hp_filtro_yes_4'); ?></span>
                 </div>
             </div>
 
+            <!-- Separador + "NO" discreto inline -->
+            <div class="hp-filtro-no-block wow fadeInUp" data-wow-delay="0.3s">
+                <div class="hp-filtro-no-title"><?php echo t('hp_filtro_no_title'); ?></div>
+                <div class="hp-filtro-no-items">
+                    <span><?php echo t('hp_filtro_no_1'); ?></span>
+                    <span><?php echo t('hp_filtro_no_2'); ?></span>
+                    <span><?php echo t('hp_filtro_no_3'); ?></span>
+                    <span><?php echo t('hp_filtro_no_4'); ?></span>
+                </div>
+            </div>
+
+            <!-- Manifiesto final destacado -->
             <div class="hp-filtro-bottom wow fadeInUp" data-wow-delay="0.4s">
                 <?php echo t('hp_filtro_bottom'); ?>
             </div>

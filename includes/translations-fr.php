@@ -717,12 +717,12 @@ $translations['fr'] = [
 
     // Section 2: Ce qu\'on a. Ce qu\'on n\'a pas.
     'hp_eco_title' => 'Ce qu\'on a. Ce qu\'on n\'a pas.',
-    'hp_eco_quote' => 'Sans maquillage. Sans surprises.',
-    'hp_eco_philosophy' => 'On prefere vous le dire en face. Si vous attendez autre chose, mieux vaut regarder Booking. Si la liste ci-dessous vous parle, vous serez comme chez vous.',
+    'hp_eco_quote' => 'Transparents dès le premier jour.',
+    'hp_eco_philosophy' => 'Nous préférons être clairs avec vous. Ici vous trouverez l\'essentiel fait avec soin et dévouement. Si vous cherchez une expérience authentique et chaleureuse, vous vous sentirez comme chez vous.',
     // Liste CE QU\'ON A
     'hp_eco_yes_title' => 'CE QU\'ON A',
     'hp_eco_yes_1' => '🍳 Petit-dejeuner fait ici chaque matin',
-    'hp_eco_yes_2' => '🏡 9 chambres (on vous connait par votre nom)',
+    'hp_eco_yes_2' => '🏡 9 chambres confortables et accueillantes',
     'hp_eco_yes_3' => '🌿 Jardin tropical avec hamacs',
     'hp_eco_yes_4' => '📡 Wi-Fi Starlink partout dans le B&B',
     'hp_eco_yes_5' => '🚗 Parking prive gratuit',
@@ -731,7 +731,7 @@ $translations['fr'] = [
     'hp_eco_no_title' => 'CE QU\'ON N\'A PAS',
     'hp_eco_no_1' => '✗ Buffet impersonnel rechauffe',
     'hp_eco_no_2' => '✗ Reception 24/7 avec personnel tournant',
-    'hp_eco_no_3' => '✗ Lobby avec ecrans et musique d\'ambiance',
+    'hp_eco_no_3' => '✗ Lobby avec écrans',
     'hp_eco_no_4' => '✗ Cartes plastifiees a chaque coin',
     'hp_eco_no_5' => '✗ Frais surprise au check-out',
     'hp_eco_no_6' => '✗ Bracelet de couleurs style resort',
@@ -754,7 +754,7 @@ $translations['fr'] = [
     // Section 3 (NOUVELLE) : Jardin et plantes
     'hp_jardin_subtitle' => 'Les details qui comptent',
     'hp_jardin_title' => 'Plus de 50 plantes dans le jardin.',
-    'hp_jardin_text' => 'Certaines sont medicinales mayas, d\'autres pur decor tropical. De temps en temps on plante nos propres tomates, papayes, bananes ou citrons.',
+    'hp_jardin_text' => 'Certaines sont medicinales mayas, d\'autres uniquement décoration tropicale. De temps en temps on plante nos propres tomates, papayes, bananes ou citrons.',
     'hp_jardin_punchline' => 'On n\'est pas une ferme bio — on est un jardin entretenu en douceur.',
     'hp_jardin_tag_tomate' => '🍅 Tomates',
     'hp_jardin_tag_limon' => '🍋 Citrons',
@@ -811,7 +811,7 @@ $translations['fr'] = [
     'hp_location_coloradas_time' => '2h',
     'hp_location_coloradas_name' => 'Las Coloradas',
     'hp_location_coloradas_desc' => 'Les lacs roses',
-    'hp_location_address' => 'Face au Couvent de San Bernardino de Siena, au coeur du Quartier de Sisal.',
+    'hp_location_address' => 'Face à l\'Ex-Couvent de San Bernardino de Siena, au coeur du Quartier de Sisal.',
 
     // Section 7: CTA Final avec urgence REELLE et CASA10 visible
     'hp_final_title' => 'Nous ne sommes que 9 chambres.',

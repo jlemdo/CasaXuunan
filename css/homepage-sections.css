@@ -117,10 +117,10 @@ body.hp-has-sections .slider-overlay {
     /* Aumentar height para cubrir el cambio dinamico del viewport mobile */
     height: 110% !important;
     /* Garantizar que el gradient termine en el color oscuro de Seccion 1
-       (#1a1714 = hp-section-dark) para fundirse perfectamente con ella */
+       (#2a241d = hp-section-dark) para fundirse perfectamente con ella */
     background: linear-gradient(
         0deg,
-        #1a1714 0%,
+        #2a241d 0%,
         rgba(20, 20, 20, 0.65) 15%,
         rgba(107, 87, 64, 0.5) 100%
     ) !important;
@@ -185,7 +185,7 @@ body.hp-has-sections #wrapper {
     overflow: hidden;
 }
 .hp-section-dark {
-    background: #1a1714;
+    background: #2a241d;
     color: #f5f0eb;
 }
 .hp-section-light {
@@ -235,7 +235,7 @@ body.hp-has-sections #wrapper {
    Para que se vea la textura pero el texto siga legible */
 #hp-lujo {
     padding: 100px 0 80px;
-    background: #1a1714;
+    background: #2a241d;
     position: relative;
 }
 #hp-lujo::before {
@@ -301,8 +301,10 @@ body.hp-has-sections #wrapper {
     color: #312b24;
     position: relative;
     padding: 0 20px;
-    margin-bottom: 20px;
+    margin: 0 auto 20px;
     line-height: 1.5;
+    text-align: center;
+    max-width: 700px;
 }
 .hp-quote-text::before,
 .hp-quote-text::after {
@@ -329,7 +331,12 @@ body.hp-has-sections #wrapper {
     line-height: 1.8;
     color: #555;
     max-width: 650px;
+    /* Centrar el parrafo dentro del contenedor (antes quedaba a la izquierda
+       porque max-width limitaba el ancho pero no habia margin auto) */
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 40px;
+    text-align: center;
 }
 
 /* Pillar Cards */
@@ -566,7 +573,7 @@ body.hp-has-sections #wrapper {
 
 /* --- Section 4: Experiencias Reales (Social Proof) --- */
 #hp-social-proof {
-    background: #1a1714;
+    background: #2a241d;
     padding: 90px 0;
 }
 #hp-social-proof .hp-subtitle {
@@ -754,7 +761,7 @@ body.hp-has-sections #wrapper {
 #hp-final-cta {
     padding: 100px 0 60px;
     position: relative;
-    background: #1a1714;
+    background: #2a241d;
     text-align: center;
     overflow: hidden;
 }
@@ -1453,6 +1460,147 @@ body.hp-has-sections #back-to-top {
     }
 }
 
+/* ============================================
+   SECCION 4 REDISEÑO: Checklist interactivo
+   Diseño distinto a la Seccion 2 (no mas 2 columnas)
+   - SI = cards horizontales protagonistas con check animado
+   - NO = texto inline discreto
+   - Manifiesto final destacado
+   ============================================ */
+
+/* Contenedor del checklist de "SI" */
+.hp-filtro-checklist {
+    max-width: 620px;
+    margin: 40px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 0 16px;
+}
+@media (min-width: 768px) {
+    .hp-filtro-checklist {
+        margin-top: 55px;
+        gap: 16px;
+    }
+}
+
+/* Card horizontal de cada afirmacion "SI" */
+.hp-filtro-check-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #ffffff;
+    border: 1px solid rgba(123, 175, 137, 0.25);
+    border-left: 4px solid #7baf89;
+    border-radius: 14px;
+    padding: 18px 22px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.hp-filtro-check-item:hover {
+    transform: translateX(6px);
+    box-shadow: 0 8px 28px rgba(123, 175, 137, 0.15);
+    border-color: rgba(123, 175, 137, 0.5);
+}
+
+/* Icono check dentro de circulo verde */
+.hp-filtro-check-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #7baf89, #6a9d78);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 10px rgba(123, 175, 137, 0.35);
+}
+.hp-filtro-check-icon svg {
+    display: block;
+}
+
+/* Texto de la afirmacion */
+.hp-filtro-check-text {
+    font-family: 'Heebo', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: #3a3a3a;
+    line-height: 1.5;
+}
+@media (min-width: 768px) {
+    .hp-filtro-check-text {
+        font-size: 16px;
+    }
+}
+
+/* Bloque "NO" - discreto, separado */
+.hp-filtro-no-block {
+    max-width: 700px;
+    margin: 40px auto 0;
+    text-align: center;
+    padding: 0 16px;
+}
+.hp-filtro-no-title {
+    font-family: 'Heebo', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(180, 100, 90, 0.75);
+    margin-bottom: 16px;
+    position: relative;
+    display: inline-block;
+    padding: 0 20px;
+}
+.hp-filtro-no-title::before,
+.hp-filtro-no-title::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 1px;
+    background: rgba(180, 100, 90, 0.3);
+}
+.hp-filtro-no-title::before { left: -20px; }
+.hp-filtro-no-title::after { right: -20px; }
+
+.hp-filtro-no-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 20px;
+}
+.hp-filtro-no-items span {
+    font-family: 'Heebo', sans-serif;
+    font-size: 13.5px;
+    color: #999;
+    position: relative;
+    padding-left: 20px;
+}
+.hp-filtro-no-items span::before {
+    content: '✗';
+    position: absolute;
+    left: 0;
+    color: rgba(180, 100, 90, 0.6);
+    font-weight: 700;
+}
+@media (min-width: 768px) {
+    .hp-filtro-no-items span {
+        font-size: 14px;
+    }
+}
+
+/* Manifiesto final destacado */
+#hp-filtro .hp-filtro-bottom {
+    max-width: 640px;
+    margin: 45px auto 0;
+    padding: 24px 30px;
+    background: linear-gradient(135deg, rgba(123, 175, 137, 0.08), rgba(212, 175, 55, 0.08));
+    border-radius: 14px;
+    border: 1px solid rgba(123, 175, 137, 0.2);
+}
+
 /* Filtro: lista con checkmarks/cruces personalizadas */
 .hp-yesno-check li {
     position: relative;
@@ -1705,10 +1853,19 @@ body.hp-has-sections #back-to-top {
     overflow-y: hidden;
     padding: 10px 16px 30px;
     margin: 0 -16px;
-    scroll-snap-type: x mandatory;
+    /* scroll-snap quitado: peleaba con el auto-scroll continuo del JS.
+       Ahora el carrusel avanza solo de forma fluida (js/reviews-carousel.js) */
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
     scrollbar-color: rgba(123, 175, 137, 0.5) transparent;
+    /* Cursor de arrastrar: indica que se puede drag con mouse */
+    cursor: grab;
+    /* Evitar seleccion de texto/imagen al arrastrar */
+    user-select: none;
+    -webkit-user-select: none;
+}
+.hp-reviews-carousel.hp-carousel-grabbing {
+    cursor: grabbing;
 }
 .hp-reviews-carousel::-webkit-scrollbar {
     height: 6px;
