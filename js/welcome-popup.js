@@ -28,7 +28,7 @@
     // ===== CONFIG =====
     var STORAGE_KEY = 'cx_welcome_popup_shown';
     var DELAY_MS = 3000; // 3 segundos antes de aparecer
-    var IMAGE_URL = 'images/gallery/gallery-item-3.jpg'; // misma que OG image, jardin tropical
+    var IMAGE_URL = 'images/popup/popup-casa10.jpg'; // imagen propia del popup (foto original, no compartida con galeria)
 
     // ===== DETECCION DE IDIOMA =====
     // Soporta 3 idiomas (es / en / fr) - default es
