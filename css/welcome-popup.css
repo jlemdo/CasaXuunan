@@ -89,7 +89,10 @@
     flex: 1 1 50%;
     min-height: 420px;
     background-size: cover;
-    background-position: center;
+    /* La foto es horizontal (aerea del jardin) y el hueco es una columna
+       vertical estrecha. Con 'center' la alberca queda cortada; encuadrando
+       en 72% 45% se ve la alberca redonda completa + la palapa (lo mas vendedor). */
+    background-position: 72% 45%;
     background-repeat: no-repeat;
     position: relative;
 }
@@ -280,6 +283,10 @@
         flex: 0 0 180px;
         min-height: 180px;
         max-height: 180px;
+        /* En mobile la imagen es una banda horizontal ancha; encuadramos algo
+           mas al centro que en desktop para que la alberca quede equilibrada
+           (con 72% quedaba pegada al borde derecho). */
+        background-position: 60% 50%;
     }
 
     .cx-popup-content {
