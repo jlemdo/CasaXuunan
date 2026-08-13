@@ -4,6 +4,9 @@
 <script>
     window.PHP_LANG = '<?php echo getCurrentLanguage(); ?>';
     window.HOSPITABLE_MARKUP = <?php echo defined('HOSPITABLE_DIRECT_MARKUP') ? HOSPITABLE_DIRECT_MARKUP : 1.10; ?>;
+    // Cache buster de la imagen del popup: usa filemtime para que al cambiar
+    // la foto el navegador (y CDN) baje la nueva sin necesidad de Ctrl+Shift+R.
+    window.CX_POPUP_IMG_V = '<?php echo @filemtime(__DIR__ . '/../../images/popup/popup-casa10-v2.jpg') ?: time(); ?>';
 </script>
 
 <!-- Lang switcher legacy: ya no se usa.

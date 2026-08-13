@@ -28,7 +28,12 @@
     // ===== CONFIG =====
     var STORAGE_KEY = 'cx_welcome_popup_shown';
     var DELAY_MS = 3000; // 3 segundos antes de aparecer
-    var IMAGE_URL = 'images/popup/popup-casa10.jpg'; // imagen propia del popup (foto original, no compartida con galeria)
+    // Imagen propia del popup (foto original, no compartida con galeria).
+    // Se le anade ?v=<filemtime> (inyectado por PHP en window.CX_POPUP_IMG_V)
+    // como cache buster: al reemplazar la foto, el numero cambia y el navegador
+    // (o el CDN) baja la nueva version sin necesidad de recarga forzada manual.
+    var IMAGE_VER = (typeof window !== 'undefined' && window.CX_POPUP_IMG_V) ? window.CX_POPUP_IMG_V : '';
+    var IMAGE_URL = 'images/popup/popup-casa10-v2.jpg' + (IMAGE_VER ? ('?v=' + IMAGE_VER) : '');
 
     // ===== DETECCION DE IDIOMA =====
     // Soporta 3 idiomas (es / en / fr) - default es
