@@ -144,11 +144,27 @@
             }, true);
         }
 
-        // Compact spacing inside widget
+        // Compact spacing inside widget + fix estilo nativo de inputs en iOS.
+        // En iOS Safari/Brave los <input> del widget Hospitable salen con
+        // appearance:auto -> Safari les pinta su fondo gris con degradado y
+        // relieve (se ven "rotos"). Forzamos -webkit-appearance:none para que
+        // respeten el fondo blanco/plano igual que en Chrome/Android.
         if (!widget.shadowRoot.querySelector('#home-widget-fix')) {
             var style = document.createElement('style');
             style.id = 'home-widget-fix';
-            style.textContent = '.search-bar-container { margin-bottom: 0px !important; }';
+            style.textContent = [
+                '.search-bar-container { margin-bottom: 0px !important; }',
+                'input, input[type="text"], input.check-in, input.check-out {',
+                '  -webkit-appearance: none !important;',
+                '  -moz-appearance: none !important;',
+                '  appearance: none !important;',
+                '  background-image: none !important;',
+                '  background-color: #ffffff !important;',
+                '  -webkit-box-shadow: none !important;',
+                '  box-shadow: none !important;',
+                '  border-radius: 12px !important;',
+                '}'
+            ].join('\n');
             widget.shadowRoot.appendChild(style);
         }
 
