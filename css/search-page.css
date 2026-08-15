@@ -183,7 +183,14 @@
 */
 .home-search-section {
     position: fixed;
-    bottom: 0;
+    /* iOS 26 Safari/Brave: la barra inferior flotante es transparente y el
+       navegador NO renderiza contenido position:fixed por DEBAJO de ella
+       (lo recorta). Apple recomienda anclar con safe-area-inset-bottom para
+       que el contenido no baje de la zona segura. En Android/desktop
+       env() = 0px, asi que se comporta igual que antes (bottom:0).
+       Ref: developer.apple.com/forums/thread/800798 */
+    bottom: 0;  /* fallback navegadores sin env() */
+    bottom: env(safe-area-inset-bottom, 0px);
     left: 0;
     right: 0;
     z-index: 50;
@@ -311,6 +318,9 @@
         padding: 8px 0 4px;
         border-radius: 12px;
         margin-bottom: 65px;  /* raise above reviews button (bottom:10px + ~45px height) */
+        /* Nota: la compensacion de la barra inferior de iOS 26 se hace en
+           .home-search-section via bottom: env(safe-area-inset-bottom).
+           No se suma aqui tambien para no duplicar el desplazamiento. */
     }
 
     .home-search-title {
@@ -339,10 +349,13 @@
     }
 }
 
-/* --- Small mobile (≤374px) — extra safe-area padding --- */
+/* --- Small mobile (≤374px) --- */
 @media (max-width: 374px) {
     .home-search-wrapper {
-        margin-bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+        /* El safe-area de iOS 26 se aplica globalmente en .home-search-section
+           (bottom: env(safe-area-inset-bottom)); aqui solo el margen base para
+           no duplicar el desplazamiento en pantallas pequenas. */
+        margin-bottom: 8px;
     }
 }
 

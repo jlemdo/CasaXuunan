@@ -128,7 +128,9 @@ if (isset($_seo_blog_post_found)) {
         })();
     </script>
     <title><?php echo $_seo_title; ?></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- viewport-fit=cover: necesario para que env(safe-area-inset-*) funcione
+         en iOS (compensar la barra inferior de Safari en elementos fixed) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
     <!-- SEO Meta Tags (dynamic per page) -->
     <meta name="description" content="<?php echo $_seo_description; ?>">
