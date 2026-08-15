@@ -183,14 +183,15 @@
 */
 .home-search-section {
     position: fixed;
-    /* iOS 26 Safari/Brave: la barra inferior flotante es transparente y el
-       navegador NO renderiza contenido position:fixed por DEBAJO de ella
-       (lo recorta). Apple recomienda anclar con safe-area-inset-bottom para
-       que el contenido no baje de la zona segura. En Android/desktop
-       env() = 0px, asi que se comporta igual que antes (bottom:0).
+    /* iOS 26 Safari/Brave (WebKit): la barra flotante inferior del navegador
+       tapa/recorta el contenido position:fixed anclado a bottom:0. El ajuste
+       NO se puede resolver con env(safe-area-inset-bottom) (solo mide el home
+       indicator ~34px, no la barra ~100px). Se corrige por JS midiendo el
+       hueco real con la API visualViewport (ver includes/templates/index.php,
+       bloque "iOS bottom bar fix"), que pone un bottom dinamico solo cuando
+       hace falta. En Android/desktop el hueco es 0 y no cambia nada.
        Ref: developer.apple.com/forums/thread/800798 */
-    bottom: 0;  /* fallback navegadores sin env() */
-    bottom: env(safe-area-inset-bottom, 0px);
+    bottom: 0;
     left: 0;
     right: 0;
     z-index: 50;

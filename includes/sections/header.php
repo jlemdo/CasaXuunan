@@ -128,9 +128,7 @@ if (isset($_seo_blog_post_found)) {
         })();
     </script>
     <title><?php echo $_seo_title; ?></title>
-    <!-- viewport-fit=cover: necesario para que env(safe-area-inset-*) funcione
-         en iOS (compensar la barra inferior de Safari en elementos fixed) -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO Meta Tags (dynamic per page) -->
     <meta name="description" content="<?php echo $_seo_description; ?>">
@@ -265,7 +263,9 @@ if (isset($_seo_blog_post_found)) {
     <?php if (basename($_SERVER['SCRIPT_NAME']) === 'search.php' || basename($_SERVER['SCRIPT_NAME']) === 'index.php'): ?>
     <!-- Hospitable Property Search Widget -->
     <script src="https://hospitable.b-cdn.net/direct-property-search-widget/hospitable-search-widget.prod.js" defer></script>
-    <link rel="stylesheet" href="css/search-page.css" type="text/css">
+    <!-- cache buster con filemtime: sin esto el .htaccess (immutable, 1 anio)
+         hace que los navegadores nunca bajen el CSS actualizado -->
+    <link rel="stylesheet" href="css/search-page.css?v=<?php echo @filemtime(__DIR__ . '/../../css/search-page.css') ?: time(); ?>" type="text/css">
     <?php endif; ?>
 
     <?php if (basename($_SERVER['SCRIPT_NAME']) === 'search.php'): ?>

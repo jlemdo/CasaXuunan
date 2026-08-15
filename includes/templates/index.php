@@ -57,6 +57,55 @@
     </div>
 </div>
 
+<!-- ============================================================
+     iOS bottom bar fix (iOS 26 Safari/Brave/WebKit)
+     ============================================================
+     La barra flotante inferior del navegador en iOS 26 tapa y RECORTA
+     el contenido position:fixed anclado a bottom:0 (el buscador se veia
+     cortado: sin boton Search ni subtitulo). env(safe-area-inset-bottom)
+     no sirve aqui: solo mide el home indicator (~34px), no la barra
+     (~100px). Solucion 2026: la API visualViewport reporta la altura
+     REALMENTE visible; el hueco entre el layout viewport (donde ancla
+     position:fixed) y el visualViewport = alto tapado por la barra.
+     Ajustamos bottom dinamicamente (se recalcula al scroll/rotacion,
+     cuando iOS colapsa/expande la barra). En Android/desktop el hueco
+     es 0 y este script no cambia nada.
+     Ref: developer.apple.com/forums/thread/800798
+============================================================ -->
+<script>
+(function () {
+    var vv = window.visualViewport;
+    if (!vv) return; // navegadores sin la API: se quedan con bottom:0
+
+    function apply() {
+        var section = document.querySelector('.home-search-section');
+        if (!section) return;
+        // Hueco entre el fondo del layout viewport y el fondo visible real
+        var gap = window.innerHeight - vv.height - vv.offsetTop;
+        if (gap > 0) {
+            section.style.bottom = gap + 'px';
+        } else {
+            section.style.bottom = '';
+        }
+    }
+
+    var raf = null;
+    function schedule() {
+        if (raf) return;
+        raf = requestAnimationFrame(function () { raf = null; apply(); });
+    }
+
+    vv.addEventListener('resize', schedule);
+    vv.addEventListener('scroll', schedule);
+    window.addEventListener('orientationchange', schedule);
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', apply);
+    } else {
+        apply();
+    }
+})();
+</script>
+
 <!-- iOS 26 Safari fix: detectar y aplicar workaround para bug position:fixed -->
 <script>
 (function() {
