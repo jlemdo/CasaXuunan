@@ -165,12 +165,15 @@
     letter-spacing: 0.5px;
 }
 
-/* --- Booking iframe: Widget is 320px + padding + scrollbar --- */
-/* Strategy: wrapper is 320px, iframe is 340px (20px extra for scrollbar) */
-/* overflow:hidden on wrapper clips the scrollbar perfectly */
+/* --- Booking iframe (widget de Hospitable) ---
+   El ancho fijo de 320px venia del widget viejo (junto con el iframe a 340px
+   para recortar su scrollbar con overflow:hidden). Hospitable rediseno el
+   widget en 2026 y es mas ancho: con 320px fijos el contenido quedaba
+   apretado/recortado. Ahora el wrapper se adapta al espacio disponible
+   (hasta 420px) y el iframe ocupa el 100%, asi nada se corta. */
 .booking-iframe-wrapper {
-    width: 320px;
-    max-width: 320px;
+    width: 100%;
+    max-width: 420px;
     margin: 0 auto;
     overflow: hidden !important;
     border-radius: 12px;
@@ -195,7 +198,9 @@
 @media (max-width: 767px) {
     .booking-iframe-wrapper {
         width: 100%;
-        max-width: 320px;
+        /* 420px (no 320px): el widget redisenado necesita mas ancho.
+           En pantallas menores manda el 100% del contenedor. */
+        max-width: 420px;
         background: #fff;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         border: none;
