@@ -60,16 +60,15 @@ if (isset($_seo_blog_post_found)) {
     $_seo_keywords = ($_seo_lang === 'es') ? $_seo_blog_post_found['keywords_es'] : $_seo_blog_post_found['keywords_en'];
 }
 
-// OG image per page (blog posts use their own image)
-$_seo_og_images = [
-    'index'   => 'gallery-item-3.jpg',
-    'rooms'   => 'gallery-item-1.jpg',
-    'gallery' => 'gallery-item-2.jpg',
-    'about'   => 'gallery-item-3.jpg',
-    'tours'   => 'gallery-item-1.jpg',
-    'blog'    => 'gallery-item-2.jpg',
-];
-$_seo_og_image = 'https://casaxuunan.com/images/gallery/' . ($_seo_og_images[$_seo_current_page] ?? 'gallery-item-3.jpg');
+// OG image (la que se ve al compartir el link en WhatsApp/Facebook/etc).
+// Imagen dedicada en 1200x630 (formato recomendado por Open Graph), generada
+// a partir de la foto del popup. Antes se usaba gallery-item-3.jpg como
+// fallback, pero ese archivo esta guardado girado 90 grados y salia acostado
+// en las vistas previas de WhatsApp.
+// El ?v= es cache buster: WhatsApp/Facebook cachean la preview por URL.
+$_seo_og_image_file = 'images/og/og-casa-xuunan.jpg';
+$_seo_og_image = 'https://casaxuunan.com/' . $_seo_og_image_file
+    . '?v=' . (@filemtime(__DIR__ . '/../../' . $_seo_og_image_file) ?: time());
 
 // Blog posts: use the actual post image for OG/Twitter (not generic)
 if (isset($_seo_blog_post_found)) {
@@ -155,6 +154,11 @@ if (isset($_seo_blog_post_found)) {
     <meta property="og:title" content="<?php echo $_seo_title; ?>">
     <meta property="og:description" content="<?php echo $_seo_description; ?>">
     <meta property="og:image" content="<?php echo $_seo_og_image; ?>">
+    <!-- Dimensiones explicitas: WhatsApp/Facebook las usan para renderizar la
+         preview con la proporcion correcta (evita recortes raros) -->
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
     <meta property="og:url" content="<?php echo $_seo_canonical_url; ?>">
     <meta property="og:type" content="<?php echo (isset($_seo_blog_post_found)) ? 'article' : 'website'; ?>">
     <?php if (isset($_seo_blog_post_found)): ?>
