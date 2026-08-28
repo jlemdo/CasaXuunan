@@ -181,8 +181,14 @@
 .booking-iframe-responsive {
     border: none !important;
     display: block;
-    width: 340px !important;
-    min-width: 340px !important;
+    /* Antes: 340px forzado dentro del wrapper de 320px (overflow:hidden) para
+       recortar 20px de margen blanco que traia el widget viejo de Hospitable.
+       Hospitable rediseno el widget (2026) y ya no hay margen: esos 20px
+       cortaban contenido real (boton Reserve, selector de huespedes).
+       Con 100% el iframe siempre mide lo que su contenedor y nada se corta,
+       aunque Hospitable vuelva a cambiar el diseno. */
+    width: 100% !important;
+    min-width: 0 !important;
     height: 530px;
 }
 
@@ -196,8 +202,10 @@
     }
 
     .booking-iframe-responsive {
-        width: 340px !important;
-        min-width: 340px !important;
+        /* 100% del wrapper (ver nota en el bloque base): evita el recorte
+           derecho del widget redisenado de Hospitable */
+        width: 100% !important;
+        min-width: 0 !important;
         height: 530px;
     }
 

@@ -257,7 +257,9 @@ if (isset($_seo_blog_post_found)) {
 
     <?php if (basename($_SERVER['SCRIPT_NAME']) === 'room.php'): ?>
     <!-- Room Single Mobile UX -->
-    <link rel="stylesheet" href="css/room-mobile.css" type="text/css">
+    <!-- cache buster con filemtime: sin esto el .htaccess (immutable, 1 anio)
+         hace que los navegadores nunca bajen el CSS actualizado -->
+    <link rel="stylesheet" href="css/room-mobile.css?v=<?php echo @filemtime(__DIR__ . '/../../css/room-mobile.css') ?: time(); ?>" type="text/css">
     <?php endif; ?>
 
     <?php if (basename($_SERVER['SCRIPT_NAME']) === 'search.php' || basename($_SERVER['SCRIPT_NAME']) === 'index.php'): ?>
